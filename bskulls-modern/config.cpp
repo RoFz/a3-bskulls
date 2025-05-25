@@ -1,0 +1,6 @@
+#include "CfgPatches.hpp"
+#include "CfgAmmo.hpp"
+#include "CfgFactionClasses.hpp"
+#include "CfgUnitInsignia.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgGroups.hpp"
