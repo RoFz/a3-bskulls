@@ -11,7 +11,11 @@ private _UnitVoicePitch = 0.9;
 private _UnitFace = "TCGM_Fem_Gonzalez";
 private _UnitTeam = "RED";
 private _UnitTraits = ["Engineer"];
+private _UnitCombatBeh = "STEALTH";
+private _UnitCombatMod = "GREEN";
+
 _unit = _this select 0;
+
 _onSpawn = {
     params [
         "_u",
@@ -23,7 +27,9 @@ _onSpawn = {
         "_UnitVoicePitch",
         "_UnitFace",
         "_UnitTeam",
-        "_UnitTraits" 
+        "_UnitTraits",
+        "_UnitCombatBeh",
+        "_UnitCombatMod"
     ];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
@@ -32,6 +38,8 @@ _onSpawn = {
     _u setFace _UnitFace;
     _u assignTeam _UnitTeam;
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
+    _u setCombatBehaviour _UnitCombatBeh;
+    _u setUnitCombatMode _UnitCombatMod;
 };
 [
     _unit,
@@ -43,7 +51,9 @@ _onSpawn = {
     _UnitVoicePitch,
     _UnitFace,
     _UnitTeam,
-    _UnitTraits        
+    _UnitTraits,
+    _UnitCombatBeh,
+    _UnitCombatMod
 ] spawn _onSpawn;
 if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
@@ -60,6 +70,8 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u8 setFace _UnitFace;
         u8 assignTeam _UnitTeam;
         { u8 setUnitTrait [_x, true]; } forEach _UnitTraits;
+        u8 setCombatBehaviour _UnitCombatBeh;
+        u8 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
         systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
@@ -72,5 +84,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u8 setFace _UnitFace;
         u8 assignTeam _UnitTeam;
         { u8 setUnitTrait [_x, true]; } forEach _UnitTraits;
+        u8 setCombatBehaviour _UnitCombatBeh;
+        u8 setUnitCombatMode _UnitCombatMod;
     };
 };

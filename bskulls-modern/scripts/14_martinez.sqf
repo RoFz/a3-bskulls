@@ -8,7 +8,9 @@ if (local(_this select 0)) then {
         _this setNameSound 'Martinez';
         // _this setUnitRank 'CORPORAL';
         _this assignTeam 'RED';
-		#include "\bskulls-modern\scripts\ALL.sqf"
+        _this setCombatBehaviour 'STEALTH';
+        _this setUnitCombatMode 'GREEN';
+		// #include "\bskulls-modern\scripts\ALL.sqf"
 	};
 	_this spawn _onSpawn;
 };

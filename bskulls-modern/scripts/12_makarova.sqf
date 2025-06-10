@@ -11,7 +11,9 @@ if (local(_this select 0)) then {
         _this setPitch 1.0;
         _this setFace 'TCGM_Fem_Lynch';
         _this assignTeam 'RED';
-		#include "\bskulls-modern\scripts\ALL.sqf"
+        _this setCombatBehaviour 'STEALTH';
+        _this setUnitCombatMode 'GREEN';
+		// #include "\bskulls-modern\scripts\ALL.sqf"
 	};
 	_this spawn _onSpawn;
 };

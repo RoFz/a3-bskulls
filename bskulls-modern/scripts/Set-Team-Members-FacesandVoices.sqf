@@ -1,65 +1,65 @@
 _handle = 0 spawn {
-    { 
-        _x enableIRLasers true; 
-        _x setSkill 1; 
-        _x enableFatigue false; 
-        _x setCombatBehaviour 'STEALTH'; 
-        _x setUnitCombatMode 'GREEN'; 
-        _x setUnitTrait ['Medic', false]; 
-        _x setUnitTrait ['Engineer', false]; 
-        _x setUnitTrait ['ExplosiveSpecialist', false]; 
-        [_x, 'BSKULLS_Insignia'] call BIS_fnc_setUnitInsignia;
+    {
+        _x enableIRLasers true;
+        _x setSkill 1;
+        _x enableFatigue false;
+        _x setCombatBehaviour 'STEALTH';
+        _x setUnitCombatMode 'GREEN';
+        _x setUnitTrait ['Medic', false];
+        _x setUnitTrait ['Engineer', false];
+        _x setUnitTrait ['ExplosiveSpecialist', false];
+        [_x, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
     } forEach units player;
-    // 01 viper 
-    player setName ['Stephen Falken','Stephen','Falken']; 
-    player setNameSound 'Viper'; 
-    // player setUnitRank 'COLONEL'; 
-    player setSpeaker 'male03eng'; 
-    player setUnitTrait ['Medic', true]; 
-    player setUnitTrait ['Engineer', true]; 
-    player setUnitTrait ['ExplosiveSpecialist', true]; 
-    // 02 fox 
-    u2 setName ['Amanda Fox','Amanda','Fox']; 
-    u2 setNameSound 'Fox'; 
-    // u2 setUnitRank 'MAJOR'; 
-    u2 setSpeaker 'rhs_Female01ENG'; 
-    u2 setPitch 0.95; 
-    u2 setFace 'TCGM_Fem_Stone'; 
-    u2 assignTeam 'BLUE'; 
+    // 01 viper
+    player setName ['Stephen Falken','Stephen','Falken'];
+    player setNameSound 'Viper';
+    // player setUnitRank 'COLONEL';
+    player setSpeaker 'male03eng';
+    player setUnitTrait ['Medic', true];
+    player setUnitTrait ['Engineer', true];
+    player setUnitTrait ['ExplosiveSpecialist', true];
+    // 02 fox
+    u2 setName ['Amanda Fox','Amanda','Fox'];
+    u2 setNameSound 'Fox';
+    // u2 setUnitRank 'MAJOR';
+    u2 setSpeaker 'rhs_Female01ENG';
+    u2 setPitch 0.95;
+    u2 setFace 'TCGM_Fem_Stone';
+    u2 assignTeam 'BLUE';
     u2 setUnitTrait ['Medic', true];
-    // 03 vega 
-    u3 setName ['Vince Vega','Vince','Vega']; 
-    u3 setNameSound 'Vega'; 
-    // u3 setUnitRank 'CAPTAIN'; 
-    u3 assignTeam 'BLUE'; 
-    // 04 mckendrick 
-    u4 setName ['Greg McKendrick','Greg','McKendrick']; 
-    u4 setNameSound 'McKendrick'; 
-    // u4 setUnitRank 'SERGEANT'; 
-    u4 assignTeam 'BLUE'; 
-    u4 setUnitTrait ['Engineer', true]; 
-    u4 setUnitTrait ['ExplosiveSpecialist', true]; 
-    u4 setSpeaker 'male01engb'; 
-    // 05 jackson 
-    u5 setName ['Jennifer Jackson','Jennifer','Jackson']; 
-    u5 setNameSound 'Jackson'; 
-    // u5 setUnitRank 'MAJOR'; 
-    u5 setSpeaker 'rhs_Female01ENG'; 
-    u5 setPitch 1.1; 
-    u5 setFace 'TCGM_Fem_Fox'; 
-    u5 assignTeam 'RED'; 
+    // 03 vega
+    u3 setName ['Vince Vega','Vince','Vega'];
+    u3 setNameSound 'Vega';
+    // u3 setUnitRank 'CAPTAIN';
+    u3 assignTeam 'BLUE';
+    // 04 mckendrick
+    u4 setName ['Greg McKendrick','Greg','McKendrick'];
+    u4 setNameSound 'McKendrick';
+    // u4 setUnitRank 'SERGEANT';
+    u4 assignTeam 'BLUE';
+    u4 setUnitTrait ['Engineer', true];
+    u4 setUnitTrait ['ExplosiveSpecialist', true];
+    u4 setSpeaker 'male01engb';
+    // 05 jackson
+    u5 setName ['Jennifer Jackson','Jennifer','Jackson'];
+    u5 setNameSound 'Jackson';
+    // u5 setUnitRank 'MAJOR';
+    u5 setSpeaker 'rhs_Female01ENG';
+    u5 setPitch 1.1;
+    u5 setFace 'TCGM_Fem_Fox';
+    u5 assignTeam 'RED';
     u5 setUnitTrait ['Medic', true];
-    // 06 frost 
-    u6 setName ['Patrick Frost','Patrick','Frost']; 
-    u6 setNameSound 'Frost'; 
-    // u6 setUnitRank 'CORPORAL'; 
-    u6 assignTeam 'RED'; 
-    // 07 hawkins 
-    u7 setName ['Kendall Hawkins','Kendall','Hawkins']; 
-    u7 setNameSound 'Hawkins'; 
-    // u7 setUnitRank 'PRIVATE'; 
+    // 06 frost
+    u6 setName ['Patrick Frost','Patrick','Frost'];
+    u6 setNameSound 'Frost';
+    // u6 setUnitRank 'CORPORAL';
+    u6 assignTeam 'RED';
+    // 07 hawkins
+    u7 setName ['Kendall Hawkins','Kendall','Hawkins'];
+    u7 setNameSound 'Hawkins';
+    // u7 setUnitRank 'PRIVATE';
     u7 assignTeam 'RED';
-    // 08 sykes 
+    // 08 sykes
     u8 setName ['Martha Sykes', 'Martha', 'Sykes'];
     u8 setNameSound 'Sykes';
     // u8 setUnitRank 'PRIVATE';
@@ -70,16 +70,16 @@ _handle = 0 spawn {
     u8 setUnitTrait ['Engineer', true];
     u8 setUnitTrait ['UAVHacker', true];
     // 09 everett
-    u9 setName ['Frank Everett','Frank','Everett']; 
-    u9 setNameSound 'Everett'; 
-    // u9 setUnitRank 'CAPTAIN'; 
-    u9 assignTeam 'GREEN'; 
+    u9 setName ['Frank Everett','Frank','Everett'];
+    u9 setNameSound 'Everett';
+    // u9 setUnitRank 'CAPTAIN';
+    u9 assignTeam 'GREEN';
     // 10 taylor
-    u10 setName ['Chris Taylor','Chris','Taylor']; 
-    u10 setNameSound 'Taylor'; 
-    // u10 setUnitRank 'PRIVATE'; 
+    u10 setName ['Chris Taylor','Chris','Taylor'];
+    u10 setNameSound 'Taylor';
+    // u10 setUnitRank 'PRIVATE';
     u10 assignTeam 'GREEN';
-    // 11 liu 
+    // 11 liu
     u11 setName ['Liu Guinu', 'Liu', 'Guinu'];
     u11 setNameSound 'Ghost';
     // u11 setUnitRank 'LIEUTENANT';
@@ -87,7 +87,7 @@ _handle = 0 spawn {
     u11 setPitch 1.22;
     u11 setFace 'TCGM_Fem_Liu';
     u11 assignTeam 'YELLOW';
-    // 12 makarova 
+    // 12 makarova
     u12 setName ['Tatyana Makarova', 'Tatyana', 'Makarova'];
     u12 setNameSound 'Wardak';
     // u12 setUnitRank 'CORPORAL';
@@ -96,16 +96,16 @@ _handle = 0 spawn {
     u12 setFace 'TCGM_Fem_Lynch';
     u12 assignTeam 'YELLOW';
     // 13 elias
-    u13 setName ['Elias Gordon','Elias','Gordon']; 
-    u13 setNameSound 'Elias'; 
-    // u13 setUnitRank 'PRIVATE'; 
+    u13 setName ['Elias Gordon','Elias','Gordon'];
+    u13 setNameSound 'Elias';
+    // u13 setUnitRank 'PRIVATE';
     u13 assignTeam 'GREEN';
     u13 setUnitTrait ['UAVHacker', true];
-    // 14 martinez 
+    // 14 martinez
     u14 setName ['Oscar Martinez','Oscar','Martinez'];
-    u14 setNameSound 'Martinez'; 
-    // u14 setUnitRank 'CORPORAL'; 
-    u14 assignTeam 'GREEN'; 
+    u14 setNameSound 'Martinez';
+    // u14 setUnitRank 'CORPORAL';
+    u14 assignTeam 'GREEN';
 
     if (isNil "markerplayerstart") then
     {
@@ -114,7 +114,7 @@ _handle = 0 spawn {
         private _myv1 = vehicle UGV;
         if (isNil "_myv1") then
         {
-            UGV = createVehicle ["B_PTbskull_Drone_blackops_02",position player, [], 2, "NONE"];
+            UGV = createVehicle ["B_PTbskull_Veh_Drone_blackops_02",position player, [], 5, "NONE"];
             createVehicleCrew UGV;
         } else {
             systemChat "UGV already spawned!";
@@ -122,7 +122,7 @@ _handle = 0 spawn {
         private _myv2 = vehicle RADAR;
         if (isNil "_myv2") then
         {
-            RADAR = createVehicle ["B_PTbskull_Radar_blackops_01",position player, [], 20, "NONE"];
+            RADAR = createVehicle ["B_PTbskull_Veh_Radar_blackops_01",position player, [], 60, "NONE"];
             createVehicleCrew RADAR;
         } else {
             systemChat "RADAR already spawned!";
@@ -130,20 +130,36 @@ _handle = 0 spawn {
         private _myv3 = vehicle SAM;
         if (isNil "_myv3") then
         {
-            SAM = createVehicle ["B_PTbskull_SAM_blackops_01",position player, [], 40, "NONE"];
+            SAM = createVehicle ["B_PTbskull_Veh_SAM_blackops_01",position player, [], 80, "NONE"];
             createVehicleCrew SAM;
         } else {
             systemChat "SAM already spawned!";
         };
+        private _myv4 = vehicle HemmtAmmo;
+        if (isNil "_myv4") then
+        {
+            HemmtAmmo = createVehicle ["B_PTbskull_Veh_Truck_blackops_02",position player, [], 30, "NONE"];
+            (group player) createVehicleCrew HemmtAmmo;
+        } else {
+            systemChat "Ammo truck already spawned!";
+        };
+        private _myv5 = vehicle HemmtFuel;
+        if (isNil "_myv5") then
+        {
+            HemmtFuel = createVehicle ["B_PTbskull_Veh_Truck_blackops_03",position player, [], 40, "NONE"];
+            (group player) createVehicleCrew HemmtFuel;
+        } else {
+            systemChat "Fuel truck already spawned!";
+        };
     };
 
-    missionNamespace setVariable ["UAVRefitTime", "10"];
+    // missionNamespace setVariable ["UAVRefitTime", "10"];
 
     private _fn_spawnOnlyHelos = {
         systemChat "Map without airstrip, spawning random helo...";
         _randomHelo = selectRandom[
-            "gm_ge_army_bo105p_pah1a1",
-            "B_Heli_Attack_01_dynamicLoadout_F",
+            "B_PTbskull_Veh_Helo_blackops_03",
+            "B_PTbskull_Veh_Helo_blackops_04",
             "B_T_UAV_03_dynamicLoadout_F"
         ];
         [0,WEST,[_randomHelo]]call dao_fnc_AddToVAM;
@@ -154,13 +170,11 @@ _handle = 0 spawn {
     private _fn_spawnAllAircraft = {
         systemChat "Spawning random aircraft...";
         _randomAircraft = selectRandom[
-            "B_PTbskull_Plane_blackops_01",
-            "B_Plane_Fighter_01_Stealth_F",
-            "rhsusf_f22",
-            "B_UAV_05_F",
-            "CTRG_grhawk_Shadow",
-            "gm_ge_army_bo105p_pah1a1",
-            "B_Heli_Attack_01_dynamicLoadout_F",
+            "B_PTbskull_Veh_Plane_blackops_01",
+            "B_PTbskull_Veh_Helo_blackops_03",
+            "B_PTbskull_Veh_Helo_blackops_04",
+            "B_PTbskull_Veh_Drone_blackops_04",
+            "B_PTbskull_Veh_Drone_blackops_04_B",
             "B_T_UAV_03_dynamicLoadout_F"
         ];
         [0,WEST,[_randomAircraft]]call dao_fnc_AddToVAM;

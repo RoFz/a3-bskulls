@@ -10,6 +10,9 @@ private _UnitVoice = "rhs_Female01ENG";
 private _UnitVoicePitch = 1.1;
 private _UnitFace = "TCGM_Fem_FoxBun";
 private _UnitTraits = ["Medic"];
+private _UnitTeam = "RED";
+private _UnitCombatBeh = "STEALTH";
+private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
 
@@ -23,15 +26,21 @@ _onSpawn = {
         "_UnitVoice",
         "_UnitVoicePitch",
         "_UnitFace",
-        "_UnitTraits" 
+        "_UnitTeam",
+        "_UnitTraits",
+        "_UnitCombatBeh",
+        "_UnitCombatMod"
     ];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
     _u setSpeaker _UnitVoice;
     _u setPitch _UnitVoicePitch;
     _u setFace _UnitFace;
+    _u assignTeam _UnitTeam;
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
-    [_u, 'BSKULLS_Insignia'] call BIS_fnc_setUnitInsignia;
+    _u setCombatBehaviour _UnitCombatBeh;
+    _u setUnitCombatMode _UnitCombatMod;
+    [_u, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
     _u enableIRLasers true;
     _u setSkill 1;
     _u enableFatigue false;
@@ -45,7 +54,10 @@ _onSpawn = {
     _UnitVoice,
     _UnitVoicePitch,
     _UnitFace,
-    _UnitTraits        
+    _UnitTeam,
+    _UnitTraits,
+    _UnitCombatBeh,
+    _UnitCombatMod
 ] spawn _onSpawn;
 
 if ((isNil "lobbycomplete") || (isNil "playersready")) then
@@ -61,11 +73,14 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u5 setSpeaker _UnitVoice;
         u5 setPitch _UnitVoicePitch;
         u5 setFace _UnitFace;
+        u5 assignTeam _UnitTeam;
         { u5 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u5, 'BSKULLS_Insignia'] call BIS_fnc_setUnitInsignia;
+        [u5, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
         u5 enableIRLasers true;
         u5 setSkill 1;
         u5 enableFatigue false;
+        u5 setCombatBehaviour _UnitCombatBeh;
+        u5 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
         systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
@@ -76,10 +91,13 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u5 setSpeaker _UnitVoice;
         u5 setPitch _UnitVoicePitch;
         u5 setFace _UnitFace;
+        u5 assignTeam _UnitTeam;
         { u5 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u5, 'BSKULLS_Insignia'] call BIS_fnc_setUnitInsignia;
+        [u5, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
         u5 enableIRLasers true;
         u5 setSkill 1;
         u5 enableFatigue false;
+        u5 setCombatBehaviour _UnitCombatBeh;
+        u5 setUnitCombatMode _UnitCombatMod;
     };
 };

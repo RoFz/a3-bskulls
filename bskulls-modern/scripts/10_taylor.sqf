@@ -7,8 +7,10 @@ if (local(_this select 0)) then {
         _this setName ['Chris Taylor', 'Chris', 'Taylor'];
         _this setNameSound 'Taylor';
         // _this setUnitRank 'PRIVATE';
-        _this assignTeam 'GREEN';
-		#include "\bskulls-modern\scripts\ALL.sqf"
+        _this assignTeam 'YELLOW';
+        _this setCombatBehaviour 'STEALTH';
+        _this setUnitCombatMode 'GREEN';
+		// #include "\bskulls-modern\scripts\ALL.sqf"
 	};
 	_this spawn _onSpawn;
 };

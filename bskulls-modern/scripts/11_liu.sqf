@@ -10,8 +10,10 @@ if (local(_this select 0)) then {
         _this setSpeaker 'male02chi';
         _this setPitch 1.22;
         _this setFace 'TCGM_Fem_Liu';
-        _this assignTeam 'GREEN';
-		#include "\bskulls-modern\scripts\ALL.sqf"
+        _this assignTeam 'YELLOW';
+        _this setCombatBehaviour 'STEALTH';
+        _this setUnitCombatMode 'GREEN';
+		// #include "\bskulls-modern\scripts\ALL.sqf"
 	};
 	_this spawn _onSpawn;
 };

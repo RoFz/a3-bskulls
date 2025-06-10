@@ -9,7 +9,9 @@ if (local(_this select 0)) then {
         // _this setUnitRank 'PRIVATE';
         _this assignTeam 'GREEN';
         _this setUnitTrait ['Engineer', true];
-		#include "\bskulls-modern\scripts\ALL.sqf"
+        _this setCombatBehaviour 'STEALTH';
+        _this setUnitCombatMode 'GREEN';
+		// #include "\bskulls-modern\scripts\ALL.sqf"
 	};
 	_this spawn _onSpawn;
 };

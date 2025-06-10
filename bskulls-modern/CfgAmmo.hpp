@@ -1,4 +1,4 @@
-class CfgAmmo 
+class CfgAmmo
 {
 
     class kt_338_NM;
@@ -17,14 +17,14 @@ class CfgAmmo
         hit = 390; // 350
         indirectHit = 150; // 92
         indirectHitRange = 50; // 50
-        typicalSpeed = 700; // 700        
+        typicalSpeed = 700; // 700
     };
 
     // Artillery HE Ammo
     class Sh_155mm_AMOS;
     class Sh_155mm_AMOS_PLUS : Sh_155mm_AMOS
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -42,7 +42,7 @@ class CfgAmmo
     class Mo_cluster_AP;
     class Mo_cluster_AP_PLUS : Mo_cluster_AP
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -64,7 +64,7 @@ class CfgAmmo
     class Cluster_155mm_AMOS;
     class Cluster_155mm_AMOS_PLUS : Cluster_155mm_AMOS
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -101,7 +101,7 @@ class CfgAmmo
     class Sh_155mm_AMOS_guided;
     class Sh_155mm_AMOS_guided_PLUS : Sh_155mm_AMOS_guided
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -133,7 +133,7 @@ class CfgAmmo
     class Sh_155mm_AMOS_LG;
     class Sh_155mm_AMOS_LG_PLUS : Sh_155mm_AMOS_LG
     {
-            author = "rofz";
+            author = "RoFz";
             scope = 2;
             scopeCurator = 2;
             access = 1;
@@ -156,11 +156,11 @@ class CfgAmmo
         mineTrigger = "RangeTriggerShort";
     };
 
-    // Mine Submunition #1 
+    // Mine Submunition #1
     class Mo_ClassicMineRange; // Submunition
     class Mo_ClassicMineRange_PLUS : Mo_ClassicMineRange
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -182,7 +182,7 @@ class CfgAmmo
     class Mine_155mm_AMOS_range; // Ammo
     class Mine_155mm_AMOS_range_PLUS : Mine_155mm_AMOS_range
     {
-            author = "rofz";
+            author = "RoFz";
             scope = 2;
             scopeCurator = 2;
             access = 1;
@@ -209,7 +209,7 @@ class CfgAmmo
     class Mo_ATMineRange; // Submunition
     class Mo_ATMineRange_PLUS : Mo_ATMineRange
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -231,7 +231,7 @@ class CfgAmmo
     class AT_Mine_155mm_AMOS_range; // Ammo
     class AT_Mine_155mm_AMOS_range_PLUS : AT_Mine_155mm_AMOS_range
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -244,15 +244,15 @@ class CfgAmmo
 
     // // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm"); = bin\config.bin/CfgAmmo/Gatling_30mm_HE_Plane_CAS_01_F
     // // inheritsFrom (configfile >> "CfgAmmo" >> "Gatling_30mm_HE_Plane_CAS_01_F"); = bin\config.bin/CfgAmmo/BulletBase
-    // // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm" >> "hit"); = 
+    // // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm" >> "hit"); =
     // class MG8_Gau8_30mm;
     // class MG8_Gau8_30mm_PLUS : MG8_Gau8_30mm
     // {
-    //     author = "rofz";
+    //     author = "RoFz";
     //     scope = 2;
     //     scopeCurator = 2;
     //     access = 1;
-        
+
     //     aiAmmoUsageFlags = "64 + 128 + 256 + 512"; //  RHS: 64 + 128 + 512
     //     caliber = 4.17; // 4.17 RHS: 5
     //     explosive = 0.55; // 0.35 RHS: 0.4
@@ -272,7 +272,7 @@ class CfgAmmo
     class rhs_ammo_spall;
     class rhs_ammo_spall_PLUS : rhs_ammo_spall
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -291,13 +291,13 @@ class CfgAmmo
     class ammo_Penetrator_Titan_AT;
     class ammo_Penetrator_Titan_AT_PLUS : ammo_Penetrator_Titan_AT
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
 
-        caliber = 110; // 
-        hit = 785; // 
+        caliber = 110; //
+        hit = 785; //
         typicalSpeed = 1000; // 1000
 
         submunitionAmmo = "rhs_ammo_spall";
@@ -312,7 +312,7 @@ class CfgAmmo
     class M_Titan_AT;
     class M_Titan_AT_PLUS : M_Titan_AT
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -340,7 +340,7 @@ class CfgMagazines {
 
     class kt_338_NM_Mag;
     class kt_338_NM_Mag_PLUS : kt_338_NM_Mag {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -353,7 +353,7 @@ class CfgMagazines {
     class 32Rnd_155mm_Mo_shells;
     class 64Rnd_155mm_Plus_Mo_shells : 32Rnd_155mm_Mo_shells
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -365,7 +365,7 @@ class CfgMagazines {
     class 2Rnd_155mm_Mo_Cluster;
     class 4Rnd_155mm_Plus_Mo_Cluster : 2Rnd_155mm_Mo_Cluster
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -377,7 +377,7 @@ class CfgMagazines {
     class 2Rnd_155mm_Mo_guided;
     class 8Rnd_155mm_Plus_Mo_guided : 2Rnd_155mm_Mo_guided
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -388,7 +388,7 @@ class CfgMagazines {
     class 2Rnd_155mm_Mo_LG;
     class 8Rnd_155mm_Plus_Mo_LG : 2Rnd_155mm_Mo_LG
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -399,7 +399,7 @@ class CfgMagazines {
     class 6Rnd_155mm_Mo_mine;
     class 12Rnd_155mm_Plus_Mo_mine : 6Rnd_155mm_Mo_mine
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -410,7 +410,7 @@ class CfgMagazines {
     class 6Rnd_155mm_Mo_AT_mine;
     class 12Rnd_155mm_Plus_Mo_AT_mine : 6Rnd_155mm_Mo_AT_mine
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -422,7 +422,7 @@ class CfgMagazines {
     class MG8_1174Rnd_Gau8_30mm;
     class MG8_1174Rnd_Gau8_30mm_PLUS : MG8_1174Rnd_Gau8_30mm
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -434,7 +434,7 @@ class CfgMagazines {
     class Titan_AT;
     class Titan_AT_PLUS : Titan_AT
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
@@ -448,7 +448,7 @@ class CfgMagazines {
     class 8Rnd_82mm_Mo_shells;
     class 80Rnd_82mm_Mo_shells_PLUS : 8Rnd_82mm_Mo_shells
     {
-        author = "rofz";
+        author = "RoFz";
         scope = 2;
         scopeCurator = 2;
         access = 1;
