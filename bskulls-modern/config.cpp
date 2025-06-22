@@ -4,3 +4,4 @@
 #include "CfgUnitInsignia.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgGroups.hpp"
+#include "CfgIdentities.hpp"

@@ -1,11 +1,12 @@
 class CfgAmmo
 {
 
-    class kt_338_NM;
-    class kt_338_NM_PLUS : kt_338_NM {
-        airFriction = -0.00017397; // -0.00037397
-        caliber = 2.9; // 2.8
-        hit = 35; // 25
+    class B_338LM_Ball;
+    class B_338LM_Ball_PLUS : B_338LM_Ball {
+        access = 1;
+        airFriction = -0.00017; // -0.00045
+        caliber = 2.9; // 2.1
+        hit = 35; // 19
     };
 
     // Mortar Ammo
@@ -338,16 +339,15 @@ class CfgAmmo
 // MAGAZINES //
 class CfgMagazines {
 
-    class kt_338_NM_Mag;
-    class kt_338_NM_Mag_PLUS : kt_338_NM_Mag {
+    class 5Rnd_APDS_338LM_Magazine;
+    class 5Rnd_APDS_338LM_Magazine_PLUS : 5Rnd_APDS_338LM_Magazine {
         author = "RoFz";
         scope = 2;
-        scopeCurator = 2;
         access = 1;
-        descriptionShort = ".338 NM 10Rnd Mag+";
-        displayName = ".338 NM 10Rnd Mag+";
-        initSpeed = 910; // 910
-        ammo = "kt_338_NM_PLUS";
+        descriptionShort = "APDS .338 LM 5Rnd Mag+";
+        displayName = "APDS .338 LM 5Rnd Mag+";
+        initSpeed = 1240; // 1120
+        ammo = "B_338LM_Ball_PLUS";
     };
 
     class 32Rnd_155mm_Mo_shells;

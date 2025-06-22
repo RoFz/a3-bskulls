@@ -16,6 +16,8 @@ private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
 
+// systemChat format ["%1: vehicleVarName = %2", _UnitName, (vehicleVarName _unit)];
+
 _onSpawn = {
     params [
         "_u",
@@ -31,6 +33,7 @@ _onSpawn = {
         "_UnitCombatBeh",
         "_UnitCombatMod"
     ];
+    _u setVariable ["BIS_enableRandomization", false];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
     _u setSpeaker _UnitVoice;
@@ -64,10 +67,11 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
     _unit setVehicleVarName _VehVarName;
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     uiSleep 5;
     if (!(isNil "u5")) then
     {
+        u5 setVariable ["BIS_enableRandomization", false];
         u5 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u5 setNameSound _UnitNameSound;
         u5 setSpeaker _UnitVoice;
@@ -83,9 +87,10 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u5 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
-        systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
-        waitUntil { sleep 1; not isNil "u5" };
-        systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+        _time = time;
+        waitUntil { sleep 1; not isNil "u5" || time - _time > 600};        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        u5 setVariable ["BIS_enableRandomization", false];
         u5 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u5 setNameSound _UnitNameSound;
         u5 setSpeaker _UnitVoice;
@@ -101,3 +106,21 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u5 setUnitCombatMode _UnitCombatMod;
     };
 };
+
+_unit setVariable ["BIS_enableRandomization", false];
+_unit setName [_UnitFullName, _UnitFirstName, _UnitLastName];
+_unit setNameSound _UnitNameSound;
+_unit setSpeaker _UnitVoice;
+_unit setPitch _UnitVoicePitch;
+_unit setFace _UnitFace;
+_unit assignTeam _UnitTeam;
+_unit setUnitTrait ['Engineer', false];
+_unit setUnitTrait ['ExplosiveSpecialist', false];
+{ _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
+[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+_unit enableIRLasers true;
+_unit setSkill 1;
+_unit enableFatigue false;
+_unit setCombatBehaviour _UnitCombatBeh;
+_unit setUnitCombatMode _UnitCombatMod;
+_unit setVehicleVarName _VehVarName;

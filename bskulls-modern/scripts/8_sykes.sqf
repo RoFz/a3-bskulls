@@ -31,6 +31,7 @@ _onSpawn = {
         "_UnitCombatBeh",
         "_UnitCombatMod"
     ];
+    _u setVariable ["BIS_enableRandomization", false];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
     _u setSpeaker _UnitVoice;
@@ -59,10 +60,11 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
     _unit setVehicleVarName _VehVarName;
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     uiSleep 5;
     if (!(isNil "u8")) then
     {
+        u8 setVariable ["BIS_enableRandomization", false];
         u8 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u8 setNameSound _UnitNameSound;
         u8 setSpeaker _UnitVoice;
@@ -74,9 +76,10 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u8 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
-        systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
-        waitUntil { sleep 1; not isNil "u8" };
-        systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+        _time = time;
+        waitUntil { sleep 1; not isNil "u8" || time - _time > 600};        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        u8 setVariable ["BIS_enableRandomization", false];
         u8 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u8 setNameSound _UnitNameSound;
         u8 setSpeaker _UnitVoice;
@@ -88,3 +91,17 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u8 setUnitCombatMode _UnitCombatMod;
     };
 };
+
+_unit setVariable ["BIS_enableRandomization", false];
+_unit setName [_UnitFullName, _UnitFirstName, _UnitLastName];
+_unit setNameSound _UnitNameSound;
+_unit setSpeaker _UnitVoice;
+_unit setPitch _UnitVoicePitch;
+_unit setFace _UnitFace;
+_unit assignTeam _UnitTeam;
+_unit setUnitTrait ['Medic', false];
+_unit setUnitTrait ['ExplosiveSpecialist', false];
+{ _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
+_unit setCombatBehaviour _UnitCombatBeh;
+_unit setUnitCombatMode _UnitCombatMod;
+_unit setVehicleVarName _VehVarName;

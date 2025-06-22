@@ -7,11 +7,15 @@ private _UnitFirstName = "Patrick";
 private _UnitLastName = "Frost";
 private _UnitNameSound = "Frost";
 private _UnitVoice = "Male08ENG";
+// private _UnitVoicePitch = 0.95;
+// private _UnitFace = "TCGM_Fem_Stone";
 private _UnitTeam = "RED";
 private _UnitCombatBeh = "STEALTH";
 private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
+
+// systemChat format ["%1: vehicleVarName = %2", _UnitName, (vehicleVarName _this)];
 
 _onSpawn = {
     params [
@@ -48,7 +52,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
 	_unit setVehicleVarName _VehVarName;
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     uiSleep 5;
     if (!(isNil "u6")) then
     {
@@ -61,9 +65,9 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u6 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
-        systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
         waitUntil { sleep 1; not isNil "u6" };
-        systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
         u6 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u6 setNameSound _UnitNameSound;
         u6 setSpeaker _UnitVoice;
@@ -73,3 +77,15 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u6 setUnitCombatMode _UnitCombatMod;
     };
 };
+
+_unit setName [_UnitFullName, _UnitFirstName, _UnitLastName];
+_unit setNameSound _UnitNameSound;
+_unit setSpeaker _UnitVoice;
+_unit assignTeam _UnitTeam;
+_unit setUnitTrait ['Medic', false];
+_unit setUnitTrait ['Engineer', false];
+_unit setUnitTrait ['ExplosiveSpecialist', false];
+_unit disableAI "SUPPRESSION";
+_unit setCombatBehaviour _UnitCombatBeh;
+_unit setUnitCombatMode _UnitCombatMod;
+_unit setVehicleVarName _VehVarName;

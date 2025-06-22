@@ -1,3 +1,7 @@
+PAR_revive = 2;
+PAR_ai_limit = 8;
+PAR_only_ai_revive = true;
+
 _handle = 0 spawn {
     {
         _x enableIRLasers true;
@@ -29,40 +33,40 @@ _handle = 0 spawn {
         missionNamespace setVariable ["DAOAircraftAlreadySpawned", true];
     };
 
-	private _fn_spawnAllAircraft = {
-		systemChat "Spawning random CAS aircraft...";
-		_randomAircraft = selectRandom[
-			"B_PTbskull_Veh_Plane_blackops_01",
-			"B_PTbskull_Veh_Helo_blackops_03",
-			"B_PTbskull_Veh_Helo_blackops_04",
-			"B_PTbskull_Veh_Drone_blackops_01"
-		];
-		[0,WEST,[_randomAircraft]]call dao_fnc_AddToVAM;
-		private _randomAircraftName = [configFile >> "CfgVehicles" >> _randomAircraft] call BIS_fnc_displayName;
-		systemChat format ["A %1 was spawned.", _randomAircraftName];
-		missionNamespace setVariable ["DAOAircraftAlreadySpawned", true];
-	};
+    private _fn_spawnAllAircraft = {
+        systemChat "Spawning random CAS aircraft...";
+        _randomAircraft = selectRandom[
+            "B_PTbskull_Veh_Plane_blackops_01",
+            "B_PTbskull_Veh_Helo_blackops_03",
+            "B_PTbskull_Veh_Helo_blackops_04",
+            "B_PTbskull_Veh_Drone_blackops_01"
+        ];
+        [0,WEST,[_randomAircraft]]call dao_fnc_AddToVAM;
+        private _randomAircraftName = [configFile >> "CfgVehicles" >> _randomAircraft] call BIS_fnc_displayName;
+        systemChat format ["A %1 was spawned.", _randomAircraftName];
+        missionNamespace setVariable ["DAOAircraftAlreadySpawned", true];
+    };
 
-	private _fn_spawnUAV = {
-		systemChat "Spawning random UAV...";
-		_randomUAV = selectRandom[
-			"B_PTbskull_Veh_Drone_blackops_04",
-			"B_PTbskull_Veh_Drone_blackops_01"
-		];
-		[0,WEST,[_randomUAV]]call dao_fnc_AddToVAM;
-		private _randomUAVName = [configFile >> "CfgVehicles" >> _randomUAV] call BIS_fnc_displayName;
-		systemChat format ["A %1 was spawned.", _randomUAVName];
-		missionNamespace setVariable ["DAOUAVAlreadySpawned", true];
-	};
+    private _fn_spawnUAV = {
+        systemChat "Spawning random UAV...";
+        _randomUAV = selectRandom[
+            "B_PTbskull_Veh_Drone_blackops_04",
+            "B_PTbskull_Veh_Drone_blackops_01"
+        ];
+        [0,WEST,[_randomUAV]]call dao_fnc_AddToVAM;
+        private _randomUAVName = [configFile >> "CfgVehicles" >> _randomUAV] call BIS_fnc_displayName;
+        systemChat format ["A %1 was spawned.", _randomUAVName];
+        missionNamespace setVariable ["DAOUAVAlreadySpawned", true];
+    };
 
-	private _fn_spawnMQ12 = {
-		systemChat "Map without airstrip, spawning a MQ-12...";
-		_MQ12 = "B_T_UAV_03_dynamicLoadout_F";
-		[0,WEST,[_MQ12]]call dao_fnc_AddToVAM;
-		private _MQ12_name = [configFile >> "CfgVehicles" >> _MQ12] call BIS_fnc_displayName;
-		systemChat format ["A %1 was spawned.", _MQ12_name];
-		missionNamespace setVariable ["DAOUAVAlreadySpawned", true];
-	};
+    private _fn_spawnMQ12 = {
+        systemChat "Map without airstrip, spawning a MQ-12...";
+        _MQ12 = "B_T_UAV_03_dynamicLoadout_F";
+        [0,WEST,[_MQ12]]call dao_fnc_AddToVAM;
+        private _MQ12_name = [configFile >> "CfgVehicles" >> _MQ12] call BIS_fnc_displayName;
+        systemChat format ["A %1 was spawned.", _MQ12_name];
+        missionNamespace setVariable ["DAOUAVAlreadySpawned", true];
+    };
 
     if (isNil "DAOAircraftAlreadySpawned") then
     {

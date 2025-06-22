@@ -7,11 +7,15 @@ private _UnitFirstName = "Kendall";
 private _UnitLastName = "Hawkins";
 private _UnitNameSound = "Hawkins";
 private _UnitVoice = "Male01ENG";
+// private _UnitVoicePitch = 0.95;
+// private _UnitFace = "TCGM_Fem_Stone";
 private _UnitTeam = "RED";
 private _UnitCombatBeh = "STEALTH";
 private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
+
+// systemChat format ["%1: vehicleVarName = %2", _UnitName, (vehicleVarName _unit)];
 
 _onSpawn = {
     params [
@@ -47,7 +51,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
 	_unit setVehicleVarName _VehVarName;
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     uiSleep 5;
     if (!(isNil "u7")) then
     {
@@ -59,9 +63,9 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u7 setUnitCombatMode _UnitCombatMod;
     } else {
         // note: it's not known if this condition actually happens - this might not be needed
-        systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
         waitUntil { sleep 1; not isNil "u7" };
-        systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
         u7 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u7 setNameSound _UnitNameSound;
         u7 setSpeaker _UnitVoice;
@@ -70,3 +74,14 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u7 setUnitCombatMode _UnitCombatMod;
     };
 };
+
+_unit setName [_UnitFullName, _UnitFirstName, _UnitLastName];
+_unit setNameSound _UnitNameSound;
+_unit setSpeaker _UnitVoice;
+_unit assignTeam _UnitTeam;
+_unit setUnitTrait ['Medic', false];
+_unit setUnitTrait ['Engineer', false];
+_unit setUnitTrait ['ExplosiveSpecialist', false];
+_unit setCombatBehaviour _UnitCombatBeh;
+_unit setUnitCombatMode _UnitCombatMod;
+_unit setVehicleVarName _VehVarName;

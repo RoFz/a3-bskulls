@@ -374,3 +374,284 @@ _unit = _this select 0; sleep 3; [_unit, 'B_PTbskull_Ins'] call BIS_fnc_setUnitI
             fired = "_unit = _this select 0;_unit setVehicleAmmo 1";
         };
     };
+
+
+
+////
+
+
+// 02 fox
+_this setName ['Amanda Fox','Amanda','Fox'];
+_this setNameSound 'Fox';
+_this setSpeaker 'rhs_Female01ENG';
+_this setPitch 0.95;
+_this setFace 'TCGM_Fem_Stone';
+_this assignTeam 'BLUE';
+_this setUnitTrait ['Medic', true];
+
+
+systemChat format["%1: vehicleVarName is (%2)", _UnitName, (vehicleVarName _this)];
+
+BSkullFox setName['Amanda Fox', 'Amanda', 'Fox'];
+BSkullFox setNameSound 'Fox';
+BSkullFox setSpeaker 'rhs_Female01ENG';
+BSkullFox setPitch 0.95;
+BSkullFox setFace 'TCGM_Fem_Stone';
+BSkullFox assignTeam 'BLUE';
+BSkullFox setUnitTrait['Medic', true];
+
+BSkullFox setName['Mandinha Fofox', 'Mandinha', 'Fofox'];
+
+u2 setName['Mandinha Fofox', 'Mandinha', 'Fofox'];
+
+
+
+_ok = u2 loadIdentity Armstrong;
+
+
+
+_index = player addEventHandler["Killed", { _this exec "playerKilled.sqs" }]
+
+
+params["_entity"];
+
+
+
+systemChat format["%1: _this is (%2)", _UnitName, (typeName _this)];
+// systemChat format["%1: this is (%2)", _UnitName, (typeName this)];
+systemChat format["%1: _unit is (%2)", _UnitName, (typeName _unit)];
+
+
+// _this = array (of objects)
+// _unit = object (_this select 0)
+// this = does not exist in this context
+
+
+
+if (local (_this select 0)) then {
+	_onSpawn = {
+		sleep 0.3;
+		_unit = _this select 0;
+		_unit call '\bskulls-modern\scripts\2_fox_2.sqf';
+	};
+	_this spawn _onSpawn;
+};
+
+
+if (local (_this select 0)) then {_onSpawn = {sleep 0.3;_unit = _this select 0;_unit setFace 'TCGM_Fem_Stone';_unit call 'bskulls-modern\scripts\2_fox_2.sqf';};_this spawn _onSpawn;};
+
+
+#include "\bskulls-nam\scripts\ALL.sqf"
+
+
+
+"if (local (_this select 0)) then {_onSpawn = {sleep 0.3;_unit = _this select 0;_unit setFace 'TCGM_Fem_Stone';_unit call 'bskulls-modern\scripts\2_fox_2.sqf';};_this spawn _onSpawn;};"
+
+#define FOX_FIRST_NAME "Amanda"
+#define FOX_LAST_NAME "Fox"
+#define FOX_FULL_NAME "Amanda Fox"
+#define FOX_NAMESOUND "Fox"
+#define FOX_VOICE "rhs_Female01ENG"
+#define FOX_VOICE_PITCH 0.95
+#define FOX_FACE "TCGM_Fem_Stone"
+#define FOX_TEAM "BLUE"
+
+
+
+_unit setName [FOX_FULL_NAME, FOX_FIRST_NAME, FOX_LAST_NAME];_unit setNameSound FOX_NAMESOUND;_unit setSpeaker FOX_VOICE;_unit setPitch FOX_VOICE_PITCH;_unit setFace FOX_FACE;_unit assignTeam FOX_TEAM;{ _unit setUnitTrait [_x, true]; } forEach FOX_TRAITS;[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;_unit enableIRLasers DEFAULT_TEAM_IRLASERS;_unit setSkill DEFAULT_TEAM_SKILL;_unit enableFatigue DEFAULT_TEAM_ENABLE_FATIGUE;_unit setCombatBehaviour DEFAULT_TEAM_COMBAT_BEHAVIOR;_unit setUnitCombatMode DEFAULT_TEAM_COMBAT_MODE;
+
+
+
+_playerGrp = group player;
+_unitGrp = group u2;
+systemChat format ["%1: player group is (%2), unit group is (%3)", _UnitName, _playerGrp, _unitGrp];
+if (_unitGrp == _playerGrp) then {
+    systemChat format ["%1: in player group, reset action added.", _UnitName];
+    _actionTitle = format ["Reset Id %1", _UnitName];
+    _actionID = player addAction [_actionTitle, "\bskulls-modern\scripts\reset_unit.sqf"];
+} else {
+    systemChat format ["%1: not in player group, no reset action added.", _UnitName];
+};
+
+
+_playerGrp = group player;
+_unitGrp = group u2;
+systemChat format ["u2: player group is (%1), unit group is (%2)", _playerGrp, _unitGrp];
+if (_unitGrp == _playerGrp) then {
+    systemChat format ["u2: in player group, reset action added."];
+    _actionTitle = format ["Reset Id u2"];
+    _actionID = player addAction [_actionTitle, "\bskulls-modern\scripts\reset_unit.sqf"];
+} else {
+    systemChat format ["u2: not in player group, no reset action added."];
+};
+
+
+
+_playerGrp = group player;
+_unitGrp = group u2;
+systemChat format ["%1: player group is (%2), unit group is (%3)", _UnitName, _playerGrp, _unitGrp];
+if (_unitGrp == _playerGrp) then {
+    systemChat format ["%1: in player group, reset action added.", _UnitName];
+} else {
+    systemChat format ["%1: not in player group, no reset action added.", _UnitName];
+};
+
+
+systemChat format ["typeName _this = %1", (typeName _this)];
+
+_this setVehicleVarName "u2";
+systemChat format ["vehicleVarName = %1", (vehicleVarName _this)];
+
+
+
+private _var = missionNamespace getVariable "VarName";
+if (isNil "_var") then
+{
+	_var = 123;
+	missionNamespace setVariable ["VarName", _var];
+};
+
+
+_FoxvarName = vehicleVarName u2;
+_FoxvarName;
+
+missionNamespace _VehVarName = "_BSkullFox";
+private _var = missionNamespace getVariable "_VehVarName";
+_var;
+
+private _VehVarName = "_BSkullFox";
+
+
+private _var = missionNamespace getVariable "_VehVarName";
+if (isNil "_var") then
+{
+	_var = 123;
+	missionNamespace setVariable ["_VehVarName", _var];
+};
+_var;
+
+
+_unitVar = vehicleVarName u2;
+_unitObj = getVariable _unitVar;
+// _unitObj = getVariable [format ["%1", _unitVar], objNull];
+typeName _unitObj;
+
+
+private _varName = format ["u%1", ((vehicleVarName u2) select [1])];
+_varName;
+
+private _varName = ((vehicleVarName u2) select [1]);
+_varName;
+
+
+private _unitGrp = group (vehicleVarName _this);
+systemChat format ["%1: unit group is (%2)", (vehicleVarName _this), _unitGrp];
+
+// does not work
+systemChat format ["%1: unit group is (%2)", (vehicleVarName _this), group (vehicleVarName _this)];
+
+// works
+systemChat format ["%1: unit group is (%2)", (vehicleVarName _this), group u2];
+
+// does not work
+_FoxVehVarName = vehicleVarName _this;
+_FoxGroupName = group (vehicleVarName _this);
+systemChat format ["%1: unit group = (%2)", _FoxVehVarName, _FoxGroupName];
+
+// does not work
+_FoxVehVarName = vehicleVarName _this;
+_FoxGroupName = group "_FoxVehVarName";
+systemChat format ["%1: unit group = (%2)", _FoxVehVarName, _FoxGroupName];
+
+// does not work
+_FoxVehVarName = vehicleVarName _this;
+_FoxGroupName = group _FoxVehVarName;
+systemChat format ["%1: unit group = (%2)", _FoxVehVarName, _FoxGroupName];
+
+// works
+_FoxVehVarName = vehicleVarName _this;
+_FoxGroupName = group u2;
+systemChat format ["%1: unit group = (%2)", _FoxVehVarName, _FoxGroupName];
+
+// does not work
+_FoxVehVarName = vehicleVarName _this;
+_FoxGroupName = group "u2";
+systemChat format ["%1: unit group = (%2)", _FoxVehVarName, _FoxGroupName];
+
+// works
+private _objNetId = _this call BIS_fnc_netId;
+systemChat format ["_objNetId = (%1)", _objNetId];
+
+// works
+private _objNetId = _this call BIS_fnc_netId;
+private _obj = _objNetId call BIS_fnc_objectFromNetId;
+systemChat format ["_objNetId = (%1), _obj = (%2)", _objNetId, _obj];
+
+// does not work _grp
+private _objNetId = _this call BIS_fnc_netId;
+private _obj = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = _objNetId call BIS_fnc_groupFromNetId;
+systemChat format ["_objNetId = (%1), _obj = (%2), _grp = (%3)", _objNetId, _obj, _grp];
+
+// WORKS!
+private _objNetId = _this call BIS_fnc_netId;
+private _obj = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = group _obj;
+systemChat format ["_objNetId = (%1), _obj = (%2), _grp = (%3)", _objNetId, _obj, _grp];
+
+
+// does not work - any any
+private _objNetId = _this call BIS_fnc_netId;
+private _objId = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = group _objId;
+waitUntil { sleep 1; private _unitGrp = group _objId; private _playerGrp = group player; (_unitGrp == _playerGrp) };
+systemChat format ["_unitGrp = %1, _playerGrp = %2", _unitGrp, _playerGrp];
+
+// WORKS
+private _objNetId = _this call BIS_fnc_netId;
+private _objId = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = group _objId;
+private _unitGrp = group _objId;
+private _playerGrp = group player;
+systemChat format ["_unitGrp = %1, _playerGrp = %2", _unitGrp, _playerGrp];
+
+// works
+private _objNetId = _this call BIS_fnc_netId;
+private _objId = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = group _objId;
+private _unitGrp = group _objId;
+private _playerGrp = group player;
+waitUntil { sleep 1; _unitGrp == _playerGrp };
+systemChat format ["_unitGrp = %1, _playerGrp = %2", _unitGrp, _playerGrp];
+
+// WORKS
+private _objNetId = _this call BIS_fnc_netId;
+private _objId = _objNetId call BIS_fnc_objectFromNetId;
+private _playerGrp = group player;
+waitUntil { sleep 1; group _objId == _playerGrp };
+if (group _objId == _playerGrp) then {
+    systemChat format ["in player group (%1), adding reset action...", _playerGrp];
+};
+
+// WORKS!
+private _objNetId = _this call BIS_fnc_netId;
+private _obj = _objNetId call BIS_fnc_objectFromNetId;
+private _grp = group _obj;
+systemChat format ["_objNetId = (%1), _obj = (%2), _grp = (%3), vehicleVarName = (%4)", _objNetId, _obj, _grp, (vehicleVarName _obj)];
+
+
+// disableRandomization[] =
+// {
+// 	"u1",
+// 	"u2",
+// 	"u3",
+// 	"u4",
+// 	"u5",
+// 	"u6",
+// 	"u7",
+// 	"u8",
+// 	"u9",
+// 	"u10",
+// 	"u11",
+// 	"u12"
+// };

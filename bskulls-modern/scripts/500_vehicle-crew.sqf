@@ -6,6 +6,8 @@ if (local(_this select 0)) then {
 		// _this allowdamage false;
 		// _this setUnitRank 'CAPTAIN';
 		_this setUnitTrait ['Engineer', true];
+		sleep 5;
+		_this stop true;
 		#include "\bskulls-modern\scripts\ALL-crew.sqf"
 	};
 	_this spawn _onSpawn;
