@@ -60,9 +60,6 @@
 // #define DEFAULT_NVG "A3_GPNVG18_REC_BLK_TI"
 #define DEFAULT_BINOCULARS "Rangefinder"
 
-#define DEFAULT_HANDGUN "B_PTbskull_Wea_pistol_3_fn57"
-#define DEFAULT_HANDGUN_AMMO "20Rnd_57x28_SS198"
-
 #define DEFAULT_AR_DESC "SCAR-H"
 #define DEFAULT_AR "B_PTbskull_Wea_ar_01_scarh"
 #define DEFAULT_AR_AMMO "KA_SCAR_H_20rnd_M993_AP_mag"
@@ -200,7 +197,7 @@
     class _xx_10Rnd_300WM_Magazine_B_PTbskull_Wea_sniper_3 {count=5;magazine="10Rnd_300WM_Magazine";};\
     class _xx_kt_338_NM_AP_Mag_B_PTbskull_Wea_sniper_7_axmc {count=5;magazine="kt_338_NM_AP_Mag";};\
     class _xx_KA_CS5_10rnd_M993_AP_mag_B_PTbskull_Wea_sniper_07_mcmillan {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
-    class _xx_KA_6Rnd_300win_Mag_B_PTbskull_Wea_sniper_8 {count=5;magazine="KA_6Rnd_300win_Mag";};\
+    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO_B_PTbskull_Wea_sniper_8 {count=5;magazine="B_PTbskull_Wea_sniper_08_wa2000_AMMO";};\
     class _xx_KA_DSR50_3Rnd_x2_M33_FMJ_Mag_B_PTbskull_Wea_sniper_9 {count=5;magazine="KA_DSR50_3Rnd_x2_M33_FMJ_Mag";};\
     class _xx_130Rnd_338_Mag_B_PTbskull_Wea_mg_1 {count=2;magazine="130Rnd_338_Mag";};\
     class _xx_150Rnd_93x64_Mag_B_PTbskull_Wea_mg_2 {count=2;magazine="150Rnd_93x64_Mag";};\

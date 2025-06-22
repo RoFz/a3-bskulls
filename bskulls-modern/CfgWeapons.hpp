@@ -2,104 +2,52 @@ class Mode_SemiAuto;
 class Mode_Burst;
 class CfgWeapons {
 
-    // // Handgun: R1 Enhanced .45ACP (Engraved)
-    // class bnae_r1_e_virtual;
-    // class B_PTbskull_Wea_pistol_1_r1 : bnae_r1_e_virtual {
-    //     displayName = "R1 Enhanced Engraved SD (.45 ACP)";
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeArsenal = 2;
-    //     scopeCurator = 2;
-    //     access = 1;
-    //     class LinkedItems {
-    //         class LinkedItemsMuzzle {
-    //             slot = "MuzzleSlot";
-    //             item = "bnae_suppressor_v4_virtual";
-    //         };
-    //         class LinkedItemsOptic {
-    //             slot = "CowsSlot";
-    //             item = "bnae_reddot_virtual";
-    //         };
-    //         class LinkedItemsAcc { };
-    //         class LinkedItemsUnder { };
-    //     };
-    // };
-
-    // // Handgun: SIG Sauer P226R Combat
-    // // Ammo: hlc_12Rnd_357SIG_B_P226
-    // #define B_PTbskull_Wea_pistol_2_AMMO "hlc_12Rnd_357SIG_B_P226"
-    // class hlc_pistol_P226R_357Combat;
-    // class hlc_pistol_P226R_357Combat_OCimport_01 : hlc_pistol_P226R_357Combat { scope = 0; class Single; };
-    // class B_PTbskull_Wea_pistol_2_sig : hlc_pistol_P226R_357Combat_OCimport_01 {
-    //     displayName = "SIG Sauer P226R SD (.357 SIG)";
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeArsenal = 2;
-    //     scopeCurator = 2;
-    //     access = 1;
-    //     // magazines[] = {"hlc_12Rnd_357SIG_B_P226","hlc_12Rnd_357SIG_JHP_P226"};
-    //     class Single : Single {
-    //         aiRateOfFire = 0.5;
-    //     };
-    //     class LinkedItems {
-    //         class LinkedItemsMuzzle {
-    //             slot = "MuzzleSlot";
-    //             item = "hlc_muzzle_TiRant9S";
-    //         };
-    //         class LinkedItemsOptic {
-    //             slot = "CowsSlot";
-    //             item = "HLC_Optic_Docter_CADEX";
-    //         };
-    //         class LinkedItemsAcc {
-    //             slot = "PointerSlot";
-    //             item = "hlc_acc_DBALPL_FL";
-    //         };
-    //         class LinkedItemsUnder { };
-    //     };
-    // };
-
-    // // Handgun: FN Five-seven FN 5.7x28mm
-    // // Ammo: 20Rnd_57x28_SS198
-    // #define B_PTbskull_Wea_pistol_3_AMMO "20Rnd_57x28_SS198"
-    // class kt_FN57_tan;
-    // class kt_FN57_tan_OCimport_01 : kt_FN57_tan { scope = 0; scopeArsenal = 0; class Single; };
-    // class B_PTbskull_Wea_pistol_3_fn57 : kt_FN57_tan_OCimport_01 {
-    //     displayName = "FN Five-seven SD (FN 5.7x28mm)";
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeArsenal = 2;
-    //     scopeCurator = 2;
-    //     access = 1;
-    //     class Single : Single {
-    //         aiDispersionCoefX = 0.1; // 1.4
-    //         aiDispersionCoefY = 0.1; // 1.7
-    //         aiRateOfFire = 0.3; // 2
-    //         aiRateOfFireDispersion = 0; // 1
-    //         maxRange = 50; // 100
-    //         maxRangeProbab = 0.1; // 0.1
-    //         midRange = 30; // 50
-    //         midRangeProbab = 0.3; // 0.6
-    //         minRange = 1; // 10
-    //         minRangeProbab = 0.6; // 0.3
-    //     };
-    //     class LinkedItems {
-    //         class LinkedItemsMuzzle {
-    //             slot = "MuzzleSlot";
-    //             item = "kt_FN57_Silencer";
-    //         };
-    //         class LinkedItemsAcc {
-    //             slot = "PointerSlot";
-    //             item = "kt_FN57_Laser_IR";
-    //         };
-    //     };
-    // };
+    // Handgun: 4-five .45 ACP
+    // Ammo: 11Rnd_45ACP_Mag
+    #define B_PTbskull_Wea_pistol_01_4five_AMMO "11Rnd_45ACP_Mag"
+    class hgun_Pistol_heavy_01_F;
+    class hgun_Pistol_heavy_01_F_OCimport_01 : hgun_Pistol_heavy_01_F { scope = 0; scopeArsenal = 0; class Single; };
+    class B_PTbskull_Wea_pistol_01_4five : hgun_Pistol_heavy_01_F_OCimport_01 {
+        displayName = "4-Five SD (.45 ACP)";
+        author = "RoFz";
+        scope = 2;
+        scopeArsenal = 2;
+        scopeCurator = 2;
+        access = 1;
+        class Single : Single {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 0.3; // 2
+            aiRateOfFireDispersion = 0; // 1
+            maxRange = 50; // 100
+            maxRangeProbab = 0.1; // 0.1
+            midRange = 30; // 50
+            midRangeProbab = 0.3; // 0.6
+            minRange = 1; // 10
+            minRangeProbab = 0.6; // 0.3
+        };
+        class LinkedItems {
+            class LinkedItemsMuzzle {
+                slot = "MuzzleSlot";
+                item = "muzzle_snds_acp";
+            };
+            class LinkedItemsAcc {
+                slot = "PointerSlot";
+                item = "acc_flashlight_pistol";
+            };
+            class LinkedItemsOptic {
+                slot = "CowsSlot";
+                item = "optic_MRD";
+            };
+        };
+    };
 
     // Handgun: PiMB 9x18mm
     // Ammo: gm_8Rnd_9x18mm_B_pst_pm_blk
-    #define B_PTbskull_Wea_pistol_4_AMMO "gm_8Rnd_9x18mm_B_pst_pm_blk"
+    #define B_PTbskull_Wea_pistol_02_pimb_AMMO "gm_8Rnd_9x18mm_B_pst_pm_blk"
     class gm_pimb_blk;
     class gm_pimb_blk_OCimport_01 : gm_pimb_blk { scope = 0; scopeArsenal = 0; class Single; };
-    class B_PTbskull_Wea_pistol_4_pimb : gm_pimb_blk_OCimport_01 {
+    class B_PTbskull_Wea_pistol_02_pimb : gm_pimb_blk_OCimport_01 {
         displayName = "PiMB SD (9x18mm Makarov)";
         author = "RoFz";
         scope = 2;
@@ -127,17 +75,26 @@ class CfgWeapons {
     };
 
     // Sniper #1: M110A1
-    // Ammo: kt_20Rnd_762x51_Ball_XM1158_AP_Mag // leads to CfgMagazines.ACE_20Rnd_762x51_Mag_Tracer bug?
-    #define B_PTbskull_Wea_sniper_01_m110_AMMO "kt_20Rnd_762x51_Ball_XM1158_AP_Mag"
-    class kt_M110A1_blk02;
-    class B_PTbskull_Wea_sniper_01_m110 : kt_M110A1_blk02 {
+    // Ammo: 20Rnd_762x51_Mag
+    #define B_PTbskull_Wea_sniper_01_m110_AMMO "20Rnd_762x51_Mag"
+    class kt_M110A1_blk02; // leads to CfgMagazines.ACE_20Rnd_762x51_Mag_Tracer bug, CONFIRMED
+    class kt_M110A1_blk02_OCimport_01 : kt_M110A1_blk02 { scope = 0; scopeArsenal = 0; };
+    class B_PTbskull_Wea_sniper_01_m110 : kt_M110A1_blk02_OCimport_01 {
         displayName = "H&K M110A1 SDMR (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
         scopeArsenal = 2;
         scopeCurator = 2;
         access = 1;
-        magazines[] = {"20Rnd_762x51_Mag","kt_20Rnd_762x51_Ball_XM1158_AP_Mag","kt_20Rnd_762x51_178gr_ELD_X_Mag","kt_20Rnd_762x51_Mk316_Mod_0_Mag"};
+        delete ACE_barrelLength;
+        delete ACE_barrelTwist;
+        delete ace_overheating_allowSwapBarrel;
+        delete ACE_Overheating_Dispersion;
+        delete ACE_overheating_mrbs;
+        delete ace_overheating_slowdownFactor;
+        delete ACE_RailHeightAboveBore;
+        magazines[] = {"20Rnd_762x51_Mag","BC_20Rnd_762_MEA_Stanag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag"}; // {"20Rnd_762x51_Mag","BC_20Rnd_762_MEA_Stanag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","ACE_20Rnd_762x51_M118LR_Mag","ACE_20Rnd_762x51_M993_AP_Mag","ACE_20Rnd_762x51_Mk319_Mod_0_Mag","ACE_20Rnd_762x51_Mk316_Mod_0_Mag","kt_20Rnd_762x51_178gr_ELD_X_Mag","kt_20Rnd_762x51_Mk316_Mod_0_Mag"};
+        // magazineWell[] = {"CBA_762x51_AR10","CBA_762x51_SR25"};
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -177,6 +134,7 @@ class CfgWeapons {
         scopeArsenal = 2;
         scopeCurator = 2;
         access = 1;
+        magazines[] += {"5Rnd_APDS_338LM_Magazine_PLUS"};
         class Single : Single {
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7
@@ -184,7 +142,15 @@ class CfgWeapons {
         class WeaponSlotsInfo : WeaponSlotsInfo {
             allowedslots[] = {901};
             class CowsSlot : CowsSlot {
-                compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar", "optic_Nightstalker"};
+                // {"bnae_scope_blk_virtual","bnae_scope_snd_virtual","bnae_scope_mtp_virtual","bnae_scope_v2_virtual","bnae_truglo_blk_virtual","bnae_truglo_snd_virtual","optic_LRPS","optic_LRPS_tna_F","optic_LRPS_ghex_F","optic_SOS","optic_SOS_khk_F","optic_DMS","optic_DMS_ghex_F","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan","optic_Hamr","optic_Hamr_khk_F","optic_Arco","optic_Arco_blk_F","optic_Arco_ghex_F","optic_ERCO_blk_F","optic_ERCO_khk_F","optic_ERCO_snd_F","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Holosight_blk_F","optic_Holosight_khk_F","optic_Holosight_smg_blk_F","optic_Holosight_smg_khk_F","optic_MRCO","optic_NVS","optic_Nightstalker","optic_tws","optic_tws_mg","kt_atacr06_tremoe3ti_raptar","optic_Nightstalker"};
+                // compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar"};
+                class compatibleItems {
+                    kt_atacr06_tremoe3ti_raptar = 1;
+                    optic_LRPS = 1;
+                    optic_LRPS_tna_F = 1;
+                    optic_LRPS_ghex_F = 1;
+                    optic_Nightstalker = 1;
+                };
             };
         };
         class LinkedItems {
@@ -249,6 +215,7 @@ class CfgWeapons {
 
     // Sniper #5: AX50SD
     // Ammo: 5Rnd_127x99_Ball_TAC50 (soft targets)
+    #define B_PTbskull_Wea_sniper_05_ax50_AMMO "5Rnd_127x99_Ball_TAC50"
     class ax50_bolt2;
     class B_PTbskull_Wea_sniper_05_ax50 : ax50_bolt2 {
         displayName = "AX-50 (12.7x99mm)";
@@ -282,6 +249,7 @@ class CfgWeapons {
 
     // Sniper #7: KA_CS5 (#1 Imp)
     // Ammo: KA_CS5_10rnd_M993_AP_mag
+    #define B_PTbskull_Wea_sniper_07_mcmillan_AMMO "KA_CS5_10rnd_M993_AP_mag"
     class KA_CS5;
     class B_PTbskull_Wea_sniper_07_mcmillan : KA_CS5 {
         displayName = "McMillan CS5 (7.62x51mm NATO)";
@@ -311,6 +279,8 @@ class CfgWeapons {
     };
 
     // Sniper #8: WA2000 (#1 Acc)
+    // Ammo: KA_6Rnd_300win_Mag
+    #define B_PTbskull_Wea_sniper_08_wa2000_AMMO "KA_6Rnd_300win_Mag"
     class KA_WA2000;
     class B_PTbskull_Wea_sniper_08_wa2000 : KA_WA2000 {
         displayName = "Walther WA 2000 (.300 WM)";
@@ -337,6 +307,7 @@ class CfgWeapons {
 
     // Sniper #9: DSR50 (#2 Acc; #2 Imp)
     // Ammo: KA_DSR50_3Rnd_x2_MK263_AP_Mag
+    #define B_PTbskull_Wea_sniper_09_dsr50_AMMO "KA_DSR50_3Rnd_x2_MK263_AP_Mag"
     class KA_DSR50;
     class B_PTbskull_Wea_sniper_09_dsr50 : KA_DSR50 {
         displayName = "DSR-50 (.50 BMG)";
@@ -414,6 +385,7 @@ class CfgWeapons {
 
     // Sniper #12: MAR-10 .338
     // Ammo: 10Rnd_338_Mag
+    #define B_PTbskull_Wea_sniper_12_mar10_AMMO "10Rnd_338_Mag"
     class srifle_DMR_02_F;
     class srifle_DMR_02_F_OCimport_01 : srifle_DMR_02_F { scope = 0; class EventHandlers; class WeaponSlotsInfo; };
     class B_PTbskull_Wea_sniper_12_mar10 : srifle_DMR_02_F_OCimport_01 {
@@ -478,6 +450,7 @@ class CfgWeapons {
 
     // Shotgun: SPAS-12
     // Ammo: 8Rnd_SPAS12_buck
+    #define B_PTbskull_Wea_shotgun_2_spas_AMMO "8Rnd_SPAS12_buck"
     class KA_SPAS12;
     class B_PTbskull_Wea_shotgun_2_spas : KA_SPAS12 {
         displayName = "SPAS (12-gauge)";
@@ -661,6 +634,7 @@ class CfgWeapons {
 
     // BR #1:
     // Ammo: kt_20Rnd_65_Creedmoor_108gr_AP_mag (AP) or 20Rnd_57x28_Sb193 (subsonic)
+    #define B_PTbskull_Wea_br_01_sig716_AMMO "kt_20Rnd_65_Creedmoor_108gr_AP_mag"
     class sig716_02_65;
     class B_PTbskull_Wea_br_01_sig716 : sig716_02_65 {
         displayName = "SIG716 (6.5x48mm CM)";
@@ -947,14 +921,6 @@ class CfgWeapons {
         access = 1;
     };
 
-    // // LAW #5: FIM-92 Stinger
-    // // Ammo: rhs_fim92_mag
-    // class rhs_weap_fim92;
-    // class B_PTbskull_Wea_law_05: rhs_weap_fim92 {
-    //     displayName="FIM-92 Stinger (70mm)";
-    //     scope=1;
-    // };
-
     // Artillery #1: M4 (Howitzer 155mm)
     class CannonCore;
     class mortar_155mm_AMOS : CannonCore
@@ -967,13 +933,6 @@ class CfgWeapons {
         // magazines[] = {"32Rnd_155mm_Mo_shells","32Rnd_155mm_Mo_shells_O","6Rnd_155mm_Mo_smoke","6Rnd_155mm_Mo_smoke_O","2Rnd_155mm_Mo_guided","4Rnd_155mm_Mo_guided","4Rnd_155mm_Mo_guided_O","2Rnd_155mm_Mo_LG","4Rnd_155mm_Mo_LG","4Rnd_155mm_Mo_LG_O","6Rnd_155mm_Mo_mine","6Rnd_155mm_Mo_mine_O","2Rnd_155mm_Mo_Cluster","2Rnd_155mm_Mo_Cluster_O","6Rnd_155mm_Mo_AT_mine","6Rnd_155mm_Mo_AT_mine_O"};
         magazines[] = {"64Rnd_155mm_Plus_Mo_shells","8Rnd_155mm_Plus_Mo_guided","12Rnd_155mm_Plus_Mo_mine","4Rnd_155mm_Plus_Mo_Cluster","8Rnd_155mm_Plus_Mo_LG","12Rnd_155mm_Plus_Mo_AT_mine"};
     };
-
-    // // GAU-8 - this experiment did not go well - recoil drops the plane
-    // class Gatling_30mm_Plane_CAS_01_F;
-    // class B_PTbskull_Wea_cas_gun_01: Gatling_30mm_Plane_CAS_01_F
-    // {
-    //     magazines[] = {"MG8_1174Rnd_Gau8_30mm_PLUS"};
-    // };
 
     class Default;
     class mortar_82mm : Default {

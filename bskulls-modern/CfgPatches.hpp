@@ -105,7 +105,7 @@ class CfgPatches {
             "B_PTbskull_Wea_pistol_1_r1",
             "B_PTbskull_Wea_pistol_2_sig",
             "B_PTbskull_Wea_pistol_3_fn57",
-            "B_PTbskull_Wea_pistol_4_pimb",
+            "B_PTbskull_Wea_pistol_02_pimb",
             "B_PTbskull_Wea_shotgun_1_winch",
             "B_PTbskull_Wea_shotgun_2_spas",
             "B_PTbskull_Wea_sniper_01_m110",

@@ -1210,20 +1210,19 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "01 Viper (TL, NO THERM SIG) (Sting + MAR-10)";
+        displayName = "01 Viper (TL, NO THERM SIG) (SIG-716 + SPAS + MAR-10)";
         side = 1;
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
-        // weaponSlots = "1 + 4 + 24*256 + 4096 + 2 + 3*16 + 12*131072";
         linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_05";
         class EventHandlers : EventHandlers
         {
@@ -1236,19 +1235,19 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "01 Viper (TL) (HB300AAC + WA2000)";
+        displayName = "01 Viper (TL) (HB300AAC + SPAS + WA2000)";
         side = 1;
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_02";
         class EventHandlers : EventHandlers
         {
@@ -1261,19 +1260,19 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "01 Viper (TL) (SCAR-H GL + M110)";
+        displayName = "01 Viper (TL) (SCAR-H GL + SPAS + M110)";
         side = 1;
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_13(KA_SCAR_H_20rnd_M993_AP_mag),MAG_2(1Rnd_HE_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_13(KA_SCAR_H_20rnd_M993_AP_mag),MAG_2(1Rnd_HE_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(KA_SCAR_H_20rnd_M993_AP_mag),MAG_10(B_PTbskull_Wea_sniper_01_m110_AMMO),MAG_5(1Rnd_HE_Grenade_shell),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(KA_SCAR_H_20rnd_M993_AP_mag),MAG_10(B_PTbskull_Wea_sniper_01_m110_AMMO),MAG_5(1Rnd_HE_Grenade_shell),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_03";
         class EventHandlers : EventHandlers
         {
@@ -1286,19 +1285,19 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "01 Viper (TL) (Sting + Falkor) (Ghillie)";
+        displayName = "01 Viper (TL) (Sting + SPAS + Falkor) (Ghillie)";
         side = 1;
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = "U_B_T_FullGhillie_tna_F";
         linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_5(B_PTbskull_Wea_sniper_03_falkor_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_5(B_PTbskull_Wea_sniper_03_falkor_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_10(B_PTbskull_Wea_sniper_03_falkor_AMMO),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_10(B_PTbskull_Wea_sniper_03_falkor_AMMO),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1318,12 +1317,12 @@ class CfgVehicles
         uniformClass = "U_B_T_FullGhillie_tna_F";
         linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(30Rnd_9x21_Mag_SMG_02_Tracer_Green),MAG_20(10Rnd_338_Mag),MAG_5(8Rnd_SPAS12_buck),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(30Rnd_9x21_Mag_SMG_02_Tracer_Green),MAG_20(10Rnd_338_Mag),MAG_5(8Rnd_SPAS12_buck),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_20(10Rnd_338_Mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_20(10Rnd_338_Mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_05";
         class EventHandlers : EventHandlers
         {
@@ -1345,12 +1344,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1374,12 +1373,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1402,12 +1401,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1428,12 +1427,12 @@ class CfgVehicles
         uniformClass = "U_B_T_FullGhillie_tna_F";
         linkedItems[] = {DEFAULT_VEST,VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_sniper_02_trg42",DEFAULT_HANDGUN,DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_02_trg42",DEFAULT_HANDGUN,DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_02_trg42","B_PTbskull_Wea_pistol_01_4five",B_PTbskull_Wea_pistol_01_4five,DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_02_trg42","B_PTbskull_Wea_pistol_01_4five",B_PTbskull_Wea_pistol_01_4five,DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_20(B_PTbskull_Wea_sniper_02_trg42_AMMO),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_20(B_PTbskull_Wea_sniper_02_trg42_AMMO),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_sniper_02_trg42_AMMO),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_sniper_02_trg42_AMMO),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1453,12 +1452,12 @@ class CfgVehicles
         uniformClass = "U_B_T_FullGhillie_tna_F";
         linkedItems[] = {DEFAULT_VEST,VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_sniper_07_mcmillan",DEFAULT_HANDGUN,DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_07_mcmillan",DEFAULT_HANDGUN,DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_07_mcmillan","B_PTbskull_Wea_pistol_01_4five",B_PTbskull_Wea_pistol_01_4five,DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_07_mcmillan","B_PTbskull_Wea_pistol_01_4five",B_PTbskull_Wea_pistol_01_4five,DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_25(KA_CS5_10rnd_M993_AP_mag),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_25(KA_CS5_10rnd_M993_AP_mag),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_25(KA_CS5_10rnd_M993_AP_mag),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_25(KA_CS5_10rnd_M993_AP_mag),MAG_5(B_PTbskull_Wea_SMG_02_sting_AMMO)};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_02";
         class EventHandlers : EventHandlers
         {
@@ -1478,12 +1477,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1503,12 +1502,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1528,12 +1527,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1553,12 +1552,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
         respawnlinkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1578,12 +1577,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
         respawnlinkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1603,12 +1602,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
-        weapons[] = {"B_PTbskull_Wea_mg_01_smpg",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_01_smpg",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_mg_01_smpg","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_01_smpg","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_3(130Rnd_338_Mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_3(130Rnd_338_Mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(130Rnd_338_Mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(130Rnd_338_Mag)};
         backpack = "B_PTbskull_Veh_Back_MG_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1628,12 +1627,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
-        weapons[] = {"B_PTbskull_Wea_mg_02_navid",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_02_navid",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_mg_02_navid","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_02_navid","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_3(150Rnd_93x64_Mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_3(150Rnd_93x64_Mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(150Rnd_93x64_Mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(150Rnd_93x64_Mag)};
         backpack = "B_PTbskull_Veh_Back_MG_blackops_02";
         class EventHandlers : EventHandlers
         {
@@ -1653,12 +1652,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
         respawnlinkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_AT_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1678,12 +1677,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
         respawnlinkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
-        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_01_titanat",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_01_titanat",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),"Titan_AT_PLUS",MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),MAG_6(1Rnd_HE_Grenade_shell)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),"Titan_AT_PLUS",MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),MAG_6(1Rnd_HE_Grenade_shell)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),MAG_6(1Rnd_HE_Grenade_shell)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),MAG_6(1Rnd_HE_Grenade_shell)};
         backpack = "B_PTbskull_Veh_Back_AT_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1704,12 +1703,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_20(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_20(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1729,12 +1728,12 @@ class CfgVehicles
         uniformClass = "U_B_FullGhillie_sard";
         linkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
         respawnlinkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_sniper_03_falkor",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_03_falkor",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_03_falkor","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_03_falkor","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_17(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_17(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_17(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_17(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_03";
         class EventHandlers : EventHandlers
         {
@@ -1754,12 +1753,12 @@ class CfgVehicles
         uniformClass = "U_B_FullGhillie_sard";
         linkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
         respawnlinkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_sniper_09_dsr50",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_09_dsr50",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_7(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_7(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_7(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_7(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_04";
         class EventHandlers : EventHandlers
         {
@@ -1779,12 +1778,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Balaclava_TI_G_Black"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Balaclava_TI_G_Black"};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_03_titanaa",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_03_titanaa",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_03_titanaa","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_03_titanaa","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"Titan_AA"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"Titan_AA"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"Titan_AA"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"Titan_AA"};
         backpack = "B_PTbskull_Veh_Back_AA_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1806,12 +1805,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
-        weapons[] = {"B_PTbskull_Wea_sniper_10_cyrus",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_10_cyrus",DEFAULT_HANDGUN,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","B_PTbskull_Wea_pistol_01_4five","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_VIPERCHN_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1833,12 +1832,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
-        weapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_VIPERCHN_blackops_02";
         class EventHandlers : EventHandlers
         {
@@ -1858,12 +1857,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         linkedItems[] = {DEFAULT_VEST,MAKAROVA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MAKAROVA_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,MAKAROVA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MAKAROVA_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_4_pimb",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_4_pimb",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_02_pimb","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_02_pimb","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_4_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(MiniGrenade),MAG_2(SmokeShell)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_11(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_4_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(MiniGrenade),MAG_2(SmokeShell)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_02_pimb_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(MiniGrenade),MAG_2(SmokeShell)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_02_pimb_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(MiniGrenade),MAG_2(SmokeShell)};
         // no backpack
         class EventHandlers : EventHandlers
         {
@@ -1883,12 +1882,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1908,12 +1907,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Squares_Tinted"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Squares_Tinted"};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1933,12 +1932,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_AMMO_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -1958,12 +1957,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
-        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(DEFAULT_AR_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
         backpack = "B_PTbskull_Veh_Back_AMMO_blackops_01";
         class EventHandlers : EventHandlers
         {
@@ -2340,12 +2339,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -2365,12 +2364,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -2390,12 +2389,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -2415,12 +2414,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
          items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\300_tank-crew.sqf';"
@@ -2439,12 +2438,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
             items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\400_boat-crew.sqf';"
@@ -2463,12 +2462,12 @@ class CfgVehicles
         uniformClass = DEFAULT_UNIFORM;
         linkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
         respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting",DEFAULT_HANDGUN,DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
          items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_12(30Rnd_9x21_Mag_SMG_02_Tracer_Green),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(DEFAULT_HANDGUN_AMMO),MAG_12(30Rnd_9x21_Mag_SMG_02_Tracer_Green),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\500_vehicle-crew.sqf';"
@@ -2481,97 +2480,94 @@ class CfgVehicles
     class B_PTbskull_Veh_Back_TL_blackops_01: B_Assaultpack_blk_OCimport_01 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper Falkor)";
+        displayName = "Assault Pack (Viper SPAS + Falkor)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
-            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_03_falkor_AMMO;};
-            class _xx_HandGrenade {count=4;magazine="HandGrenade";};
-            class _xx_MiniGrenade {count=4;magazine="MiniGrenade";};
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=4;magazine="gm_handgrenade_conc_dm51a1";};
-            class _xx_Chemlight_yellow {count=2;magazine="Chemlight_yellow";};
-            class _xx_Chemlight_green {count=2;magazine="Chemlight_green";};
+            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
+            class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
+            class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-
+            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_03_falkor_AMMO;};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=B_PTbskull_Wea_shotgun_2_spas_AMMO;};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
             class _xx_B_PTbskull_Wea_sniper_03_falkor {count=1;weapon="B_PTbskull_Wea_sniper_03_falkor";};
             class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
+            class _xx_B_PTbskull_Wea_shotgun_2 {count=1;weapon="B_PTbskull_Wea_shotgun_2_spas";};
         };
     };
 
     class B_PTbskull_Veh_Back_TL_blackops_02: B_Assaultpack_blk_OCimport_01 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper WA2000)";
+        displayName = "Assault Pack (Viper SPAS + WA2000)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
-            class _xx_KA_6Rnd_300win_Mag {count=12;magazine="KA_6Rnd_300win_Mag";};
-            class _xx_HandGrenade {count=4;magazine="HandGrenade";};
-            class _xx_MiniGrenade {count=4;magazine="MiniGrenade";};
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=4;magazine="gm_handgrenade_conc_dm51a1";};
-            class _xx_Chemlight_yellow {count=2;magazine="Chemlight_yellow";};
-            class _xx_Chemlight_green {count=2;magazine="Chemlight_green";};
+            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
+            class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
+            class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
+            class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_08_wa2000_AMMO;};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=B_PTbskull_Wea_shotgun_2_spas_AMMO;};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
             class _xx_B_PTbskull_Wea_sniper_8 {count=1;weapon="B_PTbskull_Wea_sniper_08_wa2000";};
             class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
+            class _xx_B_PTbskull_Wea_shotgun_2 {count=1;weapon="B_PTbskull_Wea_shotgun_2_spas";};
         };
     };
 
     class B_PTbskull_Veh_Back_TL_blackops_03: B_Assaultpack_blk_OCimport_01 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper M110A1)";
+        displayName = "Assault Pack (Viper SPAS + M110A1)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
-            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_01_m110_AMMO;};
-            class _xx_HandGrenade {count=4;magazine="HandGrenade";};
-            class _xx_MiniGrenade {count=4;magazine="MiniGrenade";};
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=4;magazine="gm_handgrenade_conc_dm51a1";};
-            class _xx_Chemlight_yellow {count=2;magazine="Chemlight_yellow";};
-            class _xx_Chemlight_green {count=2;magazine="Chemlight_green";};
+            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
+            class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
+            class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
+            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_01_m110_AMMO;};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=B_PTbskull_Wea_shotgun_2_spas_AMMO;};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
             class _xx_B_PTbskull_Wea_sniper_01_m110 {count=1;weapon="B_PTbskull_Wea_sniper_01_m110";};
             class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
+            class _xx_B_PTbskull_Wea_shotgun_2 {count=1;weapon="B_PTbskull_Wea_shotgun_2_spas";};
         };
     };
 
     class B_PTbskull_Veh_Back_TL_blackops_05: B_Assaultpack_blk_OCimport_01 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper MAR-10)";
+        displayName = "Assault Pack (Viper SPAS + MAR-10)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
-            class _xx_HandGrenade {count=2;magazine="HandGrenade";};
-            class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=2;magazine="gm_handgrenade_conc_dm51a1";};
+            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_10Rnd_338_Mag {count=1;magazine="10Rnd_338_Mag";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine="8Rnd_SPAS12_buck";};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=B_PTbskull_Wea_shotgun_2_spas_AMMO;};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -2586,7 +2582,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Paramedic)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2603,16 +2599,16 @@ class CfgVehicles
     class B_PTbskull_Veh_Back_SNIPER_blackops_01: B_Assaultpack_blk_OCimport_01 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Sniper AXMC)";
+        displayName = "Assault Pack (Sniper TRG-42)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
-            class _xx_B_PTbskull_Wea_sniper_7_axmc_AMMO {count=10;magazine=B_PTbskull_Wea_sniper_7_axmc_AMMO;};
-            class _xx_30Rnd_9x21_Mag_SMG_02_Tracer_Green {count=10;magazine=30Rnd_9x21_Mag_SMG_02_Tracer_Green;};
+            class _xx_B_PTbskull_Wea_sniper_02_trg42_AMMO {count=10;magazine=B_PTbskull_Wea_sniper_02_trg42_AMMO;};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -2625,14 +2621,14 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Sniper McMillan)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_KA_CS5_10rnd_M993_AP_mag {count=10;magazine="KA_CS5_10rnd_M993_AP_mag";};
-            class _xx_30Rnd_9x21_Mag_SMG_02_Tracer_Green {count=10;magazine=30Rnd_9x21_Mag_SMG_02_Tracer_Green;};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -2645,7 +2641,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Demolition)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2665,7 +2661,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (MG SPMG)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2680,7 +2676,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (MG Navid)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2695,7 +2691,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (AT Titan+)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2710,7 +2706,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Ammo)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2740,14 +2736,14 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Sniper Falkor)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_10Rnd_300WM_Magazine {count=7;magazine="10Rnd_300WM_Magazine";};
-            class _xx_30Rnd_9x21_Mag_SMG_02_Tracer_Green {count=10;magazine=30Rnd_9x21_Mag_SMG_02_Tracer_Green;};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -2760,7 +2756,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Sniper DSR-50)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2768,7 +2764,7 @@ class CfgVehicles
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_KA_DSR50_3Rnd_x2_M33_FMJ_Mag {count=10;magazine="KA_DSR50_3Rnd_x2_M33_FMJ_Mag";};
             class _xx_KA_DSR50_3Rnd_x2_MK263_AP_Mag {count=10;magazine="KA_DSR50_3Rnd_x2_MK263_AP_Mag";};
-            class _xx_30Rnd_9x21_Mag_SMG_02_Tracer_Green {count=10;magazine=30Rnd_9x21_Mag_SMG_02_Tracer_Green;};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -2781,7 +2777,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (AA)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2796,12 +2792,12 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Backup)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
-            class _xx_30Rnd_9x21_Mag_SMG_02_Tracer_Green {count=10;magazine=30Rnd_9x21_Mag_SMG_02_Tracer_Green;};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
         };
         class TransportItems {
             class _xx_FirstAidKit {count=5;name="FirstAidKit";};
@@ -2822,7 +2818,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Liu Cyrus)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {
@@ -2838,7 +2834,7 @@ class CfgVehicles
         scope = 2;
         displayName = "Assault Pack (Liu Type 115)";
         mass = 1;
-        maximumLoad = 1500;
+        maximumLoad = 2000;
         transportMaxWeapons = 10;
 		transportMaxMagazines = 50;
         class TransportMagazines {

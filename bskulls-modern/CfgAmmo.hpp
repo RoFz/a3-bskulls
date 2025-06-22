@@ -331,9 +331,6 @@ class CfgAmmo
         submunitionParentSpeedCoef = 0;
 
     };
-
-
-
 };
 
 // MAGAZINES //
