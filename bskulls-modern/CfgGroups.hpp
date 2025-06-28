@@ -55,7 +55,7 @@ class cfgGroups {
                         position[] = {-5,-5,0};
                         rank = "CORPORAL";
                         side = 1;
-                        vehicle = "B_PTbskull_Veh_Unit_Hawkins_blackops_01";
+                        vehicle = "B_PTbskull_Veh_Unit_Hawkins_blackops_02";
                     };
                     class red4 {
                         position[] = {10,-10,0};
@@ -109,7 +109,7 @@ class cfgGroups {
                         position[] = {-15,-15,0};
                         rank = "CORPORAL";
                         side = 1;
-                        vehicle = "B_PTbskull_Veh_Unit_Hawkins_blackops_01";
+                        vehicle = "B_PTbskull_Veh_Unit_Hawkins_blackops_02";
                     };
                     class partycrasher8 {
                         position[] = {20,-20,0};

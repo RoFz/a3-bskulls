@@ -95,7 +95,6 @@ class CfgPatches {
             "B_PTbskull_Wea_ar_04_scarh",
             "B_PTbskull_Wea_ar_05_type115",
             "B_PTbskull_Wea_art_gun_01",
-            "B_PTbskull_Wea_br_01_sig716",
             "B_PTbskull_Wea_law_01_titanat",
             "B_PTbskull_Wea_law_02_m72",
             "B_PTbskull_Wea_law_03_titanaa",
@@ -111,12 +110,10 @@ class CfgPatches {
             "B_PTbskull_Wea_sniper_01_m110",
             "B_PTbskull_Wea_sniper_02_trg42",
             "B_PTbskull_Wea_sniper_03_falkor",
-            "B_PTbskull_Wea_sniper_05_ax50",
             "B_PTbskull_Wea_sniper_07_mcmillan",
             "B_PTbskull_Wea_sniper_08_wa2000",
             "B_PTbskull_Wea_sniper_09_dsr50",
             "B_PTbskull_Wea_sniper_10_cyrus",
-            "B_PTbskull_Wea_sniper_11_tac50",
             "B_PTbskull_Wea_sniper_12_mar10"
         };
         requiredVersion = 1.62;

@@ -1205,31 +1205,6 @@ class CfgVehicles
 
     // Units
 
-    class B_PTbskull_Veh_Unit_Viper_blackops_01 : B_recon_TL_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "01 Viper (TL, NO THERM SIG) (SIG-716 + SPAS + MAR-10)";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {MAG_5(FirstAidKit),"MineDetector"};
-        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_13(kt_20Rnd_65_Creedmoor_108gr_AP_mag),MAG_5(B_PTbskull_Wea_shotgun_2_spas_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
-        backpack = "B_PTbskull_Veh_Back_TL_blackops_05";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
-        };
-    };
-
     class B_PTbskull_Veh_Unit_Viper_blackops_02 : B_recon_TL_F_OCimport_02
     {
         author = "RoFz";
@@ -1327,35 +1302,6 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Fox_blackops_01 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "02 Fox (Medic) (SIG716, NO THERM SIG)";
-        side = 1;
-        formationX = 2;
-        formationZ = 2;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",DEFAULT_GOGGLES};
-        uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {MAG_5(FirstAidKit)};
-        respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
-        class EventHandlers : EventHandlers
-        {
-            // todo: unit attributes must come from here and then just use a standard init script to consume them
-            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
-            killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
         };
     };
 
@@ -1462,31 +1408,6 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';"
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_McKendrick_blackops_01 : B_recon_exp_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "04 McKendrick (Demo, NO THERM SIG) (SIG716)";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_Enoch","LanguageENGB_F",DEFAULT_GOGGLES};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {MAG_5(FirstAidKit),"MineDetector"};
-        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';"
         };
     };
 
@@ -1640,28 +1561,28 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Unit_Hawkins_blackops_01 : B_recon_LAT_F_OCimport_02
+    class B_PTbskull_Veh_Unit_Frost_blackops_03 : B_Patrol_HeavyGunner_F_OCimport_02
     {
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "07 Hawkins (AT) (SIG716)";
+        displayName = "06 Frost (Navid9.3 + Fuel)";
         side = 1;
         faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_SSU_Bandana_Sports_Black_Beast"};
+        identityTypes[] = {"Head_NATO","LanguageENGFRE_F","G_SSU_Bandana_Sports_Black"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
-        respawnlinkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        linkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
+        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
+        weapons[] = {"B_PTbskull_Wea_mg_02_navid","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_02_navid","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit)};
         respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        backpack = "B_PTbskull_Veh_Back_AT_blackops_01";
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(150Rnd_93x64_Mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(150Rnd_93x64_Mag)};
+        backpack = "B_PTbskull_Veh_Back_Fuel_blackops_01";
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\7_hawkins.sqf';"
+            init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';"
         };
     };
 
@@ -1870,31 +1791,6 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Unit_Elias_blackops_01 : B_soldier_UAV_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "13 Elias (UAV, NO THERM SIG) (SIG716)";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_Greek","LanguageENG_F",DEFAULT_GOGGLES};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,DEFAULT_GOGGLES};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {MAG_5(FirstAidKit)};
-        respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag)};
-        backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\13_elias.sqf';"
-        };
-    };
-
     class B_PTbskull_Veh_Unit_Elias_blackops_02 : B_soldier_UAV_F_OCimport_02
     {
         author = "RoFz";
@@ -1917,31 +1813,6 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\13_elias.sqf';"
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Martinez_blackops_01 : B_Recon_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "14 Martinez (Ammo) (SIG716)";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_TK","LanguageENG_F","G_Spectacles_Tinted"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
-        weapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_br_01_sig716","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {MAG_5(FirstAidKit)};
-        respawnItems[] = {MAG_5(FirstAidKit)};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(kt_20Rnd_65_Creedmoor_108gr_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        backpack = "B_PTbskull_Veh_Back_AMMO_blackops_01";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\14_martinez.sqf';"
         };
     };
 
@@ -1974,19 +1845,6 @@ class CfgVehicles
 
     // Units
 
-    // class B_PTbskull_Veh_Viper_jungleops_01 : B_PTbskull_Veh_Unit_Viper_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J01 Viper (TL) (SIG716 + AXMC)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_J;
-    //     linkedItems[] = {DEFAULT_VEST_J,VIPER_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST_J,VIPER_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES_J};
-    // };
 
     // class B_PTbskull_Veh_Viper_jungleops_02 : B_PTbskull_Veh_Unit_Viper_blackops_02
     // {
@@ -2016,20 +1874,6 @@ class CfgVehicles
     //     respawnlinkedItems[] = {DEFAULT_VEST_J,VIPER_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES_J};
     // };
 
-    // class B_PTbskull_Veh_Fox_jungleops_01 : B_PTbskull_Veh_Unit_Fox_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J02 Fox (Medic) (SIG716)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_GIRLS_J;
-    //     linkedItems[] = {DEFAULT_VEST_J,FOX_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST_J,FOX_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES_J};
-    // };
-
     // class B_PTbskull_Veh_Fox_jungleops_02 : B_PTbskull_Veh_Unit_Fox_blackops_02
     // {
     //     author = "RoFz";
@@ -2056,20 +1900,6 @@ class CfgVehicles
     //     uniformClass = DEFAULT_UNIFORM_GIRLS_J;
     //     linkedItems[] = {DEFAULT_VEST_J,FOX_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES_J};
     //     respawnlinkedItems[] = {DEFAULT_VEST_J,FOX_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES_J};
-    // };
-
-    // class B_PTbskull_Veh_McKendrick_jungleops_01 : B_PTbskull_Veh_Unit_McKendrick_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J04 McKendrick (Demo) (SIG716)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_J;
-    //     linkedItems[] = {DEFAULT_VEST_J,MCKENDRICK_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST_J,MCKENDRICK_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES_J};
     // };
 
     // class B_PTbskull_Veh_McKendrick_jungleops_02 : B_PTbskull_Veh_Unit_McKendrick_blackops_02
@@ -2154,20 +1984,6 @@ class CfgVehicles
     //     uniformClass = DEFAULT_UNIFORM_J;
     //     linkedItems[] = {DEFAULT_VEST_J,FROST_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FROST_GOGGLES_J};
     //     respawnlinkedItems[] = {DEFAULT_VEST_J,FROST_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FROST_GOGGLES_J};
-    // };
-
-    // class B_PTbskull_Veh_Hawkins_jungleops_01 : B_PTbskull_Veh_Unit_Hawkins_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J07 Hawkins (AT) (SIG716)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_NATO","LanguageENG_F",HAWKINS_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_J;
-    //     linkedItems[] = {DEFAULT_VEST_J,HAWKINS_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,HAWKINS_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST_J,HAWKINS_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,HAWKINS_GOGGLES_J};
     // };
 
     // class B_PTbskull_Veh_Hawkins_jungleops_02 : B_recon_LAT_F_OCimport_02
@@ -2268,20 +2084,6 @@ class CfgVehicles
     //     respawnlinkedItems[] = {DEFAULT_VEST_J,MAKAROVA_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MAKAROVA_GOGGLES_J};
     // };
 
-    // class B_PTbskull_Veh_Elias_jungleops_01 : B_PTbskull_Veh_Unit_Elias_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J13 Elias (UAV) (SIG716)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_Greek","LanguageENG_F",ELIAS_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_J;
-    //     linkedItems[] = {DEFAULT_VEST,ELIAS_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,ELIAS_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST,ELIAS_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,ELIAS_GOGGLES_J};
-    // };
-
     // class B_PTbskull_Veh_Elias_jungleops_02 : B_PTbskull_Veh_Unit_Elias_blackops_02
     // {
     //     author = "RoFz";
@@ -2294,20 +2096,6 @@ class CfgVehicles
     //     uniformClass = DEFAULT_UNIFORM_J;
     //     linkedItems[] = {DEFAULT_VEST,ELIAS_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,ELIAS_GOGGLES_J};
     //     respawnlinkedItems[] = {DEFAULT_VEST,ELIAS_HELMET_J,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,ELIAS_GOGGLES_J};
-    // };
-
-    // class B_PTbskull_Veh_Martinez_jungleops_01 : B_PTbskull_Veh_Unit_Martinez_blackops_01
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     displayName = "J14 Martinez (Ammo) (SIG716)";
-    //     side = 1;
-    //     faction = "bskull_fc_mo";
-    //     identityTypes[] = {"Head_TK","LanguageENG_F",MARTINEZ_GOGGLES_J};
-    //     uniformClass = DEFAULT_UNIFORM_J;
-    //     linkedItems[] = {DEFAULT_VEST_J,MARTINEZ_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MARTINEZ_GOGGLES_J};
-    //     respawnlinkedItems[] = {DEFAULT_VEST_J,MARTINEZ_HELMET_J,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MARTINEZ_GOGGLES_J};
     // };
 
     // class B_PTbskull_Veh_Martinez_jungleops_02 : B_PTbskull_Veh_Unit_Martinez_blackops_02
@@ -2474,17 +2262,23 @@ class CfgVehicles
         };
     };
 
-    class B_Assaultpack_blk;
-    class B_Assaultpack_blk_OCimport_01: B_Assaultpack_blk { scope = 0; class EventHandlers; };
+    class THC_Bag50;
+    class Bag_Base;
+    // class Bag_Base_OCimport_001 : Bag_Base {
+    //     scope = 0;
+    //     maximumLoad = 2000;
+    //     model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+    //     picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+    // };
 
-    class B_PTbskull_Veh_Back_TL_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_TL_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Viper SPAS + Falkor)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
             class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
@@ -2502,14 +2296,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_TL_blackops_02: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_TL_blackops_02: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Viper SPAS + WA2000)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
             class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
@@ -2527,14 +2321,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_TL_blackops_03: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_TL_blackops_03: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Viper SPAS + M110A1)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
             class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
@@ -2552,14 +2346,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_TL_blackops_05: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_TL_blackops_05: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Viper SPAS + MAR-10)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
             class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
@@ -2577,14 +2371,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_MEDIC_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_MEDIC_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Paramedic)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
@@ -2596,14 +2390,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_SNIPER_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_SNIPER_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Sniper TRG-42)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
@@ -2616,14 +2410,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_SNIPER_blackops_02: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_SNIPER_blackops_02: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Sniper McMillan)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
@@ -2636,14 +2430,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_EXP_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_EXP_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Demolition)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
         };
         class TransportItems {
@@ -2656,14 +2450,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_MG_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_MG_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (MG SPMG)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_130Rnd_338_Mag {count=1;magazine="130Rnd_338_Mag";};
         };
@@ -2671,14 +2465,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_MG_blackops_02: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_MG_blackops_02: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (MG Navid)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_150Rnd_93x64_Mag {count=1;magazine="150Rnd_93x64_Mag";};
         };
@@ -2686,14 +2480,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-   class B_PTbskull_Veh_Back_AT_blackops_01: B_Assaultpack_blk_OCimport_01 {
+   class B_PTbskull_Veh_Back_AT_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (AT Titan+)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_Titan_AT_PLUS {count=4;magazine="Titan_AT_PLUS";};
         };
@@ -2701,14 +2495,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-   class B_PTbskull_Veh_Back_AMMO_blackops_01: B_Assaultpack_blk_OCimport_01 {
+   class B_PTbskull_Veh_Back_AMMO_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Ammo)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_Titan_AT_PLUS {count=2;magazine="Titan_AT_PLUS";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
@@ -2731,14 +2525,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_SNIPER_blackops_03: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_SNIPER_blackops_03: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Sniper Falkor)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
@@ -2751,14 +2545,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_SNIPER_blackops_04: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_SNIPER_blackops_04: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Sniper DSR-50)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
@@ -2772,14 +2566,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_AA_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_AA_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (AA)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_Titan_AA {count=4;magazine="Titan_AA";};
         };
@@ -2787,14 +2581,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_BACKUP_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_BACKUP_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Backup)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=B_PTbskull_Wea_SMG_02_sting_AMMO;};
@@ -2813,14 +2607,14 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Back_VIPERCHN_blackops_01: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_VIPERCHN_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Liu Cyrus)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_10Rnd_93x64_DMR_05_Mag {count=10;magazine="10Rnd_93x64_DMR_05_Mag";};
@@ -2829,14 +2623,14 @@ class CfgVehicles
         class TransportWeapons { };
     };
 
-    class B_PTbskull_Veh_Back_VIPERCHN_blackops_02: B_Assaultpack_blk_OCimport_01 {
+    class B_PTbskull_Veh_Back_VIPERCHN_blackops_02: THC_Bag50 {
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (Liu Type 115)";
-        mass = 1;
         maximumLoad = 2000;
-        transportMaxWeapons = 10;
-		transportMaxMagazines = 50;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_30Rnd_65x39_caseless_green_mag_Tracer {count=5;magazine="30Rnd_65x39_caseless_green_mag_Tracer";};
@@ -2852,10 +2646,20 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         displayName = "Assault Pack (UAV)";
-        mass = 1;
         class assembleInfo : assembleInfo {
             assembleTo = "B_PTbskull_Veh_Drone_blackops_03";
             displayName = "AR-2 BSkull";
         };
     };
+
+    class B_PTbskull_Veh_Back_Fuel_blackops_01: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (Fuel)";
+        explosionEffect = "FuelExplosion";
+        explosionShielding = 1;
+        fuelExplosionPower = 0.7;
+        transportFuel = 5
+    };
+
 };

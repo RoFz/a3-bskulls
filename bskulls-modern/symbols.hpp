@@ -189,20 +189,16 @@
 #define TRANSPORTMAGAZINES\
     class _xx_Titan_AT_PLUS {count=6;magazine="Titan_AT_PLUS";};\
     class _xx_Titan_AA {count=3;magazine="Titan_AA";};\
-    class _xx_kt_20Rnd_65_Creedmoor_108gr_AP_mag_B_PTbskull_Wea_br_1 {count=10;magazine="kt_20Rnd_65_Creedmoor_108gr_AP_mag";};\
-    class _xx_JAS_RSASS_20rnd_M993_AP_mag_B_PTbskull_Wea_ar_3 {count=5;magazine="JAS_RSASS_20rnd_M993_AP_mag";};\
-    class _xx_hlc_50rnd_300BLK_STANAG_EPR_B_PTbskull_Wea_ar_6 {count=10;magazine="hlc_50rnd_300BLK_STANAG_EPR";};\
-    class _xx_KA_SCAR_H_20rnd_M993_AP_mag_B_PTbskull_Wea_ar_2_7 {count=5;magazine="KA_SCAR_H_20rnd_M993_AP_mag";};\
-    class _xx_kt_20Rnd_762x51_Ball_XM1158_AP_Mag_B_PTbskull_Wea_sniper_1 {count=15;magazine="kt_20Rnd_762x51_Ball_XM1158_AP_Mag";};\
-    class _xx_10Rnd_300WM_Magazine_B_PTbskull_Wea_sniper_3 {count=5;magazine="10Rnd_300WM_Magazine";};\
-    class _xx_kt_338_NM_AP_Mag_B_PTbskull_Wea_sniper_7_axmc {count=5;magazine="kt_338_NM_AP_Mag";};\
-    class _xx_KA_CS5_10rnd_M993_AP_mag_B_PTbskull_Wea_sniper_07_mcmillan {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
-    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO_B_PTbskull_Wea_sniper_8 {count=5;magazine="B_PTbskull_Wea_sniper_08_wa2000_AMMO";};\
-    class _xx_KA_DSR50_3Rnd_x2_M33_FMJ_Mag_B_PTbskull_Wea_sniper_9 {count=5;magazine="KA_DSR50_3Rnd_x2_M33_FMJ_Mag";};\
-    class _xx_130Rnd_338_Mag_B_PTbskull_Wea_mg_1 {count=2;magazine="130Rnd_338_Mag";};\
-    class _xx_150Rnd_93x64_Mag_B_PTbskull_Wea_mg_2 {count=2;magazine="150Rnd_93x64_Mag";};\
-    class _xx_30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow_B_PTbskull_Wea_SMG_01 {count=3;magazine="30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow";};\
-    class _xx_5Rnd_127x99_Ball_TAC50 {count=10;magazine="5Rnd_127x99_Ball_TAC50";};\
+    class _xx_JAS_RSASS_20rnd_M993_AP_mag {count=5;magazine="JAS_RSASS_20rnd_M993_AP_mag";};\
+    class _xx_hlc_50rnd_300BLK_STANAG_EPR {count=10;magazine="hlc_50rnd_300BLK_STANAG_EPR";};\
+    class _xx_KA_SCAR_H_20rnd_M993_AP_mag {count=5;magazine="KA_SCAR_H_20rnd_M993_AP_mag";};\
+    class _xx_10Rnd_300WM_Magazine {count=5;magazine="10Rnd_300WM_Magazine";};\
+    class _xx_KA_CS5_10rnd_M993_AP_mag {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
+    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_08_wa2000_AMMO;};\
+    class _xx_B_PTbskull_Wea_sniper_09_dsr50_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_09_dsr50_AMMO;};\
+    class _xx_130Rnd_338_Mag {count=2;magazine="130Rnd_338_Mag";};\
+    class _xx_150Rnd_93x64_Mag {count=2;magazine="150Rnd_93x64_Mag";};\
+    class _xx_30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow {count=3;magazine="30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow";};\
     class _xx_1Rnd_HE_Grenade_shell {count=6;magazine="1Rnd_HE_Grenade_shell";};\
     class _xx_HandGrenade {count=4;magazine="HandGrenade";};\
     class _xx_MiniGrenade {count=4;magazine="MiniGrenade";};\
@@ -219,7 +215,6 @@
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
-    class _xx_kt_tac50_silencer {count=1;name="kt_tac50_silencer";};\
     class _xx_DemoCharge_Remote_Mag {count=4;name="DemoCharge_Remote_Mag";};\
     class _xx_SatchelCharge_Remote_Mag {count=2;name="SatchelCharge_Remote_Mag";};\
     class _xx_ATMine_Range_Mag {count=3;name="ATMine_Range_Mag";};\
@@ -228,18 +223,15 @@
     class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};
 
 #define TRANSPORTWEAPONS\
-    class _xx_B_PTbskull_Wea_law_04 {count=1;weapon="B_PTbskull_Wea_law_03_titanaa";};\
-    class _xx_B_PTbskull_Wea_law_01 {count=1;weapon="B_PTbskull_Wea_law_01_titanat";};\
-    class _xx_B_PTbskull_Wea_ar_6 {count=1;weapon="B_PTbskull_Wea_ar_03_honey";};\
-    class _xx_B_PTbskull_Wea_ar_7 {count=1;weapon="B_PTbskull_Wea_ar_04_scarh";};\
-    class _xx_B_PTbskull_Wea_ar_10 {count=1;weapon="B_PTbskull_Wea_ar_06_spar17";};\
-    class _xx_B_PTbskull_Wea_br_1 {count=1;weapon="B_PTbskull_Wea_br_01_sig716";};\
-    class _xx_B_PTbskull_Wea_sniper_5 {count=1;weapon="B_PTbskull_Wea_sniper_05_ax50";};\
-    class _xx_B_PTbskull_Wea_sniper_11 {count=1;weapon="B_PTbskull_Wea_sniper_11_tac50";};
+    class _xx_B_PTbskull_Wea_law_03_titanaa {count=1;weapon="B_PTbskull_Wea_law_03_titanaa";};\
+    class _xx_B_PTbskull_Wea_law_01_titanat {count=1;weapon="B_PTbskull_Wea_law_01_titanat";};\
+    class _xx_B_PTbskull_Wea_ar_03_honey {count=1;weapon="B_PTbskull_Wea_ar_03_honey";};\
+    class _xx_B_PTbskull_Wea_ar_04_scarh {count=1;weapon="B_PTbskull_Wea_ar_04_scarh";};\
+    class _xx_B_PTbskull_Wea_ar_06_spar17 {count=1;weapon="B_PTbskull_Wea_ar_06_spar17";};
 
 #define TRANSPORTBACKPACKS\
-    class _xx_B_PTbskull_Veh_BACKUP_blackops_01 {count=2;backpack="B_PTbskull_Veh_Back_BACKUP_blackops_01";};\
-    class _xx_B_PTbskull_Veh_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
+    class _xx_B_PTbskull_Veh_Back_BACKUP_blackops_01 {count=2;backpack="B_PTbskull_Veh_Back_BACKUP_blackops_01";};\
+    class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
     class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
@@ -248,12 +240,13 @@
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
     class _xx_B_KA_Metal_Storm_AI_NATO {count=2;backpack="B_KA_Metal_Storm_AI_NATO";};\
-    class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};
+    class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};\
+    class _xx_B_PTbskull_Veh_Back_Fuel_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_Fuel_blackops_01";};
 
 #define TRANSPORTBACKPACKS_HELO\
     class _xx_B_Parachute {count=12;backpack="B_Parachute";};\
-    class _xx_B_PTbskull_Veh_BACKUP_blackops_01 {count=2;backpack="B_PTbskull_Veh_Back_BACKUP_blackops_01";};\
-    class _xx_B_PTbskull_Veh_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
+    class _xx_B_PTbskull_Veh_Back_BACKUP_blackops_01 {count=2;backpack="B_PTbskull_Veh_Back_BACKUP_blackops_01";};\
+    class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
     class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
@@ -262,7 +255,8 @@
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
     class _xx_B_KA_Metal_Storm_AI_NATO {count=2;backpack="B_KA_Metal_Storm_AI_NATO";};\
-    class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};
+    class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};\
+    class _xx_B_PTbskull_Veh_Back_Fuel_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_Fuel_blackops_01";};
 
 #define VIPER_BAG_ITEMS\
     class _xx_SwitchBlade_600_Tube_Woodland {count=2;name="SwitchBlade_600_Tube_Woodland";};\

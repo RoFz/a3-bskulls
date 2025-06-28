@@ -11,9 +11,6 @@ class CfgWeapons {
         displayName = "4-Five SD (.45 ACP)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class Single : Single {
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7
@@ -51,9 +48,6 @@ class CfgWeapons {
         displayName = "PiMB SD (9x18mm Makarov)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class Single : Single {
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7
@@ -77,15 +71,12 @@ class CfgWeapons {
     // Sniper #1: M110A1
     // Ammo: 20Rnd_762x51_Mag
     #define B_PTbskull_Wea_sniper_01_m110_AMMO "20Rnd_762x51_Mag"
-    class kt_M110A1_blk02; // leads to CfgMagazines.ACE_20Rnd_762x51_Mag_Tracer bug, CONFIRMED
-    class kt_M110A1_blk02_OCimport_01 : kt_M110A1_blk02 { scope = 0; scopeArsenal = 0; };
-    class B_PTbskull_Wea_sniper_01_m110 : kt_M110A1_blk02_OCimport_01 {
+    class kt_M110A1_khk02; // leads to CfgMagazines.ACE_20Rnd_762x51_Mag_Tracer bug, CONFIRMED
+    class kt_M110A1_khk02_OCimport_01 : kt_M110A1_khk02 { scope = 0; scopeArsenal = 0; };
+    class B_PTbskull_Wea_sniper_01_m110 : kt_M110A1_khk02_OCimport_01 {
         displayName = "H&K M110A1 SDMR (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         delete ACE_barrelLength;
         delete ACE_barrelTwist;
         delete ace_overheating_allowSwapBarrel;
@@ -119,40 +110,782 @@ class CfgWeapons {
     // Ammo: 5Rnd_APDS_338LM_Magazine_PLUS
     #define B_PTbskull_Wea_sniper_02_trg42_AMMO "5Rnd_APDS_338LM_Magazine_PLUS"
     class bnae_trg42_virtual;
-    class bnae_trg42_virtual_OCimport_01 : bnae_trg42_virtual { scope = 0; class EventHandlers; class Single; class WeaponSlotsInfo; };
-    class bnae_trg42_virtual_OCimport_02 : bnae_trg42_virtual_OCimport_01 {
-        class EventHandlers;
-        class Single;
-        class WeaponSlotsInfo : WeaponSlotsInfo {
-            class CowsSlot;
-        };
-    };
-    class B_PTbskull_Wea_sniper_02_trg42 : bnae_trg42_virtual_OCimport_02 {
+    // class bnae_trg42_virtual_OCimport_01 : bnae_trg42_virtual { access = 0; scope = 0; class EventHandlers; class Single; class WeaponSlotsInfo; };
+    // class bnae_trg42_virtual_OCimport_02 : bnae_trg42_virtual_OCimport_01 {
+    //     access = 0;
+    //     scope = 0;
+    //     class EventHandlers;
+    //     class Single;
+    //     class WeaponSlotsInfo : WeaponSlotsInfo {
+    //         class CowsSlot;
+    //     };
+    // };
+    class B_PTbskull_Wea_sniper_02_trg42 : bnae_trg42_virtual {
         displayName = "Sako TRG-42 (.338 LM)";
         author = "RoFz";
+        access = 0;
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         magazines[] += {"5Rnd_APDS_338LM_Magazine_PLUS"};
-        class Single : Single {
-            aiDispersionCoefX = 0.1; // 1.4
-            aiDispersionCoefY = 0.1; // 1.7
-        };
-        class WeaponSlotsInfo : WeaponSlotsInfo {
-            allowedslots[] = {901};
-            class CowsSlot : CowsSlot {
-                // {"bnae_scope_blk_virtual","bnae_scope_snd_virtual","bnae_scope_mtp_virtual","bnae_scope_v2_virtual","bnae_truglo_blk_virtual","bnae_truglo_snd_virtual","optic_LRPS","optic_LRPS_tna_F","optic_LRPS_ghex_F","optic_SOS","optic_SOS_khk_F","optic_DMS","optic_DMS_ghex_F","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan","optic_Hamr","optic_Hamr_khk_F","optic_Arco","optic_Arco_blk_F","optic_Arco_ghex_F","optic_ERCO_blk_F","optic_ERCO_khk_F","optic_ERCO_snd_F","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Holosight_blk_F","optic_Holosight_khk_F","optic_Holosight_smg_blk_F","optic_Holosight_smg_khk_F","optic_MRCO","optic_NVS","optic_Nightstalker","optic_tws","optic_tws_mg","kt_atacr06_tremoe3ti_raptar","optic_Nightstalker"};
-                // compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar"};
-                class compatibleItems {
-                    kt_atacr06_tremoe3ti_raptar = 1;
-                    optic_LRPS = 1;
-                    optic_LRPS_tna_F = 1;
-                    optic_LRPS_ghex_F = 1;
-                    optic_Nightstalker = 1;
-                };
-            };
-        };
+        // class Single : Single {
+        //     aiDispersionCoefX = 0.1; // 1.4
+        //     aiDispersionCoefY = 0.1; // 1.7
+        // };
+        // class WeaponSlotsInfo {
+        //     allowedslots[] = {901}; // allowedSlots[] = {};
+        //     mass = 100;
+        //     class CowsSlot {
+        //         iconPosition[] = {0.5,0.36};
+        //         iconScale = 0.2;
+        //         // compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar"}; // {"bnae_scope_blk_virtual","bnae_scope_snd_virtual","bnae_scope_mtp_virtual","bnae_scope_v2_virtual","bnae_truglo_blk_virtual","bnae_truglo_snd_virtual","optic_LRPS","optic_LRPS_tna_F","optic_LRPS_ghex_F","optic_SOS","optic_SOS_khk_F","optic_DMS","optic_DMS_ghex_F","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan","optic_Hamr","optic_Hamr_khk_F","optic_Arco","optic_Arco_blk_F","optic_Arco_ghex_F","optic_ERCO_blk_F","optic_ERCO_khk_F","optic_ERCO_snd_F","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Holosight_blk_F","optic_Holosight_khk_F","optic_Holosight_smg_blk_F","optic_Holosight_smg_khk_F","optic_MRCO","optic_NVS","optic_Nightstalker","optic_tws","optic_tws_mg"};
+        //         class compatibleItems
+        //         {
+        //             rhsusf_acc_LEUPOLDMK4 = 0;
+        //             rhsusf_acc_LEUPOLDMK4_d = 0;
+        //             rhsusf_acc_LEUPOLDMK4_wd = 0;
+        //             rhsusf_acc_M8541_low = 0;
+        //             rhsusf_acc_M8541_low_d = 0;
+        //             rhsusf_acc_M8541_low_wd = 0;
+        //             rhsusf_acc_premier_anpvs27 = 1;
+        //             rhsusf_acc_ACOG_anpvs27 = 1;
+        //             rhsusf_acc_T1_low_fwd = 1;
+        //             rhsusf_acc_T1_low_fwd_ak = 1;
+        //             rhsusf_acc_RM05_fwd = 1;
+        //             rhsusf_acc_RM05_fwd_ak = 1;
+        //             rhsusf_acc_mrds_fwd = 1;
+        //             rhsusf_acc_mrds_fwd_ak = 1;
+        //             rhsusf_acc_mrds_fwd_c = 1;
+        //             rhsusf_acc_mrds_fwd_c_ak = 1;
+        //             kt_8x_Dot_cqb = 1;
+        //             kt_8x_Dot03_cqb_up = 1;
+        //             kt_8x_Dot031 = 1;
+        //             kt_8x_Dot05_cqb_side = 1;
+        //             kt_8x_Dot051 = 1;
+        //             kt_8x_Dot_cqb_pip = 1;
+        //             kt_8x_Dot03_cqb_up_pip = 1;
+        //             kt_8x_Dot031_pip = 1;
+        //             kt_8x_Dot05_cqb_side_pip = 1;
+        //             kt_8x_Dot051_pip = 1;
+        //             kt_8x_Dot07_side = 1;
+        //             kt_8x_Dot071 = 1;
+        //             kt_8x_Dot08_up = 1;
+        //             kt_8x_Dot081 = 1;
+        //             kt_8x_Dot07_side_pip = 1;
+        //             kt_8x_Dot071_pip = 1;
+        //             kt_8x_Dot08_up_pip = 1;
+        //             kt_8x_Dot081_pip = 1;
+        //             kt_8x_Dot09_up = 1;
+        //             kt_8x_Dot091 = 1;
+        //             kt_8x_Dot09_up_pip = 1;
+        //             kt_8x_Dot091_pip = 1;
+        //             kt_8x_Dot10_up = 1;
+        //             kt_8x_Dot101 = 1;
+        //             kt_8x_Dot10_up_pip = 1;
+        //             kt_8x_Dot101_pip = 1;
+        //             kt_20x_Round_Dot04_ti_raptar = 1;
+        //             kt_20x_Round_Dot05_ti_raptar = 1;
+        //             kt_20x_Round_Dot041 = 1;
+        //             kt_20x_Round_Dot051 = 1;
+        //             kt_20x_Round_Dot04_ti_raptar_pip = 1;
+        //             kt_20x_Round_Dot05_ti_raptar_pip = 1;
+        //             kt_20x_Round_Dot041_pip = 1;
+        //             kt_20x_Round_Dot051_pip = 1;
+        //             kt_25x_PMII02_msr_ti = 1;
+        //             kt_25x_PMII03_msr_nv = 1;
+        //             kt_25x_PMII04_msr_ti_RAPTAR = 1;
+        //             kt_25x_PMII05_tremoe3_ti_RAPTAR = 1;
+        //             kt_25x_PMII06_msr_ti_RAPTAR = 1;
+        //             kt_25x_PMII07_tremoe3_ti_RAPTAR = 1;
+        //             kt_25x_PMII021 = 1;
+        //             kt_25x_PMII031 = 1;
+        //             kt_25x_PMII041 = 1;
+        //             kt_25x_PMII051 = 1;
+        //             kt_25x_PMII061 = 1;
+        //             kt_25x_PMII071 = 1;
+        //             kt_25x_PMII02_msr_ti_pip = 1;
+        //             kt_25x_PMII03_msr_nv_pip = 1;
+        //             kt_25x_PMII04_msr_ti_RAPTAR_pip = 1;
+        //             kt_25x_PMII05_tremoe3_ti_RAPTAR_pip = 1;
+        //             kt_25x_PMII06_msr_ti_RAPTAR_pip = 1;
+        //             kt_25x_PMII07_tremoe3_ti_RAPTAR_pip = 1;
+        //             kt_25x_PMII021_pip = 1;
+        //             kt_25x_PMII031_pip = 1;
+        //             kt_25x_PMII041_pip = 1;
+        //             kt_25x_PMII051_pip = 1;
+        //             kt_25x_PMII061_pip = 1;
+        //             kt_25x_PMII071_pip = 1;
+        //             kt_atacr05_msrti_raptar = 1;
+        //             kt_atacr06_tremoe3ti_raptar = 1;
+        //             kt_atacr051 = 1;
+        //             kt_atacr061 = 1;
+        //             kt_atacr07_tremoe3ti_raptar = 1;
+        //             kt_atacr071 = 1;
+        //             kt_specterDR = 1;
+        //             kt_specterDR_s = 1;
+        //             KA_M16A2_Scope = 1;
+        //             KA_M2_Scope = 1;
+        //             rhsusf_acc_LEUPOLDMK4_2 = 1;
+        //             rhsusf_acc_LEUPOLDMK4_2_MRDS = 1;
+        //             rhsusf_acc_LEUPOLDMK4_2_d = 1;
+        //             rhsusf_acc_premier = 1;
+        //             rhsusf_acc_premier_mrds = 1;
+        //             rhsusf_acc_premier_low = 1;
+        //             rhsusf_acc_M8541 = 1;
+        //             rhsusf_acc_M8541_d = 1;
+        //             rhsusf_acc_M8541_wd = 1;
+        //             rhsusf_acc_M8541_mrds = 1;
+        //             rhsusf_acc_nxs_3515x50_md = 1;
+        //             rhsusf_acc_nxs_3515x50f1_md = 1;
+        //             rhsusf_acc_nxs_3515x50f1_md_sun = 1;
+        //             rhsusf_acc_nxs_3515x50f1_h58 = 1;
+        //             rhsusf_acc_nxs_3515x50f1_h58_sun = 1;
+        //             rhsusf_acc_nxs_5522x56_md = 1;
+        //             rhsusf_acc_nxs_5522x56_md_sun = 1;
+        //             rhsusf_acc_EOTECH = 1;
+        //             rhsusf_acc_eotech_552 = 1;
+        //             rhsusf_acc_eotech_552_d = 1;
+        //             rhsusf_acc_eotech_552_wd = 1;
+        //             rhsusf_acc_eotech_xps3 = 1;
+        //             rhsusf_acc_g33_xps3 = 1;
+        //             rhsusf_acc_g33_xps3_flip = 1;
+        //             rhsusf_acc_g33_xps3_tan = 1;
+        //             rhsusf_acc_g33_xps3_tan_flip = 1;
+        //             rhsusf_acc_g33_t1 = 1;
+        //             rhsusf_acc_g33_t1_flip = 1;
+        //             rhsusf_acc_compm4 = 1;
+        //             rhsusf_acc_T1_high = 1;
+        //             rhsusf_acc_T1_low = 1;
+        //             rhsusf_acc_RX01 = 1;
+        //             rhsusf_acc_RX01_NoFilter = 1;
+        //             rhsusf_acc_RX01_tan = 1;
+        //             rhsusf_acc_RX01_NoFilter_tan = 1;
+        //             rhsusf_acc_RM05 = 1;
+        //             rhsusf_acc_mrds = 1;
+        //             rhsusf_acc_mrds_c = 1;
+        //             rhsusf_acc_ACOG = 1;
+        //             rhsusf_acc_ACOG2 = 1;
+        //             rhsusf_acc_ACOG3 = 1;
+        //             rhsusf_acc_ACOG_wd = 1;
+        //             rhsusf_acc_ACOG_d = 1;
+        //             rhsusf_acc_ACOG_sa = 1;
+        //             rhsusf_acc_ACOG_USMC = 1;
+        //             rhsusf_acc_ACOG2_USMC = 1;
+        //             rhsusf_acc_ACOG3_USMC = 1;
+        //             rhsusf_acc_ACOG_RMR = 1;
+        //             rhsusf_acc_ACOG_PIP = 1;
+        //             rhsusf_acc_ACOG2_pip = 1;
+        //             rhsusf_acc_ACOG3_pip = 1;
+        //             rhsusf_acc_ACOG_wd_pip = 1;
+        //             rhsusf_acc_ACOG_d_pip = 1;
+        //             rhsusf_acc_ACOG_sa_pip = 1;
+        //             rhsusf_acc_ACOG_USMC_pip = 1;
+        //             rhsusf_acc_ACOG2_USMC_pip = 1;
+        //             rhsusf_acc_ACOG3_USMC_pip = 1;
+        //             rhsusf_acc_ACOG_RMR_PIP = 1;
+        //             rhsusf_acc_ACOG_3d = 1;
+        //             rhsusf_acc_ACOG2_3d = 1;
+        //             rhsusf_acc_ACOG3_3d = 1;
+        //             rhsusf_acc_ACOG_wd_3d = 1;
+        //             rhsusf_acc_ACOG_d_3d = 1;
+        //             rhsusf_acc_ACOG_sa_3d = 1;
+        //             rhsusf_acc_ACOG_USMC_3d = 1;
+        //             rhsusf_acc_ACOG2_USMC_3d = 1;
+        //             rhsusf_acc_ACOG3_USMC_3d = 1;
+        //             rhsusf_acc_ACOG_RMR_3d = 1;
+        //             rhsusf_acc_ELCAN = 1;
+        //             rhsusf_acc_ELCAN_ard = 1;
+        //             rhsusf_acc_ELCAN_3d = 1;
+        //             rhsusf_acc_ELCAN_ard_3d = 1;
+        //             rhsusf_acc_ELCAN_PIP = 1;
+        //             rhsusf_acc_ELCAN_ard_PIP = 1;
+        //             rhsusf_acc_su230 = 1;
+        //             rhsusf_acc_su230_mrds = 1;
+        //             rhsusf_acc_su230a = 1;
+        //             rhsusf_acc_su230a_mrds = 1;
+        //             rhsusf_acc_su230_c = 1;
+        //             rhsusf_acc_su230_mrds_c = 1;
+        //             rhsusf_acc_su230a_c = 1;
+        //             rhsusf_acc_su230a_mrds_c = 1;
+        //             rhsusf_acc_su230_3d = 1;
+        //             rhsusf_acc_su230_mrds_3d = 1;
+        //             rhsusf_acc_su230a_3d = 1;
+        //             rhsusf_acc_su230a_mrds_3d = 1;
+        //             rhsusf_acc_su230_c_3d = 1;
+        //             rhsusf_acc_su230_mrds_c_3d = 1;
+        //             rhsusf_acc_su230a_c_3d = 1;
+        //             rhsusf_acc_su230a_mrds_c_3d = 1;
+        //             rhsusf_acc_SpecterDR = 1;
+        //             rhsusf_acc_SpecterDR_3d = 1;
+        //             rhsusf_acc_SpecterDR_A = 1;
+        //             rhsusf_acc_SpecterDR_A_3d = 1;
+        //             rhsusf_acc_SpecterDR_CX = 1;
+        //             rhsusf_acc_SpecterDR_CX_3D = 1;
+        //             rhsusf_acc_SpecterDR_pvs27 = 1;
+        //             rhsusf_acc_SpecterDR_D = 1;
+        //             rhsusf_acc_SpecterDR_OD = 1;
+        //             rhsusf_acc_SpecterDR_D_3D = 1;
+        //             rhsusf_acc_SpecterDR_OD_3D = 1;
+        //             rhsusf_acc_anpvs27 = 1;
+        //             rhsusf_acc_anpas13gv1 = 1;
+        //             rhsusf_acc_M2A1 = 1;
+        //             rhsusf_acc_ACOG_MDO = 1;
+        //             optic_Nightstalker = 1;
+        //             optic_tws = 1;
+        //             optic_tws_mg = 1;
+        //             optic_NVS = 1;
+        //             optic_SOS = 1;
+        //             optic_SOS_khk_F = 1;
+        //             optic_MRCO = 1;
+        //             optic_MRCO_broken = 1;
+        //             optic_Arco = 1;
+        //             optic_Arco_ghex_F = 1;
+        //             optic_Arco_blk_F = 1;
+        //             optic_Arco_AK_arid_F = 1;
+        //             optic_Arco_AK_blk_F = 1;
+        //             optic_Arco_AK_lush_F = 1;
+        //             optic_Arco_arid_F = 1;
+        //             optic_Arco_lush_F = 1;
+        //             optic_aco = 1;
+        //             optic_ACO_grn = 1;
+        //             optic_Aco_broken = 1;
+        //             optic_aco_smg = 1;
+        //             optic_ACO_grn_smg = 1;
+        //             optic_hamr = 1;
+        //             optic_Hamr_khk_F = 1;
+        //             optic_Hamr_broken = 1;
+        //             optic_Holosight = 1;
+        //             optic_Holosight_blk_F = 1;
+        //             optic_Holosight_khk_F = 1;
+        //             optic_Holosight_arid_F = 1;
+        //             optic_Holosight_lush_F = 1;
+        //             optic_Holosight_smg = 1;
+        //             optic_Holosight_smg_blk_F = 1;
+        //             optic_Holosight_smg_khk_F = 1;
+        //             optic_DMS = 1;
+        //             optic_DMS_ghex_F = 1;
+        //             optic_DMS_weathered_F = 1;
+        //             optic_DMS_weathered_Kir_F = 1;
+        //             optic_LRPS = 1;
+        //             optic_LRPS_ghex_F = 1;
+        //             optic_LRPS_tna_F = 1;
+        //             optic_AMS = 1;
+        //             optic_AMS_khk = 1;
+        //             optic_AMS_snd = 1;
+        //             optic_KHS_blk = 1;
+        //             optic_KHS_hex = 1;
+        //             optic_KHS_old = 1;
+        //             optic_KHS_tan = 1;
+        //             optic_ERCO_blk_F = 1;
+        //             optic_ERCO_khk_F = 1;
+        //             optic_ERCO_snd_F = 1;
+        //             optic_Yorris = 1;
+        //             gm_blits_ris_blk = 1;
+        //             gm_c79a1_blk = 1;
+        //             gm_c79a1_oli = 1;
+        //             gm_feroz24_ris_blk = 1;
+        //             gm_feroz51_ris_oli = 1;
+        //             gm_ls1500_ir_ris_blk = 1;
+        //             gm_ls1500_red_ris_blk = 1;
+        //             gm_ls45_ir_ris_blk = 1;
+        //             gm_ls45_red_ris_blk = 1;
+        //             gm_lsminiv_ir_ris_blk = 1;
+        //             gm_lsminiv_red_ris_blk = 1;
+        //             gm_maglite_3d_ris_blk = 1;
+        //             gm_rv_ris_blk = 1;
+        //             gm_streamlight_sl20_ris_blk = 1;
+        //             gm_streamlight_sl20_ris_brn = 1;
+        //             gm_zf10x42_ris_blk = 1;
+        //             gm_zf10x42_ris_oli = 1;
+        //             KA_Original_Sight_Carry_Handle = 1;
+        //             KA_Original_Sight_Flip_Up_Sight = 1;
+        //             KA_Elcan_black = 1;
+        //             KA_Elcan_sand = 1;
+        //             KA_Elcan_black_Folding_Sight_45_Degree = 1;
+        //             KA_Elcan_sand_Folding_Sight_45_Degree = 1;
+        //             KA_Rakurs = 1;
+        //             hlc_optic_LeupoldM3A = 1;
+        //             hlc_optic_ZF95Base = 1;
+        //             hlc_optic_VOMZ3d = 1;
+        //             hlc_optic_VOMZ = 1;
+        //             hlc_optic_HensoldtZO_Hi = 1;
+        //             hlc_optic_HensoldtZO_Hi_2D = 1;
+        //             hlc_optic_HensoldtZO_lo = 1;
+        //             hlc_optic_HensoldtZO_lo_2D = 1;
+        //             hlc_optic_HensoldtZO_lo_Docter = 1;
+        //             hlc_optic_HensoldtZO_lo_Docter_2D = 1;
+        //             hlc_optic_HensoldtZO_Hi_Docter = 1;
+        //             hlc_optic_HensoldtZO_Hi_Docter_2D = 1;
+        //             HLC_optic_DocterR = 1;
+        //             hlc_optic_ATACR_Offset = 1;
+        //             hlc_optic_ATACR = 1;
+        //             HLC_optic_Aimpoint3000 = 1;
+        //             HLC_optic_Aimpoint3000_Br4 = 1;
+        //             HLC_optic_Aimpoint3000_Br3 = 1;
+        //             HLC_optic_Aimpoint3000_Br2 = 1;
+        //             HLC_optic_Aimpoint3000_Br1 = 1;
+        //             HLC_optic_Aimpoint3000_Magnifier = 1;
+        //             HLC_optic_Aimpoint3000_Magnifier_Br4 = 1;
+        //             HLC_optic_Aimpoint3000_Magnifier_Br3 = 1;
+        //             HLC_optic_Aimpoint3000_Magnifier_Br2 = 1;
+        //             HLC_optic_Aimpoint3000_Magnifier_Br1 = 1;
+        //             HLC_optic_Aimpoint5000 = 1;
+        //             HLC_optic_Aimpoint5000_Br4 = 1;
+        //             HLC_optic_Aimpoint5000_Br3 = 1;
+        //             HLC_optic_Aimpoint5000_Br2 = 1;
+        //             HLC_optic_Aimpoint5000_Br1 = 1;
+        //             HLC_optic_Aimpoint5000_Sunshade = 1;
+        //             HLC_optic_aimpoint5000_Sunshade_Br4 = 1;
+        //             HLC_optic_aimpoint5000_Sunshade_Br3 = 1;
+        //             HLC_optic_aimpoint5000_Sunshade_Br2 = 1;
+        //             HLC_optic_aimpoint5000_Sunshade_Br1 = 1;
+        //             HLC_optic_Aimpoint5000_Magnifier = 1;
+        //             HLC_optic_aimpoint5000_Magnifier_Br4 = 1;
+        //             HLC_optic_aimpoint5000_Magnifier_Br3 = 1;
+        //             HLC_optic_aimpoint5000_Magnifier_Br2 = 1;
+        //             HLC_optic_aimpoint5000_Magnifier_Br1 = 1;
+        //             HLC_optic_ISM1400A7 = 1;
+        //             Tier1_Eotech551_Black = 1;
+        //             Tier1_Eotech551_3xMag_Black_Up = 1;
+        //             Tier1_Eotech551_3xMag_Black_Down = 1;
+        //             Tier1_Eotech551_L3_Black_Up = 1;
+        //             Tier1_Eotech551_L3_Black_Down = 1;
+        //             Tier1_Eotech551_Riser_Black = 1;
+        //             Tier1_Eotech551_3xMag_Riser_Black_Up = 1;
+        //             Tier1_Eotech551_3xMag_Riser_Black_Down = 1;
+        //             Tier1_Eotech551_L3_Riser_Black_Up = 1;
+        //             Tier1_Eotech551_L3_Riser_Black_Down = 1;
+        //             Tier1_Eotech551_Desert = 1;
+        //             Tier1_Eotech551_3xMag_Desert_Up = 1;
+        //             Tier1_Eotech551_3xMag_Desert_Down = 1;
+        //             Tier1_Eotech551_L3_Desert_Up = 1;
+        //             Tier1_Eotech551_L3_Desert_Down = 1;
+        //             Tier1_Eotech551_Riser_Desert = 1;
+        //             Tier1_Eotech551_3xMag_Riser_Desert_Up = 1;
+        //             Tier1_Eotech551_3xMag_Riser_Desert_Down = 1;
+        //             Tier1_Eotech551_L3_Riser_Desert_Up = 1;
+        //             Tier1_Eotech551_L3_Riser_Desert_Down = 1;
+        //             Tier1_Eotech553_Black = 1;
+        //             Tier1_Eotech553_3xMag_Black_Up = 1;
+        //             Tier1_Eotech553_3xMag_Black_Down = 1;
+        //             Tier1_Eotech553_L3_Black_Up = 1;
+        //             Tier1_Eotech553_L3_Black_Down = 1;
+        //             Tier1_Eotech553_Tan = 1;
+        //             Tier1_Eotech553_3xMag_Tan_Up = 1;
+        //             Tier1_Eotech553_3xMag_Tan_Down = 1;
+        //             Tier1_Eotech553_L3_TanBlack_Up = 1;
+        //             Tier1_Eotech553_L3_TanBlack_Down = 1;
+        //             Tier1_EXPS3_0_Black = 1;
+        //             Tier1_EXPS3_0_3xMag_Black_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Black_Down = 1;
+        //             Tier1_EXPS3_0_G33_Black_Up = 1;
+        //             Tier1_EXPS3_0_G33_Black_Down = 1;
+        //             Tier1_EXPS3_0_Riser_Black = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Black_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Black_Down = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Black_Up = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Black_Down = 1;
+        //             Tier1_EXPS3_0_Desert = 1;
+        //             Tier1_EXPS3_0_3xMag_Desert_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Desert_Down = 1;
+        //             Tier1_EXPS3_0_G33_Desert_Up = 1;
+        //             Tier1_EXPS3_0_G33_Desert_Down = 1;
+        //             Tier1_EXPS3_0_Riser_Desert = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Desert_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Desert_Down = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Desert_Up = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Desert_Down = 1;
+        //             Tier1_EXPS3_0_Tano = 1;
+        //             Tier1_EXPS3_0_3xMag_Tano_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Tano_Down = 1;
+        //             Tier1_EXPS3_0_G33_Tano_Up = 1;
+        //             Tier1_EXPS3_0_G33_Tano_Down = 1;
+        //             Tier1_EXPS3_0_Riser_Tano = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Tano_Up = 1;
+        //             Tier1_EXPS3_0_3xMag_Riser_Tano_Down = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Tano_Up = 1;
+        //             Tier1_EXPS3_0_G33_Riser_Tano_Down = 1;
+        //             Tier1_EXPS3_2_Black = 1;
+        //             Tier1_EXPS3_2_3xMag_Black_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Black_Down = 1;
+        //             Tier1_EXPS3_2_G33_Black_Up = 1;
+        //             Tier1_EXPS3_2_G33_Black_Down = 1;
+        //             Tier1_EXPS3_2_Riser_Black = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Black_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Black_Down = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Black_Up = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Black_Down = 1;
+        //             Tier1_EXPS3_2_Desert = 1;
+        //             Tier1_EXPS3_2_3xMag_Desert_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Desert_Down = 1;
+        //             Tier1_EXPS3_2_G33_Desert_Up = 1;
+        //             Tier1_EXPS3_2_G33_Desert_Down = 1;
+        //             Tier1_EXPS3_2_Riser_Desert = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Desert_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Desert_Down = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Desert_Up = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Desert_Down = 1;
+        //             Tier1_EXPS3_2_Tano = 1;
+        //             Tier1_EXPS3_2_3xMag_Tano_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Tano_Down = 1;
+        //             Tier1_EXPS3_2_G33_Tano_Up = 1;
+        //             Tier1_EXPS3_2_G33_Tano_Down = 1;
+        //             Tier1_EXPS3_2_Riser_Tano = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Tano_Up = 1;
+        //             Tier1_EXPS3_2_3xMag_Riser_Tano_Down = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Tano_Up = 1;
+        //             Tier1_EXPS3_2_G33_Riser_Tano_Down = 1;
+        //             Tier1_MicroT1_Low_Black = 1;
+        //             Tier1_MicroT1_Leap_Black = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Black_Up = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Black_Down = 1;
+        //             Tier1_MicroT1_Leap_Riser_Black = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Riser_Black_Up = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Riser_Black_Down = 1;
+        //             Tier1_MicroT1_Low_Desert = 1;
+        //             Tier1_MicroT1_Leap_Desert = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Desert_Up = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Desert_Down = 1;
+        //             Tier1_MicroT1_Leap_Riser_Desert = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Riser_Desert_Up = 1;
+        //             Tier1_MicroT1_Leap_3xMag_Riser_Desert_Down = 1;
+        //             Tier1_MicroT2_Low_Black = 1;
+        //             Tier1_MicroT2_Black = 1;
+        //             Tier1_MicroT2_3xMag_Black_Up = 1;
+        //             Tier1_MicroT2_3xMag_Black_Down = 1;
+        //             Tier1_MicroT2_G33_Black_Up = 1;
+        //             Tier1_MicroT2_G33_Black_Down = 1;
+        //             Tier1_MicroT2_Riser_Black = 1;
+        //             Tier1_MicroT2_3xMag_Riser_Black_Up = 1;
+        //             Tier1_MicroT2_3xMag_Riser_Black_Down = 1;
+        //             Tier1_MicroT2_G33_Riser_Black_Up = 1;
+        //             Tier1_MicroT2_G33_Riser_Black_Down = 1;
+        //             Tier1_MicroT2_Low_Tan = 1;
+        //             Tier1_MicroT2_Tan = 1;
+        //             Tier1_MicroT2_3xMag_Tan_Up = 1;
+        //             Tier1_MicroT2_3xMag_Tan_Down = 1;
+        //             Tier1_MicroT2_G33_Tan_Up = 1;
+        //             Tier1_MicroT2_G33_Tan_Down = 1;
+        //             Tier1_MicroT2_Riser_Tan = 1;
+        //             Tier1_MicroT2_3xMag_Riser_Tan_Up = 1;
+        //             Tier1_MicroT2_3xMag_Riser_Tan_Down = 1;
+        //             Tier1_MicroT2_G33_Riser_Tan_Up = 1;
+        //             Tier1_MicroT2_G33_Riser_Tan_Down = 1;
+        //             Tier1_MicroT2_G33_Desert_Up = 1;
+        //             Tier1_MicroT2_G33_Desert_Down = 1;
+        //             Tier1_MicroT2_G33_Riser_Desert_Up = 1;
+        //             Tier1_MicroT2_G33_Riser_Desert_Down = 1;
+        //             Tier1_MicroT2_Leap_Black = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Black_Up = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Black_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Black_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Black_Down = 1;
+        //             Tier1_MicroT2_Leap_Riser_Black = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Riser_Black_Up = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Riser_Black_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Black_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Black_Down = 1;
+        //             Tier1_MicroT2_Leap_Tan = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Tan_Up = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Tan_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Tan_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Tan_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_TanBlack_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_TanBlack_Down = 1;
+        //             Tier1_MicroT2_Leap_Riser_Tan = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Riser_Tan_Up = 1;
+        //             Tier1_MicroT2_Leap_3xMag_Riser_Tan_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Tan_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Tan_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_TanBlack_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_TanBlack_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Desert_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Desert_Down = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Desert_Up = 1;
+        //             Tier1_MicroT2_Leap_G33_Riser_Desert_Down = 1;
+        //             Tier1_Romeo4T_BCD_Low_Black = 1;
+        //             Tier1_Romeo4T_BCD_4D_Low_Black = 1;
+        //             Tier1_Romeo4T_BCD_Black = 1;
+        //             Tier1_Romeo4T_BCD_4D_Black = 1;
+        //             Tier1_Romeo4T_BCD_G33_Black_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Black_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_Black_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Black_Down = 1;
+        //             Tier1_Romeo4T_BCD_Riser_Black = 1;
+        //             Tier1_Romeo4T_BCD_4D_Riser_Black = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_Black_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_Black_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_Black_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_Black_Down = 1;
+        //             Tier1_Romeo4T_BCD_Low_Tan = 1;
+        //             Tier1_Romeo4T_BCD_4D_Low_Tan = 1;
+        //             Tier1_Romeo4T_BCD_Tan = 1;
+        //             Tier1_Romeo4T_BCD_4D_Tan = 1;
+        //             Tier1_Romeo4T_BCD_G33_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCD_G33_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCD_Riser_Tan = 1;
+        //             Tier1_Romeo4T_BCD_4D_Riser_Tan = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCD_G33_Riser_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCD_4D_G33_Riser_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCQ_Low_Black = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Low_Black = 1;
+        //             Tier1_Romeo4T_BCQ_Black = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Black = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Black_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Black_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Black_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Black_Down = 1;
+        //             Tier1_Romeo4T_BCQ_Riser_Black = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Riser_Black = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_Black_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_Black_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_Black_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_Black_Down = 1;
+        //             Tier1_Romeo4T_BCQ_Low_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Low_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCQ_G33_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCQ_Riser_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_2D_Riser_Tan = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_Tan_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_Tan_Down = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_TanBlack_Up = 1;
+        //             Tier1_Romeo4T_BCQ_G33_Riser_TanBlack_Down = 1;
+        //             Tier1_Romeo4T_BCQ_2D_G33_Riser_TanBlack_Down = 1;
+        //             Tier1_Razor_Gen2_16 = 1;
+        //             Tier1_Razor_Gen2_16_PIP = 1;
+        //             Tier1_Razor_Gen2_16_CQB = 1;
+        //             Tier1_Razor_Gen2_16_CQB_PIP = 1;
+        //             Tier1_Razor_Gen2_16_ADM = 1;
+        //             Tier1_Razor_Gen2_16_ADM_PIP = 1;
+        //             Tier1_Razor_Gen2_16_ADM_CQB = 1;
+        //             Tier1_Razor_Gen2_16_ADM_CQB_PIP = 1;
+        //             Tier1_Razor_Gen2_16_Geissele = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_PIP = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_CQB = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_CQB_PIP = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Docter = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Docter_PIP = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Docter_CQB = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Docter_CQB_PIP = 1;
+        //             Tier1_Razor_Gen3_110_ADM = 1;
+        //             Tier1_Razor_Gen3_110_ADM_PIP = 1;
+        //             Tier1_Razor_Gen3_110_ADM_CQB = 1;
+        //             Tier1_Razor_Gen3_110_ADM_CQB_PIP = 1;
+        //             Tier1_Razor_Gen3_110_ADM_T2 = 1;
+        //             Tier1_Razor_Gen3_110_ADM_T2_PIP = 1;
+        //             Tier1_Razor_Gen3_110_ADM_T2_CQB = 1;
+        //             Tier1_Razor_Gen3_110_ADM_T2_CQB_PIP = 1;
+        //             Tier1_Razor_Gen3_110_Geissele = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_CQB = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_PIP = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_CQB_PIP = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Docter = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Docter_CQB = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Docter_PIP = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Docter_CQB_PIP = 1;
+        //             Tier1_LeupoldM3A_ADM_Black = 1;
+        //             Tier1_LeupoldM3A_ADM_Desert = 1;
+        //             Tier1_LeupoldM3A_ADM_Tan = 1;
+        //             Tier1_LeupoldM3A_ADM_T2_Black = 1;
+        //             Tier1_LeupoldM3A_ADM_T2_Desert = 1;
+        //             Tier1_LeupoldM3A_ADM_T2_Tan = 1;
+        //             Tier1_LeupoldM3A_Geissele_Black = 1;
+        //             Tier1_LeupoldM3A_Geissele_Desert = 1;
+        //             Tier1_LeupoldM3A_Geissele_Tan = 1;
+        //             Tier1_LeupoldM3A_Geissele_Docter_Black = 1;
+        //             Tier1_LeupoldM3A_Geissele_Docter_Desert = 1;
+        //             Tier1_LeupoldM3A_Geissele_Docter_Tan = 1;
+        //             Tier1_ANPVS10_Tan = 1;
+        //             Tier1_Elcan_156_C1_FDE_2D = 1;
+        //             Tier1_Elcan_156_C1_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C1_Black_2D = 1;
+        //             Tier1_Elcan_156_C1_Black_PIP = 1;
+        //             Tier1_Elcan_156_C1_ARD_FDE_2D = 1;
+        //             Tier1_Elcan_156_C1_ARD_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C1_ARD_Black_2D = 1;
+        //             Tier1_Elcan_156_C1_ARD_Black_PIP = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_FDE_2D = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_Black_2D = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_Black_PIP = 1;
+        //             Tier1_Elcan_156_C1_Docter_FDE_2D = 1;
+        //             Tier1_Elcan_156_C1_Docter_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C1_Docter_Black_2D = 1;
+        //             Tier1_Elcan_156_C1_Docter_Black_PIP = 1;
+        //             Tier1_Elcan_156_C2_FDE_2D = 1;
+        //             Tier1_Elcan_156_C2_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C2_Black_2D = 1;
+        //             Tier1_Elcan_156_C2_Black_PIP = 1;
+        //             Tier1_Elcan_156_C2_ARD_FDE_2D = 1;
+        //             Tier1_Elcan_156_C2_ARD_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C2_ARD_Black_2D = 1;
+        //             Tier1_Elcan_156_C2_ARD_Black_PIP = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_FDE_2D = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_Black_2D = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_Black_PIP = 1;
+        //             Tier1_Elcan_156_C2_Docter_FDE_2D = 1;
+        //             Tier1_Elcan_156_C2_Docter_FDE_PIP = 1;
+        //             Tier1_Elcan_156_C2_Docter_Black_2D = 1;
+        //             Tier1_Elcan_156_C2_Docter_Black_PIP = 1;
+        //             Tier1_Elcan_156_C1_FDE = 1;
+        //             Tier1_Elcan_156_C1_Black = 1;
+        //             Tier1_Elcan_156_C1_ARD_FDE = 1;
+        //             Tier1_Elcan_156_C1_ARD_Black = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_FDE = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_Black = 1;
+        //             Tier1_Elcan_156_C1_Docter_FDE = 1;
+        //             Tier1_Elcan_156_C1_Docter_Black = 1;
+        //             Tier1_Elcan_156_C2_FDE = 1;
+        //             Tier1_Elcan_156_C2_Black = 1;
+        //             Tier1_Elcan_156_C2_ARD_FDE = 1;
+        //             Tier1_Elcan_156_C2_ARD_Black = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_FDE = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_Black = 1;
+        //             Tier1_Elcan_156_C2_Docter_FDE = 1;
+        //             Tier1_Elcan_156_C2_Docter_Black = 1;
+        //             Tier1_Shortdot_ADM_Black = 1;
+        //             Tier1_Shortdot_ADM_Black_PIP = 1;
+        //             Tier1_Shortdot_ADM_Black_CQB = 1;
+        //             Tier1_Shortdot_ADM_Black_CQB_PIP = 1;
+        //             Tier1_Shortdot_ADM_Tan = 1;
+        //             Tier1_Shortdot_ADM_Tan_PIP = 1;
+        //             Tier1_Shortdot_ADM_Tan_CQB = 1;
+        //             Tier1_Shortdot_ADM_Tan_CQB_PIP = 1;
+        //             Tier1_Shortdot_ADM_Desert = 1;
+        //             Tier1_Shortdot_ADM_Desert_PIP = 1;
+        //             Tier1_Shortdot_ADM_Desert_CQB = 1;
+        //             Tier1_Shortdot_ADM_Desert_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Black = 1;
+        //             Tier1_Shortdot_Geissele_Black_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Black_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Black_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Tan = 1;
+        //             Tier1_Shortdot_Geissele_Tan_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Tan_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Tan_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Desert = 1;
+        //             Tier1_Shortdot_Geissele_Desert_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Desert_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Desert_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Black = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Black_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Black_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Black_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Tan = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Tan_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Tan_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Tan_CQB_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Desert = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Desert_PIP = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Desert_CQB = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Desert_CQB_PIP = 1;
+        //             Tier1_ATACR18_ADM_Black = 1;
+        //             Tier1_ATACR18_ADM_Black_PIP = 1;
+        //             Tier1_ATACR18_ADM_Black_CQB = 1;
+        //             Tier1_ATACR18_ADM_Black_CQB_PIP = 1;
+        //             Tier1_ATACR18_ADM_Desert = 1;
+        //             Tier1_ATACR18_ADM_Desert_PIP = 1;
+        //             Tier1_ATACR18_ADM_Desert_CQB = 1;
+        //             Tier1_ATACR18_ADM_Desert_CQB_PIP = 1;
+        //             Tier1_ATACR18_ADM_T1_Black = 1;
+        //             Tier1_ATACR18_ADM_T1_Black_PIP = 1;
+        //             Tier1_ATACR18_ADM_T1_Black_CQB = 1;
+        //             Tier1_ATACR18_ADM_T1_Black_CQB_PIP = 1;
+        //             Tier1_ATACR18_ADM_T1_Desert = 1;
+        //             Tier1_ATACR18_ADM_T1_Desert_PIP = 1;
+        //             Tier1_ATACR18_ADM_T1_Desert_CQB = 1;
+        //             Tier1_ATACR18_ADM_T1_Desert_CQB_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Black = 1;
+        //             Tier1_ATACR18_Geissele_Black_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Black_CQB = 1;
+        //             Tier1_ATACR18_Geissele_Black_CQB_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Desert = 1;
+        //             Tier1_ATACR18_Geissele_Desert_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Desert_CQB = 1;
+        //             Tier1_ATACR18_Geissele_Desert_CQB_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Black = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Black_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Black_CQB = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Black_CQB_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Desert = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Desert_PIP = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Desert_CQB = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Desert_CQB_PIP = 1;
+        //             KA_557_Magnifier_UP = 1;
+        //             KA_557_Magnifier_DOWN = 1;
+        //             KA_Eotech553 = 1;
+        //             Tier1_Razor_Gen2_16_Vanilla = 1;
+        //             Tier1_Razor_Gen2_16_ADM_Vanilla = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Vanilla = 1;
+        //             Tier1_Razor_Gen2_16_Geissele_Docter_Vanilla = 1;
+        //             Tier1_Razor_Gen3_110_ADM_Vanilla = 1;
+        //             Tier1_Razor_Gen3_110_ADM_T2_Vanilla = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Vanilla = 1;
+        //             Tier1_Razor_Gen3_110_Geissele_Docter_Vanilla = 1;
+        //             Tier1_Shortdot_ADM_Black_Vanilla = 1;
+        //             Tier1_Shortdot_ADM_Tan_Vanilla = 1;
+        //             Tier1_Shortdot_ADM_Desert_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Black_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Tan_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Desert_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Black_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Tan_Vanilla = 1;
+        //             Tier1_Shortdot_Geissele_Docter_Desert_Vanilla = 1;
+        //             Tier1_ATACR18_ADM_Black_Vanilla = 1;
+        //             Tier1_ATACR18_ADM_Desert_Vanilla = 1;
+        //             Tier1_ATACR18_ADM_T1_Black_Vanilla = 1;
+        //             Tier1_ATACR18_ADM_T1_Desert_Vanilla = 1;
+        //             Tier1_ATACR18_Geissele_Black_Vanilla = 1;
+        //             Tier1_ATACR18_Geissele_Desert_Vanilla = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Black_Vanilla = 1;
+        //             Tier1_ATACR18_Geissele_Docter_Desert_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_ARD_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_ARD_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_Docter_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_Docter_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C1_ARD_Docter_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_ARD_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_ARD_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_Docter_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_Docter_Black_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_FDE_Vanilla = 1;
+        //             Tier1_Elcan_156_C2_ARD_Docter_Black_Vanilla = 1;
+        //         };
+        //         linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+        //         displayName = "Optics Slot";
+        //         iconPicture = "\a3\weapons_f\Data\ui\attachment_top";
+        //         iconPinpoint = "Bottom";
+        //         scope = 0;
+        //     };
+        // };
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -160,8 +893,9 @@ class CfgWeapons {
             };
             class LinkedItemsOptic {
                 slot = "CowsSlot";
-                item = "kt_atacr06_tremoe3ti_raptar";
+                item = "optic_LRPS";
             };
+            // class LinkedItemsAcc { };
             class LinkedItemsUnder {
                 slot = "UnderBarrelSlot";
                 item = "bnae_bipod_v2_virtual";
@@ -173,8 +907,10 @@ class CfgWeapons {
     // Ammo: 10Rnd_300WM_Magazine
     #define B_PTbskull_Wea_sniper_03_falkor_AMMO "10Rnd_300WM_Magazine"
     class bnae_falkor_snd_virtual;
-    class bnae_falkor_snd_virtual_OCimport_01 : bnae_falkor_snd_virtual { scope = 0; class EventHandlers; class WeaponSlotsInfo; };
+    class bnae_falkor_snd_virtual_OCimport_01 : bnae_falkor_snd_virtual { access = 0; scope = 0; class EventHandlers; class WeaponSlotsInfo; };
     class bnae_falkor_snd_virtual_OCimport_02 : bnae_falkor_snd_virtual_OCimport_01 {
+        access = 0;
+        scope = 0;
         class EventHandlers;
         class WeaponSlotsInfo : WeaponSlotsInfo {
             class CowsSlot;
@@ -183,14 +919,19 @@ class CfgWeapons {
     class B_PTbskull_Wea_sniper_03_falkor : bnae_falkor_snd_virtual_OCimport_02 {
         displayName = "Falkor Petra (.300 WM)";
         author = "RoFz";
+        access = 0;
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class WeaponSlotsInfo : WeaponSlotsInfo {
             allowedslots[] = {901};
             class CowsSlot : CowsSlot {
                 compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar", "optic_Nightstalker"};
+                class compatibleItems {
+                    kt_atacr06_tremoe3ti_raptar = 1;
+                    optic_LRPS = 1;
+                    optic_LRPS_tna_F = 1;
+                    optic_LRPS_ghex_F = 1;
+                    optic_Nightstalker = 1;
+                };
             };
         };
         class LinkedItems {
@@ -213,40 +954,6 @@ class CfgWeapons {
         };
     };
 
-    // Sniper #5: AX50SD
-    // Ammo: 5Rnd_127x99_Ball_TAC50 (soft targets)
-    #define B_PTbskull_Wea_sniper_05_ax50_AMMO "5Rnd_127x99_Ball_TAC50"
-    class ax50_bolt2;
-    class B_PTbskull_Wea_sniper_05_ax50 : ax50_bolt2 {
-        displayName = "AX-50 (12.7x99mm)";
-        author = "RoFz";
-        scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
-        // maxRange = 500;
-        // maxRangeProbab = 0.04;
-        // midRange = 150;
-        // midRangeProbab = 0.58;
-        // minRange = 1;
-        // minRangeProbab = 0.3;
-        magazines[] = {"5Rnd_127x108_Mag","5Rnd_127x108_APDS_Mag","5Rnd_127x99_AXMX_TAC50","5Rnd_127x99_API_TAC50","5Rnd_127x99_Ball_TAC50","5Rnd_127x108_APDS_TAC50","5Rnd_127x108_Ball_TAC50"};
-        class LinkedItems {
-            // class LinkedItemsMuzzle {
-            //     slot = "MuzzleSlot";
-            //     item = "kt_tac50_silencer";
-            // };
-            class LinkedItemsOptic {
-                slot = "CowsSlot";
-                item = "kt_atacr06_tremoe3ti_raptar";
-            };
-            class LinkedItemsUnder {
-                slot = "UnderBarrelSlot";
-                item = "bipod_01_F_blk";
-            };
-        };
-    };
-
     // Sniper #7: KA_CS5 (#1 Imp)
     // Ammo: KA_CS5_10rnd_M993_AP_mag
     #define B_PTbskull_Wea_sniper_07_mcmillan_AMMO "KA_CS5_10rnd_M993_AP_mag"
@@ -254,10 +961,8 @@ class CfgWeapons {
     class B_PTbskull_Wea_sniper_07_mcmillan : KA_CS5 {
         displayName = "McMillan CS5 (7.62x51mm NATO)";
         author = "RoFz";
+        access = 0;
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -285,10 +990,8 @@ class CfgWeapons {
     class B_PTbskull_Wea_sniper_08_wa2000 : KA_WA2000 {
         displayName = "Walther WA 2000 (.300 WM)";
         author = "RoFz";
+        access = 0;
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -312,10 +1015,8 @@ class CfgWeapons {
     class B_PTbskull_Wea_sniper_09_dsr50 : KA_DSR50 {
         displayName = "DSR-50 (.50 BMG)";
         author = "RoFz";
+        access = 0;
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -337,9 +1038,6 @@ class CfgWeapons {
         displayName = "Cyrus (9.3x64mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -360,29 +1058,6 @@ class CfgWeapons {
         };
     };
 
-    // Sniper #11: McMillan TAC-50
-    // Ammo: 10Rnd_127x99_API_TAC50 or 10Rnd_127x99_AXMX_TAC50
-    class kt_tac50_04;
-    class B_PTbskull_Wea_sniper_11_tac50 : kt_tac50_04 {
-        displayName = "McMillan TAC-50 (.50 BMG)";
-        author = "RoFz";
-        scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
-        magazines[] = {"5Rnd_127x108_Mag","5Rnd_127x108_APDS_Mag","5Rnd_127x99_AXMX_TAC50","5Rnd_127x99_API_TAC50","5Rnd_127x99_Ball_TAC50","5Rnd_127x108_APDS_TAC50","5Rnd_127x108_Ball_TAC50"};
-        class LinkedItems {
-            class LinkedItemsOptic {
-                slot = "CowsSlot";
-                item = "kt_atacr06_tremoe3ti_raptar";
-            };
-            class LinkedItemsUnder {
-                slot = "UnderBarrelSlot";
-                item = "bipod_01_F_blk";
-            };
-        };
-    };
-
     // Sniper #12: MAR-10 .338
     // Ammo: 10Rnd_338_Mag
     #define B_PTbskull_Wea_sniper_12_mar10_AMMO "10Rnd_338_Mag"
@@ -392,9 +1067,6 @@ class CfgWeapons {
         displayName = "MAR-10 (.338 LM)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class WeaponSlotsInfo : WeaponSlotsInfo {
             allowedslots[] = {901};
             mass = 250;
@@ -425,9 +1097,6 @@ class CfgWeapons {
         displayName = "Winchester Model 1897 Carbine (12-gauge)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -456,9 +1125,6 @@ class CfgWeapons {
         displayName = "SPAS (12-gauge)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
     };
 
     // AR #1: SCAR-H (#1 Imp)
@@ -468,9 +1134,6 @@ class CfgWeapons {
         displayName = "FN SCAR-H (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -495,9 +1158,6 @@ class CfgWeapons {
         displayName = "Remington R11 RSASS (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -525,9 +1185,6 @@ class CfgWeapons {
         displayName = "AAC Honey Badger (.300 AAC Blackout)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -552,9 +1209,6 @@ class CfgWeapons {
         displayName = "SCAR-H 13in. SD (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -579,9 +1233,6 @@ class CfgWeapons {
         displayName = "Type 115 (6.5x39mm + .50 BW)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -603,15 +1254,12 @@ class CfgWeapons {
     };
 
     // AR #6:
-    // Ammo: kt_20Rnd_762x51_Ball_XM1158_AP_Mag
+    // Ammo: 20Rnd_762x51_Mag
     class arifle_SPAR_03_blk_F;
     class B_PTbskull_Wea_ar_06_spar17 : arifle_SPAR_03_blk_F {
         displayName = "SPAR-17 (7.62x51mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -632,36 +1280,6 @@ class CfgWeapons {
         };
     };
 
-    // BR #1:
-    // Ammo: kt_20Rnd_65_Creedmoor_108gr_AP_mag (AP) or 20Rnd_57x28_Sb193 (subsonic)
-    #define B_PTbskull_Wea_br_01_sig716_AMMO "kt_20Rnd_65_Creedmoor_108gr_AP_mag"
-    class sig716_02_65;
-    class B_PTbskull_Wea_br_01_sig716 : sig716_02_65 {
-        displayName = "SIG716 (6.5x48mm CM)";
-        author = "RoFz";
-        scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
-        magazines[] = {"kt_20Rnd_65_Creedmoor_147gr_ELD_Match_mag","kt_20Rnd_65_Creedmoor_108gr_AP_mag"};
-        class LinkedItems {
-            class LinkedItemsMuzzle {
-                slot = "MuzzleSlot";
-                item = "kt_m110a1_silencer_06";
-            };
-            class LinkedItemsOptic {
-                slot = "CowsSlot";
-                item = "kt_8x_Dot10_up";
-                // item = "optic_Nightstalker";
-            };
-            class LinkedItemsAcc {
-                slot = "PointerSlot";
-                item = "acc_pointer_IR";
-            };
-            // class LinkedItemsUnder { };
-        };
-    };
-
     // MG #1:
     // Ammo: 130Rnd_338_Mag
     class MMG_02_black_F;
@@ -670,9 +1288,6 @@ class CfgWeapons {
         displayName = "SPMG (.338 NM)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class close : manual
         {
             burst = 12;
@@ -706,9 +1321,6 @@ class CfgWeapons {
         displayName = "Navid (9.3x64mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class close : manual
         {
             burst = 12;
@@ -743,9 +1355,6 @@ class CfgWeapons {
         displayName = "RPK-12 (7.62x39mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -774,9 +1383,6 @@ class CfgWeapons {
         displayName="Vermin SMG (.45 ACP)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems
         {
             class LinkedItemsMuzzle {
@@ -802,9 +1408,6 @@ class CfgWeapons {
         displayName="Sting SMG (9mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
         class LinkedItems
         {
             class LinkedItemsMuzzle {
@@ -837,9 +1440,6 @@ class CfgWeapons {
         displayName="Titan+ MPRL Compact (127mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
 
 
 
@@ -904,9 +1504,6 @@ class CfgWeapons {
         displayName="M72A3 LAW (66mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
     };
 
     // LAW #3: Titan AA
@@ -916,9 +1513,6 @@ class CfgWeapons {
         displayName="Titan MPRL (127mm)";
         author = "RoFz";
         scope = 2;
-        scopeArsenal = 2;
-        scopeCurator = 2;
-        access = 1;
     };
 
     // Artillery #1: M4 (Howitzer 155mm)
