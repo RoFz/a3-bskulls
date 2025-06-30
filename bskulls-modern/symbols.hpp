@@ -262,6 +262,7 @@
     class _xx_SwitchBlade_600_Tube_Woodland {count=2;name="SwitchBlade_600_Tube_Woodland";};\
     class _xx_ToolKit {count=1;name="ToolKit";};\
     class _xx_optic_AMS {count=1;name="optic_AMS";};\
+    class _xx_optic_Nightstalker {count=1;name="optic_Nightstalker";};\
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
