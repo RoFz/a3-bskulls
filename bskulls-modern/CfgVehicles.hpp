@@ -13,34 +13,6 @@ class CfgVehicles
     class B_Plane_CAS_01_dynamicLoadout_F_OCimport_01 : B_Plane_CAS_01_dynamicLoadout_F { scope = 0; class EventHandlers; };
     class B_Plane_CAS_01_dynamicLoadout_F_OCimport_02 : B_Plane_CAS_01_dynamicLoadout_F_OCimport_01 { scope = 0; class EventHandlers; };
 
-    class B_UAV_02_dynamicLoadout_F;
-    class B_UAV_02_dynamicLoadout_F_OCimport_01 : B_UAV_02_dynamicLoadout_F { scope = 0; class EventHandlers; class Turrets; class Components;};
-    class B_UAV_02_dynamicLoadout_F_OCimport_02 : B_UAV_02_dynamicLoadout_F_OCimport_01
-    {
-        class EventHandlers;
-        class Components : Components {
-            class TransportPylonsComponent;
-        };
-        class Turrets : Turrets
-        {
-            class MainTurret;
-        };
-    };
-
-    class B_UAV_05_F;
-    class B_UAV_05_F_OCimport_01 : B_UAV_05_F { scope = 0; class EventHandlers; class Turrets; class Components;};
-    class B_UAV_05_F_OCimport_02 : B_UAV_05_F_OCimport_01
-    {
-        class EventHandlers;
-        class Components : Components {
-            class TransportPylonsComponent;
-        };
-        class Turrets : Turrets
-        {
-            class MainTurret;
-        };
-    };
-
     class B_UGV_01_rcws_F;
     class B_UGV_01_rcws_F_OCimport_01 : B_UGV_01_rcws_F { scope = 0; class EventHandlers; class Turrets; };
     class B_UGV_01_rcws_F_OCimport_02 : B_UGV_01_rcws_F_OCimport_01
@@ -52,9 +24,6 @@ class CfgVehicles
             class CargoTurret_01;
         };
     };
-
-    class B_UAV_01_F;
-    class B_UAV_01_F_OCimport_01 : B_UAV_01_F { scope = 0; class EventHandlers; };
 
     class B_Heli_Transport_03_F;
     class B_Heli_Transport_03_F_OCimport_01 : B_Heli_Transport_03_F { scope = 0; class EventHandlers; class Turrets; };
@@ -472,6 +441,19 @@ class CfgVehicles
         };
     };
 
+    class B_UAV_02_dynamicLoadout_F;
+    class B_UAV_02_dynamicLoadout_F_OCimport_01 : B_UAV_02_dynamicLoadout_F { scope = 0; class EventHandlers; class Turrets; class Components;};
+    class B_UAV_02_dynamicLoadout_F_OCimport_02 : B_UAV_02_dynamicLoadout_F_OCimport_01
+    {
+        class EventHandlers;
+        class Components : Components {
+            class TransportPylonsComponent;
+        };
+        class Turrets : Turrets
+        {
+            class MainTurret;
+        };
+    };
     class B_PTbskull_Veh_Drone_blackops_01 : B_UAV_02_dynamicLoadout_F_OCimport_02
     {
         author = "RoFz";
@@ -484,7 +466,7 @@ class CfgVehicles
         receiveRemoteTargets = 1;
         reportRemoteTargets = 1;
         crew = "B_PTbskull_Veh_UAV_AI_AIR";
-        hiddenSelections[] += { "insignia" };
+        // hiddenSelections[] += { "insignia" };
         class Turrets : Turrets
         {
             class MainTurret : MainTurret {
@@ -651,7 +633,17 @@ class CfgVehicles
         };
     };
 
-    class B_PTbskull_Veh_Drone_blackops_03 : B_UAV_01_F_OCimport_01
+    class B_UAV_01_F;
+    class B_UAV_01_F_OCimport_01 : B_UAV_01_F { scope = 0; class EventHandlers; class Turrets;};
+    class B_UAV_01_F_OCimport_02 : B_UAV_01_F_OCimport_01
+    {
+        class EventHandlers;
+        class Turrets : Turrets
+        {
+            class MainTurret;
+        };
+    };
+    class B_PTbskull_Veh_Drone_blackops_03 : B_UAV_01_F_OCimport_02
     {
         author = "RoFz";
         scope = 2;
@@ -662,12 +654,134 @@ class CfgVehicles
         crew = "B_PTbskull_Veh_UAV_AI_AIR";
         maxSpeed = 180; // 100
         typicalCargo[] = {"B_PTbskull_Veh_UAV_AI_AIR"};
+        class Turrets : Turrets {
+            class MainTurret : MainTurret {
+                gunnerType = "";
+                class OpticsIn {
+                    class Wide // 0.5x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.5;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.5;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.5;
+                        opticsDisplayName = "W";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Medium // 2.5x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.1;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.1;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.1;
+                        opticsDisplayName = "M";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Short // ?x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.0357;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.0357;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.0357;
+                        opticsDisplayName = "S";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Narrow // 8.7x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.0286;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.0286;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.0286;
+                        opticsDisplayName = "N";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class SuperNarrow // ??x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.01;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.01;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.01;
+                        opticsDisplayName = "SN";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class UltraNarrow // 250x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.001;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.001;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.001;
+                        opticsDisplayName = "UN";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                };
+            };
+        };
         class EventHandlers : EventHandlers
         {
             init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVariable['daoExclude',TRUE,TRUE]; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
         };
     };
 
+    class B_UAV_05_F;
+    class B_UAV_05_F_OCimport_01 : B_UAV_05_F { scope = 0; class EventHandlers; class Turrets; class Components;};
+    class B_UAV_05_F_OCimport_02 : B_UAV_05_F_OCimport_01
+    {
+        class EventHandlers;
+        class Components : Components {
+            class TransportPylonsComponent;
+        };
+        class Turrets : Turrets
+        {
+            class MainTurret;
+        };
+    };
     class B_PTbskull_Veh_Drone_blackops_04 : B_UAV_05_F_OCimport_02
     {
         author = "RoFz";
@@ -680,10 +794,115 @@ class CfgVehicles
         receiveRemoteTargets = 1;
         reportRemoteTargets = 1;
         crew = "B_PTbskull_Veh_UAV_AI_AIR";
-        hiddenSelections[] += { "insignia" };
-        class Turrets : Turrets
-        {
-            class MainTurret : MainTurret { gunnerType = ""; };
+        // hiddenSelections[] += { "insignia" };
+        class Turrets : Turrets {
+            class MainTurret : MainTurret {
+                gunnerType = "";
+                class OpticsIn {
+                    class Wide // 0.5x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.5;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.5;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.5;
+                        opticsDisplayName = "W";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Medium // 2.5x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.1;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.1;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.1;
+                        opticsDisplayName = "M";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Short // ?x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.0357;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.0357;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.0357;
+                        opticsDisplayName = "S";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class Narrow // 8.7x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.0286;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.0286;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.0286;
+                        opticsDisplayName = "N";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class SuperNarrow // ??x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.01;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.01;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.01;
+                        opticsDisplayName = "SN";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                    class UltraNarrow // 250x
+                    {
+                        directionStabilized = 1;
+                        gunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                        initAngleX = 0;
+                        initAngleY = 0;
+                        initFov = 0.001;
+                        maxAngleX = 30;
+                        maxAngleY = 100;
+                        maxFov = 0.001;
+                        minAngleX = -30;
+                        minAngleY = -100;
+                        minFov = 0.001;
+                        opticsDisplayName = "UN";
+                        thermalMode[] = {0,1};
+                        visionMode[] = {"Normal","NVG","Ti"};
+                    };
+                };
+            };
         };
         class Components : Components {
             class TransportPylonsComponent : TransportPylonsComponent {

@@ -655,3 +655,51 @@ systemChat format ["_objNetId = (%1), _obj = (%2), _grp = (%3), vehicleVarName =
 // 	"u11",
 // 	"u12"
 // };
+
+
+       class Single : Single {};
+        class single_close_optics1 : Single
+        {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 1; // 2
+            aiRateOfFireDispersion = 0; // 1
+            aiRateOfFireDistance = 300; // 500
+            maxRange = 500; // 600
+            maxRangeProbab = 0.01; // 0.04
+            midRange = 300; // 300
+            midRangeProbab = 0.8; // 0.58
+            minRange = 50; // 30
+            minRangeProbab = 0.05; // 0.25
+            requiredOpticType = 1; // -1
+            showToPlayer = 0; // 1
+        };
+        class single_medium_optics1 : single_close_optics1
+        {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 1; // 2
+            aiRateOfFireDispersion = 0; // 1
+            aiRateOfFireDistance = 500; // 500
+            maxRange = 700; // 600
+            maxRangeProbab = 0.05; // 0.04
+            midRange = 500; // 300
+            midRangeProbab = 0.7; // 0.58
+            minRange = 300; // 30
+            minRangeProbab = 0.05; // 0.25
+        };
+		class single_far_optics1 : single_medium_optics1
+		{
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 1; // 2
+            aiRateOfFireDispersion = 0; // 1
+            aiRateOfFireDistance = 1000; // 500
+            maxRange = 1500; // 600
+            maxRangeProbab = 0.05; // 0.04
+            midRange = 1000; // 300
+            midRangeProbab = 0.5; // 0.58
+            minRange = 500; // 30
+            minRangeProbab = 0.05; // 0.25
+            requiredOpticType = 2; // -1
+		};

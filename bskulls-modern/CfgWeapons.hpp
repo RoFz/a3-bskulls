@@ -110,11 +110,12 @@ class CfgWeapons {
     // Ammo: 5Rnd_APDS_338LM_Magazine_PLUS
     #define B_PTbskull_Wea_sniper_02_trg42_AMMO "5Rnd_APDS_338LM_Magazine_PLUS"
     class bnae_trg42_virtual;
-    class bnae_trg42_virtual_OCimport_01 : bnae_trg42_virtual { access = 0; scope = 0; class EventHandlers; class WeaponSlotsInfo; };
+    class bnae_trg42_virtual_OCimport_01 : bnae_trg42_virtual { access = 0; scope = 0; class EventHandlers; class WeaponSlotsInfo; class Single; };
     class bnae_trg42_virtual_OCimport_02 : bnae_trg42_virtual_OCimport_01 {
         access = 0;
         scope = 0;
         class EventHandlers;
+        class Single : Single {};
         class WeaponSlotsInfo : WeaponSlotsInfo {
             class CowsSlot;
         };
@@ -129,13 +130,13 @@ class CfgWeapons {
             allowedslots[] = {901};
             class CowsSlot : CowsSlot {
                 compatibleitems[] += {"kt_atacr06_tremoe3ti_raptar", "optic_Nightstalker"};
-                class compatibleItems {
-                    kt_atacr06_tremoe3ti_raptar = 1;
-                    optic_LRPS = 1;
-                    optic_LRPS_tna_F = 1;
-                    optic_LRPS_ghex_F = 1;
-                    optic_Nightstalker = 1;
-                };
+                // class compatibleItems {
+                //     kt_atacr06_tremoe3ti_raptar = 1;
+                //     optic_LRPS = 1;
+                //     optic_LRPS_tna_F = 1;
+                //     optic_LRPS_ghex_F = 1;
+                //     optic_Nightstalker = 1;
+                // };
             };
         };
          class LinkedItems {
@@ -151,6 +152,52 @@ class CfgWeapons {
                 slot = "UnderBarrelSlot";
                 item = "bnae_bipod_v2_virtual";
             };
+        };
+        class Single : Single {};
+        class medium_optic2 : Single
+        {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 2; // 6
+            aiRateOfFireDispersion = 0.1; // 1
+            aiRateOfFireDistance = 1000;
+            dispersion = 0.00001; // 0.00044
+            maxRange = 1000;
+            maxRangeProbab = 0.9; // 0.3
+            midRange = 750;
+            midRangeProbab = 0.9; // 0.7
+            minRange = 250;
+            minRangeProbab = 0.6; // 0.1
+        };
+        class far_optic1 : Single
+        {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 1; // 5
+            aiRateOfFireDispersion = 0.1; // 1
+            aiRateOfFireDistance = 700; // 700
+            dispersion = 0.00001; // 0.00044
+            maxRange = 1000;
+            maxRangeProbab = 0.9; // 0.3
+            midRange = 500;
+            midRangeProbab = 0.9; // 0.7
+            minRange = 150;
+            minRangeProbab = 0.6; // 0.1
+        };
+        class far_optic2 : far_optic1
+        {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFire = 3; // 8
+            aiRateOfFireDispersion = 0.1; // 1
+            aiRateOfFireDistance = 2000; // 2000
+            dispersion = 0.00001; // 0.00044
+            maxRange = 2000;
+            maxRangeProbab = 0.9; // 0.3
+            midRange = 1050;
+            midRangeProbab = 0.9; // 0.7
+            minRange = 500;
+            minRangeProbab = 0.9; // 0.1
         };
     };
 
