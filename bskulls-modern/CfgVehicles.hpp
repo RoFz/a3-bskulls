@@ -1304,7 +1304,8 @@ class CfgVehicles
         // editorSubcategory = "rhs_EdSubcat_truck";
         side = 1;
         faction = "bskull_fc_mo";
-        crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
+        crew = "B_PTbskull_Veh_Unit_Martinez_blackops_02";
+        // crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
         hiddenSelections[] += { "insignia" };
         armorGlass = 1.5;
         class EventHandlers : EventHandlers
@@ -1323,7 +1324,8 @@ class CfgVehicles
         // editorSubcategory = "rhs_EdSubcat_truck";
         side = 1;
         faction = "bskull_fc_mo";
-        crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
+        crew = "B_PTbskull_Veh_Unit_Elias_blackops_02";
+        // crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
         hiddenSelections[] += { "insignia" };
         armorGlass = 1.5;
         class EventHandlers : EventHandlers
@@ -1447,6 +1449,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1455,7 +1458,7 @@ class CfgVehicles
         author = "RoFz";
         scope = 2;
         scopeCurator = 2;
-        displayName = "01 Viper (TL) (HB300AAC + Benelli + ASP-1)";
+        displayName = "01 Viper (TL) (HB300AAC + Benelli + ASP-2)";
         side = 1;
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
@@ -1466,12 +1469,13 @@ class CfgVehicles
         respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {MAG_5(FirstAidKit),"MineDetector"};
         respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
-        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_10(B_PTbskull_Wea_sniper_06_asp1_AMMO),MAG_6(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
-        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_10(B_PTbskull_Wea_sniper_06_asp1_AMMO),MAG_6(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_10(B_PTbskull_Wea_sniper_11_asp2_AMMO),MAG_6(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_9(hlc_50rnd_300BLK_STANAG_EPR),MAG_10(B_PTbskull_Wea_sniper_11_asp2_AMMO),MAG_6(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_07";
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1497,6 +1501,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1522,6 +1527,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1547,6 +1553,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1572,6 +1579,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1587,6 +1595,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1602,8 +1611,91 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
+
+    class B_PTbskull_Veh_Unit_Viper_blackops_08 : B_recon_TL_F_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "01 Viper (TL) (Sting + Benelli + M320) (Ghillie, Jungle)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
+        uniformClass = "U_B_T_FullGhillie_tna_F";
+        linkedItems[] = {"B_PTbskull_Vest_blackops_02",VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
+        respawnlinkedItems[] = {"B_PTbskull_Vest_blackops_02",VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit),"MineDetector"};
+        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_10(B_PTbskull_Wea_sniper_04_m320_AMMO),MAG_5(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_11(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_10(B_PTbskull_Wea_sniper_04_m320_AMMO),MAG_5(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_Viper_blackops_09 : B_recon_TL_F_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "01 Viper (TL) (MR-C + Benelli + M320) (Ghillie, Semi-Arid)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
+        uniformClass = "U_B_FullGhillie_sard";
+        linkedItems[] = {"B_PTbskull_Vest_blackops_02",VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
+        respawnlinkedItems[] = {"B_PTbskull_Vest_blackops_02",VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit),"MineDetector"};
+        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),MAG_10(B_PTbskull_Wea_sniper_04_m320_AMMO),MAG_5(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),MAG_10(B_PTbskull_Wea_sniper_04_m320_AMMO),MAG_5(B_PTbskull_Wea_shotgun_3_benelli_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),MAG_2(MiniGrenade)};
+        backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_Fox_blackops_01 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "02 Fox (Medic) (Sting)";
+        side = 1;
+        formationX = 2;
+        formationZ = 2;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
+        uniformClass = DEFAULT_UNIFORM_GIRLS;
+        linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+            // killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
+        };
+    };
+
 
     class B_PTbskull_Veh_Unit_Fox_blackops_02 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
     {
@@ -1629,7 +1721,8 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
-            killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+            // killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
         };
     };
 
@@ -1657,9 +1750,69 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
-            killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+            // killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
         };
     };
+
+    class B_PTbskull_Veh_Unit_Fox_blackops_04 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "02 Fox (Medic) (ASP-2)";
+        side = 1;
+        formationX = 2;
+        formationZ = 2;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
+        uniformClass = DEFAULT_UNIFORM_GIRLS;
+        linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_sniper_11_asp2","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_11_asp2","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_sniper_11_asp2_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(B_PTbskull_Wea_sniper_11_asp2_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+            // killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_Fox_blackops_05 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "02 Fox (Medic) (MR-C)";
+        side = 1;
+        formationX = 2;
+        formationZ = 2;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
+        uniformClass = DEFAULT_UNIFORM_GIRLS;
+        linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+            // killed = "if (local (_this select 0)) then {_unit = _this select 0;removeAllActions _unit;};"
+        };
+    };
+
 
     class B_PTbskull_Veh_Unit_Vega_blackops_01 : B_Recon_Sharpshooter_F_OCimport_02
     {
@@ -1683,6 +1836,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1708,6 +1862,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1723,6 +1878,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1738,6 +1894,33 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_McKendrick_blackops_01 : B_recon_exp_F_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "04 McKendrick (UAV) (Sting)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
+        uniformClass = DEFAULT_UNIFORM;
+        linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
+        respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit),"MineDetector"};
+        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1763,6 +1946,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1788,6 +1972,33 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_McKendrick_blackops_04 : B_recon_exp_F_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "04 McKendrick (UAV) (MR-C)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
+        uniformClass = DEFAULT_UNIFORM;
+        linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
+        respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit),"MineDetector"};
+        respawnItems[] = {MAG_5(FirstAidKit),"MineDetector"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1813,6 +2024,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\5_jackson.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1838,8 +2050,36 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\5_jackson.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
+
+    class B_PTbskull_Veh_Unit_Jackson_blackops_03 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "05 Jackson (Medic) (MR-C)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Aviator"};
+        uniformClass = DEFAULT_UNIFORM_GIRLS;
+        linkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
+        respawnlinkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\5_jackson.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
 
     class B_PTbskull_Veh_Unit_Frost_blackops_01 : B_Patrol_HeavyGunner_F_OCimport_02
     {
@@ -1863,6 +2103,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1888,6 +2129,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1913,6 +2155,33 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_Hawkins_blackops_01 : B_recon_LAT_F_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "07 Hawkins (AT) (SPAR-17)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        identityTypes[] = {"Head_NATO","LanguageENG_F","G_SSU_Bandana_Sports_Black_Beast"};
+        uniformClass = DEFAULT_UNIFORM;
+        linkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
+        respawnlinkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
+        weapons[] = {"B_PTbskull_Wea_ar_06_spar17","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_06_spar17","B_PTbskull_Wea_law_01_titanat","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_15(20Rnd_762x51_Mag)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_PLUS",MAG_15(20Rnd_762x51_Mag)};
+        backpack = "B_PTbskull_Veh_Back_AT_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\7_hawkins.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1938,6 +2207,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\7_hawkins.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1964,6 +2234,34 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\8_sykes.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
+        };
+    };
+
+    class B_PTbskull_Veh_Unit_Sykes_blackops_02 : TCGM_Stealth_B_CTRG_Soldier_SC_OCimport_02
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "08 Sykes (UAV) (MR-C)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        icon = "iconWomanEngineer";
+        identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Tactical_Clear"};
+        uniformClass = DEFAULT_UNIFORM_GIRLS;
+        linkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
+        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_law_02_m72","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {MAG_5(FirstAidKit)};
+        respawnItems[] = {MAG_5(FirstAidKit)};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_ar_07_mrc_AMMO),MAG_3(3Rnd_HE_Grenade_shell),MAG_3(KA_40mm_M814),MAG_3(KA_40mm_M14),MAG_3(1Rnd_Flechette_Cartridge_Grenade_shell),"gm_1Rnd_66mm_heat_m72a3"};
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\8_sykes.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -1989,6 +2287,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\9_everett.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2014,6 +2313,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\9_everett.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2039,6 +2339,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\10_taylor.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2066,6 +2367,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\11_liu.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2093,6 +2395,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\11_liu.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2118,6 +2421,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\12_makarova.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2143,6 +2447,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\13_elias.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2168,6 +2473,7 @@ class CfgVehicles
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\14_martinez.sqf';"
+            hit = "_this execVM '\bskulls-modern\scripts\hit.sqf';"
         };
     };
 
@@ -2729,7 +3035,7 @@ class CfgVehicles
     class B_PTbskull_Veh_Back_TL_blackops_07: THC_Bag50 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper ASP-1 + Benelli M1014)";
+        displayName = "Assault Pack (Viper ASP-2 + Benelli M1014)";
         maximumLoad = 2000;
         hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
         model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
@@ -2740,17 +3046,41 @@ class CfgVehicles
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_06_asp1_AMMO;};
+            class _xx_B_PTbskull_Wea_sniper_11_asp2_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_11_asp2_AMMO;};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=B_PTbskull_Wea_shotgun_3_benelli_AMMO;};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
-            class _xx_B_PTbskull_Wea_sniper_06_asp1 {count=1;weapon="B_PTbskull_Wea_sniper_06_asp1";};
+            class _xx_B_PTbskull_Wea_sniper_11_asp2 {count=1;weapon="B_PTbskull_Wea_sniper_11_asp2";};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli {count=1;weapon="B_PTbskull_Wea_shotgun_3_benelli";};
             class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
         };
     };
 
+    class B_PTbskull_Veh_Back_TL_blackops_08: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (Viper M320 + Benelli M1014)";
+        maximumLoad = 2000;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+        class TransportMagazines {
+            class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
+            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
+            class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
+            class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
+            class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
+            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=1;magazine=B_PTbskull_Wea_sniper_04_m320_AMMO;};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=B_PTbskull_Wea_shotgun_3_benelli_AMMO;};
+        };
+        class TransportItems {VIPER_BAG_ITEMS};
+        class TransportWeapons{
+            class _xx_B_PTbskull_Wea_sniper_04_m320 {count=1;weapon="B_PTbskull_Wea_sniper_04_m320";};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli {count=1;weapon="B_PTbskull_Wea_shotgun_3_benelli";};
+            class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
+        };
+    };
 
     class B_PTbskull_Veh_Back_MEDIC_blackops_01: THC_Bag50 {
         author = "RoFz";
@@ -2787,7 +3117,7 @@ class CfgVehicles
         };
         class TransportItems { };
         class TransportWeapons {
-            class _xx_B_PTbskull_Wea_SMG_02 {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
         };
     };
 
@@ -2807,7 +3137,7 @@ class CfgVehicles
         };
         class TransportItems { };
         class TransportWeapons {
-            class _xx_B_PTbskull_Wea_SMG_02 {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
         };
     };
 
@@ -2822,7 +3152,6 @@ class CfgVehicles
         class TransportMagazines {
         };
         class TransportItems {
-            class _xx_MineDetector {count=1;name="MineDetector";};
             class _xx_ToolKit {count=1;name="ToolKit";};
             class _xx_DemoCharge_Remote_Mag {count=2;name="DemoCharge_Remote_Mag";};
             class _xx_SatchelCharge_Remote_Mag {count=2;name="SatchelCharge_Remote_Mag";};

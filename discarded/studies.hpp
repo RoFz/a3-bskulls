@@ -703,3 +703,95 @@ systemChat format ["_objNetId = (%1), _obj = (%2), _grp = (%3), vehicleVarName =
             minRangeProbab = 0.05; // 0.25
             requiredOpticType = 2; // -1
 		};
+
+
+
+airport_0_pos = daoairportpositionlist select 0;
+_pos1 = [airport_0_pos, 100, 500, 3, 0, 20, 0] call BIS_fnc_findSafePos;
+_pos1; // [14827.1,16092.1]
+
+_pos2 = [player, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;
+_pos2; // [14545.1,18354.5]
+
+
+
+dro_setplayernovoice == {
+DRO_setPlayerNoVoiceLogic = true;
+[] spawn {
+while {DRO_setPlayerNoVoiceLogic} do {
+waitUntil {sleep 300;(toLower (speaker player) != "novoice")};
+hintSilent format ["You have a voice: %2 \n the voice will be removed",name player, speaker player];
+[player,"NoVoice"] remoteExec ["setSpeaker",0,name player];
+};
+};
+}
+
+            // inserttype == HELI, HALO
+            // daoairportpositionlist == [[14382.4,15924.6],[11358.5,11441.2],[9268.16,21575.1],[21075.5,7098.75],[27162.3,24910.7],[23149.6,18400]]
+            // enemyfaction == "IND_F"
+            // playersside == "WEST"
+            // enemyfactionname == "AAF"
+            // startpos == [6323.3,10835,0]
+            // playergroup == [u1,u2,u3,u4,<NULL-object>,<NULL-object>,<NULL-object>,<NULL-object>,<NULL-object>,<NULL-object>,<NULL-object>,<NULL-object>]
+            // centerpos == [14037.6,16143.3,-20.5917]
+
+
+{
+private ["_turrets", "_vehicleMinRange", "_vehicleMaxRange", "_turretMinRange", "_turretMaxRange"];
+_turrets = [(_this select 0)] call BIS_fnc_getTurrets;
+_vehicleMinRange = 100000;
+_vehicleMaxRange = 0;
+{
+_modesToTest = [];
+_thisTurret = _x;
+_weapons = ((_thisTurret >> "weapons") call BIS_fnc_GetCfgData);
+{
+_thisWeapon = _x;
+_modes = ((configfile >> "CfgWeapons" >> _thisWeapon >> "modes") call BIS_fnc_GetCfgData);
+{
+_weaponChild = _x;
+_weaponChildName = (configName _x);
+{
+if (_x == _weaponChildName) then {
+_modesToTest pushBackUnique _weaponChild;
+};
+} forEach _modes;
+} forEach ([(configfile >> "CfgWeapons" >> _thisWeapon), 0, true] call BIS_fnc_returnChildren);
+
+} forEach _weapons;
+_turretMinRange = 100000;
+_turretMaxRange = 0;
+if (count _modesToTest > 0) then {
+{
+_minRange = ((_x >> "minRange") call BIS_fnc_GetCfgData);
+if (_minRange < _turretMinRange) then {_turretMinRange = _minRange};
+_maxRange = ((_x >> "maxRange") call BIS_fnc_GetCfgData);
+if (_maxRange > _turretMaxRange) then {_turretMaxRange = _maxRange};
+} forEach _modesToTest;
+};
+
+if (_turretMinRange < _vehicleMinRange) then {_vehicleMinRange = _turretMinRange};
+if (_turretMaxRange > _vehicleMaxRange) then {_vehicleMaxRange = _turretMaxRange};
+
+} forEach _turrets;
+
+[_vehicleMinRange, _vehicleMaxRange]
+}
+
+
+
+
+
+
+private _objNetId = this call BIS_fnc_netId;
+systemChat format ["_objNetId = %1", _objNetId];
+private _objId = _objNetId call BIS_fnc_objectFromNetId;
+systemChat format ["_objId = %1", _objId];
+systemChat format ["_objNetId = %1, vehicleVarName = %2", _objNetId, (vehicleVarName _objId)];
+
+
+if (isNil (vehicleVarName _objId)) then {
+	systemChat format ["%1: vehicleVarName is Nil", _UnitName];
+} else {
+	systemChat format ["%1: vehicleVarName is not Nil, set to %2", _UnitName, (vehicleVarName _objId)];
+};

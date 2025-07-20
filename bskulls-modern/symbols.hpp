@@ -195,7 +195,8 @@
     class _xx_10Rnd_300WM_Magazine {count=5;magazine="10Rnd_300WM_Magazine";};\
     class _xx_KA_CS5_10rnd_M993_AP_mag {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
     class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_08_wa2000_AMMO;};\
-    class _xx_B_PTbskull_Wea_sniper_09_dsr50_AMMO {count=5;magazine=B_PTbskull_Wea_sniper_09_dsr50_AMMO;};\
+    class _xx_B_PTbskull_Wea_sniper_13_alligator_AMMO {count=10;magazine=B_PTbskull_Wea_sniper_13_alligator_AMMO;};\
+    class _xx_5Rnd_145_mag_BZT {count=10;magazine=5Rnd_145_mag_BZT;};\
     class _xx_130Rnd_338_Mag {count=2;magazine="130Rnd_338_Mag";};\
     class _xx_150Rnd_93x64_Mag {count=2;magazine="150Rnd_93x64_Mag";};\
     class _xx_30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow {count=3;magazine="30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow";};\
@@ -227,7 +228,8 @@
     class _xx_B_PTbskull_Wea_law_01_titanat {count=1;weapon="B_PTbskull_Wea_law_01_titanat";};\
     class _xx_B_PTbskull_Wea_ar_03_honey {count=1;weapon="B_PTbskull_Wea_ar_03_honey";};\
     class _xx_B_PTbskull_Wea_ar_04_scarh {count=1;weapon="B_PTbskull_Wea_ar_04_scarh";};\
-    class _xx_B_PTbskull_Wea_ar_06_spar17 {count=1;weapon="B_PTbskull_Wea_ar_06_spar17";};
+    class _xx_B_PTbskull_Wea_ar_06_spar17 {count=1;weapon="B_PTbskull_Wea_ar_06_spar17";};\
+    class _xx_B_PTbskull_Wea_sniper_13_alligator {count=1;weapon="B_PTbskull_Wea_sniper_13_alligator";};
 
 #define TRANSPORTBACKPACKS\
     class _xx_B_PTbskull_Veh_Back_BACKUP_blackops_01 {count=2;backpack="B_PTbskull_Veh_Back_BACKUP_blackops_01";};\

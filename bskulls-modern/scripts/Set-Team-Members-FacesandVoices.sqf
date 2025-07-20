@@ -1,3 +1,7 @@
+BS_pos = 0;
+publicVariable "BS_pos";
+airport_0_pos = daoairportpositionlist select 1;
+publicVariable "airport_0_pos";
 _handle = 0 spawn {
     {
         _x enableIRLasers true;
@@ -110,23 +114,31 @@ _handle = 0 spawn {
     u14 setUnitRank 'PRIVATE';
     u14 assignTeam 'YELLOW';
 
-    _pos = [player, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;
-    if ((isNil "lobbycomplete") || (lobbycomplete == 0)) then
+    if ((isNil "lobbycomplete") || (!(isNil "lobbycomplete") && (lobbycomplete == 0))) then
     {
         systemChat "This must be executed after the mission has started!"
     } else {
+        // GROUND, HELI, HALO
+        if (inserttype == "GROUND") then
+        {
+            BS_pos = [player, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;
+        } else {
+            BS_pos = [airport_0_pos, 100, 500, 3, 0, 20, 0] call BIS_fnc_findSafePos;
+        };
         private _myv1 = vehicle UGV;
         if (isNil "_myv1") then
         {
-            UGV = createVehicle ["B_PTbskull_Veh_Drone_blackops_02",_pos, [], 30, "NONE"];
+            UGV = createVehicle ["B_PTbskull_Veh_Drone_blackops_02",BS_pos, [], 30, "NONE"];
             createVehicleCrew UGV;
+            UGV setAutonomous false;
+            UGV setPilotLight false;
         } else {
             systemChat "UGV already spawned!";
         };
         private _myv2 = vehicle RADAR;
         if (isNil "_myv2") then
         {
-            RADAR = createVehicle ["B_PTbskull_Veh_Radar_blackops_01",_pos, [], 60, "NONE"];
+            RADAR = createVehicle ["B_PTbskull_Veh_Radar_blackops_01",BS_pos, [], 60, "NONE"];
             createVehicleCrew RADAR;
         } else {
             systemChat "RADAR already spawned!";
@@ -134,7 +146,7 @@ _handle = 0 spawn {
         private _myv3 = vehicle SAM;
         if (isNil "_myv3") then
         {
-            SAM = createVehicle ["B_PTbskull_Veh_SAM_blackops_01",_pos, [], 80, "NONE"];
+            SAM = createVehicle ["B_PTbskull_Veh_SAM_blackops_01",BS_pos, [], 80, "NONE"];
             createVehicleCrew SAM;
         } else {
             systemChat "SAM already spawned!";
@@ -142,16 +154,20 @@ _handle = 0 spawn {
         private _myv4 = vehicle HemmtAmmo;
         if (isNil "_myv4") then
         {
-            HemmtAmmo = createVehicle ["B_PTbskull_Veh_Truck_blackops_02",_pos, [], 50, "NONE"];
+            HemmtAmmo = createVehicle ["B_PTbskull_Veh_Truck_blackops_02",BS_pos, [], 50, "NONE"];
             (group player) createVehicleCrew HemmtAmmo;
+            doStop (crew HemmtAmmo);
+            HemmtAmmo setPilotLight false;
         } else {
             systemChat "Ammo truck already spawned!";
         };
         private _myv5 = vehicle HemmtFuel;
         if (isNil "_myv5") then
         {
-            HemmtFuel = createVehicle ["B_PTbskull_Veh_Truck_blackops_03",_pos, [], 55, "NONE"];
+            HemmtFuel = createVehicle ["B_PTbskull_Veh_Truck_blackops_03",BS_pos, [], 55, "NONE"];
             (group player) createVehicleCrew HemmtFuel;
+            doStop (crew HemmtFuel);
+            HemmtFuel setPilotLight false;
         } else {
             systemChat "Fuel truck already spawned!";
         };
@@ -163,8 +179,7 @@ _handle = 0 spawn {
         systemChat "Map without airstrip, spawning random helo...";
         _randomHelo = selectRandom[
             "B_PTbskull_Veh_Helo_blackops_03",
-            "B_PTbskull_Veh_Helo_blackops_04",
-            "B_T_UAV_03_dynamicLoadout_F"
+            "B_PTbskull_Veh_Helo_blackops_04"
         ];
         [0,WEST,[_randomHelo]]call dao_fnc_AddToVAM;
         private _randomHeloName = [configFile >> "CfgVehicles" >> _randomHelo] call BIS_fnc_displayName;
@@ -180,7 +195,7 @@ _handle = 0 spawn {
         missionNamespace setVariable ["DAOAircraftAlreadySpawned", true];
     };
     private _fn_spawnAllAircraft = {
-        systemChat "Spawning random aircraft...";
+        systemChat "Spawning random CAS aircraft...";
         _randomAircraft = selectRandom[
             "B_PTbskull_Veh_Plane_blackops_01",
             "B_PTbskull_Veh_Helo_blackops_03",
@@ -190,6 +205,7 @@ _handle = 0 spawn {
         [0,WEST,[_randomAircraft]]call dao_fnc_AddToVAM;
         private _randomAircraftName = [configFile >> "CfgVehicles" >> _randomAircraft] call BIS_fnc_displayName;
         systemChat format ["A %1 was spawned.", _randomAircraftName];
+
         systemChat "Spawning transport aircraft...";
         _randomTransportAircraft = selectRandom[
             "B_PTbskull_Veh_Helo_blackops_01",

@@ -57,7 +57,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
     _unit setVehicleVarName _VehVarName;
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     uiSleep 5;
     if (!(isNil "u1")) then
     {
@@ -73,9 +73,9 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u1 setCombatBehaviour _UnitCombatBeh;
         u1 setUnitCombatMode _UnitCombatMod;
     } else {
-        systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
         waitUntil { sleep 1; not isNil "u1" };
-        systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
+        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
         u1 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
         u1 setNameSound _UnitNameSound;
         u1 setSpeaker _UnitVoice;

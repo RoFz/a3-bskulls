@@ -17,7 +17,7 @@ _handle = 0 spawn {
     player setNameSound 'Viper';
     // player setUnitRank 'COLONEL';
     player setSpeaker 'male03eng';
-    player setUnitTrait ['Medic', true];
+    player setUnitTrait ['Medic', false];
     player setUnitTrait ['Engineer', true];
     player setUnitTrait ['ExplosiveSpecialist', true];
 
@@ -39,11 +39,21 @@ _handle = 0 spawn {
             "B_PTbskull_Veh_Plane_blackops_01",
             "B_PTbskull_Veh_Helo_blackops_03",
             "B_PTbskull_Veh_Helo_blackops_04",
-            "B_PTbskull_Veh_Drone_blackops_01"
+            "B_T_UAV_03_dynamicLoadout_F"
         ];
         [0,WEST,[_randomAircraft]]call dao_fnc_AddToVAM;
         private _randomAircraftName = [configFile >> "CfgVehicles" >> _randomAircraft] call BIS_fnc_displayName;
         systemChat format ["A %1 was spawned.", _randomAircraftName];
+
+        systemChat "Spawning transport aircraft...";
+        _randomTransportAircraft = selectRandom[
+            "B_PTbskull_Veh_Helo_blackops_01",
+            "B_PTbskull_Veh_Helo_blackops_02"
+        ];
+        [0,WEST,[_randomTransportAircraft]]call dao_fnc_AddToVAM;
+        private _randomTransportAircraft = [configFile >> "CfgVehicles" >> _randomTransportAircraft] call BIS_fnc_displayName;
+        systemChat format ["A %1 was spawned.", _randomTransportAircraft];
+
         missionNamespace setVariable ["DAOAircraftAlreadySpawned", true];
     };
 

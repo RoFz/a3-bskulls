@@ -160,12 +160,12 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {
     systemChat format ["%1: no DRO detected.", _UnitName];
 } else {
-    systemChat format ["%1: DRO detected!", _UnitName];
+    // systemChat format ["%1: DRO detected!", _UnitName];
     private _objNetId = _unit call BIS_fnc_netId;
     private _objId = _objNetId call BIS_fnc_objectFromNetId;
-    systemChat format ["%1: _objNetId = %2", _UnitName, _objNetId];
-    systemChat format ["%1: _objId = %2",_UnitName, _objId];
-    systemChat format ["%1: vehicleVarName = %2", _UnitName, vehicleVarName _objId];
+    // systemChat format ["%1: _objNetId = %2", _UnitName, _objNetId];
+    // systemChat format ["%1: _objId = %2",_UnitName, _objId];
+    // systemChat format ["%1: vehicleVarName = %2", _UnitName, vehicleVarName _objId];
 
         // _time = time;
         // waitUntil { sleep 1; not isNil  || time - _time > 60};
