@@ -9,6 +9,15 @@ class CfgAmmo
         hit = 35; // 19
     };
 
+    class B_127x54_Ball;
+    class B_127x54_Ball_PLUS : B_127x54_Ball {
+        access = 1;
+        airFriction = -0.00069; // -0.0014
+        caliber = 4.6; // 4.6
+        hit = 43; // 20
+    };
+
+
     // Mortar Ammo
     class Sh_82mm_AMOS;
     class Sh_82mm_AMOS_PLUS : Sh_82mm_AMOS {
@@ -335,6 +344,20 @@ class CfgAmmo
 
 // MAGAZINES //
 class CfgMagazines {
+
+// 10Rnd_127x54_Mag
+
+    class 10Rnd_127x54_Mag;
+    class 10Rnd_127x54_Mag_PLUS : 10Rnd_127x54_Mag {
+        author = "RoFz";
+        scope = 2;
+        access = 1;
+        descriptionShort = "Caliber: 12.7x54 mm<br />Rounds: 10<br />Used in: ASP-1 Kir<br />Plus version";
+        displayName = "12.7 mm 10Rnd Mag+";
+        initSpeed = 320; // 290
+        ammo = "B_127x54_Ball_PLUS"; // B_127x54_Ball
+    };
+
 
     class 5Rnd_APDS_338LM_Magazine;
     class 5Rnd_APDS_338LM_Magazine_PLUS : 5Rnd_APDS_338LM_Magazine {

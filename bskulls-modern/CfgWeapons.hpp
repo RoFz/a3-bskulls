@@ -139,7 +139,7 @@ class CfgWeapons {
             };
             class LinkedItemsOptic {
                 slot = "CowsSlot";
-                item = "optic_LRPS";
+                item = "kt_atacr06_tremoe3ti_raptar";
             };
             class LinkedItemsUnder {
                 slot = "UnderBarrelSlot";
@@ -1014,13 +1014,20 @@ class CfgWeapons {
 
     // Sniper #6: ASP-1 Kir 12.7x55mm
     // Ammo: 10Rnd_127x54_Mag
-    #define B_PTbskull_Wea_sniper_06_asp1_AMMO "10Rnd_127x54_Mag"
+    #define B_PTbskull_Wea_sniper_06_asp1_AMMO "10Rnd_127x54_Mag_PLUS"
     class srifle_DMR_04_Tan_F;
-    class B_PTbskull_Wea_sniper_06_asp1 : srifle_DMR_04_Tan_F {
+    class srifle_DMR_04_Tan_F_OCimport_01 : srifle_DMR_04_Tan_F { access = 0; scope = 0; class EventHandlers; class Single; };
+    class B_PTbskull_Wea_sniper_06_asp1 : srifle_DMR_04_Tan_F_OCimport_01 {
         displayName = "ASP-1 (12.7x55mm)";
         author = "RoFz";
         access = 0;
         scope = 2;
+        aiDispersionCoefX = 0.01; // 2
+        aiDispersionCoefY = 0.01; // 3
+        discreteDistance[] = { 100, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600 };
+        dispersion = 0.00029;
+        maxZeroing = 1600;
+        magazines[] += {"10Rnd_127x54_Mag_PLUS","5Rnd_APDS_338LM_Magazine_PLUS"};
         class LinkedItems {
             class LinkedItemsOptic {
                 slot = "CowsSlot";
@@ -1034,6 +1041,59 @@ class CfgWeapons {
                 slot = "UnderBarrelSlot";
                 item = "bipod_01_F_blk";
             };
+        };
+        class Single : Single {
+            aiDispersionCoefX = 0.1; // 1.4
+            aiDispersionCoefY = 0.1; // 1.7
+            aiRateOfFireDispersion = 0.1; // 1
+        };
+        class single_close_optics1 : Single
+        {
+            aiRateOfFire = 0.5; // 2
+            // aiRateOfFireDistance = 250; // 250
+            dispersion = 0.0001; // 0.0029
+            // maxRange = 400; // 400
+            // maxRangeProbab = 0.9; // 0.01
+            // midRange = 250; // 250
+            // midRangeProbab = 0.9; // 0.8
+            // minRange = 2; // 2
+            // minRangeProbab = 0.6; // 0.05
+        };
+        class single_medium_optics1 : Single
+        {
+            aiRateOfFire = 1; // 2
+            // aiRateOfFireDistance = 5000; // 450
+            dispersion = 0.0001; // 0.0029
+            // maxRange = 800; // 600
+            // maxRangeProbab = 0.9; // 0.05
+            // midRange = 750; // 400
+            // midRangeProbab = 0.9; // 0.7
+            // minRange = 250;
+            // minRangeProbab = 0.6; // 0.05
+        };
+        class single_far_optics1 : Single
+        {
+            aiRateOfFire = 4; // 4
+            aiRateOfFireDistance = 700; // 700
+            dispersion = 0.0001; // 0.0029
+            maxRange = 1000; // 800
+            maxRangeProbab = 0.7; // 0.05
+            midRange = 600; // 600
+            midRangeProbab = 0.95; // 0.5
+            minRange = 200; // 200
+            minRangeProbab = 0.01; // 0.05
+        };
+        class single_far_optics2 : Single
+        {
+            aiRateOfFire = 4;
+            aiRateOfFireDistance = 700;
+            dispersion = 0.0001;
+            maxRange = 1600;
+            maxRangeProbab = 0.7;
+            midRange = 900;
+            midRangeProbab = 0.95;
+            minRange = 400;
+            minRangeProbab = 0.01;
         };
     };
 
@@ -1140,243 +1200,6 @@ class CfgWeapons {
             };
         };
     };
-
-    // Sniper #11: ASP-1 .50
-    // Ammo: 10Rnd_93x64_DMR_05_Mag
-    #define B_PTbskull_Wea_sniper_11_asp2_AMMO "10Rnd_93x64_DMR_05_Mag"
-    class SCM_ASP2;
-    class SCM_ASP2_OCimport_01 : SCM_ASP2 { access = 0; scope = 0; class EventHandlers; class Single; class WeaponSlotsInfo; };
-    class B_PTbskull_Wea_sniper_11_asp2 : SCM_ASP2_OCimport_01 {
-        displayName = "ASP-1 (9.3x64mm)";
-        access = 0;
-        scope = 2;
-        class Single : Single {
-            aiDispersionCoefX = 0.01;
-            aiDispersionCoefY = 0.01;
-            aiRateOfFire = 0.9;
-            aiRateOfFireDispersion = 0.1;
-        };
-        class WeaponSlotsInfo : WeaponSlotsInfo {
-            class CowsSlot {
-                access = 1;
-                displayName = "Optics Slot";
-                iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
-                iconPinpoint = "Bottom";
-                iconPosition[] = {0,0};
-                iconScale = 0;
-                linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
-                scope = 0;
-                class compatibleItems {
-                    kt_atacr06_tremoe3ti_raptar = 1;
-                    kt_atacr07_tremoe3ti_raptar = 1;
-                    optic_Nightstalker = 1;
-                    optic_tws = 1;
-                    optic_tws_mg = 1;
-                    optic_NVS = 1;
-                    optic_DMS = 1;
-                    optic_LRPS = 1;
-                    optic_ams = 1;
-                    optic_AMS_snd = 1;
-                    optic_AMS_khk = 1;
-                    optic_KHS_blk = 1;
-                    optic_KHS_tan = 1;
-                    optic_KHS_hex = 1;
-                    optic_KHS_old = 1;
-                    optic_SOS = 1;
-                    optic_MRCO = 1;
-                    optic_Arco = 1;
-                    optic_aco = 1;
-                    optic_ACO_grn = 1;
-                    optic_aco_smg = 1;
-                    optic_ACO_grn_smg = 1;
-                    optic_hamr = 1;
-                    optic_Holosight = 1;
-                    optic_Holosight_smg = 1;
-                    optic_Hamr_khk_F = 1;
-                    optic_SOS_khk_F = 1;
-                    optic_Arco_ghex_F = 1;
-                    optic_Arco_blk_F = 1;
-                    optic_DMS_ghex_F = 1;
-                    optic_ERCO_blk_F = 1;
-                    optic_ERCO_khk_F = 1;
-                    optic_ERCO_snd_F = 1;
-                    optic_LRPS_ghex_F = 1;
-                    optic_LRPS_tna_F = 1;
-                    optic_Holosight_blk_F = 1;
-                    optic_Holosight_khk_F = 1;
-                    optic_Holosight_smg_blk_F = 1;
-                    optic_Holosight_smg_khk_F = 1;
-                    optic_DMS_weathered_F = 1;
-                    optic_DMS_weathered_Kir_F = 1;
-                    optic_Arco_lush_F = 1;
-                    optic_Arco_arid_F = 1;
-                    optic_Arco_AK_blk_F = 1;
-                    optic_Arco_AK_lush_F = 1;
-                    optic_Arco_AK_arid_F = 1;
-                    optic_Holosight_lush_F = 1;
-                    optic_Holosight_arid_F = 1;
-                    rhsusf_acc_LEUPOLDMK4 = 1;
-                    rhsusf_acc_LEUPOLDMK4_d = 1;
-                    rhsusf_acc_LEUPOLDMK4_wd = 1;
-                    rhsusf_acc_LEUPOLDMK4_2 = 1;
-                    rhsusf_acc_LEUPOLDMK4_2_MRDS = 1;
-                    rhsusf_acc_LEUPOLDMK4_2_d = 1;
-                    rhsusf_acc_premier = 1;
-                    rhsusf_acc_premier_mrds = 1;
-                    rhsusf_acc_premier_low = 1;
-                    rhsusf_acc_M8541 = 1;
-                    rhsusf_acc_M8541_d = 1;
-                    rhsusf_acc_M8541_wd = 1;
-                    rhsusf_acc_M8541_mrds = 1;
-                    rhsusf_acc_M8541_low = 1;
-                    rhsusf_acc_M8541_low_d = 1;
-                    rhsusf_acc_M8541_low_wd = 1;
-                    rhsusf_acc_nxs_3515x50_md = 1;
-                    rhsusf_acc_nxs_3515x50f1_md = 1;
-                    rhsusf_acc_nxs_3515x50f1_md_sun = 1;
-                    rhsusf_acc_nxs_3515x50f1_h58 = 1;
-                    rhsusf_acc_nxs_3515x50f1_h58_sun = 1;
-                    rhsusf_acc_nxs_5522x56_md = 1;
-                    rhsusf_acc_nxs_5522x56_md_sun = 1;
-                    rhsusf_acc_EOTECH = 1;
-                    rhsusf_acc_eotech_552 = 1;
-                    rhsusf_acc_eotech_552_d = 1;
-                    rhsusf_acc_eotech_552_wd = 1;
-                    rhsusf_acc_eotech_xps3 = 1;
-                    rhsusf_acc_g33_xps3 = 1;
-                    rhsusf_acc_g33_xps3_flip = 1;
-                    rhsusf_acc_g33_xps3_tan = 1;
-                    rhsusf_acc_g33_xps3_tan_flip = 1;
-                    rhsusf_acc_g33_t1 = 1;
-                    rhsusf_acc_g33_t1_flip = 1;
-                    rhsusf_acc_compm4 = 1;
-                    rhsusf_acc_T1_high = 1;
-                    rhsusf_acc_T1_low = 1;
-                    rhsusf_acc_RX01 = 1;
-                    rhsusf_acc_RX01_NoFilter = 1;
-                    rhsusf_acc_RX01_tan = 1;
-                    rhsusf_acc_RX01_NoFilter_tan = 1;
-                    rhsusf_acc_RM05 = 1;
-                    rhsusf_acc_mrds = 1;
-                    rhsusf_acc_mrds_c = 1;
-                    rhsusf_acc_ACOG = 1;
-                    rhsusf_acc_ACOG2 = 1;
-                    rhsusf_acc_ACOG3 = 1;
-                    rhsusf_acc_ACOG_wd = 1;
-                    rhsusf_acc_ACOG_d = 1;
-                    rhsusf_acc_ACOG_sa = 1;
-                    rhsusf_acc_ACOG_USMC = 1;
-                    rhsusf_acc_ACOG2_USMC = 1;
-                    rhsusf_acc_ACOG3_USMC = 1;
-                    rhsusf_acc_ACOG_RMR = 1;
-                    rhsusf_acc_ACOG_PIP = 1;
-                    rhsusf_acc_ACOG2_pip = 1;
-                    rhsusf_acc_ACOG3_pip = 1;
-                    rhsusf_acc_ACOG_wd_pip = 1;
-                    rhsusf_acc_ACOG_d_pip = 1;
-                    rhsusf_acc_ACOG_sa_pip = 1;
-                    rhsusf_acc_ACOG_USMC_pip = 1;
-                    rhsusf_acc_ACOG2_USMC_pip = 1;
-                    rhsusf_acc_ACOG3_USMC_pip = 1;
-                    rhsusf_acc_ACOG_RMR_PIP = 1;
-                    rhsusf_acc_ACOG_3d = 1;
-                    rhsusf_acc_ACOG2_3d = 1;
-                    rhsusf_acc_ACOG3_3d = 1;
-                    rhsusf_acc_ACOG_wd_3d = 1;
-                    rhsusf_acc_ACOG_d_3d = 1;
-                    rhsusf_acc_ACOG_sa_3d = 1;
-                    rhsusf_acc_ACOG_USMC_3d = 1;
-                    rhsusf_acc_ACOG2_USMC_3d = 1;
-                    rhsusf_acc_ACOG3_USMC_3d = 1;
-                    rhsusf_acc_ACOG_RMR_3d = 1;
-                    rhsusf_acc_ELCAN = 1;
-                    rhsusf_acc_ELCAN_ard = 1;
-                    rhsusf_acc_ELCAN_3d = 1;
-                    rhsusf_acc_ELCAN_ard_3d = 1;
-                    rhsusf_acc_ELCAN_PIP = 1;
-                    rhsusf_acc_ELCAN_ard_PIP = 1;
-                    rhsusf_acc_su230 = 1;
-                    rhsusf_acc_su230_mrds = 1;
-                    rhsusf_acc_su230a = 1;
-                    rhsusf_acc_su230a_mrds = 1;
-                    rhsusf_acc_su230_c = 1;
-                    rhsusf_acc_su230_mrds_c = 1;
-                    rhsusf_acc_su230a_c = 1;
-                    rhsusf_acc_su230a_mrds_c = 1;
-                    rhsusf_acc_su230_3d = 1;
-                    rhsusf_acc_su230_mrds_3d = 1;
-                    rhsusf_acc_su230a_3d = 1;
-                    rhsusf_acc_su230a_mrds_3d = 1;
-                    rhsusf_acc_su230_c_3d = 1;
-                    rhsusf_acc_su230_mrds_c_3d = 1;
-                    rhsusf_acc_su230a_c_3d = 1;
-                    rhsusf_acc_su230a_mrds_c_3d = 1;
-                    rhsusf_acc_SpecterDR = 1;
-                    rhsusf_acc_SpecterDR_3d = 1;
-                    rhsusf_acc_SpecterDR_A = 1;
-                    rhsusf_acc_SpecterDR_A_3d = 1;
-                    rhsusf_acc_SpecterDR_CX = 1;
-                    rhsusf_acc_SpecterDR_CX_3D = 1;
-                    rhsusf_acc_SpecterDR_pvs27 = 1;
-                    rhsusf_acc_SpecterDR_D = 1;
-                    rhsusf_acc_SpecterDR_OD = 1;
-                    rhsusf_acc_SpecterDR_D_3D = 1;
-                    rhsusf_acc_SpecterDR_OD_3D = 1;
-                    rhsusf_acc_anpvs27 = 1;
-                    rhsusf_acc_anpas13gv1 = 1;
-                    rhsusf_acc_M2A1 = 1;
-                    rhsusf_acc_ACOG_MDO = 1;
-                    gm_c79a1_blk = 1;
-                    gm_c79a1_oli = 1;
-                    gm_feroz24_ris_blk = 1;
-                    gm_blits_ris_blk = 1;
-                    gm_feroz51_ris_oli = 1;
-                    gm_streamlight_sl20_ris_blk = 1;
-                    gm_streamlight_sl20_ris_brn = 1;
-                    gm_maglite_3d_ris_blk = 1;
-                    gm_lsminiv_red_ris_blk = 1;
-                    gm_ls1500_red_ris_blk = 1;
-                    gm_ls45_red_ris_blk = 1;
-                    gm_lsminiv_ir_ris_blk = 1;
-                    gm_ls1500_ir_ris_blk = 1;
-                    gm_ls45_ir_ris_blk = 1;
-                    gm_rv_ris_blk = 1;
-                    gm_zf10x42_ris_blk = 1;
-                    gm_zf10x42_ris_oli = 1;
-                    hlc_optic_docterr = 1;
-                    hlc_optic_hensoldtzo_lo = 1;
-                    hlc_optic_hensoldtzo_lo_2d = 1;
-                    hlc_optic_hensoldtzo_lo_docter = 1;
-                    hlc_optic_hensoldtzo_lo_docter_2d = 1;
-                    hlc_optic_hensoldtzo_hi = 1;
-                    hlc_optic_hensoldtzo_hi_2d = 1;
-                    hlc_optic_hensoldtzo_hi_docter = 1;
-                    hlc_optic_hensoldtzo_hi_docter_2d = 1;
-                    hlc_optic_zf95base = 1;
-                    hlc_optic_leupoldm3a = 1;
-                    hlc_optic_atacr = 1;
-                    hlc_optic_atacr_offset = 1;
-                    hlc_optic_vomz3d = 1;
-                    hlc_optic_vomz = 1;
-                };
-            };
-        };
-        class LinkedItems {
-            class LinkedItemsOptic {
-                slot = "CowsSlot";
-                item = "kt_atacr06_tremoe3ti_raptar";
-            };
-            class LinkedItemsAcc {
-                slot = "PointerSlot";
-                item = "acc_pointer_IR";
-            };
-            class LinkedItemsUnder {
-                slot = "UnderBarrelSlot";
-                item = "bipod_01_F_blk";
-            };
-        };
-    };
-
 
     // Sniper #12: MAR-10 .338
     // Ammo: 10Rnd_338_Mag
@@ -1670,7 +1493,29 @@ class CfgWeapons {
         };
     };
 
-
+    // AR #8:
+    // Ammo: MRC_492x34_RT_skin1
+        #define B_PTbskull_Wea_ar_08_xm7_AMMO "ICM_XM7_Magazine_277_Fury_BP_F"
+    class ICM_XM7_F;
+    class B_PTbskull_Wea_ar_08_xm7 : ICM_XM7_F {
+        displayName = "XM-7 (6.8x51mm)";
+        author = "RoFz";
+        scope = 2;
+        class LinkedItems {
+            class LinkedItemsMuzzle {
+                slot = "MuzzleSlot";
+                item = "ICM_SLX_Suppressor_F";
+            };
+            class LinkedItemsOptic {
+                slot = "CowsSlot";
+                item = "TOTT_XPS3_g33";
+            };
+            class LinkedItemsAcc {
+                slot = "PointerSlot";
+                item = "acc_pointer_IR";
+            };
+        };
+    };
 
     // MG #1:
     // Ammo: 130Rnd_338_Mag
@@ -1766,6 +1611,32 @@ class CfgWeapons {
             };
         };
     };
+
+    // MG #4 - XM250
+    // AMMO: 75rnd_762x39_AK12_Mag_Tracer_F
+    #define B_PTbskull_Wea_mg_04_xm250_AMMO "KAR_100Rnd_Fury_RT_blk"
+    class KAR_XM250_BLK;
+    class KAR_XM250_BLK_OCimport_01 : KAR_XM250_BLK { scope = 0; };
+    class B_PTbskull_Wea_mg_04_xm250 : KAR_XM250_BLK_OCimport_01 {
+        displayName = "XM-250 (6.8x51mm)";
+        author = "RoFz";
+        scope = 2;
+        class LinkedItems {
+            class LinkedItemsMuzzle {
+                slot = "MuzzleSlot";
+                item = "KAR_XM250_SUP_BLK";
+            };
+            class LinkedItemsOptic {
+                slot = "CowsSlot";
+                item = "optic_Nightstalker";
+            };
+            class LinkedItemsAcc {
+                slot = "PointerSlot";
+                item = "acc_pointer_IR";
+            };
+        };
+    };
+
 
     // SMG #1: Vermin SMG .45 *
     class SMG_01_F;

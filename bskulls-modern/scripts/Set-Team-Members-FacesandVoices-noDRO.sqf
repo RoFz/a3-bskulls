@@ -1,4 +1,4 @@
-PAR_revive = 2;
+PAR_revive = 1;
 PAR_ai_limit = 8;
 PAR_only_ai_revive = true;
 

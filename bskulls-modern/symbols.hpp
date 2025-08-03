@@ -213,6 +213,7 @@
     class _xx_optic_ERCO_blk_F {count=1;name="optic_ERCO_blk_F";};\
     class _xx_optic_Nightstalker {count=1;name="optic_Nightstalker";};\
     class _xx_optic_AMS {count=1;name="optic_AMS";};\
+    class _xx_optic_LRPS {count=1;name="optic_LRPS";};\
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
@@ -221,7 +222,8 @@
     class _xx_ATMine_Range_Mag {count=3;name="ATMine_Range_Mag";};\
     class _xx_SwitchBlade_600_Tube_Woodland {count=3;name="SwitchBlade_600_Tube_Woodland";};\
     class _xx_APERSMineDispenser_Mag {count=3;name="APERSMineDispenser_Mag";};\
-    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};
+    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};\
+    class _xx_gm_boltcutter {count=1;name="gm_boltcutter";};\
 
 #define TRANSPORTWEAPONS\
     class _xx_B_PTbskull_Wea_law_03_titanaa {count=1;weapon="B_PTbskull_Wea_law_03_titanaa";};\
@@ -241,7 +243,7 @@
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
-    class _xx_B_KA_Metal_Storm_AI_NATO {count=2;backpack="B_KA_Metal_Storm_AI_NATO";};\
+    class _xx_B_KA_Metal_Storm_AI_NATO {count=4;backpack="B_KA_Metal_Storm_AI_NATO";};\
     class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};\
     class _xx_B_PTbskull_Veh_Back_Fuel_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_Fuel_blackops_01";};
 
@@ -256,7 +258,7 @@
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
-    class _xx_B_KA_Metal_Storm_AI_NATO {count=2;backpack="B_KA_Metal_Storm_AI_NATO";};\
+    class _xx_B_KA_Metal_Storm_AI_NATO {count=4;backpack="B_KA_Metal_Storm_AI_NATO";};\
     class _xx_B_Patrol_Respawn_bag_F {count=2;backpack="B_Patrol_Respawn_bag_F";};\
     class _xx_B_PTbskull_Veh_Back_Fuel_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_Fuel_blackops_01";};
 
@@ -264,6 +266,7 @@
     class _xx_SwitchBlade_600_Tube_Woodland {count=2;name="SwitchBlade_600_Tube_Woodland";};\
     class _xx_ToolKit {count=1;name="ToolKit";};\
     class _xx_optic_AMS {count=1;name="optic_AMS";};\
+    class _xx_optic_LRPS {count=1;name="optic_LRPS";};\
     class _xx_optic_Nightstalker {count=1;name="optic_Nightstalker";};\
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
