@@ -29,8 +29,12 @@ $RECYCLE.BIN/
 
 # General
 .DS_Store
+.localized
+__MACOSX/
 .AppleDouble
 .LSOverride
+Icon[
+]
 
 # Thumbnails
 ._*
@@ -50,3 +54,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+## Editors
+
+.vscode/
+
+## Local Arma files
+
+Arma3.code-profile
