@@ -277,3 +277,8 @@
     class _xx_ATMine_Range_Mag {count=1;name="ATMine_Range_Mag";};\
     class _xx_APERSMineDispenser_Mag {count=3;name="APERSMineDispenser_Mag";};\
     class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};
+
+#define BASE_KIT\
+    MAG_3(FirstAidKit),\
+    MAG_2(SmokeShell),\
+    MAG_2(MiniGrenade);

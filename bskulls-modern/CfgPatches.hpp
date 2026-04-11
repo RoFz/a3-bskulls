@@ -64,6 +64,7 @@ class CfgPatches {
             "B_PTbskull_Veh_Unit_Sykes_blackops_01",
             "B_PTbskull_Veh_Unit_Sykes_blackops_02",
             "B_PTbskull_Veh_Unit_Sykes_blackops_03",
+            "B_PTbskull_Veh_Unit_Sykes_blackops_04",
             "B_PTbskull_Veh_Unit_Everett_blackops_01",
             "B_PTbskull_Veh_Unit_Everett_blackops_02",
             "B_PTbskull_Veh_Unit_Taylor_blackops_01",

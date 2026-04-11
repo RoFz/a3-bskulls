@@ -5,8 +5,8 @@
 _this enableIRLasers true;
 _this setSkill 1;
 _this enableFatigue false;
-_this setCombatBehaviour 'AWARE';
-_this setUnitCombatMode 'BLUE';
+// _this setCombatBehaviour 'AWARE';
+// _this setUnitCombatMode 'BLUE';
 // {
 // 	detach _x;
 // 	deleteVehicle _x;

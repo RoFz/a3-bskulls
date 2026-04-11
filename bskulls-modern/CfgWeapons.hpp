@@ -1015,9 +1015,9 @@ class CfgWeapons {
     // Sniper #6: ASP-1 Kir 12.7x55mm
     // Ammo: 10Rnd_127x54_Mag
     #define B_PTbskull_Wea_sniper_06_asp1_AMMO "10Rnd_127x54_Mag_PLUS"
-    class srifle_DMR_04_Tan_F;
-    class srifle_DMR_04_Tan_F_OCimport_01 : srifle_DMR_04_Tan_F { access = 0; scope = 0; class EventHandlers; class Single; };
-    class B_PTbskull_Wea_sniper_06_asp1 : srifle_DMR_04_Tan_F_OCimport_01 {
+    class srifle_DMR_04_F;
+    class srifle_DMR_04_F_OCimport_01 : srifle_DMR_04_F { scope = 0; class EventHandlers; class Single; };
+    class B_PTbskull_Wea_sniper_06_asp1 : srifle_DMR_04_F_OCimport_01 {
         displayName = "ASP-1 (12.7x55mm)";
         author = "RoFz";
         access = 0;
@@ -1027,7 +1027,7 @@ class CfgWeapons {
         discreteDistance[] = { 100, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600 };
         dispersion = 0.00029;
         maxZeroing = 1600;
-        magazines[] += {"10Rnd_127x54_Mag_PLUS","5Rnd_APDS_338LM_Magazine_PLUS"};
+        magazines[] = {"10Rnd_127x54_Mag_PLUS","10Rnd_127x54_Mag"};
         class LinkedItems {
             class LinkedItemsOptic {
                 slot = "CowsSlot";
