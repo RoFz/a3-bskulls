@@ -55,6 +55,7 @@
         "editorconfig.editorconfig",
         "foxundermoon.shell-format",
         "github.vscode-github-actions",
+        "jjlyons.gpg-indicator",
         "jasonnutter.vscode-codeowners",
         "ms-vscode.cpptools",
         "ms-vscode-remote.remote-containers",
@@ -65,6 +66,7 @@
         "shd101wyy.markdown-preview-enhanced",
         "skacekachna.sqflint",
         "tamasfe.even-better-toml",
+        "BrettMayson.hemtt",
         "vlad333000.sqf",
         "vscode-icons-team.vscode-icons",
         "yzhang.markdown-all-in-one"
