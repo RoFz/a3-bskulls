@@ -1,0 +1,71 @@
+{
+  "name": "a3-bskulls",
+  "runArgs": [
+    "--name",
+    "a3-bskulls"
+  ],
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/a3-bskulls,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/a3-bskulls",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "stable"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.claude",
+      "target": "/home/vscode/.claude",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.codex",
+      "target": "/home/vscode/.codex",
+      "type": "bind"
+    }
+  ],
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
+    "CODEX_HOME": "/home/vscode/.codex",
+    "XDG_CACHE_HOME": "/tmp/xdg-cache",
+    "XDG_DATA_HOME": "/tmp/xdg-data"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "Armitxes.sqf",
+        "clevermonkey.claude-monkey-bar",
+        "codezombiech.gitignore",
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "foxundermoon.shell-format",
+        "github.vscode-github-actions",
+        "jasonnutter.vscode-codeowners",
+        "ms-vscode.cpptools",
+        "ms-vscode-remote.remote-containers",
+        "ole1986.arma-dev",
+        "openai.chatgpt",
+        "pkief.material-icon-theme",
+        "redhat.vscode-yaml",
+        "shd101wyy.markdown-preview-enhanced",
+        "skacekachna.sqflint",
+        "tamasfe.even-better-toml",
+        "vlad333000.sqf",
+        "vscode-icons-team.vscode-icons",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "files.eol": "\n"
+      }
+    }
+  }
+}

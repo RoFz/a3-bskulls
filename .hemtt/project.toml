@@ -1,0 +1,12 @@
+name = "Black Skulls"
+prefix = "bskulls"
+
+[version]
+major = 0
+minor = 1
+patch = 0
+git_hash = 0
+
+[properties]
+author = "RoFz"
+url = "https://github.com/RoFz/a3-bskulls"
