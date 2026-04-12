@@ -405,8 +405,8 @@ class CfgVehicles
         // inheritsFrom(configfile >> "CfgVehicles" >> "B_Soldier_04_f") = bin\config.bin/CfgVehicles/B_Soldier_base_F
         // inheritsFrom(configfile >> "CfgVehicles" >> "B_Soldier_base_F") = bin\config.bin/CfgVehicles/SoldierWB
         author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
+        scope = 1;
+        scopeCurator = 0;
         sensitivity = 9;
         sensitivityEar = 0.3;
         class EventHandlers : EventHandlers {
@@ -417,8 +417,8 @@ class CfgVehicles
     class B_PTbskull_Veh_UAV_AI_GROUND : B_UAV_AI_OCimport_01
     {
         author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
+        scope = 1;
+        scopeCurator = 0;
         sensitivity = 9;
         sensitivityEar = 3;
         class EventHandlers : EventHandlers {
