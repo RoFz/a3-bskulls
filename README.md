@@ -1,4 +1,4 @@
-# a3-bskulls
+# The Black Skulls Faction (Ex Tenebris)
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
