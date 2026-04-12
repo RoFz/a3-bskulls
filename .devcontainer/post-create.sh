@@ -5,6 +5,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 echo "[devcontainer] Installing repo tooling..."
 
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends libssl-dev
+
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user pre-commit
 
@@ -14,6 +16,11 @@ npm install -g @anthropic-ai/claude-code
 # Ensure Claude Code skips onboarding — ~/.claude.json is outside the bind-mounted
 # ~/.claude dir, so it is not persisted automatically and must be seeded on each build.
 test -f ~/.claude.json || echo '{"hasCompletedOnboarding":true,"installMethod":"native"}' > ~/.claude.json
+
+if ! command -v armake2 >/dev/null 2>&1; then
+  echo "[devcontainer] Installing armake2..."
+  cargo install armake2
+fi
 
 if ! command -v hemtt >/dev/null 2>&1; then
   echo "[devcontainer] Installing HEMTT via official installer..."
@@ -31,5 +38,6 @@ fi
 echo "[devcontainer] Tool versions:"
 python3 --version
 pre-commit --version
+armake2 --version || true
 hemtt --version || true
 echo "[devcontainer] post-create complete."

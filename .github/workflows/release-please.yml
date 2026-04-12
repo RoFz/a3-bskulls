@@ -69,16 +69,36 @@ jobs:
       - name: Add local binaries to PATH
         run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Run HEMTT build
-        run: hemtt build
+      - name: Install armake2
+        run: cargo install armake2
+
+      - name: Restore signing keys
+        run: |
+          mkdir -p /tmp/arma3keys
+          printf '%s' "$BIPRIVATEKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.biprivatekey
+          printf '%s' "$BIKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.bikey
+        env:
+          BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
+          BIKEY: ${{ secrets.BSKULLS_BIKEY }}
+
+      - name: Run HEMTT release
+        run: hemtt release --no-sign --no-archive
+
+      - name: Sign coldwar PBO
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-coldwar.pbo
 
       - name: Prepare coldwar assets
         env:
           VERSION: ${{ needs.release-please.outputs.coldwar_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/build/addons/bskulls_bskulls-coldwar.pbo "dist/bskulls-coldwar_v${VERSION}.pbo"
-          sha256sum "dist/bskulls-coldwar_v${VERSION}.pbo" > "dist/bskulls-coldwar_v${VERSION}.sha256"
+          cp .hemttout/release/addons/bskulls_bskulls-coldwar.pbo \
+             "dist/bskulls-coldwar_v${VERSION}.pbo"
+          cp .hemttout/release/addons/bskulls_bskulls-coldwar.pbo.RoFz_bskulls.bisign \
+             "dist/bskulls-coldwar_v${VERSION}.bisign"
+          cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
+          sha256sum "dist/bskulls-coldwar_v${VERSION}.pbo" \
+             > "dist/bskulls-coldwar_v${VERSION}.sha256"
 
       - name: Upload coldwar assets
         env:
@@ -88,6 +108,8 @@ jobs:
         run: |
           gh release upload "$TAG" \
             "dist/bskulls-coldwar_v${VERSION}.pbo" \
+            "dist/bskulls-coldwar_v${VERSION}.bisign" \
+            "dist/RoFz_bskulls.bikey" \
             "dist/bskulls-coldwar_v${VERSION}.sha256" \
             --clobber
 
@@ -111,16 +133,36 @@ jobs:
       - name: Add local binaries to PATH
         run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Run HEMTT build
-        run: hemtt build
+      - name: Install armake2
+        run: cargo install armake2
+
+      - name: Restore signing keys
+        run: |
+          mkdir -p /tmp/arma3keys
+          printf '%s' "$BIPRIVATEKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.biprivatekey
+          printf '%s' "$BIKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.bikey
+        env:
+          BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
+          BIKEY: ${{ secrets.BSKULLS_BIKEY }}
+
+      - name: Run HEMTT release
+        run: hemtt release --no-sign --no-archive
+
+      - name: Sign modern PBO
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-modern.pbo
 
       - name: Prepare modern assets
         env:
           VERSION: ${{ needs.release-please.outputs.modern_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/build/addons/bskulls_bskulls-modern.pbo "dist/bskulls-modern_v${VERSION}.pbo"
-          sha256sum "dist/bskulls-modern_v${VERSION}.pbo" > "dist/bskulls-modern_v${VERSION}.sha256"
+          cp .hemttout/release/addons/bskulls_bskulls-modern.pbo \
+             "dist/bskulls-modern_v${VERSION}.pbo"
+          cp .hemttout/release/addons/bskulls_bskulls-modern.pbo.RoFz_bskulls.bisign \
+             "dist/bskulls-modern_v${VERSION}.bisign"
+          cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
+          sha256sum "dist/bskulls-modern_v${VERSION}.pbo" \
+             > "dist/bskulls-modern_v${VERSION}.sha256"
 
       - name: Upload modern assets
         env:
@@ -130,6 +172,8 @@ jobs:
         run: |
           gh release upload "$TAG" \
             "dist/bskulls-modern_v${VERSION}.pbo" \
+            "dist/bskulls-modern_v${VERSION}.bisign" \
+            "dist/RoFz_bskulls.bikey" \
             "dist/bskulls-modern_v${VERSION}.sha256" \
             --clobber
 
@@ -153,16 +197,36 @@ jobs:
       - name: Add local binaries to PATH
         run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Run HEMTT build
-        run: hemtt build
+      - name: Install armake2
+        run: cargo install armake2
+
+      - name: Restore signing keys
+        run: |
+          mkdir -p /tmp/arma3keys
+          printf '%s' "$BIPRIVATEKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.biprivatekey
+          printf '%s' "$BIKEY" | base64 -d > /tmp/arma3keys/RoFz_bskulls.bikey
+        env:
+          BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
+          BIKEY: ${{ secrets.BSKULLS_BIKEY }}
+
+      - name: Run HEMTT release
+        run: hemtt release --no-sign --no-archive
+
+      - name: Sign nam PBO
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-nam.pbo
 
       - name: Prepare nam assets
         env:
           VERSION: ${{ needs.release-please.outputs.nam_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/build/addons/bskulls_bskulls-nam.pbo "dist/bskulls-nam_v${VERSION}.pbo"
-          sha256sum "dist/bskulls-nam_v${VERSION}.pbo" > "dist/bskulls-nam_v${VERSION}.sha256"
+          cp .hemttout/release/addons/bskulls_bskulls-nam.pbo \
+             "dist/bskulls-nam_v${VERSION}.pbo"
+          cp .hemttout/release/addons/bskulls_bskulls-nam.pbo.RoFz_bskulls.bisign \
+             "dist/bskulls-nam_v${VERSION}.bisign"
+          cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
+          sha256sum "dist/bskulls-nam_v${VERSION}.pbo" \
+             > "dist/bskulls-nam_v${VERSION}.sha256"
 
       - name: Upload nam assets
         env:
@@ -172,5 +236,7 @@ jobs:
         run: |
           gh release upload "$TAG" \
             "dist/bskulls-nam_v${VERSION}.pbo" \
+            "dist/bskulls-nam_v${VERSION}.bisign" \
+            "dist/RoFz_bskulls.bikey" \
             "dist/bskulls-nam_v${VERSION}.sha256" \
             --clobber
