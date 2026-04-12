@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feat/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: read-all
+
+env:
+  XDG_CACHE_HOME: /tmp/xdg-cache
+  XDG_DATA_HOME: /tmp/xdg-data
+
+jobs:
+  check:
+    name: HEMTT Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install HEMTT
+        run: curl -sSf https://hemtt.dev/install.sh | sh
+
+      - name: Add local binaries to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run HEMTT check
+        run: hemtt check
+
+  build:
+    name: HEMTT Build
+    runs-on: ubuntu-latest
+    needs: check
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install HEMTT
+        run: curl -sSf https://hemtt.dev/install.sh | sh
+
+      - name: Add local binaries to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run HEMTT build
+        run: hemtt build
+
+      - name: Upload PBO artifacts
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: hemtt-build
+          path: .hemttout/build/addons/*.pbo
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: hemtt-build-logs
+          path: |
+            .hemttout/latest.log
+            .hemttout/ci_annotations.txt
+            .hemttout/unused_external_classes.txt
+          if-no-files-found: error
+          retention-days: 7
