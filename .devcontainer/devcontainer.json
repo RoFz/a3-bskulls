@@ -20,18 +20,24 @@
   },
   "mounts": [
     {
-      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.claude",
+      "source": "a3-bskulls-claude",
       "target": "/home/vscode/.claude",
-      "type": "bind"
+      "type": "volume"
     },
     {
-      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.codex",
+      "source": "a3-bskulls-codex",
       "target": "/home/vscode/.codex",
-      "type": "bind"
+      "type": "volume"
     }
   ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
+    "CODEX_HOME": "/home/vscode/.codex",
+    "XDG_CACHE_HOME": "/tmp/xdg-cache",
+    "XDG_DATA_HOME": "/tmp/xdg-data"
+  },
+  "remoteEnv": {
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
     "CODEX_HOME": "/home/vscode/.codex",
     "XDG_CACHE_HOME": "/tmp/xdg-cache",
