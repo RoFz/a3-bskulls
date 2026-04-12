@@ -13,6 +13,9 @@ python3 -m pip install --user pre-commit
 # Claude Code
 npm install -g @anthropic-ai/claude-code
 
+# Codex CLI
+npm install -g @openai/codex
+
 # Ensure Claude Code skips onboarding - ~/.claude.json is outside the bind-mounted
 # ~/.claude dir, so it is not persisted automatically and must be seeded on each build.
 test -f ~/.claude.json || echo '{"hasCompletedOnboarding":true,"installMethod":"native"}' > ~/.claude.json
