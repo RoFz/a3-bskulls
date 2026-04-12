@@ -1,0 +1,54 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "separate-pull-requests": true,
+  "packages": {
+    "addons/bskulls-coldwar": {
+      "release-type": "simple",
+      "component": "bskulls-coldwar",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "-",
+      "initial-version": "0.1.0",
+      "version-file": "addons/bskulls-coldwar/version.txt",
+      "changelog-path": "addons/bskulls-coldwar/CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "addons/bskulls-coldwar/CfgPatches.hpp"
+        }
+      ]
+    },
+    "addons/bskulls-modern": {
+      "release-type": "simple",
+      "component": "bskulls-modern",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "-",
+      "initial-version": "0.1.0",
+      "version-file": "addons/bskulls-modern/version.txt",
+      "changelog-path": "addons/bskulls-modern/CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "addons/bskulls-modern/CfgPatches.hpp"
+        }
+      ]
+    },
+    "addons/bskulls-nam": {
+      "release-type": "simple",
+      "component": "bskulls-nam",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "-",
+      "initial-version": "0.1.0",
+      "version-file": "addons/bskulls-nam/version.txt",
+      "changelog-path": "addons/bskulls-nam/CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "addons/bskulls-nam/CfgPatches.hpp"
+        }
+      ]
+    }
+  }
+}

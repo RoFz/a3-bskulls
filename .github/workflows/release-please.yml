@@ -1,0 +1,176 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: read-all
+
+env:
+  XDG_CACHE_HOME: /tmp/xdg-cache
+  XDG_DATA_HOME: /tmp/xdg-data
+
+jobs:
+  release-please:
+    name: Release PR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    outputs:
+      releases_created: ${{ steps.release.outputs.releases_created }}
+      paths_released: ${{ steps.release.outputs.paths_released }}
+      coldwar_release_created: ${{ steps.release.outputs['addons/bskulls-coldwar--release_created'] }}
+      coldwar_tag_name: ${{ steps.release.outputs['addons/bskulls-coldwar--tag_name'] }}
+      coldwar_version: ${{ steps.release.outputs['addons/bskulls-coldwar--version'] }}
+      modern_release_created: ${{ steps.release.outputs['addons/bskulls-modern--release_created'] }}
+      modern_tag_name: ${{ steps.release.outputs['addons/bskulls-modern--tag_name'] }}
+      modern_version: ${{ steps.release.outputs['addons/bskulls-modern--version'] }}
+      nam_release_created: ${{ steps.release.outputs['addons/bskulls-nam--release_created'] }}
+      nam_tag_name: ${{ steps.release.outputs['addons/bskulls-nam--tag_name'] }}
+      nam_version: ${{ steps.release.outputs['addons/bskulls-nam--version'] }}
+
+    steps:
+      - name: Generate GitHub App token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Run release-please
+        uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38 # v4.4.0
+        id: release
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  publish-coldwar:
+    name: Publish coldwar release
+    needs: release-please
+    if: needs.release-please.outputs.coldwar_release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Install HEMTT
+        run: curl -sSf https://hemtt.dev/install.sh | sh
+
+      - name: Add local binaries to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run HEMTT build
+        run: hemtt build
+
+      - name: Prepare coldwar assets
+        env:
+          VERSION: ${{ needs.release-please.outputs.coldwar_version }}
+        run: |
+          mkdir -p dist
+          cp .hemttout/build/addons/bskulls_bskulls-coldwar.pbo "dist/bskulls-coldwar_v${VERSION}.pbo"
+          sha256sum "dist/bskulls-coldwar_v${VERSION}.pbo" > "dist/bskulls-coldwar_v${VERSION}.sha256"
+
+      - name: Upload coldwar assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.coldwar_tag_name }}
+          VERSION: ${{ needs.release-please.outputs.coldwar_version }}
+        run: |
+          gh release upload "$TAG" \
+            "dist/bskulls-coldwar_v${VERSION}.pbo" \
+            "dist/bskulls-coldwar_v${VERSION}.sha256" \
+            --clobber
+
+  publish-modern:
+    name: Publish modern release
+    needs: release-please
+    if: needs.release-please.outputs.modern_release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Install HEMTT
+        run: curl -sSf https://hemtt.dev/install.sh | sh
+
+      - name: Add local binaries to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run HEMTT build
+        run: hemtt build
+
+      - name: Prepare modern assets
+        env:
+          VERSION: ${{ needs.release-please.outputs.modern_version }}
+        run: |
+          mkdir -p dist
+          cp .hemttout/build/addons/bskulls_bskulls-modern.pbo "dist/bskulls-modern_v${VERSION}.pbo"
+          sha256sum "dist/bskulls-modern_v${VERSION}.pbo" > "dist/bskulls-modern_v${VERSION}.sha256"
+
+      - name: Upload modern assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.modern_tag_name }}
+          VERSION: ${{ needs.release-please.outputs.modern_version }}
+        run: |
+          gh release upload "$TAG" \
+            "dist/bskulls-modern_v${VERSION}.pbo" \
+            "dist/bskulls-modern_v${VERSION}.sha256" \
+            --clobber
+
+  publish-nam:
+    name: Publish nam release
+    needs: release-please
+    if: needs.release-please.outputs.nam_release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Install HEMTT
+        run: curl -sSf https://hemtt.dev/install.sh | sh
+
+      - name: Add local binaries to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run HEMTT build
+        run: hemtt build
+
+      - name: Prepare nam assets
+        env:
+          VERSION: ${{ needs.release-please.outputs.nam_version }}
+        run: |
+          mkdir -p dist
+          cp .hemttout/build/addons/bskulls_bskulls-nam.pbo "dist/bskulls-nam_v${VERSION}.pbo"
+          sha256sum "dist/bskulls-nam_v${VERSION}.pbo" > "dist/bskulls-nam_v${VERSION}.sha256"
+
+      - name: Upload nam assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.nam_tag_name }}
+          VERSION: ${{ needs.release-please.outputs.nam_version }}
+        run: |
+          gh release upload "$TAG" \
+            "dist/bskulls-nam_v${VERSION}.pbo" \
+            "dist/bskulls-nam_v${VERSION}.sha256" \
+            --clobber

@@ -44,8 +44,8 @@ class CfgPatches {
             // "TCGM_MultiPlay_Girls"
         };
         author = "rofz";
-        version = 0.9;
-        versionStr = "1.30";
-        versionAr[]={1,30};
+        version = 0.1;
+        versionStr = "0.1.0";
+        versionAr[] = {0,1,0};
     };
 };
