@@ -62,10 +62,16 @@ These addons depend on Arma 3 base content plus third-party mods. The dependency
 
 ## Notes For Multiplayer Servers
 
-Server operators commonly use signed addons and trusted public keys for multiplayer verification. This repository's release automation is currently focused on publishing addon `.pbo` artifacts. If signed releases are added later, the expected server-side workflow will be:
+All releases are signed. Each release includes:
 
-- place the addon `.pbo` in the mod's `Addons` folder
-- place the matching public `.bikey` in the server's `keys` folder
+- `.pbo`: the addon
+- `.bisign`: the signature file, must sit alongside the `.pbo` in the mod's `Addons` folder
+- `RoFz_bskulls.bikey`: the public key for server-side verification
+
+Server-side setup:
+
+- place the addon `.pbo` and its `.bisign` in the mod's `Addons` folder
+- place `RoFz_bskulls.bikey` in the server's `keys` folder
 
 ## Repository Layout
 
