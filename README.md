@@ -2,40 +2,91 @@
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-Arma 3 faction/mod content for the Black Skulls across multiple eras.
+Black Skulls is an Arma 3 faction mod project that packages the group across multiple eras instead of as a single all-in-one setting. Each addon focuses on a different time period, with its own units, groups, vehicles, weapons, identities, scripts, textures, and editor assets.
 
 ![Black Skulls insignia](docs/assets/black_skulls_picture_256_256.png)
 
-## Contents
+## Addons
 
-- `bskulls-modern`: modern-era faction content, including vehicles, weapons, groups, identities, scripts, textures, and thumbnails
-- `bskulls-coldwar`: cold war-era faction content and supporting assets
-- `bskulls-nam`: Vietnam-era faction content and supporting assets
-- `discarded`: reference and study material that is kept for context, not as active addon content
+- `bskulls-modern`: present-day / near-contemporary faction content
+- `bskulls-coldwar`: Cold War-era faction content
+- `bskulls-nam`: Vietnam-era faction content
 
-## Repository shape
+These are released as separate addons and versioned independently.
 
-This repository intentionally preserves the existing addon layout in place. Repo-level improvements should avoid reorganizing addon content unless that work is explicitly approved first.
+## Install A Release In Arma 3
+
+Each addon release currently ships as an individual `.pbo` file.
+
+### Option 1: Arma 3 Launcher
+
+1. Download the addon `.pbo` you want from the repository's Releases page.
+2. Create a local mod folder somewhere on disk, for example:
+   - `@bskulls-modern`
+   - `@bskulls-coldwar`
+   - `@bskulls-nam`
+3. Inside that folder, create an `Addons` directory.
+4. Copy the released `.pbo` into that `Addons` directory.
+5. Open the Arma 3 Launcher.
+6. Add the folder as a local mod and enable it in the launcher.
+
+Example layout:
+
+```text
+@bskulls-modern/
+  Addons/
+    bskulls-modern_v0.1.0.pbo
+```
+
+### Option 2: Startup Parameter
+
+You can also load the addon with Arma 3's `-mod=` startup parameter.
+
+Example:
+
+```text
+-mod=@bskulls-modern
+```
+
+If you are loading multiple mods, separate them with semicolons.
+
+Example:
+
+```text
+-mod=@CBA_A3;@bskulls-modern
+```
 
 ## Dependencies
 
-These addons depend on Arma 3 base content plus third-party mods. The exact dependency set varies by addon and should be checked in each addon's `CfgPatches.hpp`.
+These addons depend on Arma 3 base content plus third-party mods. The dependency set is addon-specific, so check each addon's `CfgPatches.hpp` for the authoritative required addons list.
 
-## Development workflow
+## Notes For Multiplayer Servers
+
+Server operators commonly use signed addons and trusted public keys for multiplayer verification. This repository's release automation is currently focused on publishing addon `.pbo` artifacts. If signed releases are added later, the expected server-side workflow will be:
+
+- place the addon `.pbo` in the mod's `Addons` folder
+- place the matching public `.bikey` in the server's `keys` folder
+
+## Repository Layout
+
+- `addons/`: active HEMTT addon content
+- `discarded/`: reference and study material kept for context, not for active builds
+- `.hemtt/`: HEMTT project configuration
+- `.github/workflows/`: CI and release automation
+
+## Development Workflow
 
 1. Make focused changes.
-2. Avoid broad structural edits to existing addon directories unless explicitly approved.
-3. Keep commit messages in Conventional Commit format.
-4. Run repository hygiene checks before opening a pull request.
+2. Avoid broad structural edits unless they are intentional and reviewed.
+3. Use Conventional Commits.
+4. Run `hemtt check` before opening a pull request.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for commit conventions, review expectations, and repo safety rules.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules, review expectations, and repository safety guidance.
 
 ## License
 
-This repository is licensed under
-[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+This repository is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-In short: attribution is required, commercial use is not allowed, and
-redistribution of modified versions is not allowed under this license.
+In short: attribution is required, commercial use is not allowed, and redistribution of modified versions is not allowed under this license.
