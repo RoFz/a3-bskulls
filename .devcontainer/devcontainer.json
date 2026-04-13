@@ -4,7 +4,9 @@
     "--name",
     "a3-bskulls"
   ],
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "remoteUser": "vscode",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/a3-bskulls,type=bind,consistency=cached",
   "workspaceFolder": "/workspaces/a3-bskulls",
@@ -30,6 +32,7 @@
       "type": "volume"
     }
   ],
+  "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.codex",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "containerEnv": {
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
