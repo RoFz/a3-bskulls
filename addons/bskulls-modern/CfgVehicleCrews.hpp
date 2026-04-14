@@ -52,8 +52,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -77,8 +77,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -102,8 +102,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
@@ -127,8 +127,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\300_tank-crew.sqf';";
@@ -151,8 +151,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\400_boat-crew.sqf';";
@@ -175,8 +175,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
+        magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
+        respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
             init = "_this execVM '\bskulls-modern\scripts\500_vehicle-crew.sqf';";
