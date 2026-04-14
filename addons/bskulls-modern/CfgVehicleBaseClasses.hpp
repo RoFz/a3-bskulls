@@ -15,8 +15,7 @@
         identity = "Falken";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = "U_SSU_Stealth_Uniform_Ghillie_Black";
-        linkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,VIPER_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VIPER_GOGGLES};
+        LINKED_ITEMS_UAV(DEFAULT_VEST,VIPER_HELMET,VIPER_GOGGLES);
     };
 
     // ─── 02 Fox ──────────────────────────────────────────────────────────────────
@@ -31,8 +30,7 @@
         identity = "Fox";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,FOX_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,FOX_GOGGLES};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,FOX_HELMET,FOX_GOGGLES);
     };
 
     // ─── 03 Vega ─────────────────────────────────────────────────────────────────
@@ -46,8 +44,7 @@
         identity = "Vega";
         identityTypes[] = {"Head_NATO_camo_lush","LanguageGRE_F",VEGA_GOGGLES};
         uniformClass = "U_B_T_FullGhillie_tna_F";
-        linkedItems[] = {"B_PTbskull_Vest_blackops_02",VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
-        respawnlinkedItems[] = {"B_PTbskull_Vest_blackops_02",VEGA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,VEGA_GOGGLES};
+        LINKED_ITEMS_GPS("B_PTbskull_Vest_blackops_02",VEGA_HELMET,VEGA_GOGGLES);
     };
 
     // ─── 04 McKendrick ───────────────────────────────────────────────────────────
@@ -60,8 +57,7 @@
         identity = "McKendrick";
         identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,MCKENDRICK_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MCKENDRICK_GOGGLES};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
     };
 
     // ─── 05 Jackson ──────────────────────────────────────────────────────────────
@@ -74,8 +70,7 @@
         identity = "Jackson";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,JACKSON_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,JACKSON_HELMET,"G_Aviator");
     };
 
     // ─── 06 Frost ────────────────────────────────────────────────────────────────
@@ -88,8 +83,7 @@
         identity = "Frost";
         identityTypes[] = {"Head_NATO","LanguageENGFRE_F","G_SSU_Bandana_Sports_Black"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","G_SSU_Bandana_Sports_Black");
     };
 
     // ─── 07 Hawkins ──────────────────────────────────────────────────────────────
@@ -102,8 +96,7 @@
         identity = "Hawkins";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_SSU_Bandana_Sports_Black_Beast"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
-        respawnlinkedItems[] = {DEFAULT_VEST,HAWKINS_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Bandana_Sports_Black_Beast"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,HAWKINS_HELMET,"G_SSU_Bandana_Sports_Black_Beast");
     };
 
     // ─── 08 Sykes ────────────────────────────────────────────────────────────────
@@ -117,8 +110,7 @@
         identity = "Sykes";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Tactical_Clear"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Tactical_Clear"};
+        LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_Tactical_Clear");
     };
 
     // ─── 09 Everett ──────────────────────────────────────────────────────────────
@@ -131,8 +123,7 @@
         identity = "Everett";
         identityTypes[] = {"Head_Nato","LanguageENGB_F",EVERETT_GOGGLES};
         uniformClass = "U_B_FullGhillie_sard";
-        linkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
-        respawnlinkedItems[] = {"V_SSU_Carrier_Lite_M81",EVERETT_HELMET,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,EVERETT_GOGGLES};
+        LINKED_ITEMS_GPS("V_SSU_Carrier_Lite_M81",EVERETT_HELMET,EVERETT_GOGGLES);
     };
 
     // ─── 10 Taylor ───────────────────────────────────────────────────────────────
@@ -145,8 +136,7 @@
         identity = "Taylor";
         identityTypes[] = {"Head_Nato","LanguageENG_F","G_SSU_Balaclava_TI_G_Black"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Balaclava_TI_G_Black"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Boonie_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_SSU_Balaclava_TI_G_Black"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_SSU_Balaclava_TI_G_Black");
     };
 
     // ─── 11 Liu ──────────────────────────────────────────────────────────────────
@@ -161,8 +151,7 @@
         identity = "Liu";
         identityTypes[] = {"Head_TCGM_Girls_Asian"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"};
+        LINKED_ITEMS_LIU(DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black");
     };
 
     // ─── 12 Makarova ─────────────────────────────────────────────────────────────
@@ -175,8 +164,7 @@
         identity = "Makarova";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",MAKAROVA_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
-        linkedItems[] = {DEFAULT_VEST,MAKAROVA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MAKAROVA_GOGGLES};
-        respawnlinkedItems[] = {DEFAULT_VEST,MAKAROVA_HELMET,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,MAKAROVA_GOGGLES};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,MAKAROVA_HELMET,MAKAROVA_GOGGLES);
     };
 
     // ─── 13 Elias ────────────────────────────────────────────────────────────────
@@ -189,8 +177,7 @@
         identity = "Elias";
         identityTypes[] = {"Head_Greek","LanguageENG_F","G_Squares_Tinted"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Squares_Tinted"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Squares_Tinted"};
+        LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Cap_HS_Black","G_Squares_Tinted");
     };
 
     // ─── 14 Martinez ─────────────────────────────────────────────────────────────
@@ -203,6 +190,5 @@
         identity = "Martinez";
         identityTypes[] = {"Head_TK","LanguageENG_F","G_Spectacles_Tinted"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_Hat_Safari_sand_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Spectacles_Tinted"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_Hat_Safari_sand_F","G_Spectacles_Tinted");
     };

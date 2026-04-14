@@ -29,6 +29,28 @@
 #define MAG_25(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_30(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 
+#define LINKED_ITEMS_GPS(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}
+
+#define LINKED_ITEMS_UAV(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}
+
+#define LINKED_ITEMS_LIU(vest,helmet) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"}
+
+#define LINKED_ITEMS_PLANE(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",goggles}
+
+// TODO: Split this into a broader crew-oriented helper or a dedicated helo-crew helper
+// once the shared GPS+NVG-without-goggles pattern is revisited outside tank crew.
+#define LINKED_ITEMS_TANK(vest,helmet) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}
+
 
 // TEAM SETTINGS
 

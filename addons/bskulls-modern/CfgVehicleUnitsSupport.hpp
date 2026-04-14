@@ -46,8 +46,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
+        LINKED_ITEMS_PLANE(DEFAULT_VEST,"H_PilotHelmetFighter_B","G_Aviator");
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
@@ -71,8 +70,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_PilotHelmetHeli_B","G_Aviator");
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
@@ -96,8 +94,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_NATO_pilot"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
+        LINKED_ITEMS_TANK(DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black");
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
@@ -121,8 +118,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_NATO_default"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
+        LINKED_ITEMS_TANK(DEFAULT_VEST,"H_Tank_eaf_F");
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
@@ -145,8 +141,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Cap_HS_Black","G_Aviator");
         weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
@@ -169,8 +164,7 @@
         faction = "bskull_fc_mo";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_Lowprofile"};
         uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
+        LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","G_Lowprofile");
         weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
