@@ -1,40 +1,6 @@
 
     // ── Unit Base Classes ────────────────────────────────────────────────────
 
-    class B_Fighter_Pilot_F;
-    class B_Fighter_Pilot_F_OCimport_01 : B_Fighter_Pilot_F { scope = 0; };
-    class B_Fighter_Pilot_F_OCimport_02 : B_Fighter_Pilot_F_OCimport_01
-    {
-        sensitivity = 9;
-        sensitivityEar = 3;
-        icon = "iconManOfficer";
-    };
-
-    class B_Helipilot_F;
-    class B_Helipilot_F_OCimport_01 : B_Helipilot_F { scope = 0; };
-    class B_Helipilot_F_OCimport_02 : B_Helipilot_F_OCimport_01
-    {
-        sensitivity = 9;
-        sensitivityEar = 3;
-        icon = "iconManLeader";
-    };
-
-    class B_helicrew_F;
-    class B_helicrew_F_OCimport_01 : B_helicrew_F { scope = 0; };
-    class B_helicrew_F_OCimport_02 : B_helicrew_F_OCimport_01
-    {
-        sensitivity = 9;
-        sensitivityEar = 3;
-    };
-
-    class B_crew_F;
-    class B_crew_F_OCimport_01 : B_crew_F { scope = 0; };
-    class B_crew_F_OCimport_02 : B_crew_F_OCimport_01
-    {
-        sensitivity = 9;
-        sensitivityEar = 3;
-    };
-
     class B_recon_TL_F;
     class B_recon_TL_F_OCimport_01 : B_recon_TL_F { scope = 0; };
     class B_recon_TL_F_OCimport_02 : B_recon_TL_F_OCimport_01
@@ -137,33 +103,6 @@
         engineer = 1;
         uavHacker = 1;
         icon = "iconManEngineer";
-    };
-
-    class B_UAV_AI;
-    class B_UAV_AI_OCimport_01 : B_UAV_AI { scope = 0; };
-    class B_PTbskull_Veh_UAV_AI_AIR : B_UAV_AI_OCimport_01
-    {
-        // inheritsFrom(configfile >> "CfgVehicles" >> "B_UAV_AI") = bin\config.bin/CfgVehicles/B_Helipilot_F
-        author = "RoFz";
-        scope = 1;
-        scopeCurator = 0;
-        sensitivity = 9;
-        sensitivityEar = 0.3;
-        class EventHandlers : EventHandlers {
-            init = "if (local (_this select 0)) then {_onSpawn = {_this = _this select 0; _this setSkill 1;};_this spawn _onSpawn;};";
-        };
-    };
-
-    class B_PTbskull_Veh_UAV_AI_GROUND : B_UAV_AI_OCimport_01
-    {
-        author = "RoFz";
-        scope = 1;
-        scopeCurator = 0;
-        sensitivity = 9;
-        sensitivityEar = 3;
-        class EventHandlers : EventHandlers {
-            init = "if (local (_this select 0)) then {_onSpawn = {_this = _this select 0; _this disableAI 'SUPPRESSION';_this setSkill 1;};_this spawn _onSpawn;};";
-        };
     };
 
     // ── Units ────────────────────────────────────────────────────────────────
@@ -1728,155 +1667,6 @@
     // };
 
 
-    // Support Units
-
-    class B_PTbskull_Veh_Unit_Plane_Pilot_blackops_01 : B_Fighter_Pilot_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Plane Pilot";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetFighter_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch","G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        backpack = "B_Parachute";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\100_plane-pilot.sqf';";
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Helo_Pilot_blackops_01 : B_Helipilot_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Helo Pilot";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_PilotHelmetHeli_B","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        backpack = "B_Parachute";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\200_helo-pilot.sqf';";
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Helo_Crew_blackops_01 : B_helicrew_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Helo Crew";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_NATO_pilot"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Heli_Crew_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        backpack = "B_Parachute";
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\204_helo-crew.sqf';";
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Tank_Crew_blackops_01 : B_crew_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Tank Crew";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_NATO_default"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_Tank_eaf_F","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG};
-        weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\300_tank-crew.sqf';";
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Boat_Crew_blackops_01 : B_crew_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Boat Crew";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_Aviator"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Cap_HS_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Aviator"};
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","JAS_RSASS_20rnd_M62_Tracer_Red_mag","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\400_boat-crew.sqf';";
-        };
-    };
-
-    class B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01 : B_crew_F_OCimport_02
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "Vehicle Crew";
-        side = 1;
-        faction = "bskull_fc_mo";
-        identityTypes[] = {"Head_NATO","LanguageENG_F","G_Lowprofile"};
-        uniformClass = DEFAULT_UNIFORM;
-        linkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
-        respawnlinkedItems[] = {DEFAULT_VEST,"H_SSU_Combat_Helmet_Black","ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,"G_Lowprofile"};
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
-        magazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        respawnMagazines[] = {"B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_pistol_01_4five_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","B_PTbskull_Wea_SMG_02_sting_AMMO","SmokeShell","SmokeShell","SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","MiniGrenade","MiniGrenade"};
-        class EventHandlers : EventHandlers
-        {
-            init = "_this execVM '\bskulls-modern\scripts\500_vehicle-crew.sqf';";
-        };
-    };
-
     class THC_Bag50;
     // class Bag_Base_OCimport_001 : Bag_Base {
     //     scope = 0;
@@ -2326,18 +2116,6 @@
         };
         class TransportItems { };
         class TransportWeapons { };
-    };
-
-    class B_UAV_01_backpack_F;
-    class B_UAV_01_backpack_F_OCimport_01 : B_UAV_01_backpack_F { scope = 0; class assembleInfo; };
-    class B_PTbskull_Veh_Back_UAV_blackops_01 : B_UAV_01_backpack_F_OCimport_01 {
-        author = "RoFz";
-        scope = 2;
-        displayName = "Assault Pack (UAV)";
-        class assembleInfo : assembleInfo {
-            assembleTo = "B_PTbskull_Veh_Drone_blackops_03";
-            displayName = "AR-2 BSkull";
-        };
     };
 
     class B_PTbskull_Veh_Back_Fuel_blackops_01: THC_Bag50 {
