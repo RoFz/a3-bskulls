@@ -34,6 +34,7 @@
   ],
   "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.codex",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postAttachCommand": "bash .devcontainer/post-attach.sh",
   "containerEnv": {
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
     "CODEX_HOME": "/home/vscode/.codex",
