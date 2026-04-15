@@ -50,7 +50,7 @@
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
@@ -74,7 +74,7 @@
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
@@ -98,7 +98,7 @@
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         backpack = "B_Parachute";
@@ -122,7 +122,7 @@
         weapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_01_vermin","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
@@ -145,7 +145,7 @@
         weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
@@ -168,7 +168,7 @@
         weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
-        respawnitems[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
         magazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers

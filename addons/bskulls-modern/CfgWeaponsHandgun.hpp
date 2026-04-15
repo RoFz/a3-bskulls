@@ -7,6 +7,7 @@
         displayName = "4-Five SD (.45 ACP)";
         author = "RoFz";
         scope = 2;
+        scopeArsenal = 2;
         class Single : Single {
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7
@@ -44,6 +45,7 @@
         displayName = "PiMB SD (9x18mm Makarov)";
         author = "RoFz";
         scope = 2;
+        scopeArsenal = 2;
         class Single : Single {
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7

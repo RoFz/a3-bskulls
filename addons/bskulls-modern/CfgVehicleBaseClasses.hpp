@@ -16,6 +16,10 @@
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = "U_SSU_Stealth_Uniform_Ghillie_Black";
         LINKED_ITEMS_UAV(DEFAULT_VEST,VIPER_HELMET,VIPER_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';";
+        };
     };
 
     // ─── 02 Fox ──────────────────────────────────────────────────────────────────
@@ -31,6 +35,11 @@
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_GPS(DEFAULT_VEST,FOX_HELMET,FOX_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 03 Vega ─────────────────────────────────────────────────────────────────
@@ -45,6 +54,11 @@
         identityTypes[] = {"Head_NATO_camo_lush","LanguageGRE_F",VEGA_GOGGLES};
         uniformClass = "U_B_T_FullGhillie_tna_F";
         LINKED_ITEMS_GPS("B_PTbskull_Vest_blackops_02",VEGA_HELMET,VEGA_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 04 McKendrick ───────────────────────────────────────────────────────────
@@ -58,6 +72,11 @@
         identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 05 Jackson ──────────────────────────────────────────────────────────────
@@ -71,6 +90,11 @@
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_GPS(DEFAULT_VEST,JACKSON_HELMET,"G_Aviator");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\5_jackson.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 06 Frost ────────────────────────────────────────────────────────────────
@@ -84,6 +108,11 @@
         identityTypes[] = {"Head_NATO","LanguageENGFRE_F","G_SSU_Bandana_Sports_Black"};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","G_SSU_Bandana_Sports_Black");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 07 Hawkins ──────────────────────────────────────────────────────────────
@@ -97,6 +126,11 @@
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_SSU_Bandana_Sports_Black_Beast"};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,HAWKINS_HELMET,"G_SSU_Bandana_Sports_Black_Beast");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\7_hawkins.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 08 Sykes ────────────────────────────────────────────────────────────────
@@ -111,6 +145,11 @@
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Tactical_Clear"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_Tactical_Clear");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\8_sykes.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 09 Everett ──────────────────────────────────────────────────────────────
@@ -124,6 +163,11 @@
         identityTypes[] = {"Head_Nato","LanguageENGB_F",EVERETT_GOGGLES};
         uniformClass = "U_B_FullGhillie_sard";
         LINKED_ITEMS_GPS("V_SSU_Carrier_Lite_M81",EVERETT_HELMET,EVERETT_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\9_everett.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 10 Taylor ───────────────────────────────────────────────────────────────
@@ -137,6 +181,11 @@
         identityTypes[] = {"Head_Nato","LanguageENG_F","G_SSU_Balaclava_TI_G_Black"};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_SSU_Balaclava_TI_G_Black");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\10_taylor.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 11 Liu ──────────────────────────────────────────────────────────────────
@@ -152,6 +201,11 @@
         identityTypes[] = {"Head_TCGM_Girls_Asian"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_LIU(DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\11_liu.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 12 Makarova ─────────────────────────────────────────────────────────────
@@ -165,6 +219,11 @@
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",MAKAROVA_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_GPS(DEFAULT_VEST,MAKAROVA_HELMET,MAKAROVA_GOGGLES);
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\12_makarova.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 13 Elias ────────────────────────────────────────────────────────────────
@@ -178,6 +237,11 @@
         identityTypes[] = {"Head_Greek","LanguageENG_F","G_Squares_Tinted"};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Cap_HS_Black","G_Squares_Tinted");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\13_elias.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };
 
     // ─── 14 Martinez ─────────────────────────────────────────────────────────────
@@ -191,4 +255,9 @@
         identityTypes[] = {"Head_TK","LanguageENG_F","G_Spectacles_Tinted"};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_Hat_Safari_sand_F","G_Spectacles_Tinted");
+        class EventHandlers : EventHandlers
+        {
+            init = "_this execVM '\bskulls-modern\scripts\14_martinez.sqf';";
+            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+        };
     };

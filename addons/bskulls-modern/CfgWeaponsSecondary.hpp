@@ -34,7 +34,7 @@
         // {
         //     class StepScope : StepScope {
         //         distanceZoomMin = 100; // 300
-        //         distanceZoomMin = 900; // 300
+        //         distanceZoomMax = 900; // 300
         //         nFovLimit = 0.08333; // 0.08333
         //         opticsZoomInit = "0.25/7"; // 0.08333
         //         opticsZoomMax = "0.25/7"; // 0.04167
