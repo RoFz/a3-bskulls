@@ -67,7 +67,6 @@
         "wdhongtw.gpg-indicator",
         "jasonnutter.vscode-codeowners",
         "ms-vscode.cpptools",
-        "ms-vscode-remote.remote-containers",
         "ole1986.arma-dev",
         "openai.chatgpt",
         "pkief.material-icon-theme",
@@ -77,7 +76,6 @@
         "tamasfe.even-better-toml",
         "BrettMayson.hemtt",
         "vlad333000.sqf",
-        "vscode-icons-team.vscode-icons",
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
