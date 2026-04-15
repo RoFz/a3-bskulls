@@ -1,4 +1,5 @@
 #include "CfgPatches.hpp"
+#include "CfgWeapons.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgFactionClasses.hpp"
 #include "CfgUnitInsignia.hpp"

@@ -87,6 +87,42 @@ Server-side setup:
 3. Use Conventional Commits.
 4. Run `hemtt check` before opening a pull request.
 
+### Devcontainer Tooling
+
+The repo devcontainer installs the local tooling used for Arma work, including Java for the `skacekachna.sqflint` VS Code extension. If SQFLint starts logging `spawn java ENOENT` after opening or editing `Cfg*.hpp` files, rebuild the devcontainer so `.devcontainer/post-create.sh` can reinstall the runtime.
+
+### Dependency Audit
+
+Use the local dependency audit to review `CfgPatches.requiredAddons[]` against actual config usage:
+
+```text
+python3 tools/audit_required_addons.py addons/bskulls-modern
+```
+
+The audit is report-only in v1. It uses:
+
+- actual class references found in addon config and SQF files
+- `tools/class_to_patch_map.json` for verified class-to-`CfgPatches` ownership
+
+When a new external class appears, verify its owning patch in the upstream mod config and add it to the mapping file once. Then re-run the audit and update `requiredAddons[]` from the report.
+
+You can also compare the static audit against a runtime-exported config snippet, for example an ALiVE ORBAT/autogen export that contains `requiredAddons[]`:
+
+```text
+python3 tools/audit_required_addons.py addons/bskulls-modern --runtime-cfg /path/to/autogen.hpp
+```
+
+That gives you two complementary signals:
+
+- static source scanning catches inheritance and content references even when you have not loaded the modset in game
+- runtime/oracle exports reflect what Arma reports from the live loaded config database
+
+When those disagree, the report highlights the gaps so you can either:
+
+- expand `tools/class_to_patch_map.json`
+- correct `requiredAddons[]`
+- or confirm the runtime export was scenario-specific and not a full addon dependency picture
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules, review expectations, and repository safety guidance.

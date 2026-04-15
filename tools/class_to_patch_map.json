@@ -1,0 +1,56 @@
+{
+  "THC_Bag50": {
+    "class": "THC_Bag50",
+    "patch": "THC_Units_Backpacks",
+    "source_mod": "THC Units Backpacks",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_CombatUniform_CTRG_Stealth": {
+    "class": "TCGM_CombatUniform_CTRG_Stealth",
+    "patch": "TCGM_MultiPlay_Girls",
+    "source_mod": "TCGM MultiPlay Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_CombatUniform_CTRG_Stealth_arid": {
+    "class": "TCGM_CombatUniform_CTRG_Stealth_arid",
+    "patch": "TCGM_MultiPlay_Girls",
+    "source_mod": "TCGM MultiPlay Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_Fem_Stone": {
+    "class": "TCGM_Fem_Stone",
+    "patch": "TCGM_Girls",
+    "source_mod": "TCGM Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_Multiplay_U_B_BLK_Combat_Stealth": {
+    "class": "TCGM_Multiplay_U_B_BLK_Combat_Stealth",
+    "patch": "TCGM_MultiPlay_Girls",
+    "source_mod": "TCGM MultiPlay Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_Stealth_B_CTRG_Soldier_Medic": {
+    "class": "TCGM_Stealth_B_CTRG_Soldier_Medic",
+    "patch": "TCGM_Girls",
+    "source_mod": "TCGM Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "TCGM_Stealth_B_CTRG_Soldier_SC": {
+    "class": "TCGM_Stealth_B_CTRG_Soldier_SC",
+    "patch": "TCGM_Girls",
+    "source_mod": "TCGM Girls",
+    "notes": "Seeded from repo usage; verify against upstream CfgPatches."
+  },
+  "gm_m72a3_oli": {
+    "class": "gm_m72a3_oli",
+    "patch": "gm_core",
+    "source_mod": "Global Mobilization",
+    "notes": "Verified from current repo dependency usage."
+  },
+  "gm_pimb_blk": {
+    "class": "gm_pimb_blk",
+    "patch": "gm_core",
+    "source_mod": "Global Mobilization",
+    "notes": "Verified from current repo dependency usage."
+  }
+}

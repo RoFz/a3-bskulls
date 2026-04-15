@@ -2,7 +2,7 @@
 private _UnitName = "Hawkins";
 private _VehVarName = "BSkullHawkins";
 private _DRO_VehVarName = "u7";
-private _UnitFullName = "Kendall Fox";
+private _UnitFullName = "Kendall Hawkins";
 private _UnitFirstName = "Kendall";
 private _UnitLastName = "Hawkins";
 private _UnitNameSound = "Hawkins";

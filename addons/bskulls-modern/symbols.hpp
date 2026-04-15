@@ -22,8 +22,34 @@
 #define MAG_18(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_19(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_20(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
+#define MAG_21(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
+#define MAG_22(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
+#define MAG_23(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
+#define MAG_24(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_25(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_30(a) a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a
+#define MAG_30(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
+
+#define LINKED_ITEMS_GPS(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}
+
+#define LINKED_ITEMS_UAV(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","B_UavTerminal","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG,goggles}
+
+#define LINKED_ITEMS_LIU(vest,helmet) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch"}
+
+#define LINKED_ITEMS_PLANE(vest,helmet,goggles) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",goggles}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",goggles}
+
+// TODO: Split this into a broader crew-oriented helper or a dedicated helo-crew helper
+// once the shared GPS+NVG-without-goggles pattern is revisited outside tank crew.
+#define LINKED_ITEMS_TANK(vest,helmet) \
+    linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}; \
+    respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}
 
 
 // TEAM SETTINGS
@@ -140,8 +166,8 @@
 #define SYKES_GOGGLES "G_Tactical_Clear"
 #define SYKES_HELMET_J SYKES_HELMET
 #define SYKES_GOGGLES_J SYKES_GOGGLES
-#define SYKES_HELMET_D SYKES_HELMET_D
-#define SYKES_GOGGLES_D SYKES_GOGGLES_D
+#define SYKES_HELMET_D SYKES_HELMET
+#define SYKES_GOGGLES_D SYKES_GOGGLES
 
 // MARTINEZ
 #define MARTINEZ_HELMET "H_Hat_Safari_sand_F"

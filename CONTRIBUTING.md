@@ -11,6 +11,8 @@ git clone https://github.com/RoFz/a3-bskulls.git
 cd a3-bskulls
 ```
 
+If you are using the repo devcontainer, let the post-create bootstrap finish before opening `Cfg*.hpp` files in VS Code. It installs Java for the `skacekachna.sqflint` extension, and without it SQFLint will repeatedly fail with `spawn java ENOENT`.
+
 Review the relevant addon directory before making changes:
 
 - `bskulls-modern`

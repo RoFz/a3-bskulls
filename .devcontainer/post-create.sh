@@ -5,7 +5,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 echo "[devcontainer] Installing repo tooling..."
 
-sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends libssl-dev
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
+  default-jre-headless \
+  libssl-dev
 
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user pre-commit
@@ -39,6 +41,7 @@ if ! command -v hemtt >/dev/null 2>&1; then
 fi
 
 echo "[devcontainer] Tool versions:"
+java -version || true
 python3 --version
 pre-commit --version
 armake2 --version || true

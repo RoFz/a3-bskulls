@@ -60,6 +60,11 @@ Temporary Items
 
 ## Codex
 .codex
+.codex.instructions.md
+.codex/AGENT_INSTRUCTIONS.md
+
+## Claude
+.claude/
 
 ## Local Arma files
 
