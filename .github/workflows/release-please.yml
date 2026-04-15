@@ -23,15 +23,15 @@ jobs:
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
       paths_released: ${{ steps.release.outputs.paths_released }}
-      coldwar_release_created: ${{ steps.release.outputs['addons/bskulls-coldwar--release_created'] }}
-      coldwar_tag_name: ${{ steps.release.outputs['addons/bskulls-coldwar--tag_name'] }}
-      coldwar_version: ${{ steps.release.outputs['addons/bskulls-coldwar--version'] }}
-      modern_release_created: ${{ steps.release.outputs['addons/bskulls-modern--release_created'] }}
-      modern_tag_name: ${{ steps.release.outputs['addons/bskulls-modern--tag_name'] }}
-      modern_version: ${{ steps.release.outputs['addons/bskulls-modern--version'] }}
-      nam_release_created: ${{ steps.release.outputs['addons/bskulls-nam--release_created'] }}
-      nam_tag_name: ${{ steps.release.outputs['addons/bskulls-nam--tag_name'] }}
-      nam_version: ${{ steps.release.outputs['addons/bskulls-nam--version'] }}
+      coldwar_release_created: ${{ steps.release.outputs['bskulls-coldwar--release_created'] }}
+      coldwar_tag_name: ${{ steps.release.outputs['bskulls-coldwar--tag_name'] }}
+      coldwar_version: ${{ steps.release.outputs['bskulls-coldwar--version'] }}
+      modern_release_created: ${{ steps.release.outputs['bskulls-modern--release_created'] }}
+      modern_tag_name: ${{ steps.release.outputs['bskulls-modern--tag_name'] }}
+      modern_version: ${{ steps.release.outputs['bskulls-modern--version'] }}
+      nam_release_created: ${{ steps.release.outputs['bskulls-nam--release_created'] }}
+      nam_tag_name: ${{ steps.release.outputs['bskulls-nam--tag_name'] }}
+      nam_version: ${{ steps.release.outputs['bskulls-nam--version'] }}
 
     steps:
       - name: Generate GitHub App token
@@ -81,20 +81,33 @@ jobs:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
 
+      - name: Patch non-semver version fields
+        env:
+          VERSION: ${{ needs.release-please.outputs.coldwar_version }}
+        run: |
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          MINOR=$(echo "$VERSION" | cut -d. -f2)
+          PATCH=$(echo "$VERSION" | cut -d. -f3)
+          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
+              bskulls-coldwar/addons/bskulls-coldwar/CfgPatches.hpp
+          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
+              bskulls-coldwar/addons/bskulls-coldwar/CfgPatches.hpp
+
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive
+        working-directory: bskulls-coldwar
 
       - name: Sign coldwar PBO
-        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-coldwar.pbo
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey bskulls-coldwar/.hemttout/release/addons/bskulls_bskulls-coldwar.pbo
 
       - name: Prepare coldwar assets
         env:
           VERSION: ${{ needs.release-please.outputs.coldwar_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/release/addons/bskulls_bskulls-coldwar.pbo \
+          cp bskulls-coldwar/.hemttout/release/addons/bskulls_bskulls-coldwar.pbo \
              "dist/bskulls-coldwar_v${VERSION}.pbo"
-          cp .hemttout/release/addons/bskulls_bskulls-coldwar.pbo.RoFz_bskulls.bisign \
+          cp bskulls-coldwar/.hemttout/release/addons/bskulls_bskulls-coldwar.pbo.RoFz_bskulls.bisign \
              "dist/bskulls-coldwar_v${VERSION}.bisign"
           cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
           sha256sum "dist/bskulls-coldwar_v${VERSION}.pbo" \
@@ -145,20 +158,33 @@ jobs:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
 
+      - name: Patch non-semver version fields
+        env:
+          VERSION: ${{ needs.release-please.outputs.modern_version }}
+        run: |
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          MINOR=$(echo "$VERSION" | cut -d. -f2)
+          PATCH=$(echo "$VERSION" | cut -d. -f3)
+          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
+              bskulls-modern/addons/bskulls-modern/CfgPatches.hpp
+          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
+              bskulls-modern/addons/bskulls-modern/CfgPatches.hpp
+
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive
+        working-directory: bskulls-modern
 
       - name: Sign modern PBO
-        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-modern.pbo
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey bskulls-modern/.hemttout/release/addons/bskulls_bskulls-modern.pbo
 
       - name: Prepare modern assets
         env:
           VERSION: ${{ needs.release-please.outputs.modern_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/release/addons/bskulls_bskulls-modern.pbo \
+          cp bskulls-modern/.hemttout/release/addons/bskulls_bskulls-modern.pbo \
              "dist/bskulls-modern_v${VERSION}.pbo"
-          cp .hemttout/release/addons/bskulls_bskulls-modern.pbo.RoFz_bskulls.bisign \
+          cp bskulls-modern/.hemttout/release/addons/bskulls_bskulls-modern.pbo.RoFz_bskulls.bisign \
              "dist/bskulls-modern_v${VERSION}.bisign"
           cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
           sha256sum "dist/bskulls-modern_v${VERSION}.pbo" \
@@ -209,20 +235,33 @@ jobs:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
 
+      - name: Patch non-semver version fields
+        env:
+          VERSION: ${{ needs.release-please.outputs.nam_version }}
+        run: |
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          MINOR=$(echo "$VERSION" | cut -d. -f2)
+          PATCH=$(echo "$VERSION" | cut -d. -f3)
+          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
+              bskulls-nam/addons/bskulls-nam/CfgPatches.hpp
+          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
+              bskulls-nam/addons/bskulls-nam/CfgPatches.hpp
+
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive
+        working-directory: bskulls-nam
 
       - name: Sign nam PBO
-        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey .hemttout/release/addons/bskulls_bskulls-nam.pbo
+        run: armake2 sign /tmp/arma3keys/RoFz_bskulls.biprivatekey bskulls-nam/.hemttout/release/addons/bskulls_bskulls-nam.pbo
 
       - name: Prepare nam assets
         env:
           VERSION: ${{ needs.release-please.outputs.nam_version }}
         run: |
           mkdir -p dist
-          cp .hemttout/release/addons/bskulls_bskulls-nam.pbo \
+          cp bskulls-nam/.hemttout/release/addons/bskulls_bskulls-nam.pbo \
              "dist/bskulls-nam_v${VERSION}.pbo"
-          cp .hemttout/release/addons/bskulls_bskulls-nam.pbo.RoFz_bskulls.bisign \
+          cp bskulls-nam/.hemttout/release/addons/bskulls_bskulls-nam.pbo.RoFz_bskulls.bisign \
              "dist/bskulls-nam_v${VERSION}.bisign"
           cp /tmp/arma3keys/RoFz_bskulls.bikey dist/RoFz_bskulls.bikey
           sha256sum "dist/bskulls-nam_v${VERSION}.pbo" \

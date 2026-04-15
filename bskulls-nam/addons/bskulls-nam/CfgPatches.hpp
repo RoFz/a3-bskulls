@@ -22,7 +22,7 @@ class CfgPatches {
         author = "rofz";
         authors[] = {"rofz"};
         version = 0.1;
-        versionStr = "0.1.0";
+        versionStr = "0.1.0"; // x-release-please-version
         versionAr[] = {0,1,0};
     };
 };
