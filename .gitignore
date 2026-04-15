@@ -63,6 +63,9 @@ Temporary Items
 .codex.instructions.md
 .codex/AGENT_INSTRUCTIONS.md
 
+## Claude
+.claude/
+
 ## Local Arma files
 
 Arma3.code-profile
