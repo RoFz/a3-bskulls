@@ -30,9 +30,14 @@
       "source": "a3-bskulls-codex",
       "target": "/home/vscode/.codex",
       "type": "volume"
+    },
+    {
+      "source": "a3-bskulls-vscode-server",
+      "target": "/home/vscode/.vscode-server",
+      "type": "volume"
     }
   ],
-  "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.codex",
+  "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.codex /home/vscode/.vscode-server",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "postAttachCommand": "bash .devcontainer/post-attach.sh",
   "containerEnv": {
