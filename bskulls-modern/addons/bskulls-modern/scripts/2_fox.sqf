@@ -16,6 +16,38 @@ private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
 
+
+private _fnc_applyFoxUnitSetup = {
+    params [
+        "_u",
+        "_UnitFullName",
+        "_UnitFirstName",
+        "_UnitLastName",
+        "_UnitNameSound",
+        "_UnitVoice",
+        "_UnitVoicePitch",
+        "_UnitFace",
+        "_UnitTeam",
+        "_UnitTraits",
+        "_UnitCombatBeh",
+        "_UnitCombatMod"
+    ];
+    _u setVariable ["BIS_enableRandomization", false];
+    _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
+    _u setNameSound _UnitNameSound;
+    _u setSpeaker _UnitVoice;
+    _u setPitch _UnitVoicePitch;
+    _u setFace _UnitFace;
+    _u assignTeam _UnitTeam;
+    { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
+    if ("insignia" in selectionNames _u) then { [_u, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
+    _u enableIRLasers true;
+    _u setSkill 1;
+    _u enableFatigue false;
+    _u setCombatBehaviour _UnitCombatBeh;
+    _u setUnitCombatMode _UnitCombatMod;
+};
+
 _onSpawn = {
     params [
         "_u",
@@ -42,7 +74,7 @@ _onSpawn = {
     _u setFace _UnitFace;
     _u assignTeam _UnitTeam;
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
-    [_u, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+    if ("insignia" in selectionNames _u) then { [_u, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     _u enableIRLasers true;
     _u setSkill 1;
     _u enableFatigue false;
@@ -193,60 +225,44 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
 //         waitUntil { sleep 1; group _objId == _playerGrp || time - _time > 60};
 
 
-    if (!(isNil "u2")) then
-    {
-        u2 setVariable ["BIS_enableRandomization", false];
-        u2 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
-        u2 setNameSound _UnitNameSound;
-        u2 setSpeaker _UnitVoice;
-        u2 setPitch _UnitVoicePitch;
-        u2 setFace _UnitFace;
-        u2 assignTeam _UnitTeam;
-        { u2 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u2, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
-        u2 enableIRLasers true;
-        u2 setSkill 1;
-        u2 enableFatigue false;
-        u2 setCombatBehaviour _UnitCombatBeh;
-        u2 setUnitCombatMode _UnitCombatMod;
-    } else {
-        // systemChat format ["%1: (%2) Nil. Waiting for it...", _UnitName, _DRO_VehVarName];
+    if (isNil "u2") then {
         _time = time;
         waitUntil { sleep 1; not isNil "u2" || time - _time > 600};
-        // systemChat format ["%1: (%2) not Nil. Setting unit attributes...", _UnitName, _DRO_VehVarName];
-        u2 setVariable ["BIS_enableRandomization", false];
-        u2 setName [_UnitFullName, _UnitFirstName, _UnitLastName];
-        u2 setNameSound _UnitNameSound;
-        u2 setSpeaker _UnitVoice;
-        u2 setPitch _UnitVoicePitch;
-        u2 setFace _UnitFace;
-        u2 assignTeam _UnitTeam;
-        { u2 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u2, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
-        u2 enableIRLasers true;
-        u2 setSkill 1;
-        u2 enableFatigue false;
-        u2 setCombatBehaviour _UnitCombatBeh;
-        u2 setUnitCombatMode _UnitCombatMod;
+    };
+    if (not isNil "u2") then {
+        [
+            u2,
+            _UnitFullName,
+            _UnitFirstName,
+            _UnitLastName,
+            _UnitNameSound,
+            _UnitVoice,
+            _UnitVoicePitch,
+            _UnitFace,
+            _UnitTeam,
+            _UnitTraits,
+            _UnitCombatBeh,
+            _UnitCombatMod
+        ] call _fnc_applyFoxUnitSetup;
     };
 };
 
 
 // works outside of DRO
-_unit setVariable ["BIS_enableRandomization", false];
-_unit setName [_UnitFullName, _UnitFirstName, _UnitLastName];
-_unit setNameSound _UnitNameSound;
-_unit setSpeaker _UnitVoice;
-_unit setPitch _UnitVoicePitch;
-_unit setFace _UnitFace;
-_unit assignTeam _UnitTeam;
 _unit setUnitTrait ['Engineer', false];
 _unit setUnitTrait ['ExplosiveSpecialist', false];
-{ _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
-_unit enableIRLasers true;
-_unit setSkill 1;
-_unit enableFatigue false;
-_unit setCombatBehaviour _UnitCombatBeh;
-_unit setUnitCombatMode _UnitCombatMod;
+[
+    _unit,
+    _UnitFullName,
+    _UnitFirstName,
+    _UnitLastName,
+    _UnitNameSound,
+    _UnitVoice,
+    _UnitVoicePitch,
+    _UnitFace,
+    _UnitTeam,
+    _UnitTraits,
+    _UnitCombatBeh,
+    _UnitCombatMod
+] call _fnc_applyFoxUnitSetup;
 _unit setVehicleVarName _VehVarName;

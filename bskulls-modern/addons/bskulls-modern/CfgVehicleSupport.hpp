@@ -1,7 +1,7 @@
     // ── Fire Support Base Classes ────────────────────────────────────────────
 
     class B_MBT_01_arty_F;
-    class B_MBT_01_arty_F_OCimport_01 : B_MBT_01_arty_F { scope = 0; class Turrets; };
+    class B_MBT_01_arty_F_OCimport_01 : B_MBT_01_arty_F { scope = 0; class Turrets; class EventHandlers; };
     class B_MBT_01_arty_F_OCimport_02 : B_MBT_01_arty_F_OCimport_01
     {
         class Turrets : Turrets
@@ -11,7 +11,7 @@
     };
 
     class B_MBT_01_mlrs_F;
-    class B_MBT_01_mlrs_F_OCimport_01 : B_MBT_01_mlrs_F { scope = 0; class Turrets; };
+    class B_MBT_01_mlrs_F_OCimport_01 : B_MBT_01_mlrs_F { scope = 0; class Turrets; class EventHandlers; };
     class B_MBT_01_mlrs_F_OCimport_02 : B_MBT_01_mlrs_F_OCimport_01
     {
         class Turrets : Turrets
@@ -21,7 +21,7 @@
     };
 
     class Mortar_01_base_F;
-    class Mortar_01_base_F_OCimport_01 : Mortar_01_base_F { scope = 0; class Turrets; };
+    class Mortar_01_base_F_OCimport_01 : Mortar_01_base_F { scope = 0; class Turrets; class EventHandlers; };
     class Mortar_01_base_F_OCimport_02 : Mortar_01_base_F_OCimport_01
     {
         class Turrets : Turrets
@@ -52,7 +52,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; [_unit,['Olive',1],['showCanisters',1,'showCamonetTurret',1,'showAmmobox',1,'showCamonetHull',1]] call BIS_fnc_initVehicle; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; [_unit,['Olive',1],['showCanisters',1,'showCamonetTurret',1,'showAmmobox',1,'showCamonetHull',1]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -71,7 +71,7 @@
         };
         class EventHandlers : EventHandlers {
             fired = "_unit = _this select 0;_unit setVehicleAmmo 1";
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; [_unit,['Olive',1],['showCamonetTurret',1,'showCamonetHull',1]] call BIS_fnc_initVehicle; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; [_unit,['Olive',1],['showCamonetTurret',1,'showCamonetHull',1]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -89,12 +89,13 @@
         {
             class MainTurret : MainTurret {
                 discreteDistance[] = {100,200,300,400,500,700,1000,1600,2000,2400,2800,3200,3600,4000,4400,4800,5200};
+                weapons[] = {"B_PTbskull_Wea_art_mortar_01"};
                 magazines[] = {"80Rnd_82mm_Mo_shells_PLUS"};
                 maxTurn = 360;
             };
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;vehicle player loadMagazine [[0], 'FakeWeapon', '80Rnd_82mm_Mo_shells_PLUS'];while {true} do {sleep 600;_unit setVehicleAmmo 1;[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;vehicle player loadMagazine [[0], 'FakeWeapon', '80Rnd_82mm_Mo_shells_PLUS'];while {true} do {sleep 600;_unit setVehicleAmmo 1;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};;};;};;};;};};_this spawn _onSpawn;};";
         };
     };

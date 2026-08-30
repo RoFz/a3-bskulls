@@ -99,7 +99,7 @@ class CfgIdentities
 		name = "Liu";
 		nameSound = "Ghost";
 		pitch = 1.22;
-		speaker = "male02chi";
+		speaker = "Male02CHI";
 	};
 	class Makarova
 	{

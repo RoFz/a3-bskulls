@@ -11,9 +11,17 @@
         magazines[] = {"64Rnd_155mm_Plus_Mo_shells","8Rnd_155mm_Plus_Mo_guided","12Rnd_155mm_Plus_Mo_mine","4Rnd_155mm_Plus_Mo_Cluster","8Rnd_155mm_Plus_Mo_LG","12Rnd_155mm_Plus_Mo_AT_mine"};
     };
 
-    class Default;
-    class mortar_82mm : Default {
+    // Artillery #2: Mk6 82mm — own weapon (ACE-style); do not patch vanilla mortar_82mm
+    class mortar_82mm: CannonCore {
+        class Single1;
+        class Burst1;
+    };
+    class B_PTbskull_Wea_art_mortar_01: mortar_82mm {
         magazines[] += {"80Rnd_82mm_Mo_shells_PLUS"};
-        class Single1 : Mode_SemiAuto { artilleryDispersion=0.9; };
-        class Burst1 : Mode_Burst { artilleryDispersion=1.2; };
+        class Single1: Single1 {
+            artilleryDispersion=0.9;
+        };
+        class Burst1: Burst1 {
+            artilleryDispersion=1.2;
+        };
     };

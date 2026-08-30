@@ -1,7 +1,7 @@
     // ── Vehicle Crew Base Classes ────────────────────────────────────────────
 
     class B_Fighter_Pilot_F;
-    class B_Fighter_Pilot_F_OCimport_01 : B_Fighter_Pilot_F { scope = 0; };
+    class B_Fighter_Pilot_F_OCimport_01 : B_Fighter_Pilot_F { scope = 0; class EventHandlers; };
     class B_Fighter_Pilot_F_OCimport_02 : B_Fighter_Pilot_F_OCimport_01
     {
         sensitivity = 9;
@@ -10,7 +10,7 @@
     };
 
     class B_Helipilot_F;
-    class B_Helipilot_F_OCimport_01 : B_Helipilot_F { scope = 0; };
+    class B_Helipilot_F_OCimport_01 : B_Helipilot_F { scope = 0; class EventHandlers; };
     class B_Helipilot_F_OCimport_02 : B_Helipilot_F_OCimport_01
     {
         sensitivity = 9;
@@ -19,7 +19,7 @@
     };
 
     class B_helicrew_F;
-    class B_helicrew_F_OCimport_01 : B_helicrew_F { scope = 0; };
+    class B_helicrew_F_OCimport_01 : B_helicrew_F { scope = 0; class EventHandlers; };
     class B_helicrew_F_OCimport_02 : B_helicrew_F_OCimport_01
     {
         sensitivity = 9;
@@ -27,7 +27,7 @@
     };
 
     class B_crew_F;
-    class B_crew_F_OCimport_01 : B_crew_F { scope = 0; };
+    class B_crew_F_OCimport_01 : B_crew_F { scope = 0; class EventHandlers; };
     class B_crew_F_OCimport_02 : B_crew_F_OCimport_01
     {
         sensitivity = 9;
@@ -56,7 +56,8 @@
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\100_plane-pilot.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\100_plane-pilot.sqf';";
         };
     };
 
@@ -80,7 +81,8 @@
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\200_helo-pilot.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\200_helo-pilot.sqf';";
         };
     };
 
@@ -104,7 +106,8 @@
         backpack = "B_Parachute";
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\204_helo-crew.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\204_helo-crew.sqf';";
         };
     };
 
@@ -127,7 +130,8 @@
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\300_tank-crew.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\300_tank-crew.sqf';";
         };
     };
 
@@ -150,7 +154,8 @@
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(JAS_RSASS_20rnd_M62_Tracer_Red_mag),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\400_boat-crew.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\400_boat-crew.sqf';";
         };
     };
 
@@ -173,6 +178,7 @@
         respawnMagazines[] = {MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_12(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(SmokeShell),"SmokeShellYellow","SmokeShellRed","SmokeShellGreen","SmokeShellBlue",MAG_2(MiniGrenade)};
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\500_vehicle-crew.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\500_vehicle-crew.sqf';";
         };
     };

@@ -1,7 +1,11 @@
     // Sniper #1: M110A1
     // Ammo: 20Rnd_762x51_Mag
+    // Parent kt_M110A1_khk02 uses magazineWell CBA_762x51_AR10/SR25; ktry's CfgMagazineWells
+    // lists ACE_20Rnd/10Rnd_762x51_* there. Without ACE loaded those classes are missing → RPT
+    // "No entry CfgMagazines.ACE_*" / scope=private when TransportWeapons creates this gun
+    // (Viper Back_TL_blackops_03). magazines[] alone does not stop magwell resolution.
     #define B_PTbskull_Wea_sniper_01_m110_AMMO 20Rnd_762x51_Mag
-    class kt_M110A1_khk02; // leads to CfgMagazines.ACE_20Rnd_762x51_Mag_Tracer bug, CONFIRMED
+    class kt_M110A1_khk02;
     class kt_M110A1_khk02_OCimport_01 : kt_M110A1_khk02 { scope = 0; scopeArsenal = 0; };
     class B_PTbskull_Wea_sniper_01_m110 : kt_M110A1_khk02_OCimport_01 {
         displayName = "H&K M110A1 SDMR (7.62x51mm NATO)";
@@ -14,8 +18,8 @@
         delete ACE_overheating_mrbs;
         delete ace_overheating_slowdownFactor;
         delete ACE_RailHeightAboveBore;
-        magazines[] = {"20Rnd_762x51_Mag","BC_20Rnd_762_MEA_Stanag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag"}; // {"20Rnd_762x51_Mag","BC_20Rnd_762_MEA_Stanag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","ACE_20Rnd_762x51_M118LR_Mag","ACE_20Rnd_762x51_M993_AP_Mag","ACE_20Rnd_762x51_Mk319_Mod_0_Mag","ACE_20Rnd_762x51_Mk316_Mod_0_Mag","kt_20Rnd_762x51_178gr_ELD_X_Mag","kt_20Rnd_762x51_Mk316_Mod_0_Mag"};
-        // magazineWell[] = {"CBA_762x51_AR10","CBA_762x51_SR25"};
+        magazineWell[] = {};
+        magazines[] = {"20Rnd_762x51_Mag","BC_20Rnd_762_MEA_Stanag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag"};
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -44,7 +48,7 @@
     class bnae_trg42_virtual_OCimport_02 : bnae_trg42_virtual_OCimport_01 {
         access = 0;
         scope = 0;
-       
+
         class Single : Single {};
         class WeaponSlotsInfo : WeaponSlotsInfo {
             class CowsSlot;
@@ -1165,8 +1169,8 @@
     };
 
     // Sniper #13: Snipex Alligator
-    // Ammo: 10Rnd_93x64_DMR_05_Mag
-    #define B_PTbskull_Wea_sniper_13_alligator_AMMO 5Rnd_145_mag_B // or 5Rnd_145_mag_BZT // B = AP; Z = Inc.; T = tracer
+    // Ammo: 5Rnd_145_mag_B (alt: 5Rnd_145_mag_BZT — B=AP, Z=Inc, T=tracer)
+    #define B_PTbskull_Wea_sniper_13_alligator_AMMO 5Rnd_145_mag_B
     class amrifle_alligator_b;
     class amrifle_alligator_b_OCimport_01 : amrifle_alligator_b { access = 0; scope = 0; class Single; };
     class B_PTbskull_Wea_sniper_13_alligator : amrifle_alligator_b_OCimport_01 {
@@ -1534,10 +1538,6 @@
             class LinkedItemsAcc {
                 slot = "PointerSlot";
                 item = "acc_pointer_IR";
-            };
-            class LinkedItemsUnder {
-                slot = "UnderBarrelSlot";
-                item = "bipod_02_F_tan";
             };
         };
     };

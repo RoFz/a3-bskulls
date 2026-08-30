@@ -16,6 +16,7 @@ private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
 
+
 // systemChat format ["%1: vehicleVarName = %2", _UnitName, (vehicleVarName _unit)];
 
 _onSpawn = {
@@ -38,7 +39,7 @@ _onSpawn = {
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
     _u setCombatBehaviour _UnitCombatBeh;
     _u setUnitCombatMode _UnitCombatMod;
-    [_u, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+    if ("insignia" in selectionNames _u) then { [_u, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     _u enableIRLasers true;
     _u setSkill 1;
     _u enableFatigue false;
@@ -69,7 +70,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u4 setSpeaker _UnitVoice;
         u4 assignTeam _UnitTeam;
         { u4 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u4, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u4) then { [u4, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u4 enableIRLasers true;
         u4 setSkill 1;
         u4 enableFatigue false;
@@ -84,7 +85,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u4 setSpeaker _UnitVoice;
         u4 assignTeam _UnitTeam;
         { u4 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u4, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u4) then { [u4, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u4 enableIRLasers true;
         u4 setSkill 1;
         u4 enableFatigue false;
@@ -99,7 +100,7 @@ _unit setSpeaker _UnitVoice;
 _unit assignTeam _UnitTeam;
 _unit setUnitTrait ['Medic', false];
 { _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 _unit enableIRLasers true;
 _unit setSkill 1;
 _unit enableFatigue false;

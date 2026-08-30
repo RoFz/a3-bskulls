@@ -1,4 +1,5 @@
 
+
 hint str _this;
 params ["_caller", "_unit", "_actionNum", "_unitAttributes"];
 _unitAttributes params [
@@ -26,7 +27,7 @@ _unit setFace _UnitFace;
 _unit assignTeam _UnitTeam;
 { _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
 
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 _unit enableIRLasers true;
 _unit setSkill 1;
 _unit enableFatigue false;

@@ -1,3 +1,4 @@
+
 PAR_revive = 1;
 PAR_ai_limit = 8;
 PAR_only_ai_revive = true;
@@ -9,7 +10,7 @@ _handle = 0 spawn {
         _x enableFatigue false;
         _x setCombatBehaviour 'STEALTH';
         _x setUnitCombatMode 'GREEN';
-        [_x, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames _x) then { [_x, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     } forEach units player;
 
     // 01 viper

@@ -1,7 +1,7 @@
     // ── Drone & ISR Asset Base Classes ──────────────────────────────────────
 
     class B_UGV_01_rcws_F;
-    class B_UGV_01_rcws_F_OCimport_01 : B_UGV_01_rcws_F { scope = 0; class Turrets; };
+    class B_UGV_01_rcws_F_OCimport_01 : B_UGV_01_rcws_F { scope = 0; class Turrets; class EventHandlers; };
     class B_UGV_01_rcws_F_OCimport_02 : B_UGV_01_rcws_F_OCimport_01
     {
         class Turrets : Turrets
@@ -12,7 +12,7 @@
     };
 
     class B_UAV_02_dynamicLoadout_F;
-    class B_UAV_02_dynamicLoadout_F_OCimport_01 : B_UAV_02_dynamicLoadout_F { scope = 0; class Turrets; class Components;};
+    class B_UAV_02_dynamicLoadout_F_OCimport_01 : B_UAV_02_dynamicLoadout_F { scope = 0; class Turrets; class Components; class EventHandlers; };
     class B_UAV_02_dynamicLoadout_F_OCimport_02 : B_UAV_02_dynamicLoadout_F_OCimport_01
     {
         class Components : Components {
@@ -25,7 +25,7 @@
     };
 
     class B_UAV_01_F;
-    class B_UAV_01_F_OCimport_01 : B_UAV_01_F { scope = 0; class Turrets;};
+    class B_UAV_01_F_OCimport_01 : B_UAV_01_F { scope = 0; class Turrets; class EventHandlers; };
     class B_UAV_01_F_OCimport_02 : B_UAV_01_F_OCimport_01
     {
         class Turrets : Turrets
@@ -35,7 +35,7 @@
     };
 
     class B_UAV_05_F;
-    class B_UAV_05_F_OCimport_01 : B_UAV_05_F { scope = 0; class Turrets; class Components;};
+    class B_UAV_05_F_OCimport_01 : B_UAV_05_F { scope = 0; class Turrets; class Components; class EventHandlers; };
     class B_UAV_05_F_OCimport_02 : B_UAV_05_F_OCimport_01
     {
         class Components : Components {
@@ -48,7 +48,7 @@
     };
 
     class Radar_System_01_base_F;
-    class Radar_System_01_base_F_OCimport_01 : Radar_System_01_base_F { scope = 0; class Turrets; };
+    class Radar_System_01_base_F_OCimport_01 : Radar_System_01_base_F { scope = 0; class Turrets; class EventHandlers; };
     class Radar_System_01_base_F_OCimport_02 : Radar_System_01_base_F_OCimport_01
     {
         class Turrets : Turrets
@@ -58,7 +58,7 @@
     };
 
     class SAM_System_03_base_F;
-    class SAM_System_03_base_F_OCimport_01 : SAM_System_03_base_F { scope = 0; class Turrets; };
+    class SAM_System_03_base_F_OCimport_01 : SAM_System_03_base_F { scope = 0; class Turrets; class EventHandlers; };
     class SAM_System_03_base_F_OCimport_02 : SAM_System_03_base_F_OCimport_01
     {
         class Turrets : Turrets
@@ -71,7 +71,7 @@
     class B_UAV_01_backpack_F_OCimport_01 : B_UAV_01_backpack_F { scope = 0; class assembleInfo; };
 
     class B_UAV_AI;
-    class B_UAV_AI_OCimport_01 : B_UAV_AI { scope = 0; };
+    class B_UAV_AI_OCimport_01 : B_UAV_AI { scope = 0; class EventHandlers; };
     class B_PTbskull_Veh_UAV_AI_AIR : B_UAV_AI_OCimport_01
     {
         // inheritsFrom(configfile >> "CfgVehicles" >> "B_UAV_AI") = bin\config.bin/CfgVehicles/B_Helipilot_F
@@ -243,8 +243,8 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
-            // init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVehicleReportOwnPosition true; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;_unit setVariable['daoExclude',TRUE,TRUE]; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            // init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVehicleReportOwnPosition true; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;_unit setVariable['daoExclude',TRUE,TRUE]; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -274,7 +274,7 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [_unit, ['Olive', 1], true] call BIS_fnc_initVehicle; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [_unit, ['Olive', 1], true] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -400,7 +400,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVariable['daoExclude',TRUE,TRUE]; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVariable['daoExclude',TRUE,TRUE]; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -548,7 +548,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, ['DarkGreyCamo',1], ['wing_fold_l',0]] call BIS_fnc_initVehicle; [_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;}; _this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, ['DarkGreyCamo',1], ['wing_fold_l',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};;};;};;};;}; _this spawn _onSpawn;};";
         };
     };
 
@@ -568,7 +568,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive', 1], true] call BIS_fnc_initVehicle;_unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;while {true} do {{_unit lookAt (_unit getRelPos [100, _x]);sleep 2.45;} forEach [120, 240, 0];};[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive', 1], true] call BIS_fnc_initVehicle;_unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;while {true} do {{_unit lookAt (_unit getRelPos [100, _x]);sleep 2.45;} forEach [120, 240, 0];};if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -588,7 +588,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive', 1], true] call BIS_fnc_initVehicle;[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive', 1], true] call BIS_fnc_initVehicle;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
             fired = "_unit = _this select 0;_unit setVehicleAmmo 1";
         };
     };

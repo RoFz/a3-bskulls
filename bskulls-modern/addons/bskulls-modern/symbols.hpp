@@ -3,6 +3,7 @@
 
 #define STR(a) #a
 #define QUOTE(a) STR(a)
+#define APPLY_BLACK_SKULLS_INSIGNIA(UNIT) if ("insignia" in selectionNames (UNIT)) then {[(UNIT), "Black_Skulls"] call BIS_fnc_setUnitInsignia;}
 #define MAG_2(a) QUOTE(a), QUOTE(a)
 #define MAG_3(a) QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_4(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
@@ -225,8 +226,8 @@
     class _xx_KA_SCAR_H_20rnd_M993_AP_mag {count=5;magazine="KA_SCAR_H_20rnd_M993_AP_mag";};\
     class _xx_10Rnd_300WM_Magazine {count=5;magazine="10Rnd_300WM_Magazine";};\
     class _xx_KA_CS5_10rnd_M993_AP_mag {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
-    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=5;magazine="B_PTbskull_Wea_sniper_08_wa2000_AMMO";};\
-    class _xx_B_PTbskull_Wea_sniper_13_alligator_AMMO {count=10;magazine="B_PTbskull_Wea_sniper_13_alligator_AMMO";};\
+    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=5;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_13_alligator_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_13_alligator_AMMO);};\
     class _xx_5Rnd_145_mag_BZT {count=10;magazine="5Rnd_145_mag_BZT";};\
     class _xx_130Rnd_338_Mag {count=2;magazine="130Rnd_338_Mag";};\
     class _xx_150Rnd_93x64_Mag {count=2;magazine="150Rnd_93x64_Mag";};\

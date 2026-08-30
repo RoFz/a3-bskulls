@@ -7,7 +7,7 @@ private _UnitFullName = "Liu Guinu";
 private _UnitFirstName = "Liu";
 private _UnitLastName = "Guinu";
 private _UnitNameSound = "Ghost";
-private _UnitVoice = "male02chi";
+private _UnitVoice = "Male02CHI";
 private _UnitVoicePitch = 1.22;
 private _UnitFace = "TCGM_Fem_Liu";
 private _UnitTeam = "YELLOW";
@@ -16,6 +16,7 @@ private _UnitCombatBeh = "STEALTH";
 private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
+
 
 _onSpawn = {
     params [
@@ -39,7 +40,7 @@ _onSpawn = {
     _u setFace _UnitFace;
     _u assignTeam _UnitTeam;
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
-    [_u, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+    if ("insignia" in selectionNames _u) then { [_u, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     _u enableIRLasers true;
     _u setSkill 1;
     _u enableFatigue false;
@@ -76,7 +77,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u11 setFace _UnitFace;
         u11 assignTeam _UnitTeam;
         { u11 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u11, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u11) then { [u11, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u11 enableIRLasers true;
         u11 setSkill 1;
         u11 enableFatigue false;
@@ -93,7 +94,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u11 setFace _UnitFace;
         u11 assignTeam _UnitTeam;
         { u11 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u11, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u11) then { [u11, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u11 enableIRLasers true;
         u11 setSkill 1;
         u11 enableFatigue false;
@@ -112,7 +113,7 @@ _unit setUnitTrait ['Medic', false];
 _unit setUnitTrait ['Engineer', false];
 _unit setUnitTrait ['ExplosiveSpecialist', false];
 { _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 _unit enableIRLasers true;
 _unit setSkill 1;
 _unit enableFatigue false;
