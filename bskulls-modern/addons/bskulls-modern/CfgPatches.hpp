@@ -247,8 +247,12 @@ class CfgPatches {
         };
         author = "RoFz";
         authors[] = {"RoFz"};
-        version = 0.11;
+        version = 0.1; // major.minor only
         versionStr = "0.1.1"; // x-release-please-version
-        versionAr[] = {0,1,1};
+        versionAr[] = {
+            0, // x-release-please-major
+            1, // x-release-please-minor
+            1 // x-release-please-patch
+        };
     };
 };
