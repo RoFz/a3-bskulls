@@ -20,8 +20,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_03_falkor_AMMO";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine="B_PTbskull_Wea_shotgun_2_spas_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_03_falkor_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -45,8 +45,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_08_wa2000_AMMO";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine="B_PTbskull_Wea_shotgun_2_spas_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -70,8 +70,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_01_m110_AMMO";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine="B_PTbskull_Wea_shotgun_2_spas_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_01_m110_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -96,7 +96,7 @@
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_10Rnd_338_Mag {count=1;magazine="10Rnd_338_Mag";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine="B_PTbskull_Wea_shotgun_2_spas_AMMO";};
+            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -120,8 +120,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_05_vssk_AMMO";};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine="B_PTbskull_Wea_shotgun_3_benelli_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_05_vssk_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -145,8 +145,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_06_asp1_AMMO";};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine="B_PTbskull_Wea_shotgun_3_benelli_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_06_asp1_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -170,8 +170,8 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=1;magazine="B_PTbskull_Wea_sniper_04_m320_AMMO";};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine="B_PTbskull_Wea_shotgun_3_benelli_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -211,8 +211,8 @@
         class TransportMagazines {
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
-            class _xx_B_PTbskull_Wea_sniper_02_trg42_AMMO {count=10;magazine="B_PTbskull_Wea_sniper_02_trg42_AMMO";};
-            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine="B_PTbskull_Wea_SMG_02_sting_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_02_trg42_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_02_trg42_AMMO);};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -232,7 +232,7 @@
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_KA_CS5_10rnd_M993_AP_mag {count=10;magazine="KA_CS5_10rnd_M993_AP_mag";};
-            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine="B_PTbskull_Wea_SMG_02_sting_AMMO";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -323,8 +323,8 @@
             class _xx_kt_20Rnd_65_Creedmoor_108gr_AP_mag {count=6;magazine="kt_20Rnd_65_Creedmoor_108gr_AP_mag";};
             class _xx_JAS_RSASS_20rnd_M993_AP_mag {count=2;magazine="JAS_RSASS_20rnd_M993_AP_mag";};
             class _xx_kt_20Rnd_762x51_Ball_XM1158_AP_Mag {count=2;magazine="kt_20Rnd_762x51_Ball_XM1158_AP_Mag";};
-            class _xx_B_PTbskull_Wea_sniper_02_trg42_AMMO {count=2;magazine="B_PTbskull_Wea_sniper_02_trg42_AMMO";};
-            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=2;magazine="B_PTbskull_Wea_sniper_03_falkor_AMMO";};
+            class _xx_B_PTbskull_Wea_sniper_02_trg42_AMMO {count=2;magazine=QUOTE(B_PTbskull_Wea_sniper_02_trg42_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=2;magazine=QUOTE(B_PTbskull_Wea_sniper_03_falkor_AMMO);};
             class _xx_KA_CS5_10rnd_M993_AP_mag {count=2;magazine="KA_CS5_10rnd_M993_AP_mag";};
             class _xx_10Rnd_300WM_Magazine {count=2;magazine="10Rnd_300WM_Magazine";};
             class _xx_KA_DSR50_3Rnd_x2_M33_FMJ_Mag {count=2;magazine="KA_DSR50_3Rnd_x2_M33_FMJ_Mag";};
@@ -347,7 +347,7 @@
             class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_10Rnd_300WM_Magazine {count=7;magazine="10Rnd_300WM_Magazine";};
-            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine="B_PTbskull_Wea_SMG_02_sting_AMMO";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -368,7 +368,7 @@
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
             class _xx_KA_DSR50_3Rnd_x2_M33_FMJ_Mag {count=10;magazine="KA_DSR50_3Rnd_x2_M33_FMJ_Mag";};
             class _xx_KA_DSR50_3Rnd_x2_MK263_AP_Mag {count=10;magazine="KA_DSR50_3Rnd_x2_MK263_AP_Mag";};
-            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine="B_PTbskull_Wea_SMG_02_sting_AMMO";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
         };
         class TransportItems { };
         class TransportWeapons {
@@ -401,7 +401,7 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_SmokeShell {count=2;magazine="SmokeShell";};
-            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine="B_PTbskull_Wea_SMG_02_sting_AMMO";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
         };
         class TransportItems {
             class _xx_FirstAidKit {count=5;name="FirstAidKit";};

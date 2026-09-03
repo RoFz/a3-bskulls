@@ -1,3 +1,4 @@
+
 BS_pos = 0;
 publicVariable "BS_pos";
 airport_0_pos = daoairportpositionlist select 1;
@@ -12,7 +13,7 @@ _handle = 0 spawn {
         _x setUnitTrait ['ExplosiveSpecialist', false];
         _x setCombatBehaviour 'STEALTH';
         _x setUnitCombatMode 'GREEN';
-        [_x, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames _x) then { [_x, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     } forEach units player;
     // 01 viper
     player setName ['Stephen Falken','Stephen','Falken'];
@@ -89,7 +90,7 @@ _handle = 0 spawn {
     u11 setName ['Liu Guinu', 'Liu', 'Guinu'];
     u11 setNameSound 'Ghost';
     u11 setUnitRank 'PRIVATE';
-    u11 setSpeaker 'male02chi';
+    u11 setSpeaker 'Male02CHI';
     u11 setPitch 1.22;
     u11 setFace 'TCGM_Fem_Liu';
     u11 assignTeam 'YELLOW';

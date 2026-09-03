@@ -1,5 +1,6 @@
-private _unit = _this;
-// _unit = _unit select 0;
+
+// EventHandlers spawn passes [_unit]; callers also set `_unit` before #include.
+private _unit = _this select 0;
 // private _curVehVarName = vehicleVarName _unit;
 // private _curVehName = name _unit;
 // systemChat format ["%1 (%2): setting group attributes...", _curVehName, _curVehVarName];
@@ -32,5 +33,5 @@ _unit enableFatigue false;
 // 	};
 // };
 // insignia is visible via thermals
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 // reload _unit;

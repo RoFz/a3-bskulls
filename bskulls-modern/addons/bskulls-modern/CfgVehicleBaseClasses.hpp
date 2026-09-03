@@ -1,11 +1,13 @@
 // CfgVehicleBaseClasses.hpp
 // Enriched base classes for all 14 named units.
-// Included from inside the CfgVehicles block in CfgVehicles.hpp.
-// Properties defined here are inherited by all variant classes;
-// only properties that differ between variants need to be declared in the variant.
+// Included from CfgVehicleUnits.hpp after OCimports and before blackops variants
+// so variants can inherit: OCimport_02 → *_base (scope 0) → *_blackops_* (scope 2).
+// Variants should only redeclare properties that differ from the base (BI inheritance).
+//
+// EventHandlers: inherit parent EventHandlers and declare CBA XEH subclass (CBA wiki).
 
     // ─── 01 Viper ────────────────────────────────────────────────────────────────
-    // uniformClass and linkedItems[] are NOT centralised here — they vary per variant.
+    // Default uniform/LINKED here; jungle/ghillie variants override on the child.
     class B_PTbskull_Veh_Unit_Viper_base : B_recon_TL_F_OCimport_02
     {
         scope = 0;
@@ -18,7 +20,8 @@
         LINKED_ITEMS_UAV(DEFAULT_VEST,VIPER_HELMET,VIPER_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\1_viper.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\1_viper.sqf';";
         };
     };
 
@@ -37,8 +40,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,FOX_HELMET,FOX_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\2_fox.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\2_fox.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -56,8 +60,9 @@
         LINKED_ITEMS_GPS("B_PTbskull_Vest_blackops_02",VEGA_HELMET,VEGA_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\3_vega.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\3_vega.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -74,8 +79,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\4_mckendrick.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\4_mckendrick.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -92,8 +98,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,JACKSON_HELMET,"G_Aviator");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\5_jackson.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\5_jackson.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -110,8 +117,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Camo_Combat_Helmet_MCAM_Black","G_SSU_Bandana_Sports_Black");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\6_frost.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\6_frost.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -128,8 +136,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,HAWKINS_HELMET,"G_SSU_Bandana_Sports_Black_Beast");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\7_hawkins.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\7_hawkins.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -147,8 +156,9 @@
         LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_Tactical_Clear");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\8_sykes.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\8_sykes.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -162,11 +172,12 @@
         identity = "Everett";
         identityTypes[] = {"Head_Nato","LanguageENGB_F",EVERETT_GOGGLES};
         uniformClass = "U_B_FullGhillie_sard";
-        LINKED_ITEMS_GPS("V_SSU_Carrier_Lite_M81",EVERETT_HELMET,EVERETT_GOGGLES);
+        LINKED_ITEMS_GPS("B_PTbskull_Vest_blackops_02",EVERETT_HELMET,EVERETT_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\9_everett.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\9_everett.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -183,8 +194,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_SSU_Boonie_HS_Black","G_SSU_Balaclava_TI_G_Black");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\10_taylor.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\10_taylor.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -198,13 +210,14 @@
         armor = 6;
         icon = "iconManRecon";
         identity = "Liu";
-        identityTypes[] = {"Head_TCGM_Girls_Asian"};
+        identityTypes[] = {"Head_TCGM_Girls_Asian","Head_Female"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
         LINKED_ITEMS_LIU(DEFAULT_VEST,"H_SSU_Special_Purpose_Helmet_Black");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\11_liu.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\11_liu.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -221,8 +234,9 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,MAKAROVA_HELMET,MAKAROVA_GOGGLES);
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\12_makarova.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\12_makarova.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -239,8 +253,9 @@
         LINKED_ITEMS_UAV(DEFAULT_VEST,"H_SSU_Cap_HS_Black","G_Squares_Tinted");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\13_elias.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\13_elias.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -257,7 +272,8 @@
         LINKED_ITEMS_GPS(DEFAULT_VEST,"H_Hat_Safari_sand_F","G_Spectacles_Tinted");
         class EventHandlers : EventHandlers
         {
-            init = "_this execVM '\bskulls-modern\scripts\14_martinez.sqf';";
-            hit  = "_this execVM '\bskulls-modern\scripts\hit.sqf';";
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+            init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\14_martinez.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };

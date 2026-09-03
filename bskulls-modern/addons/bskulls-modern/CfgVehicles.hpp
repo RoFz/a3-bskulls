@@ -10,11 +10,9 @@
 #include "CfgVehicleSupport.hpp"
 // Crew Units
 #include "CfgVehicleUnitsSupport.hpp"
-// Combat Units
+// Combat Units (OCimports, then bases via include inside, then variants)
 #include "CfgVehicleUnits.hpp"
 // Backpacks
 #include "CfgVehicleBackpacks.hpp"
-// Base Classes
-#include "CfgVehicleBaseClasses.hpp"
 // Closing Section
 #include "CfgVehiclesTail.hpp"

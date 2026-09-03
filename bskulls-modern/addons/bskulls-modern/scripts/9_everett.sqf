@@ -17,6 +17,7 @@ private _UnitCombatMod = "GREEN";
 
 _unit = _this select 0;
 
+
 _onSpawn = {
     params [
         "_u",
@@ -39,7 +40,7 @@ _onSpawn = {
     _u setFace _UnitFace;
     _u assignTeam _UnitTeam;
     { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
-    [_u, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+    if ("insignia" in selectionNames _u) then { [_u, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
     _u enableIRLasers true;
     _u setSkill 1;
     _u enableFatigue false;
@@ -76,7 +77,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u9 setFace _UnitFace;
         u9 assignTeam _UnitTeam;
         { u9 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u9, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u9) then { [u9, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u9 enableIRLasers true;
         u9 setSkill 1;
         u9 enableFatigue false;
@@ -93,7 +94,7 @@ if ((isNil "lobbycomplete") || (isNil "playersready")) then
         u9 setFace _UnitFace;
         u9 assignTeam _UnitTeam;
         { u9 setUnitTrait [_x, true]; } forEach _UnitTraits;
-        [u9, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+        if ("insignia" in selectionNames u9) then { [u9, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
         u9 enableIRLasers true;
         u9 setSkill 1;
         u9 enableFatigue false;
@@ -112,7 +113,7 @@ _unit setUnitTrait ['Medic', false];
 _unit setUnitTrait ['Engineer', false];
 _unit setUnitTrait ['ExplosiveSpecialist', false];
 { _unit setUnitTrait [_x, true]; } forEach _UnitTraits;
-[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;
+if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 _unit enableIRLasers true;
 _unit setSkill 1;
 _unit enableFatigue false;
