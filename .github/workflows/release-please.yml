@@ -81,18 +81,6 @@ jobs:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
 
-      - name: Patch non-semver version fields
-        env:
-          VERSION: ${{ needs.release-please.outputs.coldwar_version }}
-        run: |
-          MAJOR=$(echo "$VERSION" | cut -d. -f1)
-          MINOR=$(echo "$VERSION" | cut -d. -f2)
-          PATCH=$(echo "$VERSION" | cut -d. -f3)
-          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
-              bskulls-coldwar/addons/bskulls-coldwar/CfgPatches.hpp
-          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
-              bskulls-coldwar/addons/bskulls-coldwar/CfgPatches.hpp
-
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive
         working-directory: bskulls-coldwar
@@ -158,18 +146,6 @@ jobs:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
 
-      - name: Patch non-semver version fields
-        env:
-          VERSION: ${{ needs.release-please.outputs.modern_version }}
-        run: |
-          MAJOR=$(echo "$VERSION" | cut -d. -f1)
-          MINOR=$(echo "$VERSION" | cut -d. -f2)
-          PATCH=$(echo "$VERSION" | cut -d. -f3)
-          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
-              bskulls-modern/addons/bskulls-modern/CfgPatches.hpp
-          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
-              bskulls-modern/addons/bskulls-modern/CfgPatches.hpp
-
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive
         working-directory: bskulls-modern
@@ -234,18 +210,6 @@ jobs:
         env:
           BIPRIVATEKEY: ${{ secrets.BSKULLS_BIPRIVATEKEY }}
           BIKEY: ${{ secrets.BSKULLS_BIKEY }}
-
-      - name: Patch non-semver version fields
-        env:
-          VERSION: ${{ needs.release-please.outputs.nam_version }}
-        run: |
-          MAJOR=$(echo "$VERSION" | cut -d. -f1)
-          MINOR=$(echo "$VERSION" | cut -d. -f2)
-          PATCH=$(echo "$VERSION" | cut -d. -f3)
-          sed -i "s/version = .*;/version = ${MAJOR}.${MINOR}${PATCH};/" \
-              bskulls-nam/addons/bskulls-nam/CfgPatches.hpp
-          sed -i "s/versionAr\[\] = {.*};/versionAr[] = {${MAJOR},${MINOR},${PATCH}};/" \
-              bskulls-nam/addons/bskulls-nam/CfgPatches.hpp
 
       - name: Run HEMTT release
         run: hemtt release --no-sign --no-archive

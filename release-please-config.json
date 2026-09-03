@@ -1,66 +1,67 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-  "separate-pull-requests": true,
+  "always-update": true,
   "packages": {
     "bskulls-coldwar": {
-      "release-type": "simple",
-      "component": "bskulls-coldwar",
-      "include-component-in-tag": true,
-      "include-v-in-tag": true,
-      "tag-separator": "-",
-      "initial-version": "0.1.0",
-      "version-file": "version.txt",
       "changelog-path": "CHANGELOG.md",
+      "component": "bskulls-coldwar",
       "extra-files": [
         {
-          "type": "generic",
-          "path": "addons/bskulls-coldwar/CfgPatches.hpp"
+          "path": "addons/bskulls-coldwar/CfgPatches.hpp",
+          "type": "generic"
         },
         {
-          "type": "generic",
-          "path": ".hemtt/project.toml"
+          "path": ".hemtt/project.toml",
+          "type": "generic"
         }
-      ]
+      ],
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "initial-version": "0.1.0",
+      "release-type": "simple",
+      "tag-separator": "-",
+      "version-file": "version.txt"
     },
     "bskulls-modern": {
-      "release-type": "simple",
-      "component": "bskulls-modern",
-      "include-component-in-tag": true,
-      "include-v-in-tag": true,
-      "tag-separator": "-",
-      "initial-version": "0.1.0",
-      "version-file": "version.txt",
       "changelog-path": "CHANGELOG.md",
+      "component": "bskulls-modern",
       "extra-files": [
         {
-          "type": "generic",
-          "path": "addons/bskulls-modern/CfgPatches.hpp"
+          "path": "addons/bskulls-modern/CfgPatches.hpp",
+          "type": "generic"
         },
         {
-          "type": "generic",
-          "path": ".hemtt/project.toml"
+          "path": ".hemtt/project.toml",
+          "type": "generic"
         }
-      ]
+      ],
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "initial-version": "0.1.0",
+      "release-type": "simple",
+      "tag-separator": "-",
+      "version-file": "version.txt"
     },
     "bskulls-nam": {
-      "release-type": "simple",
-      "component": "bskulls-nam",
-      "include-component-in-tag": true,
-      "include-v-in-tag": true,
-      "tag-separator": "-",
-      "initial-version": "0.1.0",
-      "version-file": "version.txt",
       "changelog-path": "CHANGELOG.md",
+      "component": "bskulls-nam",
       "extra-files": [
         {
-          "type": "generic",
-          "path": "addons/bskulls-nam/CfgPatches.hpp"
+          "path": "addons/bskulls-nam/CfgPatches.hpp",
+          "type": "generic"
         },
         {
-          "type": "generic",
-          "path": ".hemtt/project.toml"
+          "path": ".hemtt/project.toml",
+          "type": "generic"
         }
-      ]
+      ],
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "initial-version": "0.1.0",
+      "release-type": "simple",
+      "tag-separator": "-",
+      "version-file": "version.txt"
     }
-  }
+  },
+  "separate-pull-requests": true
 }
