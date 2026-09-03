@@ -57,6 +57,7 @@ Temporary Items
 
 ## Editors
 .vscode/
+/.cursor/
 
 ## Codex
 .codex
@@ -66,9 +67,31 @@ Temporary Items
 ## Claude
 .claude/
 
+## Python
+
+__pycache__/
+*.py[cod]
+
 ## Local Arma files
 
 Arma3.code-profile
+
+## Unpacked Workshop / third-party PBOs (local inspection only)
+
+/.workshop-extract/
+
+## Legacy local DRO copies (canonical source lives in a3-scenarios)
+
+/.local-missions/
+
+## Optional local CA files for Dev Container trust (never commit)
+
+/.local-certs/
+
+## Local Arma crash / Feedback Tracker exports (machine dumps — never commit)
+
+/.access-violations/
+
 ## Build output
 
 .hemttout/
