@@ -1,6 +1,13 @@
 # Changelog
 
 All notable changes to this addon will be documented in this file.
+## [0.1.2](https://github.com/RoFz/a3-bskulls/compare/bskulls-modern-v0.1.1...bskulls-modern-v0.1.2) (2026-09-03)
+
+
+### Bug Fixes
+
+* **modern:** resolve RPT errors for units, vehicles, and weapons ([#16](https://github.com/RoFz/a3-bskulls/issues/16)) ([ca72b05](https://github.com/RoFz/a3-bskulls/commit/ca72b05c4a24d1489b1008278920e2ed73b390f9))
+
 ## [0.1.1](https://github.com/RoFz/a3-bskulls/compare/bskulls-modern-v0.1.0...bskulls-modern-v0.1.1) (2026-04-15)
 
 
