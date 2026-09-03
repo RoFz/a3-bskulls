@@ -92,23 +92,42 @@ Server-side setup:
 
 ### Dev Container Tooling
 
-Clone the repository and its shared environment together:
+Clone the public faction repository, then initialize the shared environment if
+you have authenticated access to the private `a3-devcontainers` repository:
 
-```text
-git clone --recurse-submodules https://github.com/RoFz/a3-bskulls.git
-```
-
-For an existing clone whose submodule is empty:
-
-```text
+```sh
+git clone https://github.com/RoFz/a3-bskulls.git
+cd a3-bskulls
 git submodule update --init --recursive
 ```
 
-`.devcontainer` pins an exact commit of the public
+`.devcontainer` pins an exact commit of the private, maintainer-only
 [`a3-devcontainers`](https://github.com/RoFz/a3-devcontainers) repository.
 Select the `arma3` configuration when VS Code prompts. The faction repository
-remains fully usable on its own; the maintainer's private multi-repository
-workspace is not required.
+remains available as a standalone public source clone; the maintainer's private
+multi-repository workspace is not required.
+
+The submodule is normally detached at the exact commit selected by this
+repository. To change the shared environment, create a branch inside it first:
+
+```sh
+git -C .devcontainer fetch origin
+git -C .devcontainer switch -c <branch-name> origin/main
+```
+
+Make, commit, and push the change from `.devcontainer`, then merge it in
+`a3-devcontainers`. Update every affected consumer to that published commit:
+
+```sh
+git -C .devcontainer fetch origin
+git -C .devcontainer switch --detach <shared-commit>
+git add .devcontainer
+git commit -m "chore(devcontainer): update shared Arma environment"
+```
+
+Repeat the pointer commit in each affected consumer (`a3-root`, `a3-bskulls`,
+and `a3-scenarios`). Keep consumers pinned to reviewed commits; do not use a
+floating branch or automatic `git submodule update --remote` updates.
 
 The container installs HEMTT, armake2, pre-commit, GitHub CLI, and Java for the
 `skacekachna.sqflint` extension. Let the post-create bootstrap finish before

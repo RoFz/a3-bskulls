@@ -18,9 +18,10 @@ guidance lives in `CONTRIBUTING.md`; keep the two files aligned.
   inspect, stage, commit, and report each repository separately. Resolve
   siblings relative to the workspace instead of assuming an absolute host or
   container path.
-- `a3-bskulls` must remain fully usable as a standalone public clone. Do not
-  make its normal build or validation depend on access to the private
-  repositories.
+- `a3-bskulls` must remain usable as a standalone public source clone. Its
+  maintainer-only shared Dev Container requires access to the private
+  `a3-devcontainers` repository; do not make ordinary source access depend on
+  the private workspace or scenario repository.
 
 ## Scope and safety
 
@@ -170,13 +171,17 @@ Do not suggest committing `.hemttout/` or anything installed under
 
 ## Shared Dev Container
 
-- `.devcontainer/` is a pinned Git submodule of the public
-  `a3-devcontainers` repository. Use the `arma3` variant at
+- `.devcontainer/` is a pinned Git submodule of the private, maintainer-only
+  `a3-devcontainers` repository. Authenticated GitHub access is required to
+  initialize or update it. Use the `arma3` variant at
   `.devcontainer/arma3/devcontainer.json`.
 - The submodule pins the whole shared repository at an exact commit; it does
   not follow that repository's default branch automatically. Treat changes
   inside `.devcontainer` as changes to the separate `a3-devcontainers`
   repository, not as ordinary `a3-bskulls` files.
+- The consumer checkout is normally detached. Create a branch inside
+  `.devcontainer` before editing it, and publish the shared commit before
+  advancing any consumer gitlink.
 - After a shared environment change is committed and pushed, explicitly assess
   every known consumer: `a3-root`, `a3-bskulls`, and `a3-scenarios`. Update the
   `.devcontainer` gitlink in each affected consumer. Use
