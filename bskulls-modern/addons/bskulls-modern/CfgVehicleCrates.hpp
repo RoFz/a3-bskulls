@@ -15,9 +15,10 @@
         // handling reserve after adding ammunition for the active squad.
         maximumLoad = 50000;
         DRO_supplyDropActiveSquadAmmo = 1;
-        DRO_supplyDropPrimaryAmmoCount = 5;
+        // DRO converts this round budget to magazines and caps the result at
+        // the unit class's normal issued primary-magazine count.
+        DRO_supplyDropPrimaryAmmoRounds = 150;
         DRO_supplyDropMachineGunAmmoCount = 2;
-        DRO_supplyDropLowCapacityAmmoCount = 2;
         DRO_supplyDropLoadReservePercent = 10;
         DRO_supplyDropMachineGuns[] = {
             "B_PTbskull_Wea_mg_01_smpg",
