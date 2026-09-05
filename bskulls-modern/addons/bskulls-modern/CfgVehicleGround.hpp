@@ -85,10 +85,38 @@
     };
 
     class B_T_Truck_01_ammo_F;
-    class B_T_Truck_01_ammo_F_OCimport_01 : B_T_Truck_01_ammo_F { scope = 0; class EventHandlers; };
+    class B_T_Truck_01_ammo_F_OCimport_01 : B_T_Truck_01_ammo_F { scope = 0; class EventHandlers; class HitPoints; };
+    class B_T_Truck_01_ammo_F_OCimport_02 : B_T_Truck_01_ammo_F_OCimport_01
+    {
+        class HitPoints : HitPoints
+        {
+            class HitRGlass;
+            class HitLGlass;
+            class HitGlass1;
+            class HitGlass2;
+            class HitGlass3;
+            class HitGlass4;
+            class HitGlass5;
+            class HitGlass6;
+        };
+    };
 
     class B_T_Truck_01_fuel_F;
-    class B_T_Truck_01_fuel_F_OCimport_01 : B_T_Truck_01_fuel_F { scope = 0; class EventHandlers; };
+    class B_T_Truck_01_fuel_F_OCimport_01 : B_T_Truck_01_fuel_F { scope = 0; class EventHandlers; class HitPoints; };
+    class B_T_Truck_01_fuel_F_OCimport_02 : B_T_Truck_01_fuel_F_OCimport_01
+    {
+        class HitPoints : HitPoints
+        {
+            class HitRGlass;
+            class HitLGlass;
+            class HitGlass1;
+            class HitGlass2;
+            class HitGlass3;
+            class HitGlass4;
+            class HitGlass5;
+            class HitGlass6;
+        };
+    };
 
     // ── Ground Vehicles ─────────────────────────────────────────────────────
 
@@ -113,7 +141,7 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive',1], ['showCamonetTurret',1,'showCamonetHull',1,'showBags',1]] call BIS_fnc_initVehicle;waitUntil{!(isNil'dapsReady')};waitUntil{dapsReady};_unit setVariable['dapsCanSmoke',1,TRUE];_unit spawn DAPS_fnc_APSTrophyHV; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive',1], ['showCamonetTurret',1,'showCamonetHull',1,'showBags',1]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -138,7 +166,7 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;_unit forceFlagTexture '\bskulls\addons\bskulls-modern\textures\black_skulls_insig_128_128.paa';[_unit, ['Olive',1], ['showCamonetTurret',1,'showCamonetHull',1,'showBags',1,'showSLATHull',1,'showSLATTurret',1]] call BIS_fnc_initVehicle;waitUntil{!(isNil'dapsReady')};waitUntil{dapsReady};_unit setVariable['dapsCanSmoke',1,TRUE];_unit spawn DAPS_fnc_APSTrophyMV; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;_unit forceFlagTexture '\bskulls\addons\bskulls-modern\textures\black_skulls_insig_128_128.paa';[_unit, ['Olive',1], ['showCamonetTurret',1,'showCamonetHull',1,'showBags',1,'showSLATHull',1,'showSLATTurret',1]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -176,7 +204,7 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;_unit forceFlagTexture '\bskulls\addons\bskulls-modern\textures\black_skulls_insig_128_128.paa';[_unit, ['Green',1], ['showCamonetHull',1,'showCamonetTurret',1,'showSLATHull',1]] call BIS_fnc_initVehicle;waitUntil{!(isNil'dapsReady')};waitUntil{dapsReady};_unit setVariable['dapsCanSmoke',1,TRUE];_unit spawn DAPS_fnc_APSTrophyMV; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;_unit forceFlagTexture '\bskulls\addons\bskulls-modern\textures\black_skulls_insig_128_128.paa';[_unit, ['Green',1], ['showCamonetHull',1,'showCamonetTurret',1,'showSLATHull',1]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
 
@@ -286,12 +314,12 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, nil, ['hide_ogpkover',0,'hide_ogpknet',0,'hide_ogpkbust',0,'hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]] call BIS_fnc_initVehicle;waitUntil{!(isNil'dapsReady')};waitUntil{dapsReady};_unit setVariable['dapsCanSmoke',1,TRUE];_unit spawn DAPS_fnc_APSTrophyMV;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, nil, ['hide_ogpkover',0,'hide_ogpknet',0,'hide_ogpkbust',0,'hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]] call BIS_fnc_initVehicle;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
             // fired = "[_this select 0,_this select 6,'missile_move','MissileBase'] call BIS_fnc_missileLaunchPositionFix; _this call (uinamespace getvariable 'BIS_fnc_effectFired');";
         };
     };
 
-    class B_PTbskull_Veh_Truck_blackops_02 : B_T_Truck_01_ammo_F_OCimport_01
+    class B_PTbskull_Veh_Truck_blackops_02 : B_T_Truck_01_ammo_F_OCimport_02
     {
         author = "RoFz";
         scope = 2;
@@ -303,7 +331,21 @@
         crew = "B_PTbskull_Veh_Unit_Martinez_blackops_02";
         // crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
         hiddenSelections[] += { "insignia" };
-        armorGlass = 1.5;
+        // Truck_01_base_F armor=200 → +20%
+        armor = 240;
+        // Config-side bulletproof cab glass (vanilla HitGlass*=1.5). Fire Geometry still limits true stoppage.
+        armorGlass = 5;
+        class HitPoints : HitPoints
+        {
+            class HitRGlass : HitRGlass { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitLGlass : HitLGlass { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass1 : HitGlass1 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass2 : HitGlass2 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass3 : HitGlass3 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass4 : HitGlass4 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass5 : HitGlass5 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass6 : HitGlass6 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+        };
         class EventHandlers : EventHandlers
         {
             init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
@@ -311,7 +353,7 @@
     };
 
 
-    class B_PTbskull_Veh_Truck_blackops_03 : B_T_Truck_01_fuel_F_OCimport_01
+    class B_PTbskull_Veh_Truck_blackops_03 : B_T_Truck_01_fuel_F_OCimport_02
     {
         author = "RoFz";
         scope = 2;
@@ -320,10 +362,23 @@
         // editorSubcategory = "rhs_EdSubcat_truck";
         side = 1;
         faction = "bskull_fc_mo";
-        crew = "B_PTbskull_Veh_Unit_Elias_blackops_02";
-        // crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
+        crew = "B_PTbskull_Veh_Unit_Vehicle_Crew_blackops_01";
+        // crew = "B_PTbskull_Veh_Unit_Elias_blackops_02";
         hiddenSelections[] += { "insignia" };
-        armorGlass = 1.5;
+        // Truck_01_base_F armor=200 → +20%
+        armor = 240;
+        armorGlass = 5;
+        class HitPoints : HitPoints
+        {
+            class HitRGlass : HitRGlass { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitLGlass : HitLGlass { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass1 : HitGlass1 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass2 : HitGlass2 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass3 : HitGlass3 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass4 : HitGlass4 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass5 : HitGlass5 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+            class HitGlass6 : HitGlass6 { armor = 50; passThrough = 0; explosionShielding = 0.5; };
+        };
         class EventHandlers : EventHandlers
         {
             init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";

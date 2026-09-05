@@ -185,7 +185,7 @@ class CfgAmmo
         // mineInconspicuousness = 10; //10
         // mineTrigger = "RangeTrigger";
 
-        submunitionAmmo = "APERSMine_Range_Ammo";
+        submunitionAmmo = "APERSMine_Range_Ammo_PLUS";
     };
 
     // Mine Ammo
@@ -251,34 +251,6 @@ class CfgAmmo
         submunitionConeType[] = {"randomcenter",12};
     };
 
-
-    // // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm"); = bin\config.bin/CfgAmmo/Gatling_30mm_HE_Plane_CAS_01_F
-    // // inheritsFrom (configfile >> "CfgAmmo" >> "Gatling_30mm_HE_Plane_CAS_01_F"); = bin\config.bin/CfgAmmo/BulletBase
-    // // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm" >> "hit"); =
-    // class MG8_Gau8_30mm;
-    // class MG8_Gau8_30mm_PLUS : MG8_Gau8_30mm
-    // {
-    //     author = "RoFz";
-    //     scope = 2;
-    //     scopeCurator = 2;
-    //     access = 1;
-
-    //     aiAmmoUsageFlags = "64 + 128 + 256 + 512"; //  RHS: 64 + 128 + 512
-    //     caliber = 4.17; // 4.17 RHS: 5
-    //     explosive = 0.55; // 0.35 RHS: 0.4
-    //     hit = 1200; // 300 RHS: 180
-    //     indirectHit = 200; // 100 RHS: 4
-    //     // indirectHitRange = 3.5; // 3.5 RHS: 8
-    //     // weaponType = "Default"; // RHS: cannon
-    //     // typicalSpeed = 960; // RHS: 960
-    //     // thrust = 210; // RHS: 210
-    //     // thrustTime = 1.5; // RHS: 1.5
-    //     // submunitionAmmo = ""; // RHS: {"rhs_ammo_PGU14B_API",0.8,"rhs_ammo_PGU13B_HE",0.2};
-    //     // simulation = "shotBullet"; // RHS: "shotSubmunitions";
-    //     // simulationStep = 0.05; // RHS: 0.05;
-    //     // muzzleEffect = "MG8_fnc_effectFiredGau8"; // RHS: N/A
-    // };
-
     class rhs_ammo_spall;
     class rhs_ammo_spall_PLUS : rhs_ammo_spall
     {
@@ -310,7 +282,7 @@ class CfgAmmo
         hit = 785; //
         typicalSpeed = 1000; // 1000
 
-        submunitionAmmo = "rhs_ammo_spall";
+        submunitionAmmo = "rhs_ammo_spall_PLUS";
         submunitionConeType[] = {"randomcenter",50};
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitSpeed = 200;
@@ -438,19 +410,6 @@ class CfgMagazines {
         ammo = "AT_Mine_155mm_AMOS_range_PLUS";
     };
 
-    // magazines[] = {"MG8_1174Rnd_Gau8_30mm","Laserbatteries","240Rnd_CMFlare_Chaff_Magazine"};
-    class MG8_1174Rnd_Gau8_30mm;
-    class MG8_1174Rnd_Gau8_30mm_PLUS : MG8_1174Rnd_Gau8_30mm
-    {
-        author = "RoFz";
-        scope = 2;
-        scopeCurator = 2;
-        access = 1;
-
-        // inheritsFrom (configfile >> "CfgMagazines" >> "MG8_1174Rnd_Gau8_30mm" >> "ammo"); = none
-        ammo = "MG8_Gau8_30mm_PLUS";
-    };
-
     class Titan_AT;
     class Titan_AT_PLUS : Titan_AT
     {
@@ -461,7 +420,6 @@ class CfgMagazines {
 
         displayName="Titan+ AT Missile";
 
-        // inheritsFrom (configfile >> "CfgMagazines" >> "MG8_1174Rnd_Gau8_30mm" >> "ammo"); = none
         ammo = "M_Titan_AT_PLUS";
     };
 

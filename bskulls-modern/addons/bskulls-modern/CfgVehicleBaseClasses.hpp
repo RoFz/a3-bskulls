@@ -14,6 +14,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "SpecialOperative";
         identity = "Falken";
         identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENG_F",VIPER_GOGGLES};
         uniformClass = "U_SSU_Stealth_Uniform_Ghillie_Black";
@@ -22,6 +23,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\1_viper.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -34,6 +36,7 @@
         formationX = 2;
         formationZ = 2;
         faction = "bskull_fc_mo";
+        role = "CombatLifeSaver";
         identity = "Fox";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",FOX_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
@@ -54,6 +57,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "Marksman";
         identity = "Vega";
         identityTypes[] = {"Head_NATO_camo_lush","LanguageGRE_F",VEGA_GOGGLES};
         uniformClass = "U_B_T_FullGhillie_tna_F";
@@ -73,6 +77,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "Sapper";
         identity = "McKendrick";
         identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
@@ -92,6 +97,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "CombatLifeSaver";
         identity = "Jackson";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Aviator"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
@@ -111,6 +117,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "MachineGunner";
         identity = "Frost";
         identityTypes[] = {"Head_NATO","LanguageENGFRE_F","G_SSU_Bandana_Sports_Black"};
         uniformClass = DEFAULT_UNIFORM;
@@ -130,6 +137,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "MissileSpecialist";
         identity = "Hawkins";
         identityTypes[] = {"Head_NATO","LanguageENG_F","G_SSU_Bandana_Sports_Black_Beast"};
         uniformClass = DEFAULT_UNIFORM;
@@ -149,6 +157,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "SpecialOperative";
         icon = "iconWomanEngineer";
         identity = "Sykes";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female","G_Tactical_Clear"};
@@ -169,6 +178,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "Marksman";
         identity = "Everett";
         identityTypes[] = {"Head_Nato","LanguageENGB_F",EVERETT_GOGGLES};
         uniformClass = "U_B_FullGhillie_sard";
@@ -188,6 +198,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "MissileSpecialist";
         identity = "Taylor";
         identityTypes[] = {"Head_Nato","LanguageENG_F","G_SSU_Balaclava_TI_G_Black"};
         uniformClass = DEFAULT_UNIFORM;
@@ -207,8 +218,9 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "SpecialOperative";
         armor = 6;
-        icon = "iconManRecon";
+        icon = "iconWomanRecon";
         identity = "Liu";
         identityTypes[] = {"Head_TCGM_Girls_Asian","Head_Female"};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
@@ -228,6 +240,8 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "Rifleman";
+        icon = "iconWoman";
         identity = "Makarova";
         identityTypes[] = {"Head_TCGM_Girls_WhitePony","Head_Female",MAKAROVA_GOGGLES};
         uniformClass = DEFAULT_UNIFORM_GIRLS;
@@ -247,6 +261,7 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "SpecialOperative";
         identity = "Elias";
         identityTypes[] = {"Head_Greek","LanguageENG_F","G_Squares_Tinted"};
         uniformClass = DEFAULT_UNIFORM;
@@ -266,6 +281,8 @@
         author = "RoFz";
         side = 1;
         faction = "bskull_fc_mo";
+        role = "Assistant";
+        icon = "iconMan";
         identity = "Martinez";
         identityTypes[] = {"Head_TK","LanguageENG_F","G_Spectacles_Tinted"};
         uniformClass = DEFAULT_UNIFORM;

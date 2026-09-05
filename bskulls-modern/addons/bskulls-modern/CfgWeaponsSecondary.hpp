@@ -70,15 +70,6 @@
 
     };
 
-    // LAW #2: M72A3
-    // Ammo: gm_1Rnd_66mm_heat_m72a3
-    class gm_m72a3_oli;
-    class B_PTbskull_Wea_law_02_m72: gm_m72a3_oli {
-        displayName="M72A3 LAW (66mm)";
-        author = "RoFz";
-        scope = 2;
-    };
-
     // LAW #3: Titan AA
     // Ammo: Titan_AA
     class launch_B_Titan_olive_F;
