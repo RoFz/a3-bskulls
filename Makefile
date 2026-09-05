@@ -2,8 +2,11 @@
 # Requires A3_MODS_DIR on the host and a Dev Container reopen.
 
 MODS_DIR ?= /arma3/mods
+PYTHON ?= python3
+BUILD_GUARD ?= tools/run_guarded_build.py
+ARMA3_EXE ?= /arma3/game/arma3_x64.exe
 
-.PHONY: all modern cold coldwar nam help
+.PHONY: all modern cold coldwar nam help _build-all _build-sync
 
 help:
 	@echo "Targets:"
@@ -14,19 +17,29 @@ help:
 	@echo ""
 	@echo "Uses hemtt build --no-bin (not hemtt dev). Syncs to \$$(MODS_DIR)/@bskulls-*/Addons/"
 	@echo "Default MODS_DIR=/arma3/mods (host A3_MODS_DIR bind mount)."
+	@echo "Refuses to build while another local build or Arma 3 is running."
 
-all: modern coldwar nam
+all:
+	@$(PYTHON) "$(BUILD_GUARD)" --label "all faction mods" --arma-exe "$(ARMA3_EXE)" -- \
+	  $(MAKE) --no-print-directory _build-all
 
 modern:
-	@$(MAKE) --no-print-directory _build-sync ERA=modern
+	@$(PYTHON) "$(BUILD_GUARD)" --label "faction mod: modern" --arma-exe "$(ARMA3_EXE)" -- \
+	  $(MAKE) --no-print-directory _build-sync ERA=modern
 
 cold coldwar:
-	@$(MAKE) --no-print-directory _build-sync ERA=coldwar
+	@$(PYTHON) "$(BUILD_GUARD)" --label "faction mod: coldwar" --arma-exe "$(ARMA3_EXE)" -- \
+	  $(MAKE) --no-print-directory _build-sync ERA=coldwar
 
 nam:
+	@$(PYTHON) "$(BUILD_GUARD)" --label "faction mod: nam" --arma-exe "$(ARMA3_EXE)" -- \
+	  $(MAKE) --no-print-directory _build-sync ERA=nam
+
+_build-all:
+	@$(MAKE) --no-print-directory _build-sync ERA=modern
+	@$(MAKE) --no-print-directory _build-sync ERA=coldwar
 	@$(MAKE) --no-print-directory _build-sync ERA=nam
 
-.PHONY: _build-sync
 _build-sync:
 	@test -n "$(ERA)" || (echo "ERA is required" >&2; exit 1)
 	@test -d "$(MODS_DIR)" || (echo "Missing $(MODS_DIR). Set host A3_MODS_DIR and rebuild/reopen the Dev Container." >&2; exit 1)

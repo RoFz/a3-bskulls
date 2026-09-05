@@ -159,6 +159,9 @@ Use the repository's actual tooling:
 - Run `make modern`, `make cold`, `make nam`, or `make all` for the local
   launcher loop. These commands build unsigned PBOs and copy them under
   `/arma3/mods/@bskulls-*/Addons/`; they are not release builds.
+- Use those public Make targets for local builds and installs so the shared-build
+  and running-Arma guards remain active. Do not call internal `_build-*` targets
+  directly.
 - Run the report-only dependency audit from the repository root with, for
   example:
 
