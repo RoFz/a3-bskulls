@@ -102,7 +102,7 @@
     class B_PTbskull_Veh_Drone_blackops_01 : B_UAV_02_dynamicLoadout_F_OCimport_02
     {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools (use *_nodao for DRO UAV patrol)
         scopeCurator = 2;
         displayName = "MQ-4A Greyhawk";
         side = 1;
@@ -243,7 +243,8 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
             // init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVehicleReportOwnPosition true; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;_unit setVariable['daoExclude',TRUE,TRUE]; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
         };
     };
@@ -251,7 +252,7 @@
     class B_PTbskull_Veh_Drone_blackops_02 : B_UGV_01_rcws_F_OCimport_02
     {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // manual pad spawn only; blocks DRO FOB UAV-terminal auto-spawn
         scopeCurator = 2;
         displayName = "UGV Stomper RCWS (1p)";
         side = 1;
@@ -281,7 +282,7 @@
     class B_PTbskull_Veh_Drone_blackops_03 : B_UAV_01_F_OCimport_02
     {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // manual + vanilla UAV terminal; DAO excluded on init; not in DRO pools
         scopeCurator = 2;
         displayName = "AR-2+ Darter";
         side = 1;
@@ -400,13 +401,14 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVariable['daoExclude',TRUE,TRUE]; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;}; [_unit] call bskulls_fnc_daoExcludeVehicle;}; _this spawn _onSpawn;};";
         };
     };
 
     class B_PTbskull_Veh_Drone_blackops_04 : B_UAV_05_F_OCimport_02
     {
         author = "RoFz";
+        // Single class: DRO may spawn it (UAV support); keep under DAO (no *_nodao, no auto-exclude).
         scope = 2;
         scopeCurator = 2;
         displayName = "UCAV Sentinel";
@@ -546,9 +548,30 @@
                 };
             };
         };
+        // CAS-side correction only: DRO makes its stock recon UAV captive, but this armed
+        // class remains under DAO, whose CAS filter reads side _aircraft. This is unrelated
+        // to DAO's documented VAM behavior of deleting landed aircraft during refit.
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, ['DarkGreyCamo',1], ['wing_fold_l',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};;};;};;};;}; _this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; [_unit, ['DarkGreyCamo',1], ['wing_fold_l',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;}; sleep 2; if !(_unit getVariable ['DRO_SUPP_airDefenseHold', false]) then {_unit setCaptive false; { _x setCaptive false } forEach crew _unit;};}; _this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
+        };
+    };
+
+    class B_PTbskull_Veh_Drone_blackops_01_nodao : B_PTbskull_Veh_Drone_blackops_01
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "MQ-4A Greyhawk (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
+                };
+            };
         };
     };
 
@@ -568,7 +591,8 @@
         };
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0;[_unit, ['Olive', 1], true] call BIS_fnc_initVehicle;_unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true;while {true} do {{_unit lookAt (_unit getRelPos [100, _x]);sleep 2.45;} forEach [120, 240, 0];};if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {private _unit = _this select 0; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true; [_unit] call bskulls_fnc_initRadarRotation; [_unit] spawn {params ['_unit']; sleep 0.3; if (!alive _unit) exitWith {}; [_unit, ['Olive', 1], true] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initRadarRotation;};";
         };
     };
 

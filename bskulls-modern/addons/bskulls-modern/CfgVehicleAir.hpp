@@ -49,12 +49,14 @@
         };
     };
 
-    // ── Air Vehicles ────────────────────────────────────────────────────────
+    // ── Air Vehicles (DAO default line) ─────────────────────────────────────
+    // scope 1 + scopeCurator 2: Zeus / DAO VAM / createVehicle. Omitted from DRO
+    // defineFactionClasses pools — DRO disposable supports use *_nodao siblings.
 
     class B_PTbskull_Veh_Plane_blackops_01 : B_Plane_CAS_01_dynamicLoadout_F_OCimport_02
     {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
         displayName = "A-164 Wipeout (CAS) (1c)";
         side = 1;
@@ -62,16 +64,20 @@
         crew = "B_PTbskull_Veh_Unit_Plane_Pilot_blackops_01";
         availableForSupportTypes[] = {"CAS_Bombing"};
         hiddenSelections[] += { "insignia" };
+        // Vanilla Plane_CAS_01_base_F armor=80; +200% durability (3x total).
+        armor = 240;
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; _unit setVehicleReportOwnPosition true; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; _unit setVehicleReportOwnPosition true; _unit setVehicleReportRemoteTargets true; _unit setVehicleReceiveRemoteTargets true; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
+            killed = "_this execVM '\bskulls\addons\bskulls-modern\scripts\airKilled.sqf';";
         };
     };
 
     class B_PTbskull_Veh_Helo_blackops_01 : B_Heli_Transport_03_F_OCimport_02
     {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
         displayName = "CH-67 Huron (Miniguns) (4c16p)";
         side = 1;
@@ -94,14 +100,15 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [_unit,['Black',1], true] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
-            // init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [_unit,['Black',1], true] call BIS_fnc_initVehicle; _unit setVariable['daoExclude',TRUE,TRUE]; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {_veh = _this select 0; [_veh] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; [_unit,['Black',1], true] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};}; _this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
+            killed = "_this execVM '\bskulls\addons\bskulls-modern\scripts\airKilled.sqf';";
         };
     };
 
     class B_PTbskull_Veh_Helo_blackops_02 : B_Heli_Light_01_F_OCimport_02 {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
         displayName = "MH-9 Hummingbird (1c7p)";
         side = 1;
@@ -124,22 +131,27 @@
         class EventHandlers : EventHandlers
         {
             init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, nil, ['AddBenches',1,'AddTread',1,'AddBackseats',1,'AddHoldingFrame',1,'AddTread_Short',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            killed = "_this execVM '\bskulls\addons\bskulls-modern\scripts\airKilled.sqf';";
         };
     };
 
     class B_PTbskull_Veh_Helo_blackops_03 : B_Heli_Attack_01_dynamicLoadout_F_OCimport_02 {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
         displayName = "AH-99 Blackfoot (2c)";
         side = 1;
         faction = "bskull_fc_mo";
         crew = "B_PTbskull_Veh_Unit_Helo_Pilot_blackops_01";
         hiddenSelections[] += { "insignia" };
-        availableForSupportTypes[] = {"CAS_Bombing"};
+        availableForSupportTypes[] = {"CAS_Heli"};
+        // Vanilla Heli_Attack_01_base_F armor=40; +200% durability (3x total).
+        armor = 120;
         maximumLoad = 50000;
         class Turrets : Turrets {
-            class MainTurret : MainTurret { gunnerType = ""; };
+            class MainTurret : MainTurret {
+                gunnerType = "B_PTbskull_Veh_Unit_Helo_Crew_blackops_01";
+            };
         };
         class Components : Components {
                 class TransportPylonsComponent : TransportPylonsComponent {
@@ -188,27 +200,32 @@
         class TransportMagazines {TRANSPORTMAGAZINES};
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; _unit allowdamage false; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
+            killed = "_this execVM '\bskulls\addons\bskulls-modern\scripts\airKilled.sqf';";
         };
     };
 
     class B_PTbskull_Veh_Helo_blackops_04 : B_Heli_Light_01_dynamicLoadout_F_OCimport_02 {
         author = "RoFz";
-        scope = 2;
+        scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
         displayName = "AH-9 Pawnee (2c)";
         side = 1;
         faction = "bskull_fc_mo";
         crew = "B_PTbskull_Veh_Unit_Helo_Pilot_blackops_01";
         hiddenSelections[] += { "insignia" };
-        availableForSupportTypes[] = {"CAS_Bombing"};
+        availableForSupportTypes[] = {"CAS_Heli"};
+        incomingMissileDetectionSystem = 16;
+        weapons[] += {"CMFlareLauncher"};
+        magazines[] += {"60Rnd_CMFlare_Chaff_Magazine"};
         maximumLoad = 50000;
         class Components : Components {
             class TransportPylonsComponent : TransportPylonsComponent {
                 class pylons {
                     class PylonLeft1 {
                         attachment = "PylonRack_4Rnd_LG_scalpel"; // PylonRack_12Rnd_missiles (HE), PylonRack_12Rnd_PG_missiles (AT), PylonMissile_1Rnd_LG_scalpel, PylonRack_7Rnd_Rocket_04_AP_F or PylonRack_7Rnd_Rocket_04_HE_F
-                        hardpoints[] = {"DAR","DAGR","B_SHIEKER","SCALPEL_1RND_EJECTOR","B_ASRRAM_EJECTOR"};
+                        hardpoints[] = {"DAR","DAGR","B_SHIEKER","SCALPEL_1RND_EJECTOR","SCALPEL_4RND","B_ASRRAM_EJECTOR"};
                         priority = 5;
                         UIposition[] = {0.06,0.4};
                     };
@@ -225,6 +242,93 @@
         class TransportWeapons {TRANSPORTWEAPONS};
         class EventHandlers : EventHandlers
         {
-            init = "if (local (_this select 0)) then {_onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, nil, ['AddTread',1,'AddTread_Short',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            init = "if (local (_this select 0)) then {private _vehicle = _this select 0; [_vehicle] call bskulls_fnc_initAutoCountermeasures; [_vehicle] call bskulls_fnc_initPawneeCombat; _onSpawn = {sleep 0.3; _unit = _this select 0; [ _unit, nil, ['AddTread',1,'AddTread_Short',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};};_this spawn _onSpawn;};";
+            local = "if (_this select 1) then {private _vehicle = _this select 0; [_vehicle] call bskulls_fnc_initAutoCountermeasures; [_vehicle] call bskulls_fnc_initPawneeCombat;};";
+            killed = "_this execVM '\bskulls\addons\bskulls-modern\scripts\airKilled.sqf';";
+        };
+    };
+    // DRO disposable supports: scope 2 (DRO pools), scopeCurator 0 (hidden from Zeus), auto DAO exclude.
+    class B_PTbskull_Veh_Plane_blackops_01_nodao : B_PTbskull_Veh_Plane_blackops_01
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "A-164 Wipeout (CAS) (1c) (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
+                };
+            };
+        };
+    };
+
+    class B_PTbskull_Veh_Helo_blackops_01_nodao : B_PTbskull_Veh_Helo_blackops_01
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "CH-67 Huron (Miniguns) (4c16p) (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; [_this] call bskulls_fnc_initHuronGunshipEngage; };";
+                };
+            };
+        };
+    };
+
+    class B_PTbskull_Veh_Helo_blackops_02_nodao : B_PTbskull_Veh_Helo_blackops_02
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "MH-9 Hummingbird (1c7p) (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
+                };
+            };
+        };
+    };
+
+    class B_PTbskull_Veh_Helo_blackops_03_nodao : B_PTbskull_Veh_Helo_blackops_03
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "AH-99 Blackfoot (2c) (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
+                };
+            };
+        };
+    };
+
+    class B_PTbskull_Veh_Helo_blackops_04_nodao : B_PTbskull_Veh_Helo_blackops_04
+    {
+        scope = 2;
+        scopeCurator = 0;
+        displayName = "AH-9 Pawnee (2c) (no DAO)";
+        class EventHandlers : EventHandlers
+        {
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
+            {
+                class init_post
+                {
+                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
+                };
+            };
         };
     };

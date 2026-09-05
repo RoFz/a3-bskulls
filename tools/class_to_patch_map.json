@@ -52,5 +52,17 @@
     "patch": "gm_core",
     "source_mod": "Global Mobilization",
     "notes": "Verified from current repo dependency usage."
+  },
+  "V_SSU_Carrier_Lite_Black": {
+    "class": "V_SSU_Carrier_Lite_Black",
+    "patch": "SSU_Black_Vests",
+    "source_mod": "SSU Black Vests",
+    "notes": "Verified from workshop SSU_Black_Vests.pbo CfgPatches."
+  },
+  "bo_app66_green": {
+    "class": "bo_app66_green",
+    "patch": "bogdan_bo_app66",
+    "source_mod": "APP-66",
+    "notes": "Verified from workshop bo_app66.pbo CfgPatches class bogdan_bo_app66."
   }
 }

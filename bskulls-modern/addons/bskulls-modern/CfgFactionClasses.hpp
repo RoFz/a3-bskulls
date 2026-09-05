@@ -5,5 +5,6 @@ class CfgFactionClasses {
 		flag = "\bskulls\addons\bskulls-modern\textures\black_skulls_flag_512_512.paa";
 		icon = "\bskulls\addons\bskulls-modern\textures\black_skulls_flag_64_64.paa";
 		priority = 1;
+		DRO_supplyDropCrate = "B_PTbskull_Veh_SupplyCrate_blackops_01";
 	};
 };
