@@ -3,7 +3,7 @@
     // class launch_I_Titan_short_F_OCimport_01 : launch_I_Titan_short_F { scope = 0; class OpticsModes; };
     // class launch_I_Titan_short_F_OCimport_02 : launch_I_Titan_short_F_OCimport_01
     // {
-    //    
+    //
     //     class OpticsModes : OpticsModes
     //     {
     //         class StepScope;
@@ -78,4 +78,3 @@
         author = "RoFz";
         scope = 2;
     };
-
