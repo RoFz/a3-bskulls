@@ -144,7 +144,7 @@ class cfgWeapons {
                 slot = "UnderBarrelSlot";
                 item = "gm_msg90_bipod_blk";
             };
-        };        
+        };
     };
 
     class gm_mg8a2_blk;
@@ -492,7 +492,7 @@ class CfgVehicles {
     class B_Fighter_Pilot_F_OCimport_02 : B_Fighter_Pilot_F_OCimport_01 { class EventHandlers; };
 
     // VEHICLES
-    
+
     // Helos
 
     class gm_ge_army_bo105p1m_vbh_swooper;
@@ -503,7 +503,7 @@ class CfgVehicles {
         scopeArsenal = 2;
         displayName = "VBH 1A1 Swooper 9p+2c";
         side = 1;
-        faction = "BSKULLS_CW"; 
+        faction = "BSKULLS_CW";
         crew = "BSKULLS_CW_helo_pilot_01";
         transportSoldier = 9;
         class TransportBackpacks {
@@ -1106,7 +1106,7 @@ class CfgVehicles {
             class _xx_gm_ge_facewear_m65 {count=1;name="gm_ge_facewear_m65";};
             // class _xx_gm_repairkit_01 {count=1;name="gm_repairkit_01";};
         };
-        class TransportWeapons{};        
+        class TransportWeapons{};
     };
 
     class BSKULLS_AT: THC_Bag65 {
@@ -1121,7 +1121,7 @@ class CfgVehicles {
             class _xx_gm_ferod51_oli {count=1;name="gm_ferod51_oli";};
             class _xx_gm_ge_facewear_m65 {count=1;name="gm_ge_facewear_m65";};
         };
-        class TransportWeapons{};        
+        class TransportWeapons{};
     };
 
     class BSKULLS_Ammo: THC_Bag65 {
@@ -1142,7 +1142,7 @@ class CfgVehicles {
             class _xx_gm_ferod51_oli {count=1;name="gm_ferod51_oli";};
             class _xx_gm_ge_facewear_m65 {count=1;name="gm_ge_facewear_m65";};
         };
-        class TransportWeapons{};        
+        class TransportWeapons{};
     };
 
 };

@@ -74,7 +74,7 @@
     class _xx_BSKULLS_ar_2 {count=1;weapon="BSKULLS_ar_2";};\
     class _xx_BSKULLS_sniper_1 {count=1;weapon="BSKULLS_sniper_1";};\
     class _xx_vn_m72 {count=6;weapon="vn_m72";};\
-    class _xx_vn_m79 {count=1;weapon="vn_m79";}; 
+    class _xx_vn_m79 {count=1;weapon="vn_m79";};
 
 #define TRANSPORTBACKPACKS\
     class _xx_B_bskullfcnam_pow_01_bp {count=3;backpack="B_bskullfcnam_pow_01_bp";};\
@@ -82,4 +82,3 @@
     class _xx_vn_b_pack_static_m29_01 {count=1;backpack="vn_b_pack_static_m29_01";};\
     class _xx_vn_b_pack_static_m2_01 {count=1;backpack="vn_b_pack_static_m2_01";};\
     class _xx_vn_b_pack_static_mk18 {count=1;backpack="vn_b_pack_static_mk18";};
-	

@@ -109,7 +109,7 @@ class cfgWeapons {
             class LinkedItemsOptic { };
             class LinkedItemsAcc {
                 slot = "PointerSlot";
-                item = "vn_b_m1897";                
+                item = "vn_b_m1897";
             };
             class LinkedItemsUnder { };
         };
@@ -162,7 +162,7 @@ class cfgWeapons {
         };
     };
 
-    // MG #1: 
+    // MG #1:
     class vn_m60_shorty_camo;
     class vn_m60_shorty_camo_OCimport_01 : vn_m60_shorty_camo { scope = 0; class manual; };
     class BSKULLS_mg_1 : vn_m60_shorty_camo_OCimport_01 {

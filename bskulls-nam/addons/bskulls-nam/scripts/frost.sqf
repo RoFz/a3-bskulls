@@ -36,7 +36,7 @@ _onSpawn = {
     _UnitNameSound,
     _UnitRank,
     _UnitVoice,
-    _UnitTeam     
+    _UnitTeam
 ] spawn _onSpawn;
 if ((isNil "lobbycomplete") || (isNil "playersready")) then
 {

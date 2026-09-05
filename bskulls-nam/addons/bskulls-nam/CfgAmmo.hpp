@@ -1,4 +1,4 @@
-class CfgAmmo 
+class CfgAmmo
 {
 
 //     class kt_338_NM;
@@ -17,7 +17,7 @@ class CfgAmmo
 //         hit = 390; // 350
 //         indirectHit = 150; // 92
 //         indirectHitRange = 50; // 50
-//         typicalSpeed = 700; // 700        
+//         typicalSpeed = 700; // 700
 //     };
 
 //     // Artillery HE Ammo
@@ -156,7 +156,7 @@ class CfgAmmo
 //         mineTrigger = "RangeTriggerShort";
 //     };
 
-//     // Mine Submunition #1 
+//     // Mine Submunition #1
 //     class Mo_ClassicMineRange; // Submunition
 //     class Mo_ClassicMineRange_PLUS : Mo_ClassicMineRange
 //     {
@@ -244,7 +244,7 @@ class CfgAmmo
 
 //     // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm"); = bin\config.bin/CfgAmmo/Gatling_30mm_HE_Plane_CAS_01_F
 //     // inheritsFrom (configfile >> "CfgAmmo" >> "Gatling_30mm_HE_Plane_CAS_01_F"); = bin\config.bin/CfgAmmo/BulletBase
-//     // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm" >> "hit"); = 
+//     // inheritsFrom (configfile >> "CfgAmmo" >> "MG8_Gau8_30mm" >> "hit"); =
 //     class MG8_Gau8_30mm;
 //     class MG8_Gau8_30mm_PLUS : MG8_Gau8_30mm
 //     {
@@ -252,7 +252,7 @@ class CfgAmmo
 //         scope = 2;
 //         scopeCurator = 2;
 //         access = 1;
-        
+
 //         aiAmmoUsageFlags = "64 + 128 + 256 + 512"; //  RHS: 64 + 128 + 512
 //         caliber = 4.17; // 4.17 RHS: 5
 //         explosive = 0.55; // 0.35 RHS: 0.4
@@ -296,8 +296,8 @@ class CfgAmmo
 //         scopeCurator = 2;
 //         access = 1;
 
-//         caliber = 110; // 
-//         hit = 785; // 
+//         caliber = 110; //
+//         hit = 785; //
 //         typicalSpeed = 1000; // 1000
 
 //         submunitionAmmo = "rhs_ammo_spall";

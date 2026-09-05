@@ -25,7 +25,7 @@ _onSpawn = {
         "_UnitVoicePitch",
         "_UnitFace",
         "_UnitTeam",
-        "_UnitTraits" 
+        "_UnitTraits"
     ];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
@@ -34,7 +34,7 @@ _onSpawn = {
     _u setPitch _UnitVoicePitch;
     _u setFace _UnitFace;
     _u assignTeam _UnitTeam;
-    { _u setUnitTrait [_x, true]; } forEach _UnitTraits;   
+    { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
 };
 [
     _unit,
@@ -47,7 +47,7 @@ _onSpawn = {
     _UnitVoicePitch,
     _UnitFace,
     _UnitTeam,
-    _UnitTraits        
+    _UnitTraits
 ] spawn _onSpawn;
 
 if ((isNil "lobbycomplete") || (isNil "playersready")) then

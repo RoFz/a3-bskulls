@@ -21,14 +21,14 @@ _onSpawn = {
         "_UnitRank",
         "_UnitVoice",
         "_UnitTeam",
-        "_UnitTraits" 
+        "_UnitTraits"
     ];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
     _u setUnitRank _UnitRank;
     _u setSpeaker _UnitVoice;
     _u assignTeam _UnitTeam;
-    { _u setUnitTrait [_x, true]; } forEach _UnitTraits;           
+    { _u setUnitTrait [_x, true]; } forEach _UnitTraits;
 };
 [
     _unit,

@@ -18,7 +18,7 @@ if (isNil "markerplayerstart") then
 	};
 
 private _VehVarName = vehicleVarName _this;
-// systemChat format ["%1 (%2): Setting attributes...", _bskull_UnitName, _VehVarName]; 
+// systemChat format ["%1 (%2): Setting attributes...", _bskull_UnitName, _VehVarName];
 _unit setName ['Greg McKendrick', 'Greg', 'McKendrick'];
 _unit setNameSound 'McKendrick';
 _unit setUnitRank 'SERGEANT';

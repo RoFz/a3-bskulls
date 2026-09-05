@@ -51,7 +51,7 @@ class CfgGroups {
 
             class Air {
                 name = "Air";
-                
+
                 // class b_bskullfcnam_air_planes {
                 //     name = "Planes";
                 //     side = 1;

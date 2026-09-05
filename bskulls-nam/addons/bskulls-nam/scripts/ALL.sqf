@@ -5,5 +5,5 @@ private _curVehName = name _unit;
 _unit setSkill 1;
 _unit enableFatigue false;
 _unit setCombatBehaviour 'STEALTH';
-_unit setUnitCombatMode 'GREEN'; 
+_unit setUnitCombatMode 'GREEN';
 [_unit, 'BSKULLS_Nam_Insignia'] call BIS_fnc_setUnitInsignia;

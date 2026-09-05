@@ -21,7 +21,7 @@ _onSpawn = {
         "_UnitRank",
         "_UnitVoice",
         "_UnitTeam",
-        "_UnitTraits" 
+        "_UnitTraits"
     ];
     _u setName [_UnitFullName, _UnitFirstName, _UnitLastName];
     _u setNameSound _UnitNameSound;
@@ -39,7 +39,7 @@ _onSpawn = {
     _UnitRank,
     _UnitVoice,
     _UnitTeam,
-    _UnitTraits        
+    _UnitTraits
 ] spawn _onSpawn;
 
 if ((isNil "lobbycomplete") || (isNil "playersready")) then

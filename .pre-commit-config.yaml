@@ -8,6 +8,8 @@ repos:
         args:
           - --markdown-linebreak-ext=md
       - id: mixed-line-ending
+        args:
+          - --fix=lf
       - id: check-illegal-windows-names
       - id: pretty-format-json
         args:
