@@ -301,6 +301,7 @@ _unit setSkill 1;
 _unit enableFatigue false;
 
 [_unit, _rank] call bskulls_fnc_applyUnitRank;
+[_unit] call bskulls_fnc_initMineStanceRecovery;
 
 // Vehicle var names (BSkull*) are for non-DRO only. DRO slots must stay u1..uN.
 // Never overwrite an existing DRO slot name from this function.

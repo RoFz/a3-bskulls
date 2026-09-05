@@ -21,6 +21,10 @@ class CfgFunctions {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class unitHitResponse {};
         };
+        class ai {
+            file = "\bskulls\addons\bskulls-modern\scripts";
+            class initMineStanceRecovery {};
+        };
         class aircraft {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class formatKillSource {};
