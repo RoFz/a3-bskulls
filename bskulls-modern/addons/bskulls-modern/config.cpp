@@ -6,3 +6,4 @@
 #include "CfgVehicles.hpp"
 #include "CfgGroups.hpp"
 #include "CfgIdentities.hpp"
+#include "CfgFunctions.hpp"
