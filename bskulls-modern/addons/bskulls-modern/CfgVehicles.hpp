@@ -14,5 +14,7 @@
 #include "CfgVehicleUnits.hpp"
 // Backpacks
 #include "CfgVehicleBackpacks.hpp"
+// Supply Crates
+#include "CfgVehicleCrates.hpp"
 // Closing Section
 #include "CfgVehiclesTail.hpp"

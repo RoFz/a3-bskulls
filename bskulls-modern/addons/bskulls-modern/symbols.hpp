@@ -59,7 +59,7 @@
 #define DEFAULT_TEAM_SKILL 1
 #define DEFAULT_TEAM_ENABLE_FATIGUE false
 #define DEFAULT_TEAM_COMBAT_BEHAVIOR "STEALTH"
-#define DEFAULT_TEAM_COMBAT_MODE "GREEN"
+#define DEFAULT_TEAM_COMBAT_MODE "BLUE"
 
 #define DEFAULT_UNIFORM "U_SSU_Stealth_Uniform_Black"
 #define DEFAULT_UNIFORM_GIRLS "TCGM_Multiplay_U_B_BLK_Combat_Stealth"
@@ -235,7 +235,12 @@
     class _xx_1Rnd_HE_Grenade_shell {count=6;magazine="1Rnd_HE_Grenade_shell";};\
     class _xx_HandGrenade {count=4;magazine="HandGrenade";};\
     class _xx_MiniGrenade {count=4;magazine="MiniGrenade";};\
-    class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
+    class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};\
+    class _xx_DemoCharge_Remote_Mag {count=4;magazine="DemoCharge_Remote_Mag";};\
+    class _xx_SatchelCharge_Remote_Mag {count=2;magazine="SatchelCharge_Remote_Mag";};\
+    class _xx_ATMine_Range_Mag {count=3;magazine="ATMine_Range_Mag";};\
+    class _xx_APERSMineDispenser_Mag {count=3;magazine="APERSMineDispenser_Mag";};\
+    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;magazine="SLAMDirectionalMine_Wire_Mag";};
 
 #define TRANSPORTITEMS\
     class _xx_MineDetector {count=1;name="MineDetector";};\
@@ -249,12 +254,7 @@
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
-    class _xx_DemoCharge_Remote_Mag {count=4;name="DemoCharge_Remote_Mag";};\
-    class _xx_SatchelCharge_Remote_Mag {count=2;name="SatchelCharge_Remote_Mag";};\
-    class _xx_ATMine_Range_Mag {count=3;name="ATMine_Range_Mag";};\
     class _xx_SwitchBlade_600_Tube_Woodland {count=3;name="SwitchBlade_600_Tube_Woodland";};\
-    class _xx_APERSMineDispenser_Mag {count=3;name="APERSMineDispenser_Mag";};\
-    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};\
     class _xx_gm_boltcutter {count=1;name="gm_boltcutter";};\
 
 #define TRANSPORTWEAPONS\
@@ -270,8 +270,8 @@
     class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
-    class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
-    class _xx_B_HMG_01_support_high_F {count=2;backpack="B_HMG_01_support_high_F";};\
+    class _xx_B_HMG_01_support_F {count=1;backpack="B_HMG_01_support_F";};\
+    class _xx_B_HMG_01_support_high_F {count=4;backpack="B_HMG_01_support_high_F";};\
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
@@ -285,8 +285,8 @@
     class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
-    class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
-    class _xx_B_HMG_01_support_high_F {count=2;backpack="B_HMG_01_support_high_F";};\
+    class _xx_B_HMG_01_support_F {count=1;backpack="B_HMG_01_support_F";};\
+    class _xx_B_HMG_01_support_high_F {count=4;backpack="B_HMG_01_support_high_F";};\
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
@@ -303,15 +303,19 @@
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
-    class _xx_optic_Aco_smg {count=1;name="optic_Aco_smg";};\
-    class _xx_DemoCharge_Remote_Mag {count=2;name="DemoCharge_Remote_Mag";};\
-    class _xx_SatchelCharge_Remote_Mag {count=1;name="SatchelCharge_Remote_Mag";};\
-    class _xx_ATMine_Range_Mag {count=1;name="ATMine_Range_Mag";};\
-    class _xx_APERSMineDispenser_Mag {count=3;name="APERSMineDispenser_Mag";};\
-    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;name="SLAMDirectionalMine_Wire_Mag";};
+    class _xx_optic_Aco_smg {count=1;name="optic_Aco_smg";};
+
+#define VIPER_BAG_MAGAZINES\
+    class _xx_DemoCharge_Remote_Mag {count=2;magazine="DemoCharge_Remote_Mag";};\
+    class _xx_SatchelCharge_Remote_Mag {count=1;magazine="SatchelCharge_Remote_Mag";};\
+    class _xx_ATMine_Range_Mag {count=1;magazine="ATMine_Range_Mag";};\
+    class _xx_APERSMineDispenser_Mag {count=3;magazine="APERSMineDispenser_Mag";};\
+    class _xx_SLAMDirectionalMine_Wire_Mag {count=6;magazine="SLAMDirectionalMine_Wire_Mag";};
 
 #define BASE_KIT\
-    MAG_3(FirstAidKit),\
+    MAG_3(FirstAidKit)
+
+#define BASE_THROWABLES\
     MAG_2(SmokeShell),\
     MAG_2(MiniGrenade)
 

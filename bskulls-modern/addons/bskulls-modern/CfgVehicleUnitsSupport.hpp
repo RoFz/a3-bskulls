@@ -6,7 +6,8 @@
     {
         sensitivity = 9;
         sensitivityEar = 3;
-        icon = "iconManOfficer";
+        // Must stay iconManLeader — DRO lobby prepends iconManOfficer for Viper only.
+        icon = "iconManLeader";
     };
 
     class B_Helipilot_F;
@@ -58,6 +59,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\100_plane-pilot.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -83,6 +85,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\200_helo-pilot.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -108,6 +111,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\204_helo-crew.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -132,6 +136,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\300_tank-crew.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -156,6 +161,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\400_boat-crew.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };
 
@@ -180,5 +186,6 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\500_vehicle-crew.sqf';";
+            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
         };
     };

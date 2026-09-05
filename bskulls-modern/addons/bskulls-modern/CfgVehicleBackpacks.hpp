@@ -20,8 +20,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_03_falkor_AMMO);};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_03_falkor_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -45,8 +46,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -70,8 +72,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_01_m110_AMMO);};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_01_m110_AMMO);};
+            class _xx_8Rnd_SPAS12_buck {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -95,8 +98,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_10Rnd_338_Mag {count=1;magazine="10Rnd_338_Mag";};
-            class _xx_8Rnd_SPAS12_buck {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            class _xx_10Rnd_338_Mag {count=10;magazine="10Rnd_338_Mag";};
+            class _xx_8Rnd_SPAS12_buck {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -120,8 +124,11 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_05_vssk_AMMO);};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            // Includes the one magazine already carried here plus Viper's former
+            // uniform/vest spares, preserving the complete configured ammunition.
+            class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=21;magazine=QUOTE(B_PTbskull_Wea_sniper_05_vssk_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=7;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -145,8 +152,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_06_asp1_AMMO);};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_06_asp1_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -170,8 +178,9 @@
             class _xx_Chemlight_yellow {count=1;magazine="Chemlight_yellow";};
             class _xx_Chemlight_green {count=1;magazine="Chemlight_green";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};
-            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=1;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
+            VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
@@ -249,12 +258,12 @@
         model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
+            class _xx_DemoCharge_Remote_Mag {count=2;magazine="DemoCharge_Remote_Mag";};
+            class _xx_SatchelCharge_Remote_Mag {count=2;magazine="SatchelCharge_Remote_Mag";};
+            class _xx_ATMine_Range_Mag {count=2;magazine="ATMine_Range_Mag";};
         };
         class TransportItems {
             class _xx_ToolKit {count=1;name="ToolKit";};
-            class _xx_DemoCharge_Remote_Mag {count=2;name="DemoCharge_Remote_Mag";};
-            class _xx_SatchelCharge_Remote_Mag {count=2;name="SatchelCharge_Remote_Mag";};
-            class _xx_ATMine_Range_Mag {count=2;name="ATMine_Range_Mag";};
         };
         class TransportWeapons { };
     };
