@@ -103,7 +103,7 @@ class CfgIdentities
 	};
 	class Makarova
 	{
-		face = "TCGM_Fem_Lynch";
+		face = "TCGM_Fem_Portman";
 		glasses = MAKAROVA_GOGGLES; // cosmetic only — item must also be in linkedItems[] (CfgVehicles)
 		name = "Makarova";
 		nameSound = "Wardak";

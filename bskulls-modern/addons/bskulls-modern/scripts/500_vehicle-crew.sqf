@@ -1,14 +1,16 @@
 // VEHICLE CREW init script
+// Do not call stop true — that freezes the unit until stop false and blocks
+// move/waypoint orders (HEMTT Fuel and other soft vehicles use this crew).
 if (local(_this select 0)) then {
 	_onSpawn = {
 		private _unit = _this select 0;
 		sleep 3;
-		// _unit allowDamage false;
-		// _unit setUnitRank 'CAPTAIN';
+		[_unit, "CORPORAL"] call bskulls_fnc_applyUnitRank;
 		_unit setUnitTrait ['Engineer', true];
-		sleep 5;
-		_unit stop true;
-		#include "ALL-crew.sqf"
+		_unit enableIRLasers true;
+		_unit setSkill 1;
+		_unit enableFatigue false;
+		if ("insignia" in selectionNames _unit) then { [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia; };
 	};
 	_this spawn _onSpawn;
 };
