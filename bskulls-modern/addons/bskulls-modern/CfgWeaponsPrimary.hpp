@@ -960,7 +960,6 @@
         aiDispersionCoefX = 0.01; // 2
         aiDispersionCoefY = 0.01; // 3
         discreteDistance[] = { 100, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600 };
-        dispersion = 0.00029;
         maxZeroing = 1600;
         magazines[] = {"10Rnd_127x54_Mag_PLUS","10Rnd_127x54_Mag"};
         class LinkedItems {
@@ -978,6 +977,8 @@
             };
         };
         class Single : Single {
+            // Dispersion belongs to the firing mode; vanilla Single uses 0.0029.
+            dispersion = 0.00029;
             aiDispersionCoefX = 0.1; // 1.4
             aiDispersionCoefY = 0.1; // 1.7
             aiRateOfFireDispersion = 0.1; // 1
