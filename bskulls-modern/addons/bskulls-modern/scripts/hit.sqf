@@ -1,4 +1,5 @@
-// Hit EH entry — keep unscheduled; logic in bskulls_fnc_unitHitResponse.
+// Cached Hit EH entry — spawned to preserve the original scheduled execution.
+// Treatment logic remains in bskulls_fnc_unitHitResponse.
 params [["_unit", objNull], ["_source", objNull], ["_damage", 0], ["_instigator", objNull]];
 
 // Named player units deliberately never use the AI self-treatment workflow.

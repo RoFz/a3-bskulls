@@ -7,3 +7,4 @@
 #include "CfgGroups.hpp"
 #include "CfgIdentities.hpp"
 #include "CfgFunctions.hpp"
+#include "CfgEventHandlers.hpp"

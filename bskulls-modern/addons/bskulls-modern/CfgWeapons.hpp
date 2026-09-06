@@ -1,5 +1,3 @@
-class Mode_SemiAuto;
-class Mode_Burst;
 class CfgWeapons {
 
     // Handguns

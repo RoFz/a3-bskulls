@@ -59,7 +59,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\100_plane-pilot.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -85,7 +85,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\200_helo-pilot.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -111,7 +111,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\204_helo-crew.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -136,7 +136,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\300_tank-crew.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -161,7 +161,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\400_boat-crew.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -186,6 +186,6 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\500_vehicle-crew.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };

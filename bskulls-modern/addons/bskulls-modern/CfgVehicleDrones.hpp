@@ -565,13 +565,7 @@
         displayName = "MQ-4A Greyhawk (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };
 

@@ -19,6 +19,7 @@ class CfgFunctions {
         };
         class wounded {
             file = "\bskulls\addons\bskulls-modern\scripts";
+            class unitHit { file = "\bskulls\addons\bskulls-modern\scripts\hit.sqf"; };
             class unitHitResponse {};
         };
         class ai {

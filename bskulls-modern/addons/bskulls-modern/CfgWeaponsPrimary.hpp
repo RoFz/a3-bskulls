@@ -11,6 +11,7 @@
         displayName = "H&K M110A1 SDMR (7.62x51mm NATO)";
         author = "RoFz";
         scope = 2;
+        scopeArsenal = 2;
         delete ACE_barrelLength;
         delete ACE_barrelTwist;
         delete ace_overheating_allowSwapBarrel;

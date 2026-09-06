@@ -23,7 +23,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\1_viper.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -45,7 +45,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\2_fox.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -66,7 +66,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\3_vega.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -86,7 +86,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\4_mckendrick.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -106,7 +106,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\5_jackson.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -126,7 +126,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\6_frost.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -146,7 +146,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\7_hawkins.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -167,7 +167,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\8_sykes.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -187,7 +187,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\9_everett.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -207,7 +207,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\10_taylor.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -229,7 +229,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\11_liu.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -250,7 +250,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\12_makarova.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -270,7 +270,7 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\13_elias.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };
 
@@ -291,6 +291,6 @@
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
             init = "_this execVM '\bskulls\addons\bskulls-modern\scripts\14_martinez.sqf';";
-            hit  = "_this execVM '\bskulls\addons\bskulls-modern\scripts\hit.sqf';";
+            hit  = "_this spawn bskulls_fnc_unitHit;";
         };
     };

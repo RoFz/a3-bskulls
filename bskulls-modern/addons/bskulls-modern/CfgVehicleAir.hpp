@@ -255,13 +255,7 @@
         displayName = "A-164 Wipeout (CAS) (1c) (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };
 
@@ -272,13 +266,7 @@
         displayName = "CH-67 Huron (Miniguns) (4c16p) (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; [_this] call bskulls_fnc_initHuronGunshipEngage; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };
 
@@ -289,13 +277,7 @@
         displayName = "MH-9 Hummingbird (1c7p) (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };
 
@@ -306,13 +288,7 @@
         displayName = "AH-99 Blackfoot (2c) (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };
 
@@ -323,12 +299,6 @@
         displayName = "AH-9 Pawnee (2c) (no DAO)";
         class EventHandlers : EventHandlers
         {
-            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base
-            {
-                class init_post
-                {
-                    clientInit = "if (local _this) then { [_this] call bskulls_fnc_daoExcludeVehicle; };";
-                };
-            };
+            class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
         };
     };

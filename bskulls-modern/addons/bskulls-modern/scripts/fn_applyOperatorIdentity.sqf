@@ -290,7 +290,24 @@ if (((units group _unit) findIf { isPlayer _x }) >= 0) then {
     _unit setUnitCombatMode _combatMode;
 };
 
-{ _unit disableAI _x; } forEach _disableAI;
+// Own only the features this identity setup actually disabled. Keep that
+// ownership on repeated applications, and restore features the next identity
+// no longer disables. Features disabled before identity setup stay disabled.
+private _previousDisabledAI = _unit getVariable ["BS_identityDisabledAI", []];
+{
+    if !(_x in _disableAI) then {
+        _unit enableAI _x;
+    };
+} forEach _previousDisabledAI;
+
+private _disabledAI = [];
+{
+    if (_x in _previousDisabledAI || {_unit checkAIFeature _x}) then {
+        _disabledAI pushBack _x;
+    };
+    _unit disableAI _x;
+} forEach _disableAI;
+_unit setVariable ["BS_identityDisabledAI", _disabledAI];
 
 if ("insignia" in selectionNames _unit) then {
     [_unit, "Black_Skulls"] call BIS_fnc_setUnitInsignia;

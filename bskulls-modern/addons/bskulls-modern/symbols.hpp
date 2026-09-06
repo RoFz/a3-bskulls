@@ -3,30 +3,17 @@
 
 #define STR(a) #a
 #define QUOTE(a) STR(a)
-#define APPLY_BLACK_SKULLS_INSIGNIA(UNIT) if ("insignia" in selectionNames (UNIT)) then {[(UNIT), "Black_Skulls"] call BIS_fnc_setUnitInsignia;}
 #define MAG_2(a) QUOTE(a), QUOTE(a)
 #define MAG_3(a) QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_4(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_5(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_6(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_7(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_8(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_9(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_10(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_11(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_12(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_13(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_14(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_15(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_16(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_17(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_18(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_19(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_20(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_21(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_22(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_23(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
-#define MAG_24(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_25(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 #define MAG_30(a) QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a), QUOTE(a)
 
@@ -52,14 +39,7 @@
     linkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}; \
     respawnlinkedItems[] = {vest,helmet,"ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",DEFAULT_NVG}
 
-
-// TEAM SETTINGS
-
-#define DEFAULT_TEAM_IRLASERS true
-#define DEFAULT_TEAM_SKILL 1
-#define DEFAULT_TEAM_ENABLE_FATIGUE false
-#define DEFAULT_TEAM_COMBAT_BEHAVIOR "STEALTH"
-#define DEFAULT_TEAM_COMBAT_MODE "BLUE"
+// SHARED EQUIPMENT
 
 #define DEFAULT_UNIFORM "U_SSU_Stealth_Uniform_Black"
 #define DEFAULT_UNIFORM_GIRLS "TCGM_Multiplay_U_B_BLK_Combat_Stealth"
@@ -69,154 +49,62 @@
 #define DEFAULT_HELMET "H_SSU_Enhanced_Combat_Helmet_Black"
 // #define DEFAULT_HELMET "H_SSU_Advanced_Modular_Helmet_Chops_Black"
 #define DEFAULT_GOGGLES "G_Balaclava_TI_G_blk_F"
-// #define DEFAULT_BACKPACK THC_Bag50
-#define DEFAULT_BACKPACK B_Assaultpack_blk
-
-#define DEFAULT_UNIFORM_J "U_SSU_Stealth_Uniform_AOR2"
-#define DEFAULT_UNIFORM_GIRLS_J "TCGM_CombatUniform_CTRG_Stealth"
-#define DEFAULT_VEST_J DEFAULT_VEST
-// #define DEFAULT_VEST_J "V_SSU_Carrier_Lite_AOR2"
-#define DEFAULT_HELMET_J "H_SSU_Enhanced_Combat_Helmet_AOR2"
-#define DEFAULT_GOGGLES_J "G_SSU_Balaclava_TI_G_AOR2"
-// #define DEFAULT_BACKPACK_J THC_Bag55
-
-#define DEFAULT_UNIFORM_D "U_SSU_Stealth_Uniform_AOR1"
-#define DEFAULT_UNIFORM_GIRLS_D "TCGM_CombatUniform_CTRG_Stealth_arid"
-#define DEFAULT_VEST_D DEFAULT_VEST
-// #define DEFAULT_VEST_D "V_SSU_Carrier_Lite_AOR1"
-#define DEFAULT_HELMET_D "H_SSU_Enhanced_Combat_Helmet_AOR1"
-#define DEFAULT_GOGGLES_D "G_SSU_Balaclava_TI_G_AOR1"
-// #define DEFAULT_BACKPACK_D THC_Bag51
 
 #define DEFAULT_NVG "NVGogglesB_blk_F"
 // #define DEFAULT_NVG "A3_GPNVG18_REC_BLK_TI"
 #define DEFAULT_BINOCULARS "Rangefinder"
 
-#define DEFAULT_AR_DESC "SCAR-H"
 #define DEFAULT_AR "B_PTbskull_Wea_ar_01_scarh"
-#define DEFAULT_AR_AMMO "KA_SCAR_H_20rnd_M993_AP_mag"
 
 // VIPER
 #define VIPER_HELMET DEFAULT_HELMET
 #define VIPER_GOGGLES DEFAULT_GOGGLES
-#define VIPER_HELMET_J DEFAULT_HELMET_J
-#define VIPER_GOGGLES_J DEFAULT_GOGGLES_J
-#define VIPER_HELMET_D ""
-#define VIPER_GOGGLES_D ""
 
 // FOX
 #define FOX_HELMET DEFAULT_HELMET
 #define FOX_GOGGLES "G_Lady_Blue"
-#define FOX_HELMET_J DEFAULT_HELMET_J
-#define FOX_GOGGLES_J FOX_GOGGLES
-#define FOX_HELMET_D DEFAULT_HELMET_D
-#define FOX_GOGGLES_D FOX_GOGGLES
-
-#define FOX_FIRST_NAME "Amanda"
-#define FOX_LAST_NAME "Fox"
-#define FOX_FULL_NAME "Amanda Fox"
-#define FOX_NAMESOUND "Fox"
-#define FOX_VOICE "rhs_Female01ENG"
-#define FOX_VOICE_PITCH 0.95
-#define FOX_FACE "TCGM_Fem_Stone"
-#define FOX_TEAM "BLUE"
-#define FOX_TRAITS ["Medic"]
 
 // VEGA
 #define VEGA_HELMET "GX_B_M_God"
 #define VEGA_GOGGLES DEFAULT_GOGGLES
-#define VEGA_HELMET_J DEFAULT_HELMET_J
-#define VEGA_GOGGLES_J ""
-#define VEGA_HELMET_D ""
-#define VEGA_GOGGLES_D ""
 
 // MCKENDRICK
 #define MCKENDRICK_HELMET DEFAULT_HELMET
 #define MCKENDRICK_GOGGLES ""
-#define MCKENDRICK_HELMET_J DEFAULT_HELMET_J
-#define MCKENDRICK_GOGGLES_J DEFAULT_GOGGLES_J
-#define MCKENDRICK_HELMET_D ""
-#define MCKENDRICK_GOGGLES_D ""
 
 // JACKSON
 #define JACKSON_HELMET "H_SSU_Enhanced_Combat_Helmet_Black"
 #define JACKSON_GOGGLES "G_Aviator"
-#define JACKSON_HELMET_J "H_SSU_Enhanced_Combat_Helmet_AOR2"
-#define JACKSON_GOGGLES_J JACKSON_GOGGLES
-#define JACKSON_HELMET_D "H_SSU_Enhanced_Combat_Helmet_AOR1"
-#define JACKSON_GOGGLES_D JACKSON_GOGGLES
 
 // FROST
-#define FROST_HELMET ""
 #define FROST_GOGGLES ""
-#define FROST_HELMET_J "H_SSU_Camo_Combat_Helmet_AOR2"
-#define FROST_GOGGLES_J "G_SSU_Bandana_Sports_AOR2_Beast"
-#define FROST_HELMET_D ""
-#define FROST_GOGGLES_D ""
 
 // HAWKINS
 #define HAWKINS_HELMET DEFAULT_HELMET
 #define HAWKINS_GOGGLES ""
-#define HAWKINS_HELMET_J DEFAULT_HELMET_J
-#define HAWKINS_GOGGLES_J "G_SSU_Bandana_Sports_AOR2_Beast"
-#define HAWKINS_HELMET_D ""
-#define HAWKINS_GOGGLES_D ""
 
 // SYKES
-#define SYKES_HELMET "H_SSU_Boonie_HS_Black"
 #define SYKES_GOGGLES "G_Tactical_Clear"
-#define SYKES_HELMET_J SYKES_HELMET
-#define SYKES_GOGGLES_J SYKES_GOGGLES
-#define SYKES_HELMET_D SYKES_HELMET
-#define SYKES_GOGGLES_D SYKES_GOGGLES
 
 // MARTINEZ
-#define MARTINEZ_HELMET "H_Hat_Safari_sand_F"
 #define MARTINEZ_GOGGLES "G_Spectacles_Tinted"
-#define MARTINEZ_HELMET_J MARTINEZ_HELMET
-#define MARTINEZ_GOGGLES_J MARTINEZ_GOGGLES
-#define MARTINEZ_HELMET_D MARTINEZ_HELMET
-#define MARTINEZ_GOGGLES_D MARTINEZ_GOGGLES
 
 // EVERETT
 #define EVERETT_HELMET "GX_B_M_God"
 #define EVERETT_GOGGLES DEFAULT_GOGGLES
-#define EVERETT_HELMET_J DEFAULT_HELMET_J
-#define EVERETT_GOGGLES_J EVERETT_GOGGLES
-#define EVERETT_HELMET_D DEFAULT_HELMET_D
-#define EVERETT_GOGGLES_D EVERETT_GOGGLES
 
 // TAYLOR
-#define TAYLOR_HELMET "H_SSU_Boonie_HS_Black"
 #define TAYLOR_GOGGLES DEFAULT_GOGGLES
-#define TAYLOR_HELMET_J DEFAULT_HELMET_J
-#define TAYLOR_GOGGLES_J DEFAULT_GOGGLES_J
-#define TAYLOR_HELMET_D ""
-#define TAYLOR_GOGGLES_D ""
 
 // LIU
-#define LIU_HELMET "H_SSU_Special_Purpose_Helmet_Black"
 #define LIU_GOGGLES ""
-#define LIU_HELMET_J "H_SSU_Special_Purpose_Helmet_AOR2"
-#define LIU_GOGGLES_J ""
-#define LIU_HELMET_D "H_SSU_Special_Purpose_Helmet_AOR1"
-#define LIU_GOGGLES_D ""
 
 // ELIAS
-#define ELIAS_HELMET DEFAULT_HELMET
 #define ELIAS_GOGGLES "G_Squares_Tinted"
-#define ELIAS_HELMET_J "H_SSU_Cap_HS_AOR2"
-#define ELIAS_GOGGLES_J ELIAS_GOGGLES
-#define ELIAS_HELMET_D "H_SSU_Cap_HS_AOR1"
-#define ELIAS_GOGGLES_D ELIAS_GOGGLES
 
 // Makarova
 #define MAKAROVA_HELMET DEFAULT_HELMET
 #define MAKAROVA_GOGGLES "gm_ge_facewear_glacierglasses"
-#define MAKAROVA_HELMET_J DEFAULT_HELMET_J
-#define MAKAROVA_GOGGLES_J MAKAROVA_GOGGLES
-#define MAKAROVA_HELMET_D DEFAULT_HELMET_D
-#define MAKAROVA_GOGGLES_D MAKAROVA_GOGGLES
 
 #define TRANSPORTMAGAZINES\
     class _xx_Titan_AT_PLUS {count=6;magazine="Titan_AT_PLUS";};\

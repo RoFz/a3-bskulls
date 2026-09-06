@@ -10,11 +10,23 @@
 
 params [["_vehicle", objNull, [objNull]]];
 
-if (isNull _vehicle || {!local _vehicle}) exitWith { false };
-if (_vehicle getVariable ["BS_huronGunshipEngage", false]) exitWith { true };
-_vehicle setVariable ["BS_huronGunshipEngage", true, false];
+if (isNull _vehicle) exitWith { false };
 
-[_vehicle] spawn {
+private _oldHandle = _vehicle getVariable ["BS_huronGunshipHandle", scriptNull];
+
+// The Local XEH also calls us on locality loss. Stop the old worker immediately
+// so a rapid return cannot mistake an exiting worker for a running controller.
+if (!local _vehicle || {!alive _vehicle}) exitWith {
+    if (!scriptDone _oldHandle) then {
+        terminate _oldHandle;
+    };
+    _vehicle setVariable ["BS_huronGunshipHandle", scriptNull, false];
+    false
+};
+
+if (!scriptDone _oldHandle) exitWith { true };
+
+private _handle = [_vehicle] spawn {
     params ["_veh"];
 
     private _doorGunTurrets = [[1], [2]];
@@ -60,6 +72,11 @@ _vehicle setVariable ["BS_huronGunshipEngage", true, false];
 
         sleep 2;
     };
+
+    if (!isNull _veh) then {
+        _veh setVariable ["BS_huronGunshipHandle", scriptNull, false];
+    };
 };
 
+_vehicle setVariable ["BS_huronGunshipHandle", _handle, false];
 true
