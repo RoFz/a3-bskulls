@@ -947,7 +947,7 @@
     };
 
     // Sniper #6: ASP-1 Kir 12.7x55mm
-    // Ammo: 10Rnd_127x54_Mag
+    // Ammo: 10Rnd_127x54_Mag_PLUS
     #define B_PTbskull_Wea_sniper_06_asp1_AMMO 10Rnd_127x54_Mag_PLUS
     class srifle_DMR_04_F;
     class srifle_DMR_04_F_OCimport_01 : srifle_DMR_04_F { scope = 0; class Single; };
@@ -1455,7 +1455,7 @@
     };
 
     // AR #8:
-    // Ammo: MRC_492x34_RT_skin1
+    // Ammo: ICM_XM7_Magazine_277_Fury_BP_F
         #define B_PTbskull_Wea_ar_08_xm7_AMMO ICM_XM7_Magazine_277_Fury_BP_F
     class ICM_XM7_F;
     class B_PTbskull_Wea_ar_08_xm7 : ICM_XM7_F {
@@ -1545,7 +1545,7 @@
     };
 
     // MG #3 - Russian:
-    // AMMO: 75rnd_762x39_AK12_Mag_Tracer_F
+    // Ammo: 75rnd_762x39_AK12_Mag_Tracer_F
     #define B_PTbskull_Wea_mg_3_AMMO 75rnd_762x39_AK12_Mag_Tracer_F
     class arifle_RPK12_F;
     class arifle_RPK12_F_OCimport_01 : arifle_RPK12_F { scope = 0; };
@@ -1570,7 +1570,7 @@
     };
 
     // MG #4 - XM250
-    // AMMO: 75rnd_762x39_AK12_Mag_Tracer_F
+    // Ammo: KAR_100Rnd_Fury_RT_blk
     #define B_PTbskull_Wea_mg_04_xm250_AMMO KAR_100Rnd_Fury_RT_blk
     class KAR_XM250_BLK;
     class KAR_XM250_BLK_OCimport_01 : KAR_XM250_BLK { scope = 0; };

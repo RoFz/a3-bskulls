@@ -184,6 +184,7 @@
         {
             class MainTurret : MainTurret { gunnerType = "B_PTbskull_Veh_Unit_Tank_Crew_blackops_01"; };
         };
+        maximumLoad = 50000;
         class TransportItems {TRANSPORTITEMS};
         class TransportMagazines {TRANSPORTMAGAZINES};
         // model.cfg zasleh_rot references muzzle_rot; parent defines muzzle_rot_cannon.

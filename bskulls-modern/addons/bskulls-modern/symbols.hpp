@@ -221,12 +221,17 @@
 #define TRANSPORTMAGAZINES\
     class _xx_Titan_AT_PLUS {count=6;magazine="Titan_AT_PLUS";};\
     class _xx_Titan_AA {count=3;magazine="Titan_AA";};\
+    class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=20;magazine=QUOTE(B_PTbskull_Wea_sniper_05_vssk_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_06_asp1_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=5;magazine=QUOTE(B_PTbskull_Wea_sniper_01_m110_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_12_mar10_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_12_mar10_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=15;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};\
     class _xx_JAS_RSASS_20rnd_M993_AP_mag {count=5;magazine="JAS_RSASS_20rnd_M993_AP_mag";};\
     class _xx_hlc_50rnd_300BLK_STANAG_EPR {count=10;magazine="hlc_50rnd_300BLK_STANAG_EPR";};\
     class _xx_KA_SCAR_H_20rnd_M993_AP_mag {count=5;magazine="KA_SCAR_H_20rnd_M993_AP_mag";};\
-    class _xx_10Rnd_300WM_Magazine {count=5;magazine="10Rnd_300WM_Magazine";};\
+    class _xx_10Rnd_300WM_Magazine {count=10;magazine="10Rnd_300WM_Magazine";};\
     class _xx_KA_CS5_10rnd_M993_AP_mag {count=5;magazine="KA_CS5_10rnd_M993_AP_mag";};\
-    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=5;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};\
+    class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=17;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};\
     class _xx_B_PTbskull_Wea_sniper_13_alligator_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_13_alligator_AMMO);};\
     class _xx_5Rnd_145_mag_BZT {count=10;magazine="5Rnd_145_mag_BZT";};\
     class _xx_130Rnd_338_Mag {count=2;magazine="130Rnd_338_Mag";};\
@@ -270,8 +275,8 @@
     class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
-    class _xx_B_HMG_01_support_F {count=1;backpack="B_HMG_01_support_F";};\
-    class _xx_B_HMG_01_support_high_F {count=4;backpack="B_HMG_01_support_high_F";};\
+    class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
+    class _xx_B_HMG_01_support_high_F {count=2;backpack="B_HMG_01_support_high_F";};\
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
@@ -285,8 +290,8 @@
     class _xx_B_PTbskull_Veh_Back_UAV_blackops_01 {count=1;backpack="B_PTbskull_Veh_Back_UAV_blackops_01";};\
     class _xx_B_UGV_02_Demining_backpack_F {count=1;backpack="B_UGV_02_Demining_backpack_F";};\
     class _xx_C_IDAP_UAV_06_antimine_backpack_F {count=1;backpack="C_IDAP_UAV_06_antimine_backpack_F";};\
-    class _xx_B_HMG_01_support_F {count=1;backpack="B_HMG_01_support_F";};\
-    class _xx_B_HMG_01_support_high_F {count=4;backpack="B_HMG_01_support_high_F";};\
+    class _xx_B_HMG_01_support_F {count=3;backpack="B_HMG_01_support_F";};\
+    class _xx_B_HMG_01_support_high_F {count=2;backpack="B_HMG_01_support_high_F";};\
     class _xx_B_GMG_01_A_weapon_F {count=1;backpack="B_GMG_01_A_weapon_F";};\
     class _xx_B_HMG_01_high_weapon_F {count=2;backpack="B_HMG_01_high_weapon_F";};\
     class _xx_B_AT_01_weapon_F {count=2;backpack="B_AT_01_weapon_F";};\
@@ -316,7 +321,13 @@
     MAG_3(FirstAidKit)
 
 #define BASE_THROWABLES\
-    MAG_2(SmokeShell),\
+    "SmokeShell",\
+    "Chemlight_yellow",\
+    "Chemlight_green",\
     MAG_2(MiniGrenade)
+
+#define BASE_GL_AMMO\
+    MAG_6(1Rnd_HE_Grenade_shell),\
+    MAG_2(UGL_FlareWhite_F)
 
 #endif
