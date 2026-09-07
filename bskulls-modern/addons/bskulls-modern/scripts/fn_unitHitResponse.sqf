@@ -2,8 +2,8 @@
  * Crouch a wounded AI without replacing its movement, formation, or combat
  * orders. Once the immediate danger has passed, use a FAK or call for a medic.
  *
- * Stance rules: community.bistudio.com/wiki/unitPos and /wiki/setUnitPos.
- * Restore the previous scripted rule when releasing the wound crouch.
+ * Stance rules: community.bistudio.com/wiki/setUnitPosWeak and /wiki/setUnitPos.
+ * Use the low-priority rule so group stance orders continue to take precedence.
  */
 
 #define BS_WOUND_HANDLE "BS_wound_handle"
@@ -87,12 +87,11 @@ if (_oldHandle isNotEqualTo scriptNull && {!scriptDone _oldHandle}) exitWith {
     };
 };
 
-// Crouch only once per episode. A hit during treatment must not reapply MIDDLE
-// after the worker has already released its stance override.
-private _stanceBeforeWound = "";
-if (_onFoot && {damage _unit >= BS_DMG_CROUCH}) then {
-    _stanceBeforeWound = toUpper (unitPos _unit);
-    _unit setUnitPos "MIDDLE";
+// Crouch only once per episode. A hit during treatment must not reapply the
+// stance after the worker has already released it.
+private _woundStanceApplied = _onFoot && {damage _unit >= BS_DMG_CROUCH};
+if (_woundStanceApplied) then {
+    _unit setUnitPosWeak "MIDDLE";
 };
 
 private _episode = (_unit getVariable [BS_WOUND_EPISODE, 0]) + 1;
@@ -136,7 +135,7 @@ private _handle = [
     _startedAt,
     _damageAtStart,
     _faksAtStart,
-    _stanceBeforeWound
+    _woundStanceApplied
 ] spawn {
     params [
         "_unit",
@@ -145,7 +144,7 @@ private _handle = [
         "_startedAt",
         "_damageAtStart",
         "_faksAtStart",
-        "_stanceBeforeWound"
+        "_woundStanceApplied"
     ];
 
     private _fnc_dangerReason = {
@@ -201,16 +200,27 @@ private _handle = [
         || {_dangerReason isEqualTo ""}
     };
 
-    // Release our crouch before any treatment/exit branch, including DRO revive
-    // takeover. A downed unit is still alive and must not retain MIDDLE on revival.
-    // Preserve a different stance rule installed by another script meanwhile.
+    private _droReviveTakeover = alive _unit && {_unit getVariable ["rev_downed", false]};
+    if (_droReviveTakeover) then {
+        waitUntil {
+            sleep 0.2;
+            !alive _unit
+            || {!local _unit}
+            || {isPlayer _unit}
+            || {!(_unit getVariable ["rev_downed", false])}
+        };
+    };
+
+    // Release the stance after DRO has brought the unit out of its unconscious
+    // state. Clear the normal rule as well to recover units affected by older
+    // versions of this script.
     if (
         alive _unit
         && {local _unit}
-        && {_stanceBeforeWound isNotEqualTo ""}
-        && {toUpper (unitPos _unit) isEqualTo "MIDDLE"}
+        && {_woundStanceApplied}
     ) then {
-        _unit setUnitPos _stanceBeforeWound;
+        _unit setUnitPos "AUTO";
+        _unit setUnitPosWeak "AUTO";
     };
 
     if (!alive _unit) then {
@@ -219,7 +229,7 @@ private _handle = [
     if (alive _unit && {!local _unit}) then {
         _outcome = "LOCALITY_CHANGED";
     };
-    if (alive _unit && {_unit getVariable ["rev_downed", false]}) then {
+    if (_droReviveTakeover) then {
         _outcome = "DRO_REVIVE_TAKEOVER";
     };
     if (alive _unit && {isPlayer _unit}) then {
@@ -230,6 +240,7 @@ private _handle = [
         alive _unit
         && {local _unit}
         && {!isPlayer _unit}
+        && {!_droReviveTakeover}
         && {!(_unit getVariable ["rev_downed", false])}
     ) then {
         if (damage _unit < BS_DMG_CROUCH) then {
