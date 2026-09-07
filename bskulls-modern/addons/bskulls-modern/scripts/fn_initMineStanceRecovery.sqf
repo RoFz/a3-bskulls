@@ -1,12 +1,12 @@
 /*
  * Release an AI unit from the prone stance imposed by the Deactivate Mine
- * command, while preserving any stance rule that existed before the command.
+ * command by returning its scripted position rule to automatic.
  *
  * Sources:
  * - community.bohemia.net/wiki/Arma_3:_Event_Handlers documents the
  *   "DISABLE MINE" AI command name.
- * - community.bohemia.net/wiki/setUnitPos documents "AUTO" and the other
- *   position rules restored by this function.
+ * - community.bohemia.net/wiki/setUnitPos documents "AUTO" as the mode in
+ *   which the unit chooses its stance according to circumstances.
  */
 
 #define BS_MINE_STANCE_HANDLE "BS_mineStanceHandle"
@@ -24,7 +24,6 @@ private _handle = [_unit] spawn {
     params ["_unit"];
 
     private _keepWatching = true;
-    private _positionRule = unitPos _unit;
 
     while {_keepWatching} do {
         waitUntil {
@@ -36,10 +35,6 @@ private _handle = [_unit] spawn {
                 || {!local _unit}
                 || {isPlayer _unit}
             );
-
-            if (!_unavailable && {currentCommand _unit isNotEqualTo BS_MINE_COMMAND}) then {
-                _positionRule = unitPos _unit;
-            };
 
             _unavailable || {currentCommand _unit isEqualTo BS_MINE_COMMAND}
         };
@@ -59,7 +54,7 @@ private _handle = [_unit] spawn {
             if (isNull _unit || {!alive _unit} || {!local _unit} || {isPlayer _unit}) then {
                 _keepWatching = false;
             } else {
-                _unit setUnitPos _positionRule;
+                _unit setUnitPos "AUTO";
             };
         };
     };
