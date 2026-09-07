@@ -1,6 +1,9 @@
 /*
  * Crouch a wounded AI without replacing its movement, formation, or combat
  * orders. Once the immediate danger has passed, use a FAK or call for a medic.
+ *
+ * Stance rules: community.bistudio.com/wiki/unitPos and /wiki/setUnitPos.
+ * Restore the previous scripted rule when releasing the wound crouch.
  */
 
 #define BS_WOUND_HANDLE "BS_wound_handle"
@@ -67,11 +70,6 @@ private _fnc_report = {
 _unit setVariable [BS_WOUND_LAST_HIT, time, false];
 
 private _onFoot = vehicle _unit isEqualTo _unit;
-if (_onFoot && {damage _unit >= BS_DMG_CROUCH}) then {
-    // MIDDLE kneels; unlike the old DOWN/doMove routine, this does not replace orders.
-    _unit setUnitPos "MIDDLE";
-};
-
 private _oldHandle = _unit getVariable [BS_WOUND_HANDLE, scriptNull];
 if (_oldHandle isNotEqualTo scriptNull && {!scriptDone _oldHandle}) exitWith {
     if (missionNamespace getVariable ["BS_woundDebug", false]) then {
@@ -87,6 +85,14 @@ if (_oldHandle isNotEqualTo scriptNull && {!scriptDone _oldHandle}) exitWith {
             time
         ];
     };
+};
+
+// Crouch only once per episode. A hit during treatment must not reapply MIDDLE
+// after the worker has already released its stance override.
+private _stanceBeforeWound = "";
+if (_onFoot && {damage _unit >= BS_DMG_CROUCH}) then {
+    _stanceBeforeWound = toUpper (unitPos _unit);
+    _unit setUnitPos "MIDDLE";
 };
 
 private _episode = (_unit getVariable [BS_WOUND_EPISODE, 0]) + 1;
@@ -129,7 +135,8 @@ private _handle = [
     _episode,
     _startedAt,
     _damageAtStart,
-    _faksAtStart
+    _faksAtStart,
+    _stanceBeforeWound
 ] spawn {
     params [
         "_unit",
@@ -137,7 +144,8 @@ private _handle = [
         "_episode",
         "_startedAt",
         "_damageAtStart",
-        "_faksAtStart"
+        "_faksAtStart",
+        "_stanceBeforeWound"
     ];
 
     private _fnc_dangerReason = {
@@ -193,8 +201,16 @@ private _handle = [
         || {_dangerReason isEqualTo ""}
     };
 
-    if (alive _unit && {isPlayer _unit} && {vehicle _unit isEqualTo _unit}) then {
-        _unit setUnitPos "AUTO";
+    // Release our crouch before any treatment/exit branch, including DRO revive
+    // takeover. A downed unit is still alive and must not retain MIDDLE on revival.
+    // Preserve a different stance rule installed by another script meanwhile.
+    if (
+        alive _unit
+        && {local _unit}
+        && {_stanceBeforeWound isNotEqualTo ""}
+        && {toUpper (unitPos _unit) isEqualTo "MIDDLE"}
+    ) then {
+        _unit setUnitPos _stanceBeforeWound;
     };
 
     if (!alive _unit) then {
@@ -216,10 +232,6 @@ private _handle = [
         && {!isPlayer _unit}
         && {!(_unit getVariable ["rev_downed", false])}
     ) then {
-        if (vehicle _unit isEqualTo _unit) then {
-            _unit setUnitPos "AUTO";
-        };
-
         if (damage _unit < BS_DMG_CROUCH) then {
             _outcome = "RECOVERED_EXTERNALLY";
             [
@@ -307,7 +319,7 @@ private _handle = [
             {_x isEqualTo "FirstAidKit"} count (items _unit)
         };
         diag_log format [
-            "BS Wound: FINISH episode=%1 unit=%2 name=%3 outcome=%4 damageStart=%5 damageEnd=%6 FAKsStart=%7 FAKsEnd=%8 FAKsConsumed=%9 elapsed=%10 alive=%11 playerControlled=%12",
+            "BS Wound: FINISH episode=%1 unit=%2 name=%3 outcome=%4 damageStart=%5 damageEnd=%6 FAKsStart=%7 FAKsEnd=%8 FAKsConsumed=%9 elapsed=%10 alive=%11 playerControlled=%12 unitPos=%13",
             _episode,
             _unit,
             if (isNull _unit) then {""} else {name _unit},
@@ -319,7 +331,8 @@ private _handle = [
             (_faksAtStart - _faksAtEnd) max 0,
             time - _startedAt,
             alive _unit,
-            isPlayer _unit
+            isPlayer _unit,
+            if (isNull _unit) then {""} else {unitPos _unit}
         ];
     };
 };
