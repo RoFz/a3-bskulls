@@ -8,8 +8,8 @@
         side = 1;
         faction = "bskull_fc_mo";
 
-        // The fixed manifest contains 138 top-level cargo objects: 7 backpacks,
-        // 10 weapons, 79 magazines/explosives, and 42 equipment items.
+        // The fixed manifest contains 166 top-level cargo objects: 15 backpacks,
+        // 12 weapons, 89 magazines/explosives, and 50 equipment items.
         // Bootstrap capacity prevents that config cargo from being truncated.
         // DRO replaces it at runtime with the exact loadAbs result plus a 10%
         // handling reserve after adding ammunition for the active squad.
@@ -25,6 +25,60 @@
             "B_PTbskull_Wea_mg_02_navid",
             "B_PTbskull_Wea_mg_03_rpk",
             "B_PTbskull_Wea_mg_04_xm250"
+        };
+        // heliDrop.sqf checks this opt-in contract after creation and again
+        // after landing, restoring only a missing shortfall in each category.
+        class DRO_supplyDropMinimumCargo
+        {
+            class backpacks
+            {
+                // Both static Titan and standard HMG weapon bags assemble on
+                // this tripod, so four tripods support the four weapon bags.
+                class staticWeaponTripod
+                {
+                    className = "B_HMG_01_support_F";
+                    count = 4;
+                };
+                class staticTitanLauncher
+                {
+                    className = "B_AT_01_weapon_F";
+                    count = 2;
+                };
+                class staticMachineGun
+                {
+                    className = "B_HMG_01_weapon_F";
+                    count = 2;
+                };
+            };
+            class weapons
+            {
+                class titanAtPlusLauncher
+                {
+                    className = "B_PTbskull_Wea_law_01_titanat";
+                    count = 3;
+                };
+            };
+            class magazines
+            {
+                class titanAtPlusMissile
+                {
+                    className = "Titan_AT_PLUS";
+                    count = 10;
+                };
+                class antiTankMine
+                {
+                    className = "ATMine_Range_Mag";
+                    count = 5;
+                };
+            };
+            class items
+            {
+                class switchblade600
+                {
+                    className = "SwitchBlade_600_Tube_Woodland";
+                    count = 10;
+                };
+            };
         };
 
         class TransportBackpacks
@@ -54,6 +108,21 @@
                 backpack = "B_AssaultPack_blk";
                 count = 3;
             };
+            class _xx_B_HMG_01_support_F
+            {
+                backpack = "B_HMG_01_support_F";
+                count = 4;
+            };
+            class _xx_B_AT_01_weapon_F
+            {
+                backpack = "B_AT_01_weapon_F";
+                count = 2;
+            };
+            class _xx_B_HMG_01_weapon_F
+            {
+                backpack = "B_HMG_01_weapon_F";
+                count = 2;
+            };
         };
 
         class TransportWeapons
@@ -66,7 +135,7 @@
             class _xx_B_PTbskull_Wea_law_01_titanat
             {
                 weapon = "B_PTbskull_Wea_law_01_titanat";
-                count = 1;
+                count = 3;
             };
             class _xx_B_PTbskull_Wea_ar_03_honey
             {
@@ -100,7 +169,7 @@
             class _xx_Titan_AT_PLUS
             {
                 magazine = "Titan_AT_PLUS";
-                count = 3;
+                count = 10;
             };
             class _xx_hlc_50rnd_300BLK_STANAG_EPR
             {
@@ -150,7 +219,7 @@
             class _xx_ATMine_Range_Mag
             {
                 magazine = "ATMine_Range_Mag";
-                count = 2;
+                count = 5;
             };
             class _xx_HandGrenade
             {
@@ -209,7 +278,7 @@
             class _xx_SwitchBlade_600_Tube_Woodland
             {
                 name = "SwitchBlade_600_Tube_Woodland";
-                count = 2;
+                count = 10;
             };
             class _xx_DEFAULT_HELMET
             {
