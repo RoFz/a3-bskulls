@@ -33,6 +33,16 @@ class Extended_InitPost_EventHandlers {
     };
 };
 
+// Hawkins's concrete variants inherit this handler from the scope-0 base.
+// FiredBIS preserves the engine Fired arguments, including the projectile.
+class Extended_FiredBIS_EventHandlers {
+    class B_PTbskull_Veh_Unit_Hawkins_base {
+        class bskulls_aiDapsLauncherDiscipline {
+            firedBIS = "_this call bskulls_fnc_aiDapsLauncherFired;";
+        };
+    };
+};
+
 // Handle both locality loss (stop) and gain (start) for the DRO Huron only.
 // XEH adds this alongside the inherited countermeasure Local handler.
 class Extended_Local_EventHandlers {

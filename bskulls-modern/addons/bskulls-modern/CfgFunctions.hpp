@@ -24,6 +24,7 @@ class CfgFunctions {
         };
         class ai {
             file = "\bskulls\addons\bskulls-modern\scripts";
+            class aiDapsLauncherFired {};
             class initMineStanceRecovery {};
         };
         class aircraft {
