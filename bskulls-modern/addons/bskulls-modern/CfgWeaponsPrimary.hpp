@@ -1318,12 +1318,13 @@
         displayName = "AAC Honey Badger (.300 AAC Blackout)";
         author = "RoFz";
         scope = 2;
-        // Keep NIArms' default X15 magazine and AFG state on this faction class.
-        // A different target makes NIArms reapply the complete player loadout.
-        baseWeapon = "hlc_rifle_honeybase_x15";
+        // This loadout is already the final X15/AFG state. Keep NIArms from
+        // rebuilding the player's full loadout just to select another state.
+        baseWeapon = "B_PTbskull_Wea_ar_03_honey";
+        class nia_gripSwitch {};
         class nia_magSwitch {
             hlc_50rnd_300BLK_STANAG_EPR = "B_PTbskull_Wea_ar_03_honey";
-            default = "hlc_rifle_honeybase_grip2";
+            default = "B_PTbskull_Wea_ar_03_honey";
         };
         class Single : Single {
             class StandardSound : StandardSound {
