@@ -1302,9 +1302,20 @@
 
     // AR #3:
     // Ammo: hlc_50rnd_300BLK_STANAG_EPR
-    class hlc_rifle_honeybase_x15_grip2;
-    class hlc_rifle_honeybase_x15_grip2_OCimport_01 : hlc_rifle_honeybase_x15_grip2 { scope = 0; class Single; class FullAuto; };
-    class hlc_rifle_honeybase_x15_grip2_OCimport_02 : hlc_rifle_honeybase_x15_grip2_OCimport_01 {
+    class hlc_grip_AFG2;
+    class B_PTbskull_Acc_grip_AFG2_static : hlc_grip_AFG2 {
+        author = "RoFz";
+        scope = 1;
+        scopeArsenal = 0;
+        // Preserve the AFG model without loading NIArms' grip-switch HUD or
+        // advertising this fixed preset as a dynamically switchable grip.
+        delete weaponInfoType;
+        delete NIA_grip_type;
+    };
+
+    class hlc_rifle_honeybase_x15;
+    class hlc_rifle_honeybase_x15_OCimport_01 : hlc_rifle_honeybase_x15 { scope = 0; class Single; class FullAuto; class WeaponSlotsInfo; };
+    class hlc_rifle_honeybase_x15_OCimport_02 : hlc_rifle_honeybase_x15_OCimport_01 {
         class Single : Single {
             class StandardSound;
             class SilencedSound;
@@ -1313,13 +1324,26 @@
             class StandardSound;
             class SilencedSound;
         };
+        class WeaponSlotsInfo : WeaponSlotsInfo {
+            class UnderBarrelSlot;
+        };
     };
-    class B_PTbskull_Wea_ar_03_honey : hlc_rifle_honeybase_x15_grip2_OCimport_02 {
+    class hlc_rifle_honeybase_x15_OCimport_03 : hlc_rifle_honeybase_x15_OCimport_02 {
+        class WeaponSlotsInfo : WeaponSlotsInfo {
+            class UnderBarrelSlot : UnderBarrelSlot {
+                class compatibleItems;
+            };
+        };
+    };
+    class B_PTbskull_Wea_ar_03_honey : hlc_rifle_honeybase_x15_OCimport_03 {
         displayName = "AAC Honey Badger (.300 AAC Blackout)";
         author = "RoFz";
         scope = 2;
-        // This loadout is already the final X15/AFG state. Keep NIArms from
-        // rebuilding the player's full loadout just to select another state.
+        // The visual-only AFG uses these values from NIArms' X15 AFG state.
+        handAnim[] = {"OFP2_ManSkeleton", "\hlc_wp_ar15\gesture\newgesture\handpose_Jack_AFG.rtm"};
+        dexterity = 1.1695234;
+        aimTransitionSpeed = 0.81866634;
+        // Keep this fixed preset out of NIArms' full-loadout state switching.
         baseWeapon = "B_PTbskull_Wea_ar_03_honey";
         class nia_gripSwitch {};
         class nia_magSwitch {
@@ -1342,6 +1366,13 @@
                 soundSetShot[] = {"NIA_300BLK_Shot_Silenced_SoundSet", "NIA_300BLK_ShotTail_Silenced_SoundSet"};
             };
         };
+        class WeaponSlotsInfo : WeaponSlotsInfo {
+            class UnderBarrelSlot : UnderBarrelSlot {
+                class compatibleItems : compatibleItems {
+                    B_PTbskull_Acc_grip_AFG2_static = 1;
+                };
+            };
+        };
         class LinkedItems {
             class LinkedItemsMuzzle {
                 slot = "MuzzleSlot";
@@ -1357,7 +1388,7 @@
             };
             class LinkedItemsUnder {
                 slot = "UnderBarrelSlot";
-                item = "hlc_grip_AFG2";
+                item = "B_PTbskull_Acc_grip_AFG2_static";
             };
         };
     };

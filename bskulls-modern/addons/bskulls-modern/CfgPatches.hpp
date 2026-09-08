@@ -122,6 +122,7 @@ class CfgPatches {
             "B_PTbskull_Wea_ar_01_scarh",
             "B_PTbskull_Wea_ar_02_r11",
             "B_PTbskull_Wea_ar_03_honey",
+            "B_PTbskull_Acc_grip_AFG2_static",
             "B_PTbskull_Wea_ar_04_scarh",
             "B_PTbskull_Wea_ar_05_type115",
             "B_PTbskull_Wea_ar_06_spar17",
