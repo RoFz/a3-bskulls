@@ -46,7 +46,7 @@
         {
             class MainTurret : MainTurret {
                 gunnerType = "B_PTbskull_Veh_Unit_Tank_Crew_blackops_01";
-                magazines[] = {"64Rnd_155mm_Plus_Mo_shells","8Rnd_155mm_Plus_Mo_guided","12Rnd_155mm_Plus_Mo_mine","4Rnd_155mm_Plus_Mo_Cluster","8Rnd_155mm_Plus_Mo_LG","12Rnd_155mm_Plus_Mo_AT_mine"};
+                magazines[] = {"64Rnd_155mm_Plus_Mo_shells","6Rnd_155mm_Mo_smoke","8Rnd_155mm_Plus_Mo_guided","12Rnd_155mm_Plus_Mo_mine","4Rnd_155mm_Plus_Mo_Cluster","8Rnd_155mm_Plus_Mo_LG","12Rnd_155mm_Plus_Mo_AT_mine"};
                 weapons[] = {"B_PTbskull_Wea_art_gun_01"};
             };
         };
