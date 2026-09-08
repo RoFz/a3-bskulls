@@ -1302,9 +1302,9 @@
 
     // AR #3:
     // Ammo: hlc_50rnd_300BLK_STANAG_EPR
-    class hlc_rifle_honeybase_x15;
-    class hlc_rifle_honeybase_x15_OCimport_01 : hlc_rifle_honeybase_x15 { scope = 0; class Single; class FullAuto; };
-    class hlc_rifle_honeybase_x15_OCimport_02 : hlc_rifle_honeybase_x15_OCimport_01 {
+    class hlc_rifle_honeybase_x15_grip2;
+    class hlc_rifle_honeybase_x15_grip2_OCimport_01 : hlc_rifle_honeybase_x15_grip2 { scope = 0; class Single; class FullAuto; };
+    class hlc_rifle_honeybase_x15_grip2_OCimport_02 : hlc_rifle_honeybase_x15_grip2_OCimport_01 {
         class Single : Single {
             class StandardSound;
             class SilencedSound;
@@ -1314,10 +1314,17 @@
             class SilencedSound;
         };
     };
-    class B_PTbskull_Wea_ar_03_honey : hlc_rifle_honeybase_x15_OCimport_02 {
+    class B_PTbskull_Wea_ar_03_honey : hlc_rifle_honeybase_x15_grip2_OCimport_02 {
         displayName = "AAC Honey Badger (.300 AAC Blackout)";
         author = "RoFz";
         scope = 2;
+        // Keep NIArms' default X15 magazine and AFG state on this faction class.
+        // A different target makes NIArms reapply the complete player loadout.
+        baseWeapon = "hlc_rifle_honeybase_x15";
+        class nia_magSwitch {
+            hlc_50rnd_300BLK_STANAG_EPR = "B_PTbskull_Wea_ar_03_honey";
+            default = "hlc_rifle_honeybase_grip2";
+        };
         class Single : Single {
             class StandardSound : StandardSound {
                 soundSetShot[] = {"NIA_300BLK_Shot_Silenced_SoundSet", "NIA_300BLK_ShotTail_Silenced_SoundSet"};
