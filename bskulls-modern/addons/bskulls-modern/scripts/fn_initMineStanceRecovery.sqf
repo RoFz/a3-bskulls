@@ -12,6 +12,8 @@
 #define BS_MINE_STANCE_HANDLE "BS_mineStanceHandle"
 #define BS_MINE_COMMAND "DISABLE MINE"
 #define BS_MINE_POLL_INTERVAL 0.2
+#define BS_MINE_RELEASE_TIMEOUT 3
+#define BS_MINE_RELEASE_ANIMATION "putdown"
 
 params [["_unit", objNull, [objNull]]];
 
@@ -54,7 +56,47 @@ private _handle = [_unit] spawn {
             if (isNull _unit || {!alive _unit} || {!local _unit} || {isPlayer _unit}) then {
                 _keepWatching = false;
             } else {
-                _unit setUnitPos "AUTO";
+                /*
+                 * currentCommand clears before the mine-disposal animation has
+                 * finished. Let its final stance write complete before
+                 * releasing the DOWN rule, or the engine can overwrite AUTO.
+                 */
+                private _releaseDeadline = diag_tickTime + BS_MINE_RELEASE_TIMEOUT;
+                waitUntil {
+                    sleep BS_MINE_POLL_INTERVAL;
+                    isNull _unit
+                    || {!alive _unit}
+                    || {!local _unit}
+                    || {isPlayer _unit}
+                    || {currentCommand _unit isEqualTo BS_MINE_COMMAND}
+                    || {
+                        ((toLower (animationState _unit)) find BS_MINE_RELEASE_ANIMATION) < 0
+                    }
+                    || {diag_tickTime >= _releaseDeadline}
+                };
+
+                if (
+                    !isNull _unit
+                    && {alive _unit}
+                    && {local _unit}
+                    && {!isPlayer _unit}
+                    && {currentCommand _unit isNotEqualTo BS_MINE_COMMAND}
+                    && {(toUpper (unitPos _unit)) isEqualTo "DOWN"}
+                ) then {
+                    // Give the completed animation one scheduler turn to settle.
+                    sleep BS_MINE_POLL_INTERVAL;
+
+                    if (
+                        !isNull _unit
+                        && {alive _unit}
+                        && {local _unit}
+                        && {!isPlayer _unit}
+                        && {currentCommand _unit isNotEqualTo BS_MINE_COMMAND}
+                        && {(toUpper (unitPos _unit)) isEqualTo "DOWN"}
+                    ) then {
+                        _unit setUnitPos "AUTO";
+                    };
+                };
             };
         };
     };
