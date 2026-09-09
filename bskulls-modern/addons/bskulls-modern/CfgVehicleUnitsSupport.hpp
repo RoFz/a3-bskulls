@@ -1,9 +1,11 @@
     // ── Vehicle Crew Base Classes ────────────────────────────────────────────
 
+    // Match the 0.48 visibility cap used by the named operators.
     class B_Fighter_Pilot_F;
     class B_Fighter_Pilot_F_OCimport_01 : B_Fighter_Pilot_F { scope = 0; class EventHandlers; };
     class B_Fighter_Pilot_F_OCimport_02 : B_Fighter_Pilot_F_OCimport_01
     {
+        camouflage = 0.48;
         sensitivity = 9;
         sensitivityEar = 3;
         // Must stay iconManLeader — DRO lobby prepends iconManOfficer for Viper only.
@@ -14,6 +16,7 @@
     class B_Helipilot_F_OCimport_01 : B_Helipilot_F { scope = 0; class EventHandlers; };
     class B_Helipilot_F_OCimport_02 : B_Helipilot_F_OCimport_01
     {
+        camouflage = 0.48;
         sensitivity = 9;
         sensitivityEar = 3;
         icon = "iconManLeader";
@@ -23,6 +26,7 @@
     class B_helicrew_F_OCimport_01 : B_helicrew_F { scope = 0; class EventHandlers; };
     class B_helicrew_F_OCimport_02 : B_helicrew_F_OCimport_01
     {
+        camouflage = 0.48;
         sensitivity = 9;
         sensitivityEar = 3;
     };
@@ -31,6 +35,7 @@
     class B_crew_F_OCimport_01 : B_crew_F { scope = 0; class EventHandlers; };
     class B_crew_F_OCimport_02 : B_crew_F_OCimport_01
     {
+        camouflage = 0.48;
         sensitivity = 9;
         sensitivityEar = 3;
     };

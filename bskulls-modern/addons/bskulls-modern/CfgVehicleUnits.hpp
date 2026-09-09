@@ -1,11 +1,12 @@
 
     // ── Unit Base Classes ────────────────────────────────────────────────────
 
+    // Vanilla recon uses 0.6; lower camouflage values are harder to spot.
     class B_recon_TL_F;
     class B_recon_TL_F_OCimport_01 : B_recon_TL_F { scope = 0; class EventHandlers; };
     class B_recon_TL_F_OCimport_02 : B_recon_TL_F_OCimport_01
     {
-        camouflage = 0.9;
+        camouflage = 0.3;
         sensitivity = 9;
         sensitivityEar = 3;
         canDeactivateMines = 1;
@@ -20,7 +21,7 @@
     class TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_02 : TCGM_Stealth_B_CTRG_Soldier_Medic_OCimport_01
     {
         editorSubcategory="EdSubcat_Personnel_SpecialForces";
-        camouflage = 0.5;
+        camouflage = 0.3;
         sensitivity = 9;
         sensitivityEar = 3;
         icon = "iconWomanMedic";
@@ -31,7 +32,7 @@
     class TCGM_Stealth_B_CTRG_Soldier_SC_OCimport_02 : TCGM_Stealth_B_CTRG_Soldier_SC_OCimport_01
     {
         editorSubcategory="EdSubcat_Personnel_SpecialForces";
-        camouflage = 0.9;
+        camouflage = 0.48;
         sensitivity = 9;
         sensitivityEar = 3;
     };
@@ -51,7 +52,7 @@
     class B_recon_exp_F_OCimport_01 : B_recon_exp_F { scope = 0; class EventHandlers; };
     class B_recon_exp_F_OCimport_02 : B_recon_exp_F_OCimport_01
     {
-        camouflage = 0.5;
+        camouflage = 0.3;
         sensitivity = 9;
         sensitivityEar = 3;
         canDeactivateMines = 1;
@@ -64,7 +65,7 @@
     class B_Patrol_HeavyGunner_F_OCimport_02 : B_Patrol_HeavyGunner_F_OCimport_01
     {
         editorSubcategory="EdSubcat_Personnel_SpecialForces";
-        camouflage = 0.9;
+        camouflage = 0.48;
         audible = 0.06;
         sensitivity = 9;
         sensitivityEar = 3;
@@ -75,7 +76,7 @@
     class B_recon_LAT_F_OCimport_01 : B_recon_LAT_F { scope = 0; class EventHandlers; };
     class B_recon_LAT_F_OCimport_02 : B_recon_LAT_F_OCimport_01
     {
-        camouflage = 0.9;
+        camouflage = 0.48;
         audible = 0.06;
         sensitivity = 9;
         sensitivityEar = 3;
@@ -86,7 +87,7 @@
     class B_Recon_F_OCimport_01 : B_Recon_F { scope = 0; class EventHandlers; };
     class B_Recon_F_OCimport_02 : B_Recon_F_OCimport_01
     {
-        camouflage = 0.5;
+        camouflage = 0.3;
         sensitivity = 9;
         sensitivityEar = 3;
         icon = "iconManRecon";
@@ -97,7 +98,7 @@
     class B_soldier_UAV_F_OCimport_02 : B_soldier_UAV_F_OCimport_01
     {
         editorSubcategory="EdSubcat_Personnel_SpecialForces";
-        camouflage = 0.9;
+        camouflage = 0.48;
         audible = 0.06;
         sensitivity = 9;
         sensitivityEar = 3;
@@ -172,6 +173,7 @@
         scopeCurator = 2;
         displayName = "01 Viper (TL) (Sting + SPAS + Falkor) (Ghillie, Jungle)";
         uniformClass = "U_B_T_FullGhillie_tna_F";
+        camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
         weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
@@ -196,6 +198,7 @@
         scopeCurator = 2;
         displayName = "01 Viper (TL) (Sting + Benelli + M320) (Ghillie, Jungle)";
         uniformClass = "U_B_T_FullGhillie_tna_F";
+        camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
         weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
@@ -212,6 +215,7 @@
         scopeCurator = 2;
         displayName = "01 Viper (TL) (XM-7 + SPAS + Falkor) (Ghillie, Jungle)";
         uniformClass = "U_B_T_FullGhillie_tna_F";
+        camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
         weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
