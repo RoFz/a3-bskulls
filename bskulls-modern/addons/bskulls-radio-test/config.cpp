@@ -45,7 +45,13 @@ class CfgFunctions
     };
 };
 
-class RadioProtocolENG
+// These are external base classes supplied by the required radio addons.
+// Retaining each protocol's original parent is essential: redefining an
+// existing class without it resets the parent to nothing in the master config.
+class RadioProtocolBase;
+class RadioProtocolBaseFemale;
+
+class RadioProtocolENG: RadioProtocolBase
 {
     class SelectEnemyDetectedSentence
     {
@@ -53,7 +59,7 @@ class RadioProtocolENG
     };
 };
 
-class RadioProtocolGRE
+class RadioProtocolGRE: RadioProtocolBase
 {
     class SelectEnemyDetectedSentence
     {
@@ -61,7 +67,7 @@ class RadioProtocolGRE
     };
 };
 
-class RadioProtocolCHI
+class RadioProtocolCHI: RadioProtocolBase
 {
     class SelectEnemyDetectedSentence
     {
@@ -69,7 +75,7 @@ class RadioProtocolCHI
     };
 };
 
-class RadioProtocolFemaleENG
+class RadioProtocolFemaleENG: RadioProtocolBaseFemale
 {
     class SelectEnemyDetectedSentence
     {

@@ -29,13 +29,28 @@ if (!hasInterface) exitWith {};
         ];
 
         _protocols apply {
+            private _protocolConfig = configFile >> _x;
             private _sentences = getArray (
-                configFile
-                >> _x
+                _protocolConfig
                 >> "SelectEnemyDetectedSentence"
                 >> "sentences"
             );
-            [_x, count _sentences, _sentences isEqualTo []]
+            private _requiredClasses = [
+                "NormalCommand",
+                "SelectCmdMoveSentence",
+                "Words"
+            ];
+            private _missingClasses = _requiredClasses select {
+                !isClass (_protocolConfig >> _x)
+            };
+
+            [
+                _x,
+                ["base", configName (inheritsFrom _protocolConfig)],
+                ["selectorCount", count _sentences],
+                ["selectorEmpty", _sentences isEqualTo []],
+                ["missingRequiredClasses", _missingClasses]
+            ]
         }
     };
 
