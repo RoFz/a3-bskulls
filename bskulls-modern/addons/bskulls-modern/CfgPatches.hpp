@@ -91,7 +91,7 @@ class CfgPatches {
             "B_PTbskull_Veh_Back_TL_blackops_01",
             "B_PTbskull_Veh_Back_TL_blackops_02",
             "B_PTbskull_Veh_Back_TL_blackops_03",
-            "B_PTbskull_Veh_Back_TL_blackops_05",
+            "B_PTbskull_Veh_Back_TL_blackops_04",
             "B_PTbskull_Veh_Back_TL_blackops_06",
             "B_PTbskull_Veh_Back_TL_blackops_07",
             "B_PTbskull_Veh_Back_TL_blackops_08",

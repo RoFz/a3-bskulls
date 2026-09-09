@@ -182,23 +182,7 @@
         backpack = "B_PTbskull_Veh_Back_TL_blackops_01";
     };
 
-    class B_PTbskull_Veh_Unit_Viper_blackops_05 : B_PTbskull_Veh_Unit_Viper_base
-    {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "01 Viper (TL) (Sting + SPAS + MAR-10) (Ghillie, Jungle)";
-        uniformClass = "U_B_T_FullGhillie_tna_F";
-        LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT,"MineDetector"};
-        respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        backpack = "B_PTbskull_Veh_Back_TL_blackops_05";
-    };
-
-    class B_PTbskull_Veh_Unit_Viper_blackops_06 : B_PTbskull_Veh_Unit_Viper_blackops_04
+    class B_PTbskull_Veh_Unit_Viper_blackops_05 : B_PTbskull_Veh_Unit_Viper_blackops_04
     {
         scope = 2;
         scopeCurator = 2;
@@ -206,15 +190,7 @@
         uniformClass = "U_B_FullGhillie_sard";
     };
 
-    class B_PTbskull_Veh_Unit_Viper_blackops_07 : B_PTbskull_Veh_Unit_Viper_blackops_05
-    {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "01 Viper (TL) (Sting + SPAS + MAR-10) (Ghillie, Arid)";
-        uniformClass = "U_B_FullGhillie_ard";
-    };
-
-    class B_PTbskull_Veh_Unit_Viper_blackops_08 : B_PTbskull_Veh_Unit_Viper_base
+    class B_PTbskull_Veh_Unit_Viper_blackops_06 : B_PTbskull_Veh_Unit_Viper_base
     {
         scope = 2;
         scopeCurator = 2;
@@ -230,23 +206,7 @@
         backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
     };
 
-    class B_PTbskull_Veh_Unit_Viper_blackops_09 : B_PTbskull_Veh_Unit_Viper_base
-    {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "01 Viper (TL) (MR-C + Benelli + M320) (Ghillie, Semi-Arid)";
-        uniformClass = "U_B_FullGhillie_sard";
-        LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
-        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        items[] = {BASE_KIT,"MineDetector"};
-        respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
-    };
-
-    class B_PTbskull_Veh_Unit_Viper_blackops_10 : B_PTbskull_Veh_Unit_Viper_base
+    class B_PTbskull_Veh_Unit_Viper_blackops_07 : B_PTbskull_Veh_Unit_Viper_base
     {
         scope = 2;
         scopeCurator = 2;
@@ -260,6 +220,41 @@
         magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
         respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_01";
+    };
+
+    class B_PTbskull_Veh_Unit_Viper_blackops_08 : B_PTbskull_Veh_Unit_Viper_blackops_02
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "01 Viper (TL) (XM-7 + SPAS + WA2000)";
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+    };
+
+    class B_PTbskull_Veh_Unit_Viper_blackops_09 : B_PTbskull_Veh_Unit_Viper_blackops_00
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "01 Viper (TL) (XM-7 + Benelli + M320)";
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
+    };
+
+    class B_PTbskull_Veh_Unit_Viper_blackops_10 : B_PTbskull_Veh_Unit_Viper_blackops_00
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "01 Viper (TL) (XM-250 + Benelli)";
+        weapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        backpack = "B_PTbskull_Veh_Back_TL_blackops_04";
     };
 
     class B_PTbskull_Veh_Unit_Fox_blackops_01 : B_PTbskull_Veh_Unit_Fox_base

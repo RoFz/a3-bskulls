@@ -78,10 +78,10 @@
         };
     };
 
-    class B_PTbskull_Veh_Back_TL_blackops_05: THC_Bag50 {
+    class B_PTbskull_Veh_Back_TL_blackops_04: THC_Bag50 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Viper SPAS + MAR-10)";
+        displayName = "Assault Pack (Viper Benelli M1014)";
         maximumLoad = 2000;
         hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
         model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
@@ -90,15 +90,13 @@
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
             class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
-            class _xx_10Rnd_338_Mag {count=12;magazine="10Rnd_338_Mag";};
-            class _xx_8Rnd_SPAS12_buck {count=5;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
             VIPER_BAG_MAGAZINES
         };
         class TransportItems {VIPER_BAG_ITEMS};
         class TransportWeapons{
-            class _xx_B_PTbskull_Wea_sniper_12 {count=1;weapon="B_PTbskull_Wea_sniper_12_mar10";};
+            class _xx_B_PTbskull_Wea_shotgun_3_benelli {count=1;weapon="B_PTbskull_Wea_shotgun_3_benelli";};
             class _xx_Laserdesignator_03 {count=1;weapon="Laserdesignator_03";};
-            class _xx_B_PTbskull_Wea_shotgun_2 {count=1;weapon="B_PTbskull_Wea_shotgun_2_spas";};
         };
     };
 
