@@ -35,33 +35,3 @@
             };
         };
     };
-
-    // Handgun: PiMB 9x18mm
-    // Ammo: gm_8Rnd_9x18mm_B_pst_pm_blk
-    #define B_PTbskull_Wea_pistol_02_pimb_AMMO gm_8Rnd_9x18mm_B_pst_pm_blk
-    class gm_pimb_blk;
-    class gm_pimb_blk_OCimport_01 : gm_pimb_blk { scope = 0; scopeArsenal = 0; class Single; };
-    class B_PTbskull_Wea_pistol_02_pimb : gm_pimb_blk_OCimport_01 {
-        displayName = "PiMB SD (9x18mm Makarov)";
-        author = "RoFz";
-        scope = 2;
-        scopeArsenal = 2;
-        class Single : Single {
-            aiDispersionCoefX = 0.1; // 1.4
-            aiDispersionCoefY = 0.1; // 1.7
-            aiRateOfFire = 0.3; // 2
-            aiRateOfFireDispersion = 0; // 1
-            maxRange = 50; // 100
-            maxRangeProbab = 0.1; // 0.1
-            midRange = 30; // 50
-            midRangeProbab = 0.3; // 0.6
-            minRange = 1; // 10
-            minRangeProbab = 0.6; // 0.3
-        };
-        class LinkedItems {
-            class LinkedItemsMuzzle {
-                slot = "MuzzleSlot";
-                item = "gm_suppressor_kacnavysd_9mm_blk";
-            };
-        };
-    };

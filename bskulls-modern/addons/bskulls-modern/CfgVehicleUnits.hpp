@@ -116,12 +116,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (HB300AAC + Benelli + VSSK)";
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_06";
     };
 
@@ -130,12 +130,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (HB300AAC + Benelli + ASP-1)";
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_07";
     };
 
@@ -144,12 +144,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (HB300AAC + SPAS + WA2000)";
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_02";
     };
 
@@ -158,12 +158,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (SCAR-H GL + SPAS + M110)";
-        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_04_scarh","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),BASE_GL_AMMO,MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),BASE_GL_AMMO,MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_03";
     };
 
@@ -175,12 +175,12 @@
         uniformClass = "U_B_T_FullGhillie_tna_F";
         camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_01";
     };
 
@@ -200,12 +200,12 @@
         uniformClass = "U_B_T_FullGhillie_tna_F";
         camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
     };
 
@@ -217,12 +217,12 @@
         uniformClass = "U_B_T_FullGhillie_tna_F";
         camouflage = 0.2;
         LINKED_ITEMS_UAV("B_PTbskull_Vest_blackops_02",VIPER_HELMET,VIPER_GOGGLES);
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade)};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_01";
     };
 
@@ -231,10 +231,10 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (XM-7 + SPAS + WA2000)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade)};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade)};
     };
 
     class B_PTbskull_Veh_Unit_Viper_blackops_09 : B_PTbskull_Veh_Unit_Viper_blackops_00
@@ -242,10 +242,10 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (XM-7 + Benelli + M320)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_08";
     };
 
@@ -254,10 +254,10 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "01 Viper (TL) (XM-250 + Benelli)";
-        weapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3",MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        weapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),MAG_2(HandGrenade),"KA_M14","KA_M7290","KA_M7A3","KA_M814"};
         backpack = "B_PTbskull_Veh_Back_TL_blackops_04";
     };
 
@@ -266,12 +266,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (Sting)";
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -281,12 +281,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (HB300AAC)";
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(hlc_50rnd_300BLK_STANAG_EPR)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(hlc_50rnd_300BLK_STANAG_EPR)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -295,12 +295,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (SCAR-H)";
-        weapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -309,12 +309,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (ASP-1)";
-        weapons[] = {"B_PTbskull_Wea_sniper_06_asp1","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_06_asp1","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_06_asp1","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_06_asp1","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_30(B_PTbskull_Wea_sniper_06_asp1_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_30(B_PTbskull_Wea_sniper_06_asp1_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_30(B_PTbskull_Wea_sniper_06_asp1_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_30(B_PTbskull_Wea_sniper_06_asp1_AMMO)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -323,12 +323,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (MR-C)";
-        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -337,12 +337,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "02 Fox (Medic) (XM-7)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -395,12 +395,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (UAV) (Sting)";
-        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_10(B_PTbskull_Wea_SMG_02_sting_AMMO)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -409,12 +409,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (Demo) (HB300AAC)";
-        weapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_03_honey","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(hlc_50rnd_300BLK_STANAG_EPR)};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
     };
 
@@ -423,12 +423,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (Demo) (SCAR-H)";
-        weapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
     };
 
@@ -437,12 +437,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (UAV) (MR-C)";
-        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -451,12 +451,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (UAV) (XM-250)";
-        weapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -465,12 +465,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (Demo) (XM-7)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
         respawnItems[] = {BASE_KIT,"MineDetector"};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
     };
 
@@ -480,12 +480,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "05 Jackson (Medic) (R11)";
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -494,12 +494,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "05 Jackson (Medic) (SCAR-H)";
-        weapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -508,12 +508,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "05 Jackson (Medic) (MR-C)";
-        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -522,12 +522,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "05 Jackson (Medic) (XM-7)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_PTbskull_Veh_Back_MEDIC_blackops_01";
     };
 
@@ -629,17 +629,33 @@
         backpack = "B_PTbskull_Veh_Back_AT_blackops_01";
     };
 
+    // DAPS-aware top-attack Hawkins. The dedicated launcher has no Direct mode
+    // and carries one loaded plus five backpacked Archangel T-HEAT rounds.
+    class B_PTbskull_Veh_Unit_Hawkins_blackops_04 : B_PTbskull_Veh_Unit_Hawkins_base
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "07 Hawkins (AT/HVPS-17) (SPAR-17)";
+        weapons[] = {"B_PTbskull_Wea_ar_06_spar17","B_PTbskull_Wea_law_02_titantop","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_06_spar17","B_PTbskull_Wea_law_02_titantop","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        items[] = {BASE_KIT};
+        respawnItems[] = {BASE_KIT};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_TOP_PLUS",MAG_15(20Rnd_762x51_Mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AT_TOP_PLUS",MAG_15(20Rnd_762x51_Mag)};
+        backpack = "B_PTbskull_Veh_Back_AT_blackops_02";
+    };
+
     class B_PTbskull_Veh_Unit_Sykes_blackops_01 : B_PTbskull_Veh_Unit_Sykes_base
     {
         scope = 2;
         scopeCurator = 2;
         displayName = "08 Sykes (UAV) (R11)";
-        weapons[] = {"B_PTbskull_Wea_ar_02_r11","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_02_r11","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(JAS_RSASS_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -648,12 +664,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "08 Sykes (UAV) (MR-C)";
-        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_07_mrc","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_07_mrc","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO,"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_6(B_PTbskull_Wea_ar_07_mrc_AMMO),BASE_GL_AMMO};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -662,12 +678,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "08 Sykes (UAV) (XM-7)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -676,12 +692,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "08 Sykes (AIMS) (XM-7)";
-        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","launch_NLAW_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_2(NLAW_F),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_KA_Metal_Storm_AI_NATO";
     };
 
@@ -690,12 +706,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "09 Everett (Sniper) (Falkor)";
-        weapons[] = {"B_PTbskull_Wea_sniper_03_falkor","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_03_falkor","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_03_falkor","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_03_falkor","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_23(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_23(10Rnd_300WM_Magazine),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_23(10Rnd_300WM_Magazine)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_23(10Rnd_300WM_Magazine)};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_03";
     };
 
@@ -704,12 +720,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "09 Everett (Sniper) (DSR50)";
-        weapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_09_dsr50","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(KA_DSR50_3Rnd_x2_M33_FMJ_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(KA_DSR50_3Rnd_x2_M33_FMJ_Mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(KA_DSR50_3Rnd_x2_M33_FMJ_Mag)};
         backpack = "B_PTbskull_Veh_Back_SNIPER_blackops_04";
     };
 
@@ -732,12 +748,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "11 Liu (Viper) (Cyrus 9.3mm)";
-        weapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_sniper_10_cyrus","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(10Rnd_93x64_DMR_05_Mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(10Rnd_93x64_DMR_05_Mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_20(10Rnd_93x64_DMR_05_Mag)};
         backpack = "B_PTbskull_Veh_Back_VIPERCHN_blackops_01";
     };
 
@@ -746,12 +762,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "11 Liu (Viper) (Type 115 6.5mm + .50 BW)";
-        weapons[] = {"B_PTbskull_Wea_ar_05_type115","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_ar_05_type115","gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_ar_05_type115","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_5(30Rnd_65x39_caseless_green_mag_Tracer),MAG_5(10Rnd_50BW_Mag_F)};
         backpack = "B_PTbskull_Veh_Back_VIPERCHN_blackops_02";
     };
 
@@ -760,12 +776,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "12 Makarova (RPK-12)";
-        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","gm_m72a3_oli","B_PTbskull_Wea_pistol_02_pimb",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","gm_m72a3_oli","B_PTbskull_Wea_pistol_02_pimb",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_02_pimb_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_02_pimb_AMMO),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO)};
         // no backpack
     };
 
@@ -774,12 +790,12 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "13 Elias (UAV) (SCAR-H)";
-        weapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -788,11 +804,11 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "14 Martinez (Ammo) (SCAR-H)";
-        weapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {DEFAULT_AR,"gm_m72a3_oli","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        weapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {DEFAULT_AR,"B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag),"gm_1Rnd_66mm_heat_m72a3"};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_15(KA_SCAR_H_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_AMMO_blackops_01";
     };

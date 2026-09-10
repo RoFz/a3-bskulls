@@ -1,6 +1,11 @@
 // CBA object events belong at config root; InitPost receives [vehicle].
 // https://github.com/CBATeam/CBA_A3/wiki/Extended-Event-Handlers-(new)
 class Extended_InitPost_EventHandlers {
+    class B_PTbskull_Veh_Unit_Hawkins_blackops_04 {
+        class bskulls_titanTopAttackDebug {
+            init = "_this call bskulls_fnc_titanTopAttackInitUnitDebug;";
+        };
+    };
     class B_PTbskull_Veh_Plane_blackops_01_nodao {
         class bskulls_noDao {
             init = "params ['_vehicle']; if (local _vehicle) then {[_vehicle] call bskulls_fnc_daoExcludeVehicle;};";
@@ -33,19 +38,14 @@ class Extended_InitPost_EventHandlers {
     };
 };
 
-// Hawkins's concrete variants inherit this handler from the scope-0 base.
-// FiredBIS preserves the engine Fired arguments, including the projectile.
-class Extended_FiredBIS_EventHandlers {
-    class B_PTbskull_Veh_Unit_Hawkins_base {
-        class bskulls_aiDapsLauncherDiscipline {
-            firedBIS = "_this call bskulls_fnc_aiDapsLauncherFired;";
+// Restart or stop locality-bound monitors when their owner changes. XEH adds
+// these alongside inherited Local handlers.
+class Extended_Local_EventHandlers {
+    class B_PTbskull_Veh_Unit_Hawkins_blackops_04 {
+        class bskulls_titanTopAttackDebug {
+            local = "_this call bskulls_fnc_titanTopAttackInitUnitDebug;";
         };
     };
-};
-
-// Handle both locality loss (stop) and gain (start) for the DRO Huron only.
-// XEH adds this alongside the inherited countermeasure Local handler.
-class Extended_Local_EventHandlers {
     class B_PTbskull_Veh_Helo_blackops_01_nodao {
         class bskulls_huronGunship {
             local = "_this call bskulls_fnc_initHuronGunshipEngage;";

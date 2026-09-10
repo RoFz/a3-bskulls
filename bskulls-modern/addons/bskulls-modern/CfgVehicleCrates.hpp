@@ -8,8 +8,8 @@
         side = 1;
         faction = "bskull_fc_mo";
 
-        // The fixed manifest contains 179 top-level cargo objects: 15 backpacks,
-        // 15 weapons, 99 magazines/explosives, and 50 equipment items.
+        // The fixed manifest contains 184 top-level cargo objects: 15 backpacks,
+        // 16 weapons, 103 magazines/explosives, and 50 equipment items.
         // Bootstrap capacity prevents that config cargo from being truncated.
         // DRO replaces it at runtime with the exact loadAbs result plus a 10%
         // handling reserve after adding ammunition for the active squad.
@@ -57,6 +57,11 @@
                     className = "B_PTbskull_Wea_law_01_titanat";
                     count = 3;
                 };
+                class titanTopAttackLauncher
+                {
+                    className = "B_PTbskull_Wea_law_02_titantop";
+                    count = 1;
+                };
                 class pcmlLauncher
                 {
                     className = "launch_NLAW_F";
@@ -69,6 +74,11 @@
                 {
                     className = "Titan_AT_PLUS";
                     count = 10;
+                };
+                class titanTopAttackMissile
+                {
+                    className = "Titan_AT_TOP_PLUS";
+                    count = 4;
                 };
                 class pcmlMissile
                 {
@@ -147,6 +157,11 @@
                 weapon = "B_PTbskull_Wea_law_01_titanat";
                 count = 3;
             };
+            class _xx_B_PTbskull_Wea_law_02_titantop
+            {
+                weapon = "B_PTbskull_Wea_law_02_titantop";
+                count = 1;
+            };
             class _xx_launch_NLAW_F
             {
                 weapon = "launch_NLAW_F";
@@ -185,6 +200,11 @@
             {
                 magazine = "Titan_AT_PLUS";
                 count = 10;
+            };
+            class _xx_Titan_AT_TOP_PLUS
+            {
+                magazine = "Titan_AT_TOP_PLUS";
+                count = 4;
             };
             class _xx_NLAW_F
             {

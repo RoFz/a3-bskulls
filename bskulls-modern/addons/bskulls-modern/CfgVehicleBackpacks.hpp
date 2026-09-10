@@ -16,7 +16,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_03_falkor_AMMO {count=12;magazine=QUOTE(B_PTbskull_Wea_sniper_03_falkor_AMMO);};
             class _xx_8Rnd_SPAS12_buck {count=5;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
@@ -40,7 +39,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_08_wa2000_AMMO {count=20;magazine=QUOTE(B_PTbskull_Wea_sniper_08_wa2000_AMMO);};
             class _xx_8Rnd_SPAS12_buck {count=5;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
@@ -64,7 +62,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_01_m110_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_sniper_01_m110_AMMO);};
             class _xx_8Rnd_SPAS12_buck {count=5;magazine=QUOTE(B_PTbskull_Wea_shotgun_2_spas_AMMO);};
@@ -88,7 +85,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
             VIPER_BAG_MAGAZINES
@@ -110,7 +106,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_05_vssk_AMMO {count=24;magazine=QUOTE(B_PTbskull_Wea_sniper_05_vssk_AMMO);};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
@@ -134,7 +129,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_06_asp1_AMMO {count=12;magazine=QUOTE(B_PTbskull_Wea_sniper_06_asp1_AMMO);};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
@@ -158,7 +152,6 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_B_IR_Grenade {count=1;magazine="B_IR_Grenade";};
-            class _xx_gm_handgrenade_conc_dm51a1 {count=1;magazine="gm_handgrenade_conc_dm51a1";};
             class _xx_Laserbatteries {count=1;magazine="Laserbatteries";};
             class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=17;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};
             class _xx_B_PTbskull_Wea_shotgun_3_benelli_AMMO {count=6;magazine=QUOTE(B_PTbskull_Wea_shotgun_3_benelli_AMMO);};
@@ -287,6 +280,21 @@
         picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
         class TransportMagazines {
             class _xx_Titan_AT_PLUS {count=5;magazine="Titan_AT_PLUS";};
+        };
+        class TransportItems { };
+        class TransportWeapons { };
+    };
+
+   class B_PTbskull_Veh_Back_AT_blackops_02: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (Archangel)";
+        maximumLoad = 2000;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+        class TransportMagazines {
+            class _xx_Titan_AT_TOP_PLUS {count=5;magazine="Titan_AT_TOP_PLUS";};
         };
         class TransportItems { };
         class TransportWeapons { };

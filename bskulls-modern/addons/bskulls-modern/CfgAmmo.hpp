@@ -291,6 +291,67 @@ class CfgAmmo
 
     };
 
+    // High-speed terminal stage for the stand-off top-attack Titan. Vanilla
+    // penetrators live for only 0.2 seconds; this one must cross a 310 m
+    // vertical stand-off before impact. The production appearance uses a pale
+    // Missile4-pattern trail plus a conventional tracer.
+    class ammo_Penetrator_Titan_AT_TOP_PLUS : ammo_Penetrator_Titan_AT_PLUS
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        access = 1;
+
+        typicalSpeed = 1500;
+        timeToLive = 1;
+        simulationStep = 0.002;
+        airFriction = 0;
+
+        // Vanilla HEAT penetrators use an empty model. A stock-size tracer
+        // makes this brief terminal stage readable without an oversized
+        // projectile model.
+        model = "\A3\Weapons_f\Data\bullettracer\tracer_yellow";
+        tracerScale = 1;
+        tracerStartTime = 0;
+        tracerEndTime = 1;
+        nvgOnly = 0;
+        // The explicit local source is the sole trail emitter. An engine-level
+        // effectFly would remain centred on the physical projectile and expose
+        // the otherwise cosmetic lateral bow as a second, straight trail.
+        effectFly = "";
+        bskulls_terminalVisualProfile = "Archangel T-HEAT";
+        bskulls_terminalVisualCloudlet = "B_PTbskull_ArchangelMissile4Visible";
+        bskulls_terminalVisualDropInterval = 0.002;
+        bskulls_terminalVisualLinger = 3.8;
+
+        // Cosmetic only: fn_titanTopAttackTerminalVisual offsets the local
+        // particle emitter, never the projectile. The sine bow begins and ends
+        // at zero so the trail still joins separation and impact. A randomized
+        // second harmonic prevents every shot from describing the same arc.
+        bskulls_terminalVisualCurveAmplitudeMin = 2.5;
+        bskulls_terminalVisualCurveAmplitudeMax = 5.5;
+        bskulls_terminalVisualCurveSecondaryMax = 0.2;
+
+        // Per-shot terminal guidance reliability. Successful shots retain the
+        // engine-generated target vector unchanged. A failed roll redirects
+        // the real penetrator laterally beyond the target's roof and blast
+        // radius, producing a visible near miss instead of silently deleting
+        // damage or manufacturing a DAPS interception.
+        bskulls_terminalAccuracyProbability = 0.95;
+        bskulls_terminalMissOffsetMin = 8;
+        bskulls_terminalMissOffsetMax = 14;
+
+        // Make the inherited internal-spall stage deterministic on impact.
+        triggerOnImpact = 1;
+        deleteParentWhenTriggered = 0;
+
+        class EventHandlers
+        {
+            init = "_this call bskulls_fnc_titanTopAttackProjectileInit;";
+            ammoHit = "_this call bskulls_fnc_titanTopAttackAmmoHit;";
+        };
+    };
+
     class M_Titan_AT;
     class M_Titan_AT_PLUS : M_Titan_AT
     {
@@ -312,6 +373,56 @@ class CfgAmmo
         submunitionParentSpeedCoef = 0;
 
     };
+
+    // The guided carrier separates just outside the 300 m DAPS detection
+    // envelope. A 900 m minimum launch range makes the inbound terminal leg
+    // about 52 degrees or steeper against DAPS's default 45-degree limit.
+    // This uses BI's documented Overfly + SubmunitionTargetDirection pattern.
+    class M_Titan_AT_TOP_PLUS : M_Titan_AT_PLUS
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        access = 1;
+
+        // The carrier is only a delivery stage. All damage belongs to the
+        // terminal penetrator, including the on-impact fallback path.
+        hit = 0;
+        indirectHit = 0;
+        indirectHitRange = 0;
+        explosive = 0;
+
+        submunitionAmmo = "ammo_Penetrator_Titan_AT_TOP_PLUS";
+        submunitionCount = 1;
+        submunitionDirectionType = "SubmunitionTargetDirection";
+        submunitionInitSpeed = 1500;
+        submunitionParentSpeedCoef = 0;
+        submunitionInitialOffset[] = {0,0,0};
+        triggerDistance = 310;
+        triggerOnImpact = 1;
+        deleteParentWhenTriggered = 1;
+
+        flightProfiles[] = {"Overfly"};
+        class Overfly
+        {
+            overflyElevation = 310;
+        };
+
+        manualControl = 0;
+        airLock = 0;
+        allowAgainstInfantry = 0;
+        missileLockMinDistance = 900;
+        missileLockMaxDistance = 2000;
+        timeToLive = 30;
+
+        class EventHandlers
+        {
+            init = "_this call bskulls_fnc_titanTopAttackProjectileInit;";
+            fired = "_this call bskulls_fnc_titanTopAttackFired;";
+            ammoHit = "_this call bskulls_fnc_titanTopAttackAmmoHit;";
+        };
+    };
+
 };
 
 // MAGAZINES //
@@ -421,6 +532,19 @@ class CfgMagazines {
         displayName="Titan+ AT Missile";
 
         ammo = "M_Titan_AT_PLUS";
+    };
+
+    class Titan_AT_TOP_PLUS : Titan_AT_PLUS
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        access = 1;
+
+        displayName = "Archangel T-HEAT";
+        displayNameShort = "T-HEAT";
+        descriptionShort = "HVPS-17 tandem HEAT round with a stand-off top-attack carrier, high-velocity terminal penetrator, and 95% nominal guidance reliability";
+        ammo = "M_Titan_AT_TOP_PLUS";
     };
 
     class 8Rnd_82mm_Mo_shells;

@@ -70,6 +70,44 @@
 
     };
 
+    // Import the inherited fire mode so the new sibling mode can derive from
+    // it without redefining the vanilla Titan sound/recoil configuration.
+    class B_PTbskull_Wea_law_01_titanat_OCimport_01 : B_PTbskull_Wea_law_01_titanat {
+        scope = 0;
+        class TopDown;
+    };
+
+    // Dedicated carrier launcher. Keeping the magazine well empty prevents
+    // Hawkins from falling back to a shallow Direct Titan profile.
+    class B_PTbskull_Wea_law_02_titantop: B_PTbskull_Wea_law_01_titanat_OCimport_01 {
+        displayName = "HVPS-17 (Archangel)";
+        descriptionShort = "Hypersonic Velocity Portable System<br />Dedicated 127 mm stand-off top-attack launcher";
+        author = "RoFz";
+        scope = 2;
+        weaponInfoType = "B_PTbskull_RscOptics_Archangel";
+
+        magazines[] = {"Titan_AT_TOP_PLUS"};
+        magazineWell[] = {};
+        modes[] = {"Overfly"};
+
+        class Overfly : TopDown
+        {
+            // The Titan optic only maps its TOP/DIR annunciators for the
+            // vanilla topDown token. The actual flight-profile pairing still
+            // comes from this class name (Overfly).
+            textureType = "topDown";
+            displayName = "Stand-off Top Attack";
+            aiRateOfFire = 15;
+            aiRateOfFireDistance = 2000;
+            minRange = 900;
+            minRangeProbab = 0.8;
+            midRange = 1200;
+            midRangeProbab = 0.95;
+            maxRange = 2000;
+            maxRangeProbab = 0.9;
+        };
+    };
+
     // LAW #3: Titan AA
     // Ammo: Titan_AA
     class launch_B_Titan_olive_F;

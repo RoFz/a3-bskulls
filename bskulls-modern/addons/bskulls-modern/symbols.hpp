@@ -104,7 +104,7 @@
 
 // Makarova
 #define MAKAROVA_HELMET DEFAULT_HELMET
-#define MAKAROVA_GOGGLES "gm_ge_facewear_glacierglasses"
+#define MAKAROVA_GOGGLES ""
 
 #define TRANSPORTMAGAZINES\
     class _xx_Titan_AT_PLUS {count=6;magazine="Titan_AT_PLUS";};\
@@ -147,8 +147,7 @@
     class _xx_optic_Hamr {count=1;name="optic_Hamr";};\
     class _xx_optic_Holosight_blk_F {count=1;name="optic_Holosight_blk_F";};\
     class _xx_optic_Arco_AK_blk_F {count=1;name="optic_Arco_AK_blk_F";};\
-    class _xx_SwitchBlade_600_Tube_Woodland {count=3;name="SwitchBlade_600_Tube_Woodland";};\
-    class _xx_gm_boltcutter {count=1;name="gm_boltcutter";};\
+    class _xx_SwitchBlade_600_Tube_Woodland {count=3;name="SwitchBlade_600_Tube_Woodland";};
 
 #define TRANSPORTWEAPONS\
     class _xx_B_PTbskull_Wea_law_03_titanaa {count=1;weapon="B_PTbskull_Wea_law_03_titanaa";};\

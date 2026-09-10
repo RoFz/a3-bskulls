@@ -1,0 +1,157 @@
+/*
+ * Snapshot the production Archangel configuration and buffered diagnostics.
+ * The report remains available while collection is disabled.
+ *
+ * Debug Console examples:
+ *   [true] call bskulls_fnc_titanTopAttackSetDebug;
+ *   [] call bskulls_fnc_titanTopAttackDebugReport;
+ *
+ * Pass false to avoid copying, or true as the second argument to clear the
+ * buffer after taking the snapshot: [false, true] call ...
+ */
+
+params [
+    ["_copyToClipboard", true, [true]],
+    ["_clearAfter", false, [false]]
+];
+
+private _carrier = configFile >> "CfgAmmo" >> "M_Titan_AT_TOP_PLUS";
+private _terminal = configFile >> "CfgAmmo" >> "ammo_Penetrator_Titan_AT_TOP_PLUS";
+private _magazine = configFile >> "CfgMagazines" >> "Titan_AT_TOP_PLUS";
+private _launcher = configFile >> "CfgWeapons" >> "B_PTbskull_Wea_law_02_titantop";
+private _overfly = _launcher >> "Overfly";
+private _optic = configFile >> "RscInGameUI" >> "B_PTbskull_RscOptics_Archangel";
+private _visualCloudletName = getText (_terminal >> "bskulls_terminalVisualCloudlet");
+private _visualCloudlet = configFile >> "CfgCloudlets" >> _visualCloudletName;
+private _records = +(missionNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []]);
+private _dapsExcludedAmmo = missionNamespace getVariable ["dapsExcludedAmmo", []];
+private _hawkinsUnits = allUnits select {
+    _x isKindOf "B_PTbskull_Veh_Unit_Hawkins_blackops_04"
+};
+
+private _report = [
+    ["report", "Black Skulls HVPS-17 Archangel"],
+    ["tick", diag_tickTime],
+    ["world", worldName],
+    ["machine", [clientOwner, isServer, hasInterface]],
+    ["particleQuality", particlesQuality],
+    ["debug", [
+        ["enabled", missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]],
+        ["chat", missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]],
+        ["accuracyOverride", missionNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
+        ["hawkinsMonitors", _hawkinsUnits apply {
+            private _handle = _x getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
+            [
+                ["unit", str _x],
+                ["local", local _x],
+                ["alive", alive _x],
+                ["running", !scriptDone _handle]
+            ]
+        }]
+    ]],
+    ["daps", [
+        ["maxAngle", missionNamespace getVariable ["dapsMaxAngle", "unset"]],
+        ["hitLimit", missionNamespace getVariable ["dapsHitLimit", "unset"]],
+        ["excludedAmmoPresent", !(isNil "dapsExcludedAmmo")],
+        ["carrierExcluded", "M_Titan_AT_TOP_PLUS" in _dapsExcludedAmmo],
+        ["terminalExcluded", "ammo_Penetrator_Titan_AT_TOP_PLUS" in _dapsExcludedAmmo]
+    ]],
+    ["carrierConfig", [
+        ["present", isClass _carrier],
+        ["simulation", getText (_carrier >> "simulation")],
+        ["flightProfiles", getArray (_carrier >> "flightProfiles")],
+        ["triggerDistance", getNumber (_carrier >> "triggerDistance")],
+        ["triggerOnImpact", getNumber (_carrier >> "triggerOnImpact")],
+        ["submunitionAmmo", getText (_carrier >> "submunitionAmmo")],
+        ["submunitionDirectionType", getText (_carrier >> "submunitionDirectionType")],
+        ["submunitionInitSpeed", getNumber (_carrier >> "submunitionInitSpeed")],
+        ["overflyElevation", getNumber (_carrier >> "Overfly" >> "overflyElevation")],
+        ["missileLockMinDistance", getNumber (_carrier >> "missileLockMinDistance")],
+        ["missileLockMaxDistance", getNumber (_carrier >> "missileLockMaxDistance")]
+    ]],
+    ["terminalConfig", [
+        ["present", isClass _terminal],
+        ["simulation", getText (_terminal >> "simulation")],
+        ["model", getText (_terminal >> "model")],
+        ["effectFly", getText (_terminal >> "effectFly")],
+        ["tracerScale", getNumber (_terminal >> "tracerScale")],
+        ["tracerStartTime", getNumber (_terminal >> "tracerStartTime")],
+        ["tracerEndTime", getNumber (_terminal >> "tracerEndTime")],
+        ["nvgOnly", getNumber (_terminal >> "nvgOnly")],
+        ["visualProfile", getText (_terminal >> "bskulls_terminalVisualProfile")],
+        ["visualCloudlet", _visualCloudletName],
+        ["visualDropInterval", getNumber (_terminal >> "bskulls_terminalVisualDropInterval")],
+        ["visualLinger", getNumber (_terminal >> "bskulls_terminalVisualLinger")],
+        ["visualCurveAmplitudeMin", getNumber (_terminal >> "bskulls_terminalVisualCurveAmplitudeMin")],
+        ["visualCurveAmplitudeMax", getNumber (_terminal >> "bskulls_terminalVisualCurveAmplitudeMax")],
+        ["visualCurveSecondaryMax", getNumber (_terminal >> "bskulls_terminalVisualCurveSecondaryMax")],
+        ["accuracyProbability", getNumber (_terminal >> "bskulls_terminalAccuracyProbability")],
+        ["missOffsetMin", getNumber (_terminal >> "bskulls_terminalMissOffsetMin")],
+        ["missOffsetMax", getNumber (_terminal >> "bskulls_terminalMissOffsetMax")],
+        ["hit", getNumber (_terminal >> "hit")],
+        ["timeToLive", getNumber (_terminal >> "timeToLive")],
+        ["typicalSpeed", getNumber (_terminal >> "typicalSpeed")],
+        ["triggerOnImpact", getNumber (_terminal >> "triggerOnImpact")]
+    ]],
+    ["terminalVisual", [
+        ["present", isClass _visualCloudlet],
+        ["class", _visualCloudletName],
+        ["interval", getNumber (_visualCloudlet >> "interval")],
+        ["lifeTime", getNumber (_visualCloudlet >> "lifeTime")],
+        ["particleShape", getText (_visualCloudlet >> "particleShape")],
+        ["particleFrames", [
+            getNumber (_visualCloudlet >> "particleFSNtieth"),
+            getNumber (_visualCloudlet >> "particleFSIndex"),
+            getNumber (_visualCloudlet >> "particleFSFrameCount")
+        ]],
+        ["size", getArray (_visualCloudlet >> "size")],
+        ["color", getArray (_visualCloudlet >> "color")],
+        ["positionVar", getArray (_visualCloudlet >> "positionVar")],
+        ["moveVelocityVar", getArray (_visualCloudlet >> "moveVelocityVar")]
+    ]],
+    ["magazineConfig", [
+        ["present", isClass _magazine],
+        ["displayName", getText (_magazine >> "displayName")],
+        ["displayNameShort", getText (_magazine >> "displayNameShort")],
+        ["descriptionShort", getText (_magazine >> "descriptionShort")],
+        ["ammo", getText (_magazine >> "ammo")],
+        ["count", getNumber (_magazine >> "count")]
+    ]],
+    ["launcherConfig", [
+        ["present", isClass _launcher],
+        ["displayName", getText (_launcher >> "displayName")],
+        ["descriptionShort", getText (_launcher >> "descriptionShort")],
+        ["magazines", getArray (_launcher >> "magazines")],
+        ["magazineWell", getArray (_launcher >> "magazineWell")],
+        ["modes", getArray (_launcher >> "modes")],
+        ["weaponInfoType", getText (_launcher >> "weaponInfoType")],
+        ["opticPresent", isClass _optic],
+        ["opticOnLoad", getText (_optic >> "onLoad")],
+        ["hudGroupPresent", isClass (_optic >> "CA_javelin_elements_group")],
+        ["hudGroupIdc", getNumber (_optic >> "CA_javelin_elements_group" >> "idc")],
+        ["topOffIdc", getNumber (_optic >> "CA_javelin_elements_group" >> "Controls" >> "CA_Javelin_TOP_off" >> "idc")],
+        ["dirOnIdc", getNumber (_optic >> "CA_javelin_elements_group" >> "Controls" >> "CA_Javelin_DIR_on" >> "idc")],
+        ["aiRateOfFire", getNumber (_overfly >> "aiRateOfFire")],
+        ["aiRateOfFireDistance", getNumber (_overfly >> "aiRateOfFireDistance")],
+        ["minRange", getNumber (_overfly >> "minRange")],
+        ["minRangeProbab", getNumber (_overfly >> "minRangeProbab")],
+        ["midRange", getNumber (_overfly >> "midRange")],
+        ["midRangeProbab", getNumber (_overfly >> "midRangeProbab")],
+        ["maxRange", getNumber (_overfly >> "maxRange")],
+        ["maxRangeProbab", getNumber (_overfly >> "maxRangeProbab")]
+    ]],
+    ["recordCount", count _records],
+    ["records", _records]
+];
+
+diag_log format ["[BSKULLS][TITAN-TA] DEBUG_REPORT %1", _report];
+if (_copyToClipboard && {hasInterface}) then {
+    copyToClipboard str _report;
+    systemChat format ["Archangel report copied (%1 events).", count _records];
+};
+
+if (_clearAfter) then {
+    missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
+};
+
+_report

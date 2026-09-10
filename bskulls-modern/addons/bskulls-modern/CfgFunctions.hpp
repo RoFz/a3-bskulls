@@ -24,8 +24,21 @@ class CfgFunctions {
         };
         class ai {
             file = "\bskulls\addons\bskulls-modern\scripts";
-            class aiDapsLauncherFired {};
             class initMineStanceRecovery {};
+        };
+        class weapons {
+            file = "\bskulls\addons\bskulls-modern\scripts";
+            class titanTopAttackAmmoHit {};
+            class titanTopAttackDebugReport {};
+            class titanTopAttackFired {};
+            class titanTopAttackInitUnitDebug {};
+            class titanTopAttackLog {};
+            class titanTopAttackOpticLoad {};
+            class titanTopAttackProjectileInit {};
+            class titanTopAttackSetDebug {};
+            class titanTopAttackSubmunitionCreated {};
+            class titanTopAttackTerminalVisual {};
+            class titanTopAttackTrace {};
         };
         class aircraft {
             file = "\bskulls\addons\bskulls-modern\scripts";

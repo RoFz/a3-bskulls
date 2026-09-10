@@ -1,5 +1,6 @@
 #include "CfgPatches.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgEffects.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgFactionClasses.hpp"
 #include "CfgUnitInsignia.hpp"
@@ -8,3 +9,4 @@
 #include "CfgIdentities.hpp"
 #include "CfgFunctions.hpp"
 #include "CfgEventHandlers.hpp"
+#include "RscInGameUI.hpp"
