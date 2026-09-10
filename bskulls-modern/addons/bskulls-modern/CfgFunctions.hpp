@@ -52,4 +52,15 @@ class CfgFunctions {
             class reportPawneeMissilesDepleted {};
         };
     };
+
+    // Switchblade Loitering Munition compatibility. CfgPatches loads the
+    // switchblade addon first, so this function-level file overrides only its
+    // deployment-action wrapper while preserving the rest of the SWB API.
+    class SWB {
+        class util {
+            class addActionByLoadout {
+                file = "\bskulls\addons\bskulls-modern\scripts\fn_switchbladeAddActionByLoadout.sqf";
+            };
+        };
+    };
 };
