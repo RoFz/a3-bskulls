@@ -387,9 +387,11 @@ class CfgAmmo
         scopeCurator = 2;
         access = 1;
 
-        // The carrier is only a delivery stage. All damage belongs to the
-        // terminal penetrator, including the on-impact fallback path.
-        hit = 0;
+        // Keep a real direct-hit value on the carrier so Arma's AI can score
+        // the round as anti-armour ammunition before it exists in flight.
+        // Normal shots separate 310 m above the target and delete this stage,
+        // so the terminal penetrator still owns the successful strike.
+        hit = 155;
         indirectHit = 0;
         indirectHitRange = 0;
         explosive = 0;

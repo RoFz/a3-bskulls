@@ -35,6 +35,38 @@ private _handle = [_unit, _traceId] spawn {
 
     private _lastLoggedState = [];
     private _lastLogAt = -1e10;
+    private _describeTarget = {
+        params ["_observer", "_target"];
+
+        if (isNull _target) exitWith {
+            [
+                ["object", "<NULL-object>"],
+                ["class", ""],
+                ["isLandVehicle", false],
+                ["alive", false],
+                ["distance2D", -1],
+                ["distance3D", -1],
+                ["engineOn", false],
+                ["speed", 0],
+                ["knowsAbout", 0],
+                ["irTarget", 0]
+            ]
+        };
+
+        private _targetClass = typeOf _target;
+        [
+            ["object", str _target],
+            ["class", _targetClass],
+            ["isLandVehicle", _target isKindOf "LandVehicle"],
+            ["alive", alive _target],
+            ["distance2D", _observer distance2D _target],
+            ["distance3D", _observer distance _target],
+            ["engineOn", isEngineOn _target],
+            ["speed", speed _target],
+            ["knowsAbout", _observer knowsAbout _target],
+            ["irTarget", getNumber (configOf _target >> "irTarget")]
+        ]
+    };
 
     while {
         !isNull _unit
@@ -47,11 +79,16 @@ private _handle = [_unit, _traceId] spawn {
         private _attackTarget = getAttackTarget _unit;
         private _assignedIsVehicle = !isNull _assignedTarget && {_assignedTarget isKindOf "LandVehicle"};
         private _attackIsVehicle = !isNull _attackTarget && {_attackTarget isKindOf "LandVehicle"};
-        private _focusTarget = if (_attackIsVehicle) then {
-            _attackTarget
+        private _assignedTargetState = [_unit, _assignedTarget] call _describeTarget;
+        private _attackTargetState = [_unit, _attackTarget] call _describeTarget;
+        // Prefer a player's explicit assignment for the diagnostic focus. The
+        // engine attack target is retained separately so a stale choice is
+        // visible instead of masking the assigned vehicle and its range.
+        private _focusTarget = if (_assignedIsVehicle) then {
+            _assignedTarget
         } else {
-            if (_assignedIsVehicle) then {
-                _assignedTarget
+            if (_attackIsVehicle) then {
+                _attackTarget
             } else {
                 [_assignedTarget, _attackTarget] select (!isNull _attackTarget)
             }
@@ -99,6 +136,10 @@ private _handle = [_unit, _traceId] spawn {
                     ["class", typeOf _knownObject],
                     ["side", str (_x param [2, sideUnknown])],
                     ["distance2D", _unit distance2D _knownObject],
+                    ["distance3D", _unit distance _knownObject],
+                    ["engineOn", isEngineOn _knownObject],
+                    ["speed", speed _knownObject],
+                    ["irTarget", getNumber (configOf _knownObject >> "irTarget")],
                     ["knowsAbout", _unit knowsAbout _knownObject],
                     ["subjectiveCost", _x param [3, 0]],
                     ["positionAccuracy", _x param [5, -1]],
@@ -123,9 +164,20 @@ private _handle = [_unit, _traceId] spawn {
             ]
         };
 
+        private _aiFeatures = [
+            ["TARGET", _unit checkAIFeature "TARGET"],
+            ["AUTOTARGET", _unit checkAIFeature "AUTOTARGET"],
+            ["WEAPONAIM", _unit checkAIFeature "WEAPONAIM"],
+            ["FSM", _unit checkAIFeature "FSM"],
+            ["AUTOCOMBAT", _unit checkAIFeature "AUTOCOMBAT"],
+            ["FIREWEAPON", _unit checkAIFeature "FIREWEAPON"]
+        ];
+
         private _state = [
             str _assignedTarget,
             str _attackTarget,
+            _assignedTargetState,
+            _attackTargetState,
             _rangeState,
             round (_targetDistance2D / 25),
             currentCommand _unit,
@@ -136,6 +188,7 @@ private _handle = [_unit, _traceId] spawn {
             combatBehaviour _unit,
             unitCombatMode _unit,
             combatMode group _unit,
+            _aiFeatures,
             _targetDaps,
             _knownArmor
         ];
@@ -155,7 +208,9 @@ private _handle = [_unit, _traceId] spawn {
                     ["unitClass", typeOf _unit],
                     ["unitLocal", local _unit],
                     ["assignedTarget", str _assignedTarget],
+                    ["assignedTargetState", _assignedTargetState],
                     ["attackTarget", str _attackTarget],
+                    ["attackTargetState", _attackTargetState],
                     ["focusTarget", str _focusTarget],
                     ["focusTargetClass", if (isNull _focusTarget) then {""} else {typeOf _focusTarget}],
                     ["focusTargetIsLandVehicle", _focusIsVehicle],
@@ -178,6 +233,7 @@ private _handle = [_unit, _traceId] spawn {
                     ["combatBehaviour", combatBehaviour _unit],
                     ["unitCombatMode", unitCombatMode _unit],
                     ["groupCombatMode", combatMode group _unit],
+                    ["aiFeatures", _aiFeatures],
                     ["targetDaps", _targetDaps],
                     ["knownArmor", _knownArmor]
                 ],
