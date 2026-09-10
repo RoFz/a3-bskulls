@@ -50,6 +50,7 @@ private _remaining = if (isNull _unit) then {
     } count (magazinesAmmoFull _unit)
 };
 private _shotParents = (getShotParents _projectile) apply {str _x};
+private _magazineConfig = configFile >> "CfgMagazines" >> _magazine;
 private _dapsState = if (isNull _target) then {
     []
 } else {
@@ -77,7 +78,8 @@ private _dapsState = if (isNull _target) then {
         ["mode", _mode],
         ["ammo", _ammo],
         ["magazine", _magazine],
-        ["magazineDisplayName", getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")],
+        ["magazineDisplayName", getText (_magazineConfig >> "displayName")],
+        ["configuredInitSpeed", getNumber (_magazineConfig >> "initSpeed")],
         ["remainingMagazines", _remaining],
         ["shotParents", _shotParents],
         ["target", str _target],

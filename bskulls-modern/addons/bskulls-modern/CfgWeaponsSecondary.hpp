@@ -81,7 +81,7 @@
     // Hawkins from falling back to a shallow Direct Titan profile.
     class B_PTbskull_Wea_law_02_titantop: B_PTbskull_Wea_law_01_titanat_OCimport_01 {
         displayName = "HVPS-17 (Archangel)";
-        descriptionShort = "Hypersonic Velocity Portable System<br />Dedicated 127 mm stand-off top-attack launcher";
+        descriptionShort = "Hypersonic Velocity Portable System<br />Dedicated 127 mm soft-launch stand-off top-attack launcher";
         author = "RoFz";
         scope = 2;
         weaponInfoType = "B_PTbskull_RscOptics_Archangel";

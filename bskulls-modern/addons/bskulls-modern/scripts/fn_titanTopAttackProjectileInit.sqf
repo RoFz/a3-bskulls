@@ -25,6 +25,7 @@ _projectile setVariable ["bskulls_titanTopAttackInitialized", true, false];
 _projectile setVariable ["bskulls_titanTopAttackStage", _stage, false];
 
 if (_stage isEqualTo "carrier") then {
+    _projectile setVariable ["bskulls_titanTopAttackLaunchPosASL", getPosASL _projectile, false];
     _projectile addEventHandler ["SubmunitionCreated", {
         _this call bskulls_fnc_titanTopAttackSubmunitionCreated;
     }];
@@ -47,6 +48,24 @@ _projectile setVariable ["bskulls_titanTopAttackTraceId", _traceId, false];
 
 private _shotParents = (getShotParents _projectile) apply {str _x};
 private _visualConfig = [];
+private _motorConfig = [];
+if (_stage isEqualTo "carrier") then {
+    private _ammoConfig = configFile >> "CfgAmmo" >> _projectileClass;
+    private _initEffectName = getText (_ammoConfig >> "effectsMissileInit");
+    private _flightEffectName = getText (_ammoConfig >> "effectsMissile");
+    _motorConfig = [
+        ["initTime", getNumber (_ammoConfig >> "initTime")],
+        ["thrust", getNumber (_ammoConfig >> "thrust")],
+        ["thrustTime", getNumber (_ammoConfig >> "thrustTime")],
+        ["maxSpeed", getNumber (_ammoConfig >> "maxSpeed")],
+        ["effectsMissileInit", _initEffectName],
+        ["effectsMissileInitPresent", _initEffectName isNotEqualTo "" && {isClass (configFile >> _initEffectName)}],
+        ["effectsMissile", _flightEffectName],
+        ["effectsMissilePresent", _flightEffectName isNotEqualTo "" && {isClass (configFile >> _flightEffectName)}],
+        ["safeDistance", getNumber (_ammoConfig >> "bskulls_softLaunchSafeDistance")],
+        ["launchPosASL", _projectile getVariable ["bskulls_titanTopAttackLaunchPosASL", []]]
+    ];
+};
 if (_stage isEqualTo "terminal") then {
     private _ammoConfig = configFile >> "CfgAmmo" >> _projectileClass;
     private _effectName = getText (_ammoConfig >> "effectFly");
@@ -79,6 +98,7 @@ if (_stage isEqualTo "terminal") then {
         ["positionASL", getPosASL _projectile],
         ["velocity", velocity _projectile],
         ["shotParents", _shotParents],
+        ["motorConfig", _motorConfig],
         ["visualConfig", _visualConfig],
         ["dapsMaxAngle", missionNamespace getVariable ["dapsMaxAngle", "unset"]],
         ["dapsHitLimit", missionNamespace getVariable ["dapsHitLimit", "unset"]]

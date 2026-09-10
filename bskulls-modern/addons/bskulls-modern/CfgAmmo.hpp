@@ -374,10 +374,12 @@ class CfgAmmo
 
     };
 
-    // The guided carrier separates just outside the 300 m DAPS detection
-    // envelope. A 900 m minimum launch range makes the inbound terminal leg
-    // about 52 degrees or steeper against DAPS's default 45-degree limit.
-    // This uses BI's documented Overfly + SubmunitionTargetDirection pattern.
+    // The guided carrier first performs a soft ejection, ignites its inherited
+    // Titan flight motor, and then separates just outside the 300 m DAPS
+    // detection envelope. A 900 m minimum launch range makes the inbound
+    // terminal leg about 52 degrees or steeper against DAPS's default
+    // 45-degree limit. This uses BI's documented delayed missile ignition plus
+    // Overfly + SubmunitionTargetDirection patterns.
     class M_Titan_AT_TOP_PLUS : M_Titan_AT_PLUS
     {
         author = "RoFz";
@@ -392,6 +394,19 @@ class CfgAmmo
         indirectHitRange = 0;
         explosive = 0;
 
+        // Stage 1: the magazine ejects the carrier at 20 m/s. During this
+        // delay, effectsMissileInit renders a compact launch-motor smoke trail.
+        // At approximately seven metres the inherited Titan motor and its
+        // normal effectsMissile trail take over for the guided ascent.
+        // https://community.bistudio.com/wiki/CfgAmmo
+        initTime = 0.35;
+        effectsMissileInit = "B_PTbskull_ArchangelSoftLaunchEffect";
+        bskulls_softLaunchSafeDistance = 25;
+
+        // Stage 3: create the existing terminal penetrator at the overfly
+        // separation point. An early impact can also request a submunition,
+        // but the SubmunitionCreated handler suppresses it inside the safe
+        // distance above.
         submunitionAmmo = "ammo_Penetrator_Titan_AT_TOP_PLUS";
         submunitionCount = 1;
         submunitionDirectionType = "SubmunitionTargetDirection";
@@ -543,7 +558,8 @@ class CfgMagazines {
 
         displayName = "Archangel T-HEAT";
         displayNameShort = "T-HEAT";
-        descriptionShort = "HVPS-17 tandem HEAT round with a stand-off top-attack carrier, high-velocity terminal penetrator, and 95% nominal guidance reliability";
+        descriptionShort = "HVPS-17 soft-launch tandem HEAT round with a stand-off top-attack carrier, high-velocity terminal penetrator, and 95% nominal guidance reliability";
+        initSpeed = 20;
         ammo = "M_Titan_AT_TOP_PLUS";
     };
 

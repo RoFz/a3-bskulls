@@ -57,6 +57,49 @@ if (_velocity isEqualTo []) then {
     _velocity = velocity _child;
 };
 
+// triggerOnImpact is retained as a long-range fallback, but a collision during
+// the deliberately slow ejection phase must never create a live 1,500 m/s
+// penetrator next to the operator.
+private _parentConfig = if (isNull _parent) then {configNull} else {configOf _parent};
+private _safeDistance = if (isNull _parent) then {
+    0
+} else {
+    getNumber (_parentConfig >> "bskulls_softLaunchSafeDistance")
+};
+private _launchPositionASL = if (isNull _parent) then {
+    []
+} else {
+    _parent getVariable ["bskulls_titanTopAttackLaunchPosASL", []]
+};
+private _distanceFromLaunch = if ((count _launchPositionASL) isEqualTo 3) then {
+    _launchPositionASL vectorDistance _positionASL
+} else {
+    -1
+};
+
+if (
+    _safeDistance > 0
+    && {_distanceFromLaunch >= 0}
+    && {_distanceFromLaunch < _safeDistance}
+) exitWith {
+    if (_debugEnabled) then {
+        [
+            _parent,
+            "UNSAFE_SEPARATION_SUPPRESSED",
+            [
+                ["child", str _child],
+                ["positionASL", _positionASL],
+                ["launchPositionASL", _launchPositionASL],
+                ["distanceFromLaunch", _distanceFromLaunch],
+                ["safeDistance", _safeDistance]
+            ],
+            _traceId
+        ] call bskulls_fnc_titanTopAttackLog;
+    };
+    deleteVehicle _child;
+    true
+};
+
 // Apply one explicit terminal-guidance outcome. This is intentionally a
 // Bernoulli reliability roll rather than continuous dispersion: ordinary hits
 // remain as accurate as the engine-created SubmunitionTargetDirection vector,

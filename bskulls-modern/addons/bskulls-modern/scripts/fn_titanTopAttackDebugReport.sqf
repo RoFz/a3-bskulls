@@ -21,6 +21,10 @@ private _magazine = configFile >> "CfgMagazines" >> "Titan_AT_TOP_PLUS";
 private _launcher = configFile >> "CfgWeapons" >> "B_PTbskull_Wea_law_02_titantop";
 private _overfly = _launcher >> "Overfly";
 private _optic = configFile >> "RscInGameUI" >> "B_PTbskull_RscOptics_Archangel";
+private _softLaunchEffectName = getText (_carrier >> "effectsMissileInit");
+private _softLaunchEffect = configFile >> _softLaunchEffectName;
+private _softLaunchCloudletName = getText (_softLaunchEffect >> "EjectionSmoke" >> "type");
+private _softLaunchCloudlet = configFile >> "CfgCloudlets" >> _softLaunchCloudletName;
 private _visualCloudletName = getText (_terminal >> "bskulls_terminalVisualCloudlet");
 private _visualCloudlet = configFile >> "CfgCloudlets" >> _visualCloudletName;
 private _records = +(missionNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []]);
@@ -59,6 +63,14 @@ private _report = [
     ["carrierConfig", [
         ["present", isClass _carrier],
         ["simulation", getText (_carrier >> "simulation")],
+        ["initTime", getNumber (_carrier >> "initTime")],
+        ["thrust", getNumber (_carrier >> "thrust")],
+        ["thrustTime", getNumber (_carrier >> "thrustTime")],
+        ["maxSpeed", getNumber (_carrier >> "maxSpeed")],
+        ["effectsMissileInit", _softLaunchEffectName],
+        ["effectsMissileInitPresent", isClass _softLaunchEffect],
+        ["effectsMissile", getText (_carrier >> "effectsMissile")],
+        ["softLaunchSafeDistance", getNumber (_carrier >> "bskulls_softLaunchSafeDistance")],
         ["flightProfiles", getArray (_carrier >> "flightProfiles")],
         ["triggerDistance", getNumber (_carrier >> "triggerDistance")],
         ["triggerOnImpact", getNumber (_carrier >> "triggerOnImpact")],
@@ -68,6 +80,17 @@ private _report = [
         ["overflyElevation", getNumber (_carrier >> "Overfly" >> "overflyElevation")],
         ["missileLockMinDistance", getNumber (_carrier >> "missileLockMinDistance")],
         ["missileLockMaxDistance", getNumber (_carrier >> "missileLockMaxDistance")]
+    ]],
+    ["softLaunchVisual", [
+        ["effectPresent", isClass _softLaunchEffect],
+        ["effect", _softLaunchEffectName],
+        ["cloudletPresent", isClass _softLaunchCloudlet],
+        ["cloudlet", _softLaunchCloudletName],
+        ["interval", getNumber (_softLaunchCloudlet >> "interval")],
+        ["lifeTime", getNumber (_softLaunchCloudlet >> "lifeTime")],
+        ["particleShape", getText (_softLaunchCloudlet >> "particleShape")],
+        ["size", getArray (_softLaunchCloudlet >> "size")],
+        ["color", getArray (_softLaunchCloudlet >> "color")]
     ]],
     ["terminalConfig", [
         ["present", isClass _terminal],
@@ -115,6 +138,7 @@ private _report = [
         ["displayNameShort", getText (_magazine >> "displayNameShort")],
         ["descriptionShort", getText (_magazine >> "descriptionShort")],
         ["ammo", getText (_magazine >> "ammo")],
+        ["initSpeed", getNumber (_magazine >> "initSpeed")],
         ["count", getNumber (_magazine >> "count")]
     ]],
     ["launcherConfig", [

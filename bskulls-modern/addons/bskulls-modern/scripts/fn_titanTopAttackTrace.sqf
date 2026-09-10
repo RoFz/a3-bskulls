@@ -24,6 +24,17 @@ private _thresholds = if (_stage isEqualTo "carrier") then {
 private _crossed = [];
 private _start = diag_tickTime;
 private _timeout = [2, 35] select (_stage isEqualTo "carrier");
+private _ammoConfig = configOf _projectile;
+private _motorIgnitionDelay = if (_stage isEqualTo "carrier") then {
+    getNumber (_ammoConfig >> "initTime")
+} else {
+    -1
+};
+private _motorIgnitionLogged = _stage isNotEqualTo "carrier" || {_motorIgnitionDelay <= 0};
+private _launchPositionASL = _projectile getVariable [
+    "bskulls_titanTopAttackLaunchPosASL",
+    getPosASL _projectile
+];
 private _samples = 0;
 private _lastPosition = if (isNull _projectile) then {[]} else {getPosASL _projectile};
 private _lastVelocity = if (isNull _projectile) then {[]} else {velocity _projectile};
@@ -42,6 +53,25 @@ while {
     && {missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]}
 } do {
     _samples = _samples + 1;
+
+    if (!_motorIgnitionLogged && {(diag_tickTime - _start) >= _motorIgnitionDelay}) then {
+        private _ignitionPositionASL = getPosASL _projectile;
+        _motorIgnitionLogged = true;
+        [
+            _projectile,
+            "MAIN_MOTOR_IGNITION",
+            [
+                ["configuredDelay", _motorIgnitionDelay],
+                ["observedElapsed", diag_tickTime - _start],
+                ["positionASL", _ignitionPositionASL],
+                ["distanceFromLaunch", _launchPositionASL vectorDistance _ignitionPositionASL],
+                ["velocity", velocity _projectile],
+                ["effectsMissileInit", getText (_ammoConfig >> "effectsMissileInit")],
+                ["effectsMissile", getText (_ammoConfig >> "effectsMissile")]
+            ],
+            _traceId
+        ] call bskulls_fnc_titanTopAttackLog;
+    };
 
     private _configuredTarget = _projectile getVariable ["bskulls_titanTopAttackTarget", objNull];
     if (!isNull _configuredTarget && {_configuredTarget isNotEqualTo _target}) then {
@@ -195,6 +225,7 @@ private _dapsState = if (isNull _target) then {
         ["elapsed", diag_tickTime - _start],
         ["samples", _samples],
         ["separated", _separated],
+        ["motorIgnitionLogged", _motorIgnitionLogged],
         ["lastPositionASL", _lastPosition],
         ["lastVelocity", _lastVelocity],
         ["lastMetrics", _lastMetrics],
