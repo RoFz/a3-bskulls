@@ -232,6 +232,7 @@ class CfgPatches {
             "A3_Soft_F_Exp_Truck_01",
             "A3_Boat_F_Boat_Armed_01",
             "A3_Boat_F",
+            "A3_Structures_F_Items_Vessels",
             "A3_Static_F_Mortar_01",
             "A3_Static_F",
             "A3_Static_F_AA_01",

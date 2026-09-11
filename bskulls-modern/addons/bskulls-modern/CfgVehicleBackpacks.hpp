@@ -447,7 +447,10 @@
     class B_PTbskull_Veh_Back_Fuel_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
-        displayName = "Assault Pack (Fuel)";
+        displayName = "Jerrycan (Fuel)";
+        model = "\A3\Structures_F\Items\Vessels\CanisterFuel_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"\A3\Structures_F\Items\Vessels\Data\CanisterFuel_CO.paa"};
         explosionEffect = "FuelExplosion";
         explosionShielding = 1;
         fuelExplosionPower = 0.7;
