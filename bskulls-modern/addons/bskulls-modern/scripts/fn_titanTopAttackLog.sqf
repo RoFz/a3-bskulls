@@ -4,6 +4,8 @@
  * Diagnostics are opt-in through bskulls_fnc_titanTopAttackSetDebug. Terse
  * local systemChat events can be requested separately when enabling them.
  * The latest 500 local records remain in bskulls_titanTopAttackDebugRecords.
+ * UNIT_STATE also has a dedicated 240-record buffer so opening the launcher
+ * optic cannot evict the AI acquisition history needed for diagnosis.
  */
 
 params [
@@ -40,6 +42,21 @@ if ((count _records) > 500) then {
     _records deleteAt 0;
 };
 missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", _records];
+
+if (_event isEqualTo "UNIT_STATE") then {
+    private _unitStateRecords = missionNamespace getVariable [
+        "bskulls_titanTopAttackUnitStateRecords",
+        []
+    ];
+    _unitStateRecords pushBack _record;
+    if ((count _unitStateRecords) > 240) then {
+        _unitStateRecords deleteAt 0;
+    };
+    missionNamespace setVariable [
+        "bskulls_titanTopAttackUnitStateRecords",
+        _unitStateRecords
+    ];
+};
 
 diag_log format ["[BSKULLS][TITAN-TA] %1", _record];
 if (

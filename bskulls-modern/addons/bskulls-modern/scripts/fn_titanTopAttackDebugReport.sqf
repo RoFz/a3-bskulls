@@ -28,6 +28,13 @@ private _softLaunchCloudlet = configFile >> "CfgCloudlets" >> _softLaunchCloudle
 private _visualCloudletName = getText (_terminal >> "bskulls_terminalVisualCloudlet");
 private _visualCloudlet = configFile >> "CfgCloudlets" >> _visualCloudletName;
 private _records = +(missionNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []]);
+private _unitStateRecords = +(
+    missionNamespace getVariable ["bskulls_titanTopAttackUnitStateRecords", []]
+);
+private _debugStartedAt = missionNamespace getVariable [
+    "bskulls_titanTopAttackDebugStartedAt",
+    -1
+];
 private _dapsExcludedAmmo = missionNamespace getVariable ["dapsExcludedAmmo", []];
 private _hawkinsUnits = allUnits select {
     _x isKindOf "B_PTbskull_Veh_Unit_Hawkins_blackops_04"
@@ -35,13 +42,26 @@ private _hawkinsUnits = allUnits select {
 
 private _report = [
     ["report", "Black Skulls HVPS-17 Archangel"],
+    ["schemaVersion", 2],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
     ["particleQuality", particlesQuality],
+    ["environment", [
+        ["date", date],
+        ["dayTime", dayTime],
+        ["sunOrMoon", sunOrMoon],
+        ["overcast", overcast],
+        ["fog", fog],
+        ["rain", rain],
+        ["viewDistance", viewDistance],
+        ["objectViewDistance", getObjectViewDistance]
+    ]],
     ["debug", [
         ["enabled", missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]],
         ["chat", missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]],
+        ["startedAtTick", _debugStartedAt],
+        ["elapsed", if (_debugStartedAt < 0) then {-1} else {diag_tickTime - _debugStartedAt}],
         ["accuracyOverride", missionNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
         ["hawkinsMonitors", _hawkinsUnits apply {
             private _handle = _x getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
@@ -182,17 +202,31 @@ private _report = [
         ["maxRangeProbab", getNumber (_overfly >> "maxRangeProbab")]
     ]],
     ["recordCount", count _records],
+    ["recordLimit", 500],
+    ["recordBufferFull", (count _records) >= 500],
+    ["unitStateRecordCount", count _unitStateRecords],
+    ["unitStateRecordLimit", 240],
+    ["unitStateBufferFull", (count _unitStateRecords) >= 240],
+    ["unitStateRecords", _unitStateRecords],
     ["records", _records]
 ];
 
 diag_log format ["[BSKULLS][TITAN-TA] DEBUG_REPORT %1", _report];
 if (_copyToClipboard && {hasInterface}) then {
     copyToClipboard str _report;
-    systemChat format ["Archangel report copied (%1 events).", count _records];
+    systemChat format [
+        "Archangel report copied (%1 events, %2 preserved AI states).",
+        count _records,
+        count _unitStateRecords
+    ];
 };
 
 if (_clearAfter) then {
     missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
+    missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+    if (missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) then {
+        missionNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
+    };
 };
 
 _report

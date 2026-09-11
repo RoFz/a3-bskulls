@@ -16,11 +16,17 @@ params [
     ["_clearRecords", false, [false]]
 ];
 
+private _wasEnabled = missionNamespace getVariable ["bskulls_titanTopAttackDebug", false];
 missionNamespace setVariable ["bskulls_titanTopAttackDebug", _enabled];
 missionNamespace setVariable ["bskulls_titanTopAttackDebugChat", _enabled && {_chat}];
 
 if (_clearRecords) then {
     missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
+    missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+};
+
+if (_enabled && {!_wasEnabled || {_clearRecords}}) then {
+    missionNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
 };
 
 // XEH starts monitors for units created while debugging is already enabled.
