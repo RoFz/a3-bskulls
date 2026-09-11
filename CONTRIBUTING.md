@@ -43,6 +43,12 @@ Scenario sources belong in the separate `a3-scenarios` repository. When a
 maintainer uses the private `a3-root` workspace for coupled faction/scenario
 work, stage and commit each repository independently.
 
+For DRO scenario work, a build or rebuild is the sibling repository's public
+`rebuild` target: it packs the mission, installs it into the mounted Arma
+locations, and verifies the installed game PBO. The `pack` target is only for
+an explicitly pack-only or artifact-only operation. If the running-Arma guard
+blocks installation, the rebuild remains incomplete even if packing succeeded.
+
 ## Commit messages
 
 This repository uses [Conventional Commits](https://www.conventionalcommits.org/).

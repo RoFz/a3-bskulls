@@ -18,6 +18,13 @@ guidance lives in `CONTRIBUTING.md`; keep the two files aligned.
   inspect, stage, commit, and report each repository separately. Resolve
   siblings relative to the workspace instead of assuming an absolute host or
   container path.
+- When work in the sibling `a3-scenarios` repository includes a request to
+  build or rebuild a DRO scenario, use its public `rebuild` target. In that
+  repository, rebuild means pack, install into the mounted Arma locations, and
+  verify the installed game PBO. Use its `pack` target only when the user
+  explicitly requests a pack-only or artifact-only operation. If the
+  running-Arma guard prevents installation, report the rebuild as incomplete;
+  do not describe a successful pack alone as a completed rebuild.
 - `a3-bskulls` must remain usable as a standalone public source clone. Its
   maintainer-only shared Dev Container requires access to the private
   `a3-devcontainers` repository; do not make ordinary source access depend on
