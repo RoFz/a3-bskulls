@@ -98,12 +98,12 @@
             textureType = "topDown";
             displayName = "Stand-off Top Attack";
             aiRateOfFire = 15;
-            aiRateOfFireDistance = 2000;
+            aiRateOfFireDistance = 3750;
             minRange = 900;
             minRangeProbab = 0.8;
-            midRange = 1200;
+            midRange = 2400;
             midRangeProbab = 0.95;
-            maxRange = 2000;
+            maxRange = 3750;
             maxRangeProbab = 0.9;
         };
     };

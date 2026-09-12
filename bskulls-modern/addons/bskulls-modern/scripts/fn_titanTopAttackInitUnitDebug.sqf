@@ -35,6 +35,16 @@ private _handle = [_unit, _traceId] spawn {
 
     private _lastLoggedState = [];
     private _lastLogAt = -1e10;
+    private _carrierConfig = configFile >> "CfgAmmo" >> "M_Titan_AT_TOP_PLUS";
+    private _lockMinDistance = getNumber (_carrierConfig >> "missileLockMinDistance");
+    private _lockMaxDistance = getNumber (_carrierConfig >> "missileLockMaxDistance");
+    if (_lockMinDistance <= 0) then {
+        _lockMinDistance = 900;
+    };
+    if (_lockMaxDistance <= _lockMinDistance) then {
+        _lockMaxDistance = 4000;
+    };
+    private _diagnosticScanDistance = _lockMaxDistance + 500;
     private _angleBetween = {
         params ["_left", "_right"];
 
@@ -282,13 +292,13 @@ private _handle = [_unit, _traceId] spawn {
                 if (!alive _focusTarget) then {
                     "target-dead"
                 } else {
-                    if (_targetDistance2D < 900) then {
-                        "inside-900m-safety-minimum"
+                    if (_targetDistance2D < _lockMinDistance) then {
+                        format ["inside-%1m-safety-minimum", round _lockMinDistance]
                     } else {
                         [
                             "inside-top-attack-envelope",
-                            "outside-2000m-lock-maximum"
-                        ] select (_targetDistance2D > 2000)
+                            format ["outside-%1m-lock-maximum", round _lockMaxDistance]
+                        ] select (_targetDistance2D > _lockMaxDistance)
                     }
                 }
             }
@@ -341,7 +351,7 @@ private _handle = [_unit, _traceId] spawn {
                     + ([_unit, _knownObject] call _describeGeometry)
                 );
             };
-        } forEach (_unit nearTargets 2500);
+        } forEach (_unit nearTargets _diagnosticScanDistance);
         if ((count _knownArmor) > 6) then {
             _knownArmor resize 6;
         };
@@ -359,7 +369,7 @@ private _handle = [_unit, _traceId] spawn {
             if (
                 alive _candidate
                 && {_candidate isKindOf "LandVehicle"}
-                && {_distance <= 2500}
+                && {_distance <= _diagnosticScanDistance}
                 && {_candidateSide isNotEqualTo sideUnknown}
                 && {(_observerSide getFriend _candidateSide) < 0.6}
             ) then {
@@ -494,10 +504,10 @@ private _handle = [_unit, _traceId] spawn {
             if (!alive _focusTarget) then {
                 _observedConstraints pushBack "dead";
             };
-            if (_targetDistance2D < 900) then {
+            if (_targetDistance2D < _lockMinDistance) then {
                 _observedConstraints pushBack "below-min";
             };
-            if (_targetDistance2D > 2000) then {
+            if (_targetDistance2D > _lockMaxDistance) then {
                 _observedConstraints pushBack "above-max";
             };
             if (_focusKnowsAbout <= 0) then {
@@ -537,20 +547,20 @@ private _handle = [_unit, _traceId] spawn {
         } count _physicalEnemyVehicles;
         private _physicalEnvelopeCount = {
             private _distance = [_x, "distance2D", -1] call _pairValue;
-            _distance >= 900 && {_distance <= 2000}
+            _distance >= _lockMinDistance && {_distance <= _lockMaxDistance}
         } count _physicalEnemyVehicles;
         private _physicalVisibleEnvelopeCount = {
             private _distance = [_x, "distance2D", -1] call _pairValue;
-            _distance >= 900
-            && {_distance <= 2000}
+            _distance >= _lockMinDistance
+            && {_distance <= _lockMaxDistance}
             && {([_x, "viewVisibility", 0] call _pairValue) > 0}
             && {([_x, "fireVisibility", 0] call _pairValue) > 0}
             && {!([_x, "terrainBlocked", false] call _pairValue)}
         } count _physicalEnemyVehicles;
         private _physicalRunningEnvelopeCount = {
             private _distance = [_x, "distance2D", -1] call _pairValue;
-            _distance >= 900
-            && {_distance <= 2000}
+            _distance >= _lockMinDistance
+            && {_distance <= _lockMaxDistance}
             && {[_x, "engineOn", false] call _pairValue}
         } count _physicalEnemyVehicles;
 

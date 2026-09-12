@@ -1,3 +1,5 @@
+class SensorTemplateIR;
+
 class CfgAmmo
 {
 
@@ -353,7 +355,12 @@ class CfgAmmo
     };
 
     class M_Titan_AT;
-    class M_Titan_AT_PLUS : M_Titan_AT
+    class M_Titan_AT_OCimport_01 : M_Titan_AT
+    {
+        scope = 0;
+        class Components;
+    };
+    class M_Titan_AT_PLUS : M_Titan_AT_OCimport_01
     {
         author = "RoFz";
         scope = 2;
@@ -429,8 +436,43 @@ class CfgAmmo
         airLock = 0;
         allowAgainstInfantry = 0;
         missileLockMinDistance = 900;
-        missileLockMaxDistance = 2000;
-        timeToLive = 30;
+        missileLockMaxDistance = 4000;
+        maxControlRange = 4000;
+        timeToLive = 40;
+
+        // M_Titan_AT's inherited IR seeker is capped at 2 km independently
+        // from missileLockMaxDistance. Extend both target channels so the
+        // carrier can actually acquire throughout its new 4 km envelope.
+        class Components : Components
+        {
+            class SensorsManagerComponent
+            {
+                class Components
+                {
+                    class IRSensorComponent : SensorTemplateIR
+                    {
+                        class AirTarget
+                        {
+                            minRange = 500;
+                            maxRange = 4000;
+                            objectDistanceLimitCoef = -1;
+                            viewDistanceLimitCoef = 1;
+                        };
+                        class GroundTarget
+                        {
+                            minRange = 500;
+                            maxRange = 4000;
+                            objectDistanceLimitCoef = 1;
+                            viewDistanceLimitCoef = 1;
+                        };
+                        maxTrackableSpeed = 35;
+                        angleRangeHorizontal = 3.7;
+                        angleRangeVertical = 2.3;
+                        maxTrackableATL = 50;
+                    };
+                };
+            };
+        };
 
         class EventHandlers
         {
