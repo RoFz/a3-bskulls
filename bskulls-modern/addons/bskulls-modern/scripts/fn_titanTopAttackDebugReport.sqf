@@ -42,7 +42,7 @@ private _hawkinsUnits = allUnits select {
 
 private _report = [
     ["report", "Black Skulls HVPS-17 Archangel"],
-    ["schemaVersion", 2],
+    ["schemaVersion", 3],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
@@ -59,6 +59,7 @@ private _report = [
     ]],
     ["debug", [
         ["enabled", missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]],
+        ["autoStarted", missionNamespace getVariable ["bskulls_titanTopAttackDebugAutoStarted", false]],
         ["chat", missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]],
         ["startedAtTick", _debugStartedAt],
         ["elapsed", if (_debugStartedAt < 0) then {-1} else {diag_tickTime - _debugStartedAt}],

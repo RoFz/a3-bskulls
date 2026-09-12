@@ -29,6 +29,7 @@ class CfgFunctions {
         class weapons {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class titanTopAttackAmmoHit {};
+            class titanTopAttackDebugAutoStart { postInit = 1; };
             class titanTopAttackDebugReport {};
             class titanTopAttackFired {};
             class titanTopAttackInitUnitDebug {};

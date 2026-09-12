@@ -1,7 +1,7 @@
 /*
  * Enable or disable Archangel diagnostics on the machine executing this call.
- * Use Local Exec in single-player and Global Exec when every multiplayer
- * machine should collect its local projectile, optic, and AI state.
+ * Collection starts automatically in the diagnostic build. Use Local Exec in
+ * single-player and Global Exec when changing every multiplayer machine.
  *
  * Debug Console examples:
  *   [true] call bskulls_fnc_titanTopAttackSetDebug;              // enable

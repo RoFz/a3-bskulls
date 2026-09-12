@@ -1,18 +1,22 @@
 /*
  * Record one parseable diagnostic event for the Archangel top attack.
  *
- * Diagnostics are opt-in through bskulls_fnc_titanTopAttackSetDebug. Terse
- * local systemChat events can be requested separately when enabling them.
+ * Diagnostics start automatically and remain switchable through
+ * bskulls_fnc_titanTopAttackSetDebug. Terse local systemChat events can be
+ * requested separately when enabling them.
  * The latest 500 local records remain in bskulls_titanTopAttackDebugRecords.
  * UNIT_STATE also has a dedicated 240-record buffer so opening the launcher
  * optic cannot evict the AI acquisition history needed for diagnosis.
+ * UNIT_STATE passes a compact RPT projection because Arma truncates long
+ * diag_log lines; the complete record remains in the in-memory buffers.
  */
 
 params [
     ["_projectile", objNull, [objNull]],
     ["_event", "", [""]],
     ["_details", [], [[]]],
-    ["_traceId", "", [""]]
+    ["_traceId", "", [""]],
+    ["_rptDetails", [], [[]]]
 ];
 
 if !(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {false};
@@ -58,7 +62,11 @@ if (_event isEqualTo "UNIT_STATE") then {
     ];
 };
 
-diag_log format ["[BSKULLS][TITAN-TA] %1", _record];
+private _rptRecord = +_record;
+if (_rptDetails isNotEqualTo []) then {
+    _rptRecord set [7, ["details", _rptDetails]];
+};
+diag_log format ["[BSKULLS][TITAN-TA] %1", _rptRecord];
 if (
     hasInterface
     && {missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]}

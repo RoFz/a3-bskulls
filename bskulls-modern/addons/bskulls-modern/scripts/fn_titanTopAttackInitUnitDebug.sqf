@@ -45,6 +45,15 @@ private _handle = [_unit, _traceId] spawn {
 
         acos (((_left vectorCos _right) max -1) min 1)
     };
+    private _pairValue = {
+        params ["_pairs", "_key", "_default"];
+
+        private _index = _pairs findIf {
+            (_x param [0, "", [""]]) isEqualTo _key
+        };
+        if (_index < 0) exitWith {_default};
+        (_pairs select _index) param [1, _default]
+    };
     private _describeKnowledge = {
         params ["_observer", "_target"];
 
@@ -173,10 +182,17 @@ private _handle = [_unit, _traceId] spawn {
                 ["alive", false],
                 ["distance2D", -1],
                 ["distance3D", -1],
+                ["side", "UNKNOWN"],
+                ["crewCount", 0],
                 ["engineOn", false],
                 ["speed", 0],
                 ["knowsAbout", 0],
                 ["irTarget", 0],
+                ["isTank", false],
+                ["isWheeledAPC", false],
+                ["isTruck", false],
+                ["armor", 0],
+                ["threat", []],
                 ["remoteTarget", false],
                 ["remoteTargetInfo", []]
             ]
@@ -202,10 +218,17 @@ private _handle = [_unit, _traceId] spawn {
             ["alive", alive _target],
             ["distance2D", _observer distance2D _target],
             ["distance3D", _observer distance _target],
+            ["side", str side _target],
+            ["crewCount", count crew _target],
             ["engineOn", isEngineOn _target],
             ["speed", speed _target],
             ["knowsAbout", _observer knowsAbout _target],
             ["irTarget", getNumber (configOf _target >> "irTarget")],
+            ["isTank", _target isKindOf "Tank"],
+            ["isWheeledAPC", _target isKindOf "Wheeled_APC_F"],
+            ["isTruck", _target isKindOf "Truck_F"],
+            ["armor", getNumber (configOf _target >> "armor")],
+            ["threat", getArray (configOf _target >> "threat")],
             ["remoteTarget", _remoteIndex >= 0],
             ["remoteTargetInfo", _remoteInfo]
         ]
@@ -323,6 +346,54 @@ private _handle = [_unit, _traceId] spawn {
             _knownArmor resize 6;
         };
 
+        // nearTargets only contains objects already known to the AI. Compare
+        // it with the real nearby vehicle population so the RPT distinguishes
+        // acquisition failure from a later range, visibility, lock, weapon,
+        // or command refusal. This scan exists only while diagnostics run.
+        private _observerSide = side group _unit;
+        private _physicalEnemyCandidates = [];
+        {
+            private _candidate = _x;
+            private _distance = _unit distance2D _candidate;
+            private _candidateSide = side _candidate;
+            if (
+                alive _candidate
+                && {_candidate isKindOf "LandVehicle"}
+                && {_distance <= 2500}
+                && {_candidateSide isNotEqualTo sideUnknown}
+                && {(_observerSide getFriend _candidateSide) < 0.6}
+            ) then {
+                _physicalEnemyCandidates pushBack [
+                    _distance,
+                    typeOf _candidate,
+                    _candidate
+                ];
+            };
+        } forEach vehicles;
+        _physicalEnemyCandidates sort true;
+        if ((count _physicalEnemyCandidates) > 6) then {
+            _physicalEnemyCandidates resize 6;
+        };
+        private _physicalEnemyVehicles = _physicalEnemyCandidates apply {
+            private _candidate = _x select 2;
+            [
+                ["assigned", _candidate isEqualTo _assignedTarget],
+                ["attack", _candidate isEqualTo _attackTarget]
+            ]
+            + ([_unit, _candidate, _remoteTargets] call _describeTarget)
+        };
+        private _physicalEnemyState = _physicalEnemyVehicles apply {
+            [
+                [_x, "class", ""] call _pairValue,
+                round (([_x, "distance2D", -1] call _pairValue) / 25),
+                round (([_x, "knowsAbout", 0] call _pairValue) * 20),
+                [_x, "engineOn", false] call _pairValue,
+                ([_x, "viewVisibility", 0] call _pairValue) > 0,
+                ([_x, "fireVisibility", 0] call _pairValue) > 0,
+                [_x, "terrainBlocked", false] call _pairValue
+            ]
+        };
+
         private _groupLeader = leader group _unit;
         private _connectedUAV = getConnectedUAV _groupLeader;
         private _groupContext = [
@@ -386,6 +457,103 @@ private _handle = [_unit, _traceId] spawn {
             ["FIREWEAPON", _unit checkAIFeature "FIREWEAPON"]
         ];
 
+        private _focusTargetState = [
+            _attackTargetState,
+            _assignedTargetState
+        ] select (_focusTarget isEqualTo _assignedTarget);
+        private _focusClass = [_focusTargetState, "class", ""] call _pairValue;
+        private _focusEngineOn = [_focusTargetState, "engineOn", false] call _pairValue;
+        private _focusSpeed = [_focusTargetState, "speed", 0] call _pairValue;
+        private _focusKnowsAbout = [_focusTargetState, "knowsAbout", 0] call _pairValue;
+        private _focusIrTarget = [_focusTargetState, "irTarget", 0] call _pairValue;
+        private _focusLastSeenAge = [_focusTargetState, "lastSeenAge", -1] call _pairValue;
+        private _focusRemote = [_focusTargetState, "remoteTarget", false] call _pairValue;
+        private _focusView = [_focusTargetState, "viewVisibility", 0] call _pairValue;
+        private _focusFire = [_focusTargetState, "fireVisibility", 0] call _pairValue;
+        private _focusTerrainBlocked = [_focusTargetState, "terrainBlocked", false] call _pairValue;
+        private _focusBearing = [_focusTargetState, "relativeBearing", -1] call _pairValue;
+        private _focusEyeAngle = [_focusTargetState, "eyeTargetAngle", -1] call _pairValue;
+
+        // These are observed constraints, not a claim about an inaccessible
+        // internal AI decision. In particular, an engine-off IR target can
+        // remain hot for some time after shutdown.
+        // https://community.bohemia.net/wiki/A3_Targeting_config_reference
+        private _observedConstraints = [];
+        if ((unitCombatMode _unit) isEqualTo "BLUE") then {
+            _observedConstraints pushBack "unit-blue";
+        };
+        if ((combatMode group _unit) isEqualTo "BLUE") then {
+            _observedConstraints pushBack "group-blue";
+        };
+        if (isNull _focusTarget) then {
+            _observedConstraints pushBack "no-target";
+        } else {
+            if (!_focusIsVehicle) then {
+                _observedConstraints pushBack "not-vehicle";
+            };
+            if (!alive _focusTarget) then {
+                _observedConstraints pushBack "dead";
+            };
+            if (_targetDistance2D < 900) then {
+                _observedConstraints pushBack "below-min";
+            };
+            if (_targetDistance2D > 2000) then {
+                _observedConstraints pushBack "above-max";
+            };
+            if (_focusKnowsAbout <= 0) then {
+                _observedConstraints pushBack "unknown";
+            };
+            if (_focusIrTarget <= 0) then {
+                _observedConstraints pushBack "ir-disabled";
+            };
+            if (!_focusEngineOn) then {
+                _observedConstraints pushBack "engine-off";
+            };
+            if (_focusTerrainBlocked) then {
+                _observedConstraints pushBack "terrain";
+            };
+            if (_focusView <= 0) then {
+                _observedConstraints pushBack "no-view";
+            };
+            if (_focusFire <= 0) then {
+                _observedConstraints pushBack "no-fire";
+            };
+            if (_focusLastSeenAge > 30 && {_focusView <= 0}) then {
+                _observedConstraints pushBack "stale/remote";
+            };
+        };
+        if ((currentWeapon _unit) isNotEqualTo "B_PTbskull_Wea_law_02_titantop") then {
+            _observedConstraints pushBack "weapon-not-selected";
+        };
+        if (_missileCount <= 0) then {
+            _observedConstraints pushBack "no-ammo";
+        };
+        if !(canFire _unit) then {
+            _observedConstraints pushBack "cannot-fire";
+        };
+
+        private _physicalKnownCount = {
+            ([_x, "knowsAbout", 0] call _pairValue) > 0
+        } count _physicalEnemyVehicles;
+        private _physicalEnvelopeCount = {
+            private _distance = [_x, "distance2D", -1] call _pairValue;
+            _distance >= 900 && {_distance <= 2000}
+        } count _physicalEnemyVehicles;
+        private _physicalVisibleEnvelopeCount = {
+            private _distance = [_x, "distance2D", -1] call _pairValue;
+            _distance >= 900
+            && {_distance <= 2000}
+            && {([_x, "viewVisibility", 0] call _pairValue) > 0}
+            && {([_x, "fireVisibility", 0] call _pairValue) > 0}
+            && {!([_x, "terrainBlocked", false] call _pairValue)}
+        } count _physicalEnemyVehicles;
+        private _physicalRunningEnvelopeCount = {
+            private _distance = [_x, "distance2D", -1] call _pairValue;
+            _distance >= 900
+            && {_distance <= 2000}
+            && {[_x, "engineOn", false] call _pairValue}
+        } count _physicalEnemyVehicles;
+
         private _state = [
             str _assignedTarget,
             str _attackTarget,
@@ -405,7 +573,9 @@ private _handle = [_unit, _traceId] spawn {
             _aiSkills,
             _aiFeatures,
             _targetDaps,
-            _knownArmor
+            _knownArmor,
+            _physicalEnemyState,
+            _observedConstraints
         ];
         private _stateChanged = _state isNotEqualTo _lastLoggedState;
         private _sinceLastLog = diag_tickTime - _lastLogAt;
@@ -415,6 +585,61 @@ private _handle = [_unit, _traceId] spawn {
             || {(_stateChanged && {_sinceLastLog >= 5})}
             || {_sinceLastLog >= 30}
         ) then {
+            private _nearestPhysical = _physicalEnemyVehicles apply {
+                [
+                    [_x, "class", ""] call _pairValue,
+                    round ([_x, "distance2D", -1] call _pairValue),
+                    round (([_x, "knowsAbout", 0] call _pairValue) * 100) / 100,
+                    [_x, "engineOn", false] call _pairValue,
+                    round (([_x, "viewVisibility", 0] call _pairValue) * 100) / 100,
+                    [_x, "terrainBlocked", false] call _pairValue
+                ]
+            };
+            if ((count _nearestPhysical) > 2) then {
+                _nearestPhysical resize 2;
+            };
+            private _rptDetails = [
+                ["unit", str _unit],
+                ["targets", [
+                    [_assignedTargetState, "class", ""] call _pairValue,
+                    [_attackTargetState, "class", ""] call _pairValue,
+                    _focusClass
+                ]],
+                ["focus", [
+                    round _targetDistance2D,
+                    _focusEngineOn,
+                    round _focusSpeed,
+                    round (_focusKnowsAbout * 100) / 100,
+                    round _focusLastSeenAge,
+                    _focusRemote,
+                    round (_focusView * 100) / 100,
+                    round (_focusFire * 100) / 100,
+                    _focusTerrainBlocked,
+                    round _focusBearing,
+                    round _focusEyeAngle
+                ]],
+                ["weapon", [
+                    currentWeapon _unit,
+                    currentWeaponMode _unit,
+                    currentCommand _unit,
+                    _missileCount,
+                    canFire _unit
+                ]],
+                ["combat", [
+                    unitCombatMode _unit,
+                    combatMode group _unit,
+                    behaviour _unit
+                ]],
+                ["constraints", _observedConstraints],
+                ["physical", [
+                    count _physicalEnemyVehicles,
+                    _physicalKnownCount,
+                    _physicalEnvelopeCount,
+                    _physicalVisibleEnvelopeCount,
+                    _physicalRunningEnvelopeCount
+                ]],
+                ["nearest", _nearestPhysical]
+            ];
             [
                 objNull,
                 "UNIT_STATE",
@@ -453,9 +678,12 @@ private _handle = [_unit, _traceId] spawn {
                     ["aiSkills", _aiSkills],
                     ["aiFeatures", _aiFeatures],
                     ["targetDaps", _targetDaps],
-                    ["knownArmor", _knownArmor]
+                    ["knownArmor", _knownArmor],
+                    ["physicalEnemyVehicles", _physicalEnemyVehicles],
+                    ["observedConstraints", _observedConstraints]
                 ],
-                _traceId
+                _traceId,
+                _rptDetails
             ] call bskulls_fnc_titanTopAttackLog;
 
             _lastLoggedState = _state;
