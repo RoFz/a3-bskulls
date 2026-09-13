@@ -24,6 +24,10 @@ if (_clearRecords) then {
     localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackAcquisitionTestResult",
+        []
+    ];
 };
 
 if (_enabled && {!_wasEnabled || {_clearRecords}}) then {

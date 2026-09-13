@@ -34,6 +34,12 @@ private _unitStateRecords = +(
 private _orderRecords = +(
     localNamespace getVariable ["bskulls_titanTopAttackOrderRecords", []]
 );
+private _acquisitionTestResult = +(
+    localNamespace getVariable [
+        "bskulls_titanTopAttackAcquisitionTestResult",
+        []
+    ]
+);
 private _debugStartedAt = localNamespace getVariable [
     "bskulls_titanTopAttackDebugStartedAt",
     -1
@@ -45,7 +51,7 @@ private _hawkinsUnits = allUnits select {
 
 private _report = [
     ["report", "Black Skulls HVPS-17 Archangel"],
-    ["schemaVersion", 6],
+    ["schemaVersion", 7],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
@@ -246,6 +252,11 @@ private _report = [
     ["orderRecordLimit", 240],
     ["orderRecordBufferFull", (count _orderRecords) >= 240],
     ["orderRecords", _orderRecords],
+    ["acquisitionTestRunning", localNamespace getVariable [
+        "bskulls_titanTopAttackAcquisitionTestRunning",
+        false
+    ]],
+    ["acquisitionTestResult", _acquisitionTestResult],
     ["records", _records]
 ];
 
@@ -264,6 +275,10 @@ if (_clearAfter) then {
     localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackAcquisitionTestResult",
+        []
+    ];
     if (localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) then {
         localNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
     };

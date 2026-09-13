@@ -13,6 +13,14 @@ if (isNil {localNamespace getVariable "bskulls_titanTopAttackDebug"}) then {
     localNamespace setVariable ["bskulls_titanTopAttackDebugChat", false];
 };
 localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
+localNamespace setVariable [
+    "bskulls_titanTopAttackAcquisitionTestRunning",
+    false
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackAcquisitionTestResult",
+    []
+];
 
 private _oldLoadedEh = localNamespace getVariable [
     "bskulls_titanTopAttackLoadedEh",
@@ -55,6 +63,14 @@ private _loadedEh = addMissionEventHandler ["Loaded", {
     localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
     localNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackAcquisitionTestRunning",
+        false
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackAcquisitionTestResult",
+        []
+    ];
     localNamespace setVariable [
         "bskulls_titanTopAttackDebugStartedAt",
         diag_tickTime
