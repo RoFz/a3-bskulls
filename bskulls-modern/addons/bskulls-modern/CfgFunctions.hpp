@@ -30,13 +30,17 @@ class CfgFunctions {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class titanTopAttackAmmoHit {};
             class titanTopAttackDebugAutoStart { postInit = 1; };
+            class titanTopAttackDebugPreInit { preInit = 1; };
             class titanTopAttackDebugReport {};
+            class titanTopAttackFireDiscipline {};
             class titanTopAttackFired {};
             class titanTopAttackInitOrderDebug {};
             class titanTopAttackInitUnitDebug {};
             class titanTopAttackLog {};
             class titanTopAttackOpticLoad {};
             class titanTopAttackProjectileInit {};
+            class titanTopAttackRuntimeGet {};
+            class titanTopAttackRuntimeSet {};
             class titanTopAttackSetDebug {};
             class titanTopAttackSubmunitionCreated {};
             class titanTopAttackTerminalVisual {};

@@ -7,9 +7,9 @@
  * The latest 500 local records remain in bskulls_titanTopAttackDebugRecords.
  * UNIT_STATE also has a dedicated 240-record buffer so opening the launcher
  * optic cannot evict the AI acquisition history needed for diagnosis. Player
- * order, weapon-switch, and group-command events use a separate 240-record
- * buffer for the same reason. Long events pass a compact RPT projection; the
- * complete record remains in the in-memory buffers.
+ * sampled order transitions and their scheduled followups use a separate
+ * 240-record buffer for the same reason. Long events pass a compact RPT
+ * projection; the complete record remains in the local in-memory buffers.
  */
 
 params [
@@ -20,10 +20,14 @@ params [
     ["_rptDetails", [], [[]]]
 ];
 
-if !(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {false};
+if !(localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {false};
 
 if (_traceId isEqualTo "" && {!isNull _projectile}) then {
-    _traceId = _projectile getVariable ["bskulls_titanTopAttackTraceId", "untracked"];
+    _traceId = [
+        _projectile,
+        "trace-id",
+        "untracked"
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
 };
 if (_traceId isEqualTo "") then {
     _traceId = "untracked";
@@ -41,15 +45,30 @@ private _record = [
     ["details", _details]
 ];
 
-private _records = missionNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []];
-_records pushBack _record;
-if ((count _records) > 500) then {
-    _records deleteAt 0;
-};
-missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", _records];
+private _isUnitState = _event isEqualTo "UNIT_STATE";
+private _isOrderState = _event in [
+    "ORDER_STATE",
+    "ORDER_FOLLOWUP",
+    "GROUP_COMMAND_CHANGED",
+    "WEAPON_CHANGED"
+];
 
-if (_event isEqualTo "UNIT_STATE") then {
-    private _unitStateRecords = missionNamespace getVariable [
+// Unit and order events have dedicated buffers. Avoid retaining a second copy
+// in the general projectile/event buffer.
+if (!_isUnitState && {!_isOrderState}) then {
+    private _records = localNamespace getVariable [
+        "bskulls_titanTopAttackDebugRecords",
+        []
+    ];
+    _records pushBack _record;
+    if ((count _records) > 500) then {
+        _records deleteAt 0;
+    };
+    localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", _records];
+};
+
+if (_isUnitState) then {
+    private _unitStateRecords = localNamespace getVariable [
         "bskulls_titanTopAttackUnitStateRecords",
         []
     ];
@@ -57,19 +76,14 @@ if (_event isEqualTo "UNIT_STATE") then {
     if ((count _unitStateRecords) > 240) then {
         _unitStateRecords deleteAt 0;
     };
-    missionNamespace setVariable [
+    localNamespace setVariable [
         "bskulls_titanTopAttackUnitStateRecords",
         _unitStateRecords
     ];
 };
 
-if (_event in [
-    "ORDER_STATE",
-    "ORDER_FOLLOWUP",
-    "GROUP_COMMAND_CHANGED",
-    "WEAPON_CHANGED"
-]) then {
-    private _orderRecords = missionNamespace getVariable [
+if (_isOrderState) then {
+    private _orderRecords = localNamespace getVariable [
         "bskulls_titanTopAttackOrderRecords",
         []
     ];
@@ -77,7 +91,7 @@ if (_event in [
     if ((count _orderRecords) > 240) then {
         _orderRecords deleteAt 0;
     };
-    missionNamespace setVariable [
+    localNamespace setVariable [
         "bskulls_titanTopAttackOrderRecords",
         _orderRecords
     ];
@@ -90,7 +104,7 @@ if (_rptDetails isNotEqualTo []) then {
 diag_log format ["[BSKULLS][TITAN-TA] %1", _rptRecord];
 if (
     hasInterface
-    && {missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]}
+    && {localNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]}
 ) then {
     systemChat format ["Titan TA %1: %2", _traceId, _event];
 };

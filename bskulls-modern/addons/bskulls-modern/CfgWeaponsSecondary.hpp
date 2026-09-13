@@ -97,8 +97,18 @@
             // comes from this class name (Overfly).
             textureType = "topDown";
             displayName = "Stand-off Top Attack";
-            aiRateOfFire = 15;
-            aiRateOfFireDistance = 3750;
+            // AI cadence is only a fallback for the scripted in-flight gate.
+            // BI scales aiRateOfFire linearly down at distances shorter than
+            // aiRateOfFireDistance, so anchor the full delay at the launcher's
+            // minimum range instead of its maximum range.
+            // https://community.bohemia.net/wiki/Arma_3:_AI_Config_Reference
+            aiRateOfFire = 18;
+            aiRateOfFireDistance = 900;
+            // The fire-discipline controller repeatedly restores this round
+            // reload phase while a carrier is active. Two seconds leaves a
+            // safe margin between scheduled refreshes without making a player
+            // reload onerous (the scripted hold is AI-only).
+            reloadTime = 2;
             minRange = 900;
             minRangeProbab = 0.8;
             midRange = 2400;

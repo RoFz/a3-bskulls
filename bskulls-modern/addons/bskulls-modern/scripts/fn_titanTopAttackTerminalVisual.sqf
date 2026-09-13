@@ -15,14 +15,25 @@ private _ammoConfig = configFile >> "CfgAmmo" >> _projectileClass;
 private _cloudletClass = getText (_ammoConfig >> "bskulls_terminalVisualCloudlet");
 if (_cloudletClass isEqualTo "") exitWith {false};
 
-// Projectile variables are local here: every rendering client needs its own
-// local particle source, but repeated Init/Fired paths on one client must not
-// create duplicates.
-if (_projectile getVariable ["bskulls_titanTopAttackVisualInitialized", false]) exitWith {true};
-_projectile setVariable ["bskulls_titanTopAttackVisualInitialized", true, false];
+// Every rendering client needs its own source. Keep both the duplicate guard
+// and the local particle handle outside the save-game namespace graph.
+if ([
+    _projectile,
+    "visual-initialized",
+    false
+] call bskulls_fnc_titanTopAttackRuntimeGet) exitWith {true};
+[
+    _projectile,
+    "visual-initialized",
+    true
+] call bskulls_fnc_titanTopAttackRuntimeSet;
 
-private _traceId = _projectile getVariable ["bskulls_titanTopAttackTraceId", "untracked"];
-private _debugEnabled = missionNamespace getVariable ["bskulls_titanTopAttackDebug", false];
+private _traceId = [
+    _projectile,
+    "trace-id",
+    "untracked"
+] call bskulls_fnc_titanTopAttackRuntimeGet;
+private _debugEnabled = localNamespace getVariable ["bskulls_titanTopAttackDebug", false];
 private _profile = getText (_ammoConfig >> "bskulls_terminalVisualProfile");
 private _cloudletConfig = configFile >> "CfgCloudlets" >> _cloudletClass;
 private _dropInterval = getNumber (_ammoConfig >> "bskulls_terminalVisualDropInterval");
@@ -109,7 +120,6 @@ if (isNull _source) exitWith {
 _source setParticleClass _cloudletClass;
 _source setDropInterval _dropInterval;
 _source attachTo [_projectile, [0,0,0]];
-_projectile setVariable ["bskulls_titanTopAttackVisualSource", _source, false];
 
 if (_debugEnabled) then {
     private _observerDistance = if (isNull cameraOn) then {
@@ -161,101 +171,229 @@ private _lastPositionASL = _positionASL;
 private _lastCurveProgress = 0;
 private _lastCurveOffset = 0;
 private _maximumCurveOffset = 0;
-waitUntil {
-    uiSleep 0.005;
-    if (!isNull _projectile) then {
-        _lastPositionASL = getPosASL _projectile;
+private _monitorCounter = 1 + (localNamespace getVariable [
+    "bskulls_titanTopAttackVisualMonitorCounter",
+    0
+]);
+localNamespace setVariable [
+    "bskulls_titanTopAttackVisualMonitorCounter",
+    _monitorCounter
+];
+private _monitorName = format [
+    "bskulls_titanTopAttackVisualMonitor_%1",
+    _monitorCounter
+];
+localNamespace setVariable [_monitorName, [
+    _projectile,
+    _source,
+    _traceId,
+    _debugEnabled,
+    _profile,
+    _cloudletClass,
+    _linger,
+    _curveEnabled,
+    _curveAmplitude,
+    _curveDirection,
+    _curveSecondary,
+    _curveTarget,
+    _curveTargetPosASL,
+    _curveInitialDistance,
+    _projectileSpeed,
+    _curveEstimatedDuration,
+    _startedAt,
+    _lastPositionASL,
+    _lastCurveProgress,
+    _lastCurveOffset,
+    _maximumCurveOffset,
+    -1
+]];
+private _monitorNames = localNamespace getVariable [
+    "bskulls_titanTopAttackTransientMonitorNames",
+    []
+];
+_monitorNames pushBackUnique _monitorName;
+localNamespace setVariable [
+    "bskulls_titanTopAttackTransientMonitorNames",
+    _monitorNames
+];
 
-        if (_curveEnabled) then {
-            if (isNull _curveTarget) then {
-                _curveTarget = _projectile getVariable ["bskulls_titanTopAttackTarget", objNull];
-            };
-            if (!isNull _curveTarget) then {
-                _curveTargetPosASL = getPosASL _curveTarget;
-            } else {
-                private _configuredTargetPosASL = _projectile getVariable ["bskulls_titanTopAttackTargetPosASL", []];
-                if ((count _configuredTargetPosASL) isEqualTo 3) then {
-                    _curveTargetPosASL = _configuredTargetPosASL;
+[{
+    params ["_arguments", "_handle"];
+    _arguments params ["_monitorName"];
+    private _monitor = localNamespace getVariable [_monitorName, []];
+    if (_monitor isEqualTo []) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };
+    _monitor params [
+        "_projectile",
+        "_source",
+        "_traceId",
+        "_debugEnabled",
+        "_profile",
+        "_cloudletClass",
+        "_linger",
+        "_curveEnabled",
+        "_curveAmplitude",
+        "_curveDirection",
+        "_curveSecondary",
+        "_curveTarget",
+        "_curveTargetPosASL",
+        "_curveInitialDistance",
+        "_projectileSpeed",
+        "_curveEstimatedDuration",
+        "_startedAt",
+        "_lastPositionASL",
+        "_lastCurveProgress",
+        "_lastCurveOffset",
+        "_maximumCurveOffset",
+        "_emissionEndedAt"
+    ];
+
+    if (_emissionEndedAt < 0) then {
+        if (!isNull _projectile) then {
+            _lastPositionASL = getPosASL _projectile;
+
+            if (_curveEnabled) then {
+                if (isNull _curveTarget) then {
+                    _curveTarget = _projectile getVariable [
+                        "bskulls_titanTopAttackTarget",
+                        objNull
+                    ];
                 };
-            };
-
-            if (_curveInitialDistance <= 0 && {(count _curveTargetPosASL) isEqualTo 3}) then {
-                _curveInitialDistance = _lastPositionASL vectorDistance _curveTargetPosASL;
-                if (_projectileSpeed > 0.01) then {
-                    _curveEstimatedDuration = _curveInitialDistance / _projectileSpeed;
+                if (!isNull _curveTarget) then {
+                    _curveTargetPosASL = getPosASL _curveTarget;
+                } else {
+                    private _configuredTargetPosASL = _projectile getVariable [
+                        "bskulls_titanTopAttackTargetPosASL",
+                        []
+                    ];
+                    if ((count _configuredTargetPosASL) isEqualTo 3) then {
+                        _curveTargetPosASL = _configuredTargetPosASL;
+                    };
                 };
-            };
 
-            _lastCurveProgress = if (
-                _curveInitialDistance > 0
-                && {(count _curveTargetPosASL) isEqualTo 3}
-            ) then {
-                1 - ((_lastPositionASL vectorDistance _curveTargetPosASL) / _curveInitialDistance)
-            } else {
-                (diag_tickTime - _startedAt) / (_curveEstimatedDuration max 0.01)
-            };
-            _lastCurveProgress = (_lastCurveProgress max 0) min 1;
+                if (
+                    _curveInitialDistance <= 0
+                    && {(count _curveTargetPosASL) isEqualTo 3}
+                ) then {
+                    _curveInitialDistance = _lastPositionASL vectorDistance _curveTargetPosASL;
+                    if (_projectileSpeed > 0.01) then {
+                        _curveEstimatedDuration = _curveInitialDistance / _projectileSpeed;
+                    };
+                };
 
-            // SQF trigonometric functions use degrees. Both components are
-            // zero at progress 0 and 1, keeping separation and impact aligned.
-            private _curveFactor = (sin (180 * _lastCurveProgress))
-                + (_curveSecondary * sin (360 * _lastCurveProgress));
-            _lastCurveOffset = _curveDirection * _curveAmplitude * _curveFactor;
-            _maximumCurveOffset = _maximumCurveOffset max (abs _lastCurveOffset);
-            _source attachTo [_projectile, [_lastCurveOffset,0,0]];
+                _lastCurveProgress = if (
+                    _curveInitialDistance > 0
+                    && {(count _curveTargetPosASL) isEqualTo 3}
+                ) then {
+                    1 - ((_lastPositionASL vectorDistance _curveTargetPosASL) / _curveInitialDistance)
+                } else {
+                    (diag_tickTime - _startedAt) / (_curveEstimatedDuration max 0.01)
+                };
+                _lastCurveProgress = (_lastCurveProgress max 0) min 1;
+
+                // SQF trigonometric functions use degrees. Both components
+                // remain zero at separation and impact.
+                private _curveFactor = (sin (180 * _lastCurveProgress))
+                    + (_curveSecondary * sin (360 * _lastCurveProgress));
+                _lastCurveOffset = _curveDirection * _curveAmplitude * _curveFactor;
+                _maximumCurveOffset = _maximumCurveOffset max (abs _lastCurveOffset);
+                _source attachTo [_projectile, [_lastCurveOffset,0,0]];
+            };
+        };
+
+        if (isNull _projectile || {(diag_tickTime - _startedAt) >= 1.2}) then {
+            _emissionEndedAt = diag_tickTime;
+            if (!isNull _source) then {
+                detach _source;
+                _source setPosASL _lastPositionASL;
+                _source setDropInterval 3600;
+            };
+            if (_debugEnabled) then {
+                [
+                    objNull,
+                    "VISUAL_EMISSION_ENDED",
+                    [
+                        ["profile", _profile],
+                        ["cloudlet", _cloudletClass],
+                        ["sourceAlive", !isNull _source],
+                        ["emittedFor", diag_tickTime - _startedAt],
+                        ["lastPositionASL", _lastPositionASL],
+                        ["visualCurve", [
+                            ["enabled", _curveEnabled],
+                            ["progress", _lastCurveProgress],
+                            ["lastOffset", _lastCurveOffset],
+                            ["maximumObservedOffset", _maximumCurveOffset],
+                            ["physicalProjectileAffected", false],
+                            ["dapsGeometryAffected", false]
+                        ]],
+                        ["linger", _linger]
+                    ],
+                    _traceId
+                ] call bskulls_fnc_titanTopAttackLog;
+            };
         };
     };
-    isNull _projectile || {(diag_tickTime - _startedAt) >= 1.2}
-};
 
-// Stop new particles without deleting the source yet. Existing particles can
-// then complete their configured lifetime instead of vanishing at impact.
-if (!isNull _source) then {
-    detach _source;
-    _source setPosASL _lastPositionASL;
-    _source setDropInterval 3600;
-};
+    if (
+        _emissionEndedAt >= 0
+        && {diag_tickTime - _emissionEndedAt >= _linger}
+    ) exitWith {
+        if (!isNull _source) then {
+            deleteVehicle _source;
+        };
+        if (_debugEnabled) then {
+            [
+                objNull,
+                "VISUAL_SOURCE_DELETED",
+                [
+                    ["profile", _profile],
+                    ["cloudlet", _cloudletClass],
+                    ["elapsed", diag_tickTime - _startedAt]
+                ],
+                _traceId
+            ] call bskulls_fnc_titanTopAttackLog;
+        };
+        localNamespace setVariable [_monitorName, nil];
+        private _monitorNames = localNamespace getVariable [
+            "bskulls_titanTopAttackTransientMonitorNames",
+            []
+        ];
+        private _monitorIndex = _monitorNames find _monitorName;
+        if (_monitorIndex >= 0) then {
+            _monitorNames deleteAt _monitorIndex;
+        };
+        localNamespace setVariable [
+            "bskulls_titanTopAttackTransientMonitorNames",
+            _monitorNames
+        ];
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };
 
-if (_debugEnabled) then {
-    [
-        objNull,
-        "VISUAL_EMISSION_ENDED",
-        [
-            ["profile", _profile],
-            ["cloudlet", _cloudletClass],
-            ["sourceAlive", !isNull _source],
-            ["emittedFor", diag_tickTime - _startedAt],
-            ["lastPositionASL", _lastPositionASL],
-            ["visualCurve", [
-                ["enabled", _curveEnabled],
-                ["progress", _lastCurveProgress],
-                ["lastOffset", _lastCurveOffset],
-                ["maximumObservedOffset", _maximumCurveOffset],
-                ["physicalProjectileAffected", false],
-                ["dapsGeometryAffected", false]
-            ]],
-            ["linger", _linger]
-        ],
-        _traceId
-    ] call bskulls_fnc_titanTopAttackLog;
-};
-
-uiSleep _linger;
-if (!isNull _source) then {
-    deleteVehicle _source;
-};
-
-if (_debugEnabled) then {
-    [
-        objNull,
-        "VISUAL_SOURCE_DELETED",
-        [
-            ["profile", _profile],
-            ["cloudlet", _cloudletClass],
-            ["elapsed", diag_tickTime - _startedAt]
-        ],
-        _traceId
-    ] call bskulls_fnc_titanTopAttackLog;
-};
+    localNamespace setVariable [_monitorName, [
+        _projectile,
+        _source,
+        _traceId,
+        _debugEnabled,
+        _profile,
+        _cloudletClass,
+        _linger,
+        _curveEnabled,
+        _curveAmplitude,
+        _curveDirection,
+        _curveSecondary,
+        _curveTarget,
+        _curveTargetPosASL,
+        _curveInitialDistance,
+        _projectileSpeed,
+        _curveEstimatedDuration,
+        _startedAt,
+        _lastPositionASL,
+        _lastCurveProgress,
+        _lastCurveOffset,
+        _maximumCurveOffset,
+        _emissionEndedAt
+    ]];
+}, 0, [_monitorName]] call CBA_fnc_addPerFrameHandler;
 
 true

@@ -13,12 +13,16 @@ params [
     ["_instigator", objNull, [objNull]]
 ];
 
-if !(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {false};
+if !(localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {false};
 
 private _traceId = if (isNull _projectile) then {
     "untracked"
 } else {
-    _projectile getVariable ["bskulls_titanTopAttackTraceId", "untracked"]
+    [
+        _projectile,
+        "trace-id",
+        "untracked"
+    ] call bskulls_fnc_titanTopAttackRuntimeGet
 };
 private _stage = if (isNull _projectile) then {
     "unknown"
@@ -32,7 +36,11 @@ private _stage = if (isNull _projectile) then {
     [
         ["stage", _stage],
         ["accuracy", if (isNull _projectile) then {[]} else {
-            _projectile getVariable ["bskulls_titanTopAttackAccuracy", []]
+            [
+                _projectile,
+                "accuracy",
+                []
+            ] call bskulls_fnc_titanTopAttackRuntimeGet
         }],
         ["shooter", str _shooter],
         ["instigator", str _instigator],
@@ -51,9 +59,8 @@ private _stage = if (isNull _projectile) then {
 ] call bskulls_fnc_titanTopAttackLog;
 
 if (!isNull _hitObject) then {
-    [_hitObject, _traceId, _stage] spawn {
+    [{
         params ["_hitObject", "_traceId", "_stage"];
-        uiSleep 0.1;
         [
             objNull,
             "POST_HIT_STATE",
@@ -70,7 +77,7 @@ if (!isNull _hitObject) then {
             ],
             _traceId
         ] call bskulls_fnc_titanTopAttackLog;
-    };
+    }, [_hitObject, _traceId, _stage], 0.1] call CBA_fnc_waitAndExecute;
 };
 
 true

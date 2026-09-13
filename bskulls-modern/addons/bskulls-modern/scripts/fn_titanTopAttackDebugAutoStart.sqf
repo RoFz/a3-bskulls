@@ -9,7 +9,7 @@
  * https://community.bohemia.net/wiki/Arma_3:_Functions_Library
  */
 
-missionNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
+localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
 [true, false, true] call bskulls_fnc_titanTopAttackSetDebug;
 
 private _carrier = configFile >> "CfgAmmo" >> "M_Titan_AT_TOP_PLUS";
@@ -28,7 +28,10 @@ private _mode = _launcher >> "Overfly";
         ["lockMax", getNumber (_carrier >> "missileLockMaxDistance")],
         ["lockMaxSpeed", getNumber (_carrier >> "missileLockMaxSpeed")],
         ["aiMin", getNumber (_mode >> "minRange")],
-        ["aiMax", getNumber (_mode >> "maxRange")]
+        ["aiMax", getNumber (_mode >> "maxRange")],
+        ["aiRateOfFire", getNumber (_mode >> "aiRateOfFire")],
+        ["aiRateOfFireDistance", getNumber (_mode >> "aiRateOfFireDistance")],
+        ["reloadTime", getNumber (_mode >> "reloadTime")]
     ],
     "autostart"
 ] call bskulls_fnc_titanTopAttackLog;

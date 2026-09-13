@@ -15,11 +15,14 @@ if !(_projectileClass in [_carrierClass, _terminalClass]) exitWith {false};
 
 private _stage = ["terminal", "carrier"] select (_projectileClass isEqualTo _carrierClass);
 if (_stage isEqualTo "terminal") then {
-    [_projectile] spawn bskulls_fnc_titanTopAttackTerminalVisual;
+    [_projectile] call bskulls_fnc_titanTopAttackTerminalVisual;
 };
 
 if (!local _projectile) exitWith {true};
 
+// These projectile variables are intentional in-flight gameplay state. They
+// contain only save-supported booleans, strings, positions, and (elsewhere)
+// object references; diagnostics and engine handles use localNamespace.
 if (_projectile getVariable ["bskulls_titanTopAttackInitialized", false]) exitWith {true};
 _projectile setVariable ["bskulls_titanTopAttackInitialized", true, false];
 _projectile setVariable ["bskulls_titanTopAttackStage", _stage, false];
@@ -33,18 +36,22 @@ if (_stage isEqualTo "carrier") then {
 
 // Target transfer and the terminal visual remain active with diagnostics off;
 // only the report construction and high-frequency trace are optional.
-if !(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {true};
+if !(localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {true};
 
 // SubmunitionCreated and the child's config Init do not have a documented
 // ordering. Preserve a trace ID already assigned by the parent callback so
 // either event order links both stages correctly.
-private _traceId = _projectile getVariable ["bskulls_titanTopAttackTraceId", ""];
+private _traceId = [
+    _projectile,
+    "trace-id",
+    ""
+] call bskulls_fnc_titanTopAttackRuntimeGet;
 if (_traceId isEqualTo "") then {
-    private _counter = 1 + (missionNamespace getVariable ["bskulls_titanTopAttackTraceCounter", 0]);
-    missionNamespace setVariable ["bskulls_titanTopAttackTraceCounter", _counter];
+    private _counter = 1 + (localNamespace getVariable ["bskulls_titanTopAttackTraceCounter", 0]);
+    localNamespace setVariable ["bskulls_titanTopAttackTraceCounter", _counter];
     _traceId = format ["%1-%2-%3", clientOwner, floor (diag_tickTime * 1000), _counter];
 };
-_projectile setVariable ["bskulls_titanTopAttackTraceId", _traceId, false];
+[_projectile, "trace-id", _traceId] call bskulls_fnc_titanTopAttackRuntimeSet;
 
 private _shotParents = (getShotParents _projectile) apply {str _x};
 private _visualConfig = [];
@@ -105,6 +112,6 @@ if (_stage isEqualTo "terminal") then {
     ]
 ] call bskulls_fnc_titanTopAttackLog;
 
-[_projectile] spawn bskulls_fnc_titanTopAttackTrace;
+[_projectile] call bskulls_fnc_titanTopAttackTrace;
 
 true

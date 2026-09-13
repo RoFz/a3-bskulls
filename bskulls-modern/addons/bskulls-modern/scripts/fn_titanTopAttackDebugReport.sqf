@@ -27,14 +27,14 @@ private _softLaunchCloudletName = getText (_softLaunchEffect >> "EjectionSmoke" 
 private _softLaunchCloudlet = configFile >> "CfgCloudlets" >> _softLaunchCloudletName;
 private _visualCloudletName = getText (_terminal >> "bskulls_terminalVisualCloudlet");
 private _visualCloudlet = configFile >> "CfgCloudlets" >> _visualCloudletName;
-private _records = +(missionNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []]);
+private _records = +(localNamespace getVariable ["bskulls_titanTopAttackDebugRecords", []]);
 private _unitStateRecords = +(
-    missionNamespace getVariable ["bskulls_titanTopAttackUnitStateRecords", []]
+    localNamespace getVariable ["bskulls_titanTopAttackUnitStateRecords", []]
 );
 private _orderRecords = +(
-    missionNamespace getVariable ["bskulls_titanTopAttackOrderRecords", []]
+    localNamespace getVariable ["bskulls_titanTopAttackOrderRecords", []]
 );
-private _debugStartedAt = missionNamespace getVariable [
+private _debugStartedAt = localNamespace getVariable [
     "bskulls_titanTopAttackDebugStartedAt",
     -1
 ];
@@ -45,7 +45,7 @@ private _hawkinsUnits = allUnits select {
 
 private _report = [
     ["report", "Black Skulls HVPS-17 Archangel"],
-    ["schemaVersion", 4],
+    ["schemaVersion", 6],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
@@ -61,27 +61,48 @@ private _report = [
         ["objectViewDistance", getObjectViewDistance]
     ]],
     ["debug", [
-        ["enabled", missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]],
-        ["autoStarted", missionNamespace getVariable ["bskulls_titanTopAttackDebugAutoStarted", false]],
-        ["chat", missionNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]],
+        ["storage", "localNamespace"],
+        ["scheduler", "CBA per-frame handlers"],
+        ["enabled", localNamespace getVariable ["bskulls_titanTopAttackDebug", false]],
+        ["autoStarted", localNamespace getVariable ["bskulls_titanTopAttackDebugAutoStarted", false]],
+        ["chat", localNamespace getVariable ["bskulls_titanTopAttackDebugChat", false]],
         ["startedAtTick", _debugStartedAt],
         ["elapsed", if (_debugStartedAt < 0) then {-1} else {diag_tickTime - _debugStartedAt}],
-        ["accuracyOverride", missionNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
+        ["accuracyOverride", localNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
+        ["loadedHandler", localNamespace getVariable ["bskulls_titanTopAttackLoadedEh", -1]],
+        ["transientMonitorCount", count (localNamespace getVariable [
+            "bskulls_titanTopAttackTransientMonitorNames",
+            []
+        ])],
         ["hawkinsMonitors", _hawkinsUnits apply {
-            private _stateHandle = _x getVariable [
-                "bskulls_titanTopAttackUnitDebugHandle",
-                scriptNull
-            ];
-            private _orderHandle = _x getVariable [
-                "bskulls_titanTopAttackOrderDebugHandle",
-                scriptNull
-            ];
+            private _stateHandle = [
+                _x,
+                "unit-debug-pfh",
+                -1
+            ] call bskulls_fnc_titanTopAttackRuntimeGet;
+            private _orderHandle = [
+                _x,
+                "order-debug-pfh",
+                -1
+            ] call bskulls_fnc_titanTopAttackRuntimeGet;
+            private _discipline = [
+                _x,
+                "discipline-state",
+                []
+            ] call bskulls_fnc_titanTopAttackRuntimeGet;
             [
                 ["unit", str _x],
                 ["local", local _x],
                 ["alive", alive _x],
-                ["stateRunning", !scriptDone _stateHandle],
-                ["orderRunning", !scriptDone _orderHandle]
+                ["stateRunning", _stateHandle >= 0],
+                ["orderRunning", _orderHandle >= 0],
+                ["archangelReloadPhase", if (local _x) then {
+                    (_x weaponState "B_PTbskull_Wea_law_02_titantop") param [
+                        5,
+                        -1
+                    ]
+                } else {-1}],
+                ["fireDiscipline", _discipline]
             ]
         }]
     ]],
@@ -206,6 +227,7 @@ private _report = [
         ["dirOnIdc", getNumber (_optic >> "CA_javelin_elements_group" >> "Controls" >> "CA_Javelin_DIR_on" >> "idc")],
         ["aiRateOfFire", getNumber (_overfly >> "aiRateOfFire")],
         ["aiRateOfFireDistance", getNumber (_overfly >> "aiRateOfFireDistance")],
+        ["reloadTime", getNumber (_overfly >> "reloadTime")],
         ["minRange", getNumber (_overfly >> "minRange")],
         ["minRangeProbab", getNumber (_overfly >> "minRangeProbab")],
         ["midRange", getNumber (_overfly >> "midRange")],
@@ -239,11 +261,11 @@ if (_copyToClipboard && {hasInterface}) then {
 };
 
 if (_clearAfter) then {
-    missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
-    missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
-    missionNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
-    if (missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) then {
-        missionNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
+    localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
+    localNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+    localNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
+    if (localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) then {
+        localNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
     };
 };
 

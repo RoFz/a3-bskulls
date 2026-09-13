@@ -2,27 +2,34 @@
  * Trace the AI decision state of the dedicated top-attack Hawkins variant.
  * Projectile events cannot diagnose a launcher that is never selected or
  * fired, so this records target knowledge and weapon state at a low rate.
+ * CBA's PFH scheduler adjusts its deadlines when a saved mission is loaded.
+ * https://github.com/CBATeam/CBA_A3/blob/master/addons/common/init_perFrameHandler.sqf
  */
 
 params [["_unit", objNull, [objNull]]];
 
 if (isNull _unit) exitWith {false};
 
-private _oldHandle = _unit getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
+private _oldHandle = [
+    _unit,
+    "unit-debug-pfh",
+    -1
+] call bskulls_fnc_titanTopAttackRuntimeGet;
 if (
     !local _unit
     || {!alive _unit}
     || {isPlayer _unit}
-    || {!(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
 ) exitWith {
-    if (!scriptDone _oldHandle) then {
-        terminate _oldHandle;
+    if (_oldHandle >= 0) then {
+        [_oldHandle] call CBA_fnc_removePerFrameHandler;
     };
-    _unit setVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull, false];
+    [_unit, "unit-debug-pfh", -1] call bskulls_fnc_titanTopAttackRuntimeSet;
+    [_unit, "unit-debug-state", []] call bskulls_fnc_titanTopAttackRuntimeSet;
     false
 };
 
-if (!scriptDone _oldHandle) exitWith {true};
+if (_oldHandle >= 0) exitWith {true};
 
 private _unitId = netId _unit;
 if (_unitId isEqualTo "") then {
@@ -30,11 +37,54 @@ if (_unitId isEqualTo "") then {
 };
 private _traceId = format ["unit-%1", _unitId];
 
-private _handle = [_unit, _traceId] spawn {
-    params ["_unit", "_traceId"];
+private _handle = [{
+    params ["_arguments", "_handle"];
+    _arguments params ["_unit", "_traceId"];
 
-    private _lastLoggedState = [];
-    private _lastLogAt = -1e10;
+    if (
+        isNull _unit
+        || {!local _unit}
+        || {!alive _unit}
+        || {isPlayer _unit}
+        || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    ) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        if (!isNull _unit) then {
+            private _registeredHandle = [
+                _unit,
+                "unit-debug-pfh",
+                -1
+            ] call bskulls_fnc_titanTopAttackRuntimeGet;
+            if (_registeredHandle isEqualTo _handle) then {
+                [
+                    _unit,
+                    "unit-debug-pfh",
+                    -1
+                ] call bskulls_fnc_titanTopAttackRuntimeSet;
+            };
+        };
+    };
+
+    private _registeredHandle = [
+        _unit,
+        "unit-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    if (_registeredHandle < 0) then {
+        [
+            _unit,
+            "unit-debug-pfh",
+            _handle
+        ] call bskulls_fnc_titanTopAttackRuntimeSet;
+    };
+
+    private _monitorState = [
+        _unit,
+        "unit-debug-state",
+        [[], -1e10]
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    private _lastLoggedState = _monitorState param [0, []];
+    private _lastLogAt = _monitorState param [1, -1e10];
     private _carrierConfig = configFile >> "CfgAmmo" >> "M_Titan_AT_TOP_PLUS";
     private _lockMinDistance = getNumber (_carrierConfig >> "missileLockMinDistance");
     private _lockMaxDistance = getNumber (_carrierConfig >> "missileLockMaxDistance");
@@ -246,13 +296,8 @@ private _handle = [_unit, _traceId] spawn {
         + ([_observer, _target] call _describeGeometry)
     };
 
-    while {
-        !isNull _unit
-        && {alive _unit}
-        && {local _unit}
-        && {!isPlayer _unit}
-        && {missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]}
-    } do {
+    // One save-compatible CBA PFH sample. Mutable diagnostic history remains
+    // in localNamespace rather than in the handler arguments or save stream.
         private _remoteTargets = listRemoteTargets (side (group _unit));
         private _assignedTarget = assignedTarget _unit;
         private _attackTarget = getAttackTarget _unit;
@@ -483,6 +528,15 @@ private _handle = [_unit, _traceId] spawn {
         private _focusTerrainBlocked = [_focusTargetState, "terrainBlocked", false] call _pairValue;
         private _focusBearing = [_focusTargetState, "relativeBearing", -1] call _pairValue;
         private _focusEyeAngle = [_focusTargetState, "eyeTargetAngle", -1] call _pairValue;
+        private _fireDiscipline = [
+            _unit,
+            "discipline-state",
+            []
+        ] call bskulls_fnc_titanTopAttackRuntimeGet;
+        private _fireDisciplineActive = _fireDiscipline isNotEqualTo [];
+        private _archangelReloadPhase = (
+            _unit weaponState "B_PTbskull_Wea_law_02_titantop"
+        ) param [5, -1];
 
         // These are observed constraints, not a claim about an inaccessible
         // internal AI decision. In particular, an engine-off IR target can
@@ -541,6 +595,9 @@ private _handle = [_unit, _traceId] spawn {
         if !(canFire _unit) then {
             _observedConstraints pushBack "cannot-fire";
         };
+        if (_fireDisciplineActive) then {
+            _observedConstraints pushBack "archangel-in-flight";
+        };
 
         private _physicalKnownCount = {
             ([_x, "knowsAbout", 0] call _pairValue) > 0
@@ -585,7 +642,9 @@ private _handle = [_unit, _traceId] spawn {
             _targetDaps,
             _knownArmor,
             _physicalEnemyState,
-            _observedConstraints
+            _observedConstraints,
+            _fireDisciplineActive,
+            round (_archangelReloadPhase * 10)
         ];
         private _stateChanged = _state isNotEqualTo _lastLoggedState;
         private _sinceLastLog = diag_tickTime - _lastLogAt;
@@ -633,7 +692,9 @@ private _handle = [_unit, _traceId] spawn {
                     currentWeaponMode _unit,
                     currentCommand _unit,
                     _missileCount,
-                    canFire _unit
+                    canFire _unit,
+                    _fireDisciplineActive,
+                    round (_archangelReloadPhase * 100) / 100
                 ]],
                 ["combat", [
                     unitCombatMode _unit,
@@ -677,6 +738,8 @@ private _handle = [_unit, _traceId] spawn {
                     ["secondaryWeaponMagazine", secondaryWeaponMagazine _unit],
                     ["topAttackMissileCount", _missileCount],
                     ["topAttackMissiles", _missileInventory],
+                    ["archangelReloadPhase", _archangelReloadPhase],
+                    ["fireDiscipline", _fireDiscipline],
                     ["canFire", canFire _unit],
                     ["unitReady", unitReady _unit],
                     ["behaviour", behaviour _unit],
@@ -700,13 +763,12 @@ private _handle = [_unit, _traceId] spawn {
             _lastLogAt = diag_tickTime;
         };
 
-        uiSleep 2;
-    };
+    [
+        _unit,
+        "unit-debug-state",
+        [_lastLoggedState, _lastLogAt]
+    ] call bskulls_fnc_titanTopAttackRuntimeSet;
+}, 2, [_unit, _traceId]] call CBA_fnc_addPerFrameHandler;
 
-    if (!isNull _unit) then {
-        _unit setVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull, false];
-    };
-};
-
-_unit setVariable ["bskulls_titanTopAttackUnitDebugHandle", _handle, false];
+[_unit, "unit-debug-pfh", _handle] call bskulls_fnc_titanTopAttackRuntimeSet;
 true

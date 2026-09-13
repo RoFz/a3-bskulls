@@ -37,10 +37,24 @@ private _targetPosASL = if (!isNull _target) then {
     }
 };
 
+// Preserve the target transfer as save-safe gameplay state on the carrier.
+// Diagnostic trace data and monitor handles are deliberately local-only.
 _projectile setVariable ["bskulls_titanTopAttackTarget", _target, false];
 _projectile setVariable ["bskulls_titanTopAttackTargetPosASL", _targetPosASL, false];
 
-if !(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {true};
+// Arma exposes no cancellable pre-fire event. Keep an AI operator's launcher
+// mechanically unready while this carrier is in flight instead; the command is
+// local and weapon-specific, so Hawkins's rifle and group fire orders remain
+// unaffected.
+[
+    _unit,
+    _weapon,
+    _muzzle,
+    _projectile,
+    _target
+] call bskulls_fnc_titanTopAttackFireDiscipline;
+
+if !(localNamespace getVariable ["bskulls_titanTopAttackDebug", false]) exitWith {true};
 
 private _remaining = if (isNull _unit) then {
     -1

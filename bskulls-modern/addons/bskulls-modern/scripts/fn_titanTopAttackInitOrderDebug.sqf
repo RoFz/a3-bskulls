@@ -14,35 +14,34 @@
  * https://community.bohemia.net/wiki/commandingMenu
  * https://community.bohemia.net/wiki/getUnitState
  * https://community.bohemia.net/wiki/Arma_3:_Event_Handlers
+ * https://github.com/CBATeam/CBA_A3/blob/master/addons/common/init_perFrameHandler.sqf
  */
 
 params [["_unit", objNull, [objNull]]];
 
 if (isNull _unit) exitWith {false};
 
-private _oldHandle = _unit getVariable [
-    "bskulls_titanTopAttackOrderDebugHandle",
-    scriptNull
-];
+private _oldHandle = [
+    _unit,
+    "order-debug-pfh",
+    -1
+] call bskulls_fnc_titanTopAttackRuntimeGet;
 if (
     !hasInterface
     || {!local _unit}
     || {!alive _unit}
     || {isPlayer _unit}
-    || {!(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
 ) exitWith {
-    if (!scriptDone _oldHandle) then {
-        terminate _oldHandle;
+    if (_oldHandle >= 0) then {
+        [_oldHandle] call CBA_fnc_removePerFrameHandler;
     };
-    _unit setVariable [
-        "bskulls_titanTopAttackOrderDebugHandle",
-        scriptNull,
-        false
-    ];
+    [_unit, "order-debug-pfh", -1] call bskulls_fnc_titanTopAttackRuntimeSet;
+    [_unit, "order-debug-state", []] call bskulls_fnc_titanTopAttackRuntimeSet;
     false
 };
 
-if (!scriptDone _oldHandle) exitWith {true};
+if (_oldHandle >= 0) exitWith {true};
 
 private _unitId = netId _unit;
 if (_unitId isEqualTo "") then {
@@ -50,79 +49,57 @@ if (_unitId isEqualTo "") then {
 };
 private _traceId = format ["unit-%1", _unitId];
 
-private _weaponChangedEh = _unit getVariable [
-    "bskulls_titanTopAttackWeaponChangedDebugEh",
-    -1
-];
-if (_weaponChangedEh < 0) then {
-    _weaponChangedEh = _unit addEventHandler ["WeaponChanged", {
-        params [
-            "_object",
-            "_oldWeapon",
-            "_newWeapon",
-            "_oldMode",
-            "_newMode",
-            "_oldMuzzle",
-            "_newMuzzle",
-            "_turretPath"
-        ];
+private _handle = [{
+    params ["_arguments", "_handle"];
+    _arguments params ["_unit", "_traceId"];
 
-        if (
-            local _object
-            && {missionNamespace getVariable [
-                "bskulls_titanTopAttackDebug",
-                false
-            ]}
-        ) then {
-            private _assigned = assignedTarget _object;
-            private _attack = getAttackTarget _object;
-            private _eventUnitId = netId _object;
-            if (_eventUnitId isEqualTo "") then {
-                _eventUnitId = str _object;
+    if (
+        !hasInterface
+        || {isNull _unit}
+        || {!local _unit}
+        || {!alive _unit}
+        || {isPlayer _unit}
+        || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    ) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        if (!isNull _unit) then {
+            private _registeredHandle = [
+                _unit,
+                "order-debug-pfh",
+                -1
+            ] call bskulls_fnc_titanTopAttackRuntimeGet;
+            if (_registeredHandle isEqualTo _handle) then {
+                [
+                    _unit,
+                    "order-debug-pfh",
+                    -1
+                ] call bskulls_fnc_titanTopAttackRuntimeSet;
             };
-            private _eventTraceId = format ["unit-%1", _eventUnitId];
-            private _details = [
-                ["unit", str _object],
-                ["old", [_oldWeapon, _oldMuzzle, _oldMode]],
-                ["new", [_newWeapon, _newMuzzle, _newMode]],
-                ["turretPath", _turretPath],
-                ["assignedTarget", if (isNull _assigned) then {[]} else {
-                    [str _assigned, typeOf _assigned]
-                }],
-                ["attackTarget", if (isNull _attack) then {[]} else {
-                    [str _attack, typeOf _attack]
-                }],
-                ["currentCommand", currentCommand _object],
-                ["unitState", getUnitState _object],
-                ["combat", [
-                    unitCombatMode _object,
-                    combatMode group _object,
-                    behaviour _object
-                ]],
-                ["weaponState", weaponState _object]
-            ];
-            [
-                objNull,
-                "WEAPON_CHANGED",
-                _details,
-                _eventTraceId,
-                _details
-            ] call bskulls_fnc_titanTopAttackLog;
         };
-    }];
-    _unit setVariable [
-        "bskulls_titanTopAttackWeaponChangedDebugEh",
-        _weaponChangedEh,
-        false
-    ];
-};
+    };
 
-private _handle = [_unit, _traceId] spawn {
-    params ["_unit", "_traceId"];
+    private _registeredHandle = [
+        _unit,
+        "order-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    if (_registeredHandle < 0) then {
+        [
+            _unit,
+            "order-debug-pfh",
+            _handle
+        ] call bskulls_fnc_titanTopAttackRuntimeSet;
+    };
 
-    private _lastState = [];
-    private _followupStartedAt = -1;
-    private _followupIndex = 0;
+    private _monitorState = [
+        _unit,
+        "order-debug-state",
+        [[], -1, 0, -1e10]
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    private _lastState = _monitorState param [0, []];
+    private _followupStartedAt = _monitorState param [1, -1];
+    private _followupIndex = _monitorState param [2, 0];
+    private _lastNoiseLogAt = _monitorState param [3, -1e10];
     private _followupDelays = [0.25, 1, 2, 5];
     private _stateLabels = [
         "same-player-group",
@@ -147,7 +124,6 @@ private _handle = [_unit, _traceId] spawn {
         "can-fire",
         "group-attack-enabled",
         "reload-enabled",
-        "formation-task",
         "simulation-enabled"
     ];
 
@@ -294,7 +270,14 @@ private _handle = [_unit, _traceId] spawn {
             ]],
             ["readiness", [unitReady _unit, canFire _unit]],
             ["reloadEnabled", reloadEnabled _unit],
-            ["formationTask", formationTask _unit],
+            ["archangelReloadPhase", (
+                _unit weaponState "B_PTbskull_Wea_law_02_titantop"
+            ) param [5, -1]],
+            ["fireDiscipline", [
+                _unit,
+                "discipline-state",
+                []
+            ] call bskulls_fnc_titanTopAttackRuntimeGet],
             ["expectedDestination", expectedDestination _unit],
             ["simulationEnabled", simulationEnabled _unit],
             ["autoSpotDifficulty", difficultyEnabled "autoSpot"],
@@ -313,14 +296,8 @@ private _handle = [_unit, _traceId] spawn {
         ]
     };
 
-    while {
-        !isNull _unit
-        && {alive _unit}
-        && {local _unit}
-        && {!isPlayer _unit}
-        && {hasInterface}
-        && {missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]}
-    } do {
+    // One lightweight order sample. CBA owns the save-compatible scheduler;
+    // mutable comparison state remains in localNamespace.
         private _commander = player;
         if (isNull _commander) then {
             _commander = objNull;
@@ -357,7 +334,6 @@ private _handle = [_unit, _traceId] spawn {
             canFire _unit,
             attackEnabled _unitGroup,
             reloadEnabled _unit,
-            formationTask _unit,
             simulationEnabled _unit
         ];
 
@@ -373,8 +349,18 @@ private _handle = [_unit, _traceId] spawn {
         };
 
         private _wasSamePlayerGroup = _lastState param [0, false];
+        private _meaningfulReasons = _reasons select {
+            _x isNotEqualTo "ai-planner-state"
+        };
+        private _plannerOnly = _reasons isNotEqualTo []
+            && {_meaningfulReasons isEqualTo []};
+        private _shouldLogState = _meaningfulReasons isNotEqualTo []
+            || {_plannerOnly && {diag_tickTime - _lastNoiseLogAt >= 15}};
+        if (_plannerOnly && {_shouldLogState}) then {
+            _lastNoiseLogAt = diag_tickTime;
+        };
         if (
-            _reasons isNotEqualTo []
+            _shouldLogState
             && {_samePlayerGroup || {_wasSamePlayerGroup}}
         ) then {
             private _details = [
@@ -487,102 +473,13 @@ private _handle = [_unit, _traceId] spawn {
             };
         };
 
-        if (_samePlayerGroup) then {
-            private _groupCommandEh = _unitGroup getVariable [
-                "bskulls_titanTopAttackCommandChangedDebugEh",
-                -1
-            ];
-            if (_groupCommandEh < 0) then {
-                _groupCommandEh = _unitGroup addEventHandler ["CommandChanged", {
-                    params ["_group", "_newCommand"];
-
-                    if (
-                        hasInterface
-                        && {missionNamespace getVariable [
-                            "bskulls_titanTopAttackDebug",
-                            false
-                        ]}
-                        && {!isNull player}
-                        && {_group isEqualTo group player}
-                    ) then {
-                        private _hawkins = units _group select {
-                            _x isKindOf "B_PTbskull_Veh_Unit_Hawkins_blackops_04"
-                        };
-                        if (_hawkins isNotEqualTo []) then {
-                            private _cursorTargetObject = cursorTarget;
-                            private _cursorObjectObject = cursorObject;
-                            private _details = [
-                                ["group", str _group],
-                                ["newCommand", _newCommand],
-                                ["player", str player],
-                                ["selectedUnits", (groupSelectedUnits player) apply {
-                                    [str _x, typeOf _x, netId _x]
-                                }],
-                                ["commandingMenu", commandingMenu],
-                                ["cursorTarget", if (isNull _cursorTargetObject) then {[]} else {
-                                    [
-                                        str _cursorTargetObject,
-                                        typeOf _cursorTargetObject,
-                                        player distance2D _cursorTargetObject
-                                    ]
-                                }],
-                                ["cursorObject", if (isNull _cursorObjectObject) then {[]} else {
-                                    [
-                                        str _cursorObjectObject,
-                                        typeOf _cursorObjectObject,
-                                        player distance2D _cursorObjectObject
-                                    ]
-                                }],
-                                ["hawkins", _hawkins apply {
-                                    private _assigned = assignedTarget _x;
-                                    private _attack = getAttackTarget _x;
-                                    [
-                                        str _x,
-                                        currentCommand _x,
-                                        getUnitState _x,
-                                        currentWeapon _x,
-                                        if (isNull _assigned) then {""} else {typeOf _assigned},
-                                        if (isNull _attack) then {""} else {typeOf _attack},
-                                        unitCombatMode _x,
-                                        canFire _x
-                                    ]
-                                }]
-                            ];
-                            private _groupTraceId = format ["group-%1", str _group];
-                            [
-                                objNull,
-                                "GROUP_COMMAND_CHANGED",
-                                _details,
-                                _groupTraceId,
-                                _details
-                            ] call bskulls_fnc_titanTopAttackLog;
-                        };
-                    };
-                }];
-                _unitGroup setVariable [
-                    "bskulls_titanTopAttackCommandChangedDebugEh",
-                    _groupCommandEh,
-                    false
-                ];
-            };
-        };
-
         _lastState = _state;
-        uiSleep ([0.5, 0.1] select _samePlayerGroup);
-    };
+    [
+        _unit,
+        "order-debug-state",
+        [_lastState, _followupStartedAt, _followupIndex, _lastNoiseLogAt]
+    ] call bskulls_fnc_titanTopAttackRuntimeSet;
+}, 0.25, [_unit, _traceId]] call CBA_fnc_addPerFrameHandler;
 
-    if (!isNull _unit) then {
-        _unit setVariable [
-            "bskulls_titanTopAttackOrderDebugHandle",
-            scriptNull,
-            false
-        ];
-    };
-};
-
-_unit setVariable [
-    "bskulls_titanTopAttackOrderDebugHandle",
-    _handle,
-    false
-];
+[_unit, "order-debug-pfh", _handle] call bskulls_fnc_titanTopAttackRuntimeSet;
 true

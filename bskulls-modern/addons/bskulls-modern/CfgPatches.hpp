@@ -174,6 +174,7 @@ class CfgPatches {
             "A3_Air_F",
             "A3_Data_F_Curator",
             "CUP_Core",
+            "cba_common",
             "cba_xeh",
             "switchblade",
             "A3_Drones_F_Air_F_Gamma_UAV_02",

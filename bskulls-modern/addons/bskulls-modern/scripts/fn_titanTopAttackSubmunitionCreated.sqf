@@ -10,11 +10,15 @@ params [
 if (isNull _child || {!local _child}) exitWith {false};
 
 private _traceId = if (isNull _parent) then {
-    _child getVariable ["bskulls_titanTopAttackTraceId", "untracked"]
+    [_child, "trace-id", "untracked"] call bskulls_fnc_titanTopAttackRuntimeGet
 } else {
-    _parent getVariable ["bskulls_titanTopAttackTraceId", "untracked"]
+    [_parent, "trace-id", "untracked"] call bskulls_fnc_titanTopAttackRuntimeGet
 };
-private _childInitTraceId = _child getVariable ["bskulls_titanTopAttackTraceId", ""];
+private _childInitTraceId = [
+    _child,
+    "trace-id",
+    ""
+] call bskulls_fnc_titanTopAttackRuntimeGet;
 private _target = if (isNull _parent) then {
     objNull
 } else {
@@ -33,21 +37,18 @@ private _targetPosASL = if (!isNull _target) then {
     }
 };
 
-_child setVariable ["bskulls_titanTopAttackTraceId", _traceId, false];
+[_child, "trace-id", _traceId] call bskulls_fnc_titanTopAttackRuntimeSet;
 _child setVariable ["bskulls_titanTopAttackStage", "terminal", false];
 _child setVariable ["bskulls_titanTopAttackTarget", _target, false];
 _child setVariable ["bskulls_titanTopAttackTargetPosASL", _targetPosASL, false];
-private _debugEnabled = missionNamespace getVariable ["bskulls_titanTopAttackDebug", false];
+private _debugEnabled = localNamespace getVariable ["bskulls_titanTopAttackDebug", false];
 if (_debugEnabled) then {
-    if (!isNull _parent) then {
-        _parent setVariable ["bskulls_titanTopAttackSeparated", true, false];
-    };
-    private _separatedTraces = missionNamespace getVariable ["bskulls_titanTopAttackSeparatedTraces", []];
+    private _separatedTraces = localNamespace getVariable ["bskulls_titanTopAttackSeparatedTraces", []];
     _separatedTraces pushBackUnique _traceId;
     if ((count _separatedTraces) > 100) then {
         _separatedTraces deleteAt 0;
     };
-    missionNamespace setVariable ["bskulls_titanTopAttackSeparatedTraces", _separatedTraces];
+    localNamespace setVariable ["bskulls_titanTopAttackSeparatedTraces", _separatedTraces];
 };
 
 if (_positionASL isEqualTo []) then {
@@ -110,7 +111,7 @@ private _accuracyProbability = ((getNumber (_childConfig >> "bskulls_terminalAcc
 private _missOffsetMin = (getNumber (_childConfig >> "bskulls_terminalMissOffsetMin")) max 0;
 private _missOffsetMax = (getNumber (_childConfig >> "bskulls_terminalMissOffsetMax")) max _missOffsetMin;
 private _accuracyRoll = random 1;
-private _accuracyOverrideValue = missionNamespace getVariable [
+private _accuracyOverrideValue = localNamespace getVariable [
     "bskulls_titanTopAttackAccuracyOverride",
     ""
 ];
@@ -130,7 +131,7 @@ private _plannedMiss = if (_accuracyOverride isEqualTo "miss") then {
 };
 if (_accuracyOverride in ["hit","miss"]) then {
     // A debug override applies to one terminal stage only.
-    missionNamespace setVariable ["bskulls_titanTopAttackAccuracyOverride", ""];
+    localNamespace setVariable ["bskulls_titanTopAttackAccuracyOverride", ""];
 };
 private _accuracyOutcome = "nominal";
 private _missOffset = 0;
@@ -187,7 +188,11 @@ private _accuracyDetails = [
     ["originalVelocity", _originalVelocity],
     ["appliedVelocity", _velocity]
 ];
-_child setVariable ["bskulls_titanTopAttackAccuracy", _accuracyDetails, false];
+[
+    _child,
+    "accuracy",
+    _accuracyDetails
+] call bskulls_fnc_titanTopAttackRuntimeSet;
 
 if (!_debugEnabled) exitWith {true};
 

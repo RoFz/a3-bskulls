@@ -1,7 +1,7 @@
 /*
  * Sample one local top-attack projectile at meaningful range crossings.
- * The output distinguishes shallow carrier interception, failed separation,
- * incorrect terminal direction, target loss, and a normal roof impact.
+ * Diagnostic state lives in localNamespace and the sampler uses CBA's
+ * save-aware per-frame scheduler instead of a serializable spawned script.
  */
 
 params [["_projectile", objNull, [objNull]]];
@@ -9,52 +9,238 @@ params [["_projectile", objNull, [objNull]]];
 if (
     isNull _projectile
     || {!local _projectile}
-    || {!(missionNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
 ) exitWith {false};
 
-uiSleep 0.01;
-
-private _traceId = _projectile getVariable ["bskulls_titanTopAttackTraceId", "untracked"];
-private _stage = _projectile getVariable ["bskulls_titanTopAttackStage", "unknown"];
+private _traceId = [
+    _projectile,
+    "trace-id",
+    "untracked"
+] call bskulls_fnc_titanTopAttackRuntimeGet;
+private _stage = _projectile getVariable [
+    "bskulls_titanTopAttackStage",
+    "unknown"
+];
 private _thresholds = if (_stage isEqualTo "carrier") then {
     [1000,600,450,400,350,325,310,300,250,200,100,50,30]
 } else {
     [310,300,250,200,150,100,75,50,30,15,5]
 };
-private _crossed = [];
-private _start = diag_tickTime;
-private _timeout = [2, 35] select (_stage isEqualTo "carrier");
 private _ammoConfig = configOf _projectile;
 private _motorIgnitionDelay = if (_stage isEqualTo "carrier") then {
     getNumber (_ammoConfig >> "initTime")
 } else {
     -1
 };
-private _motorIgnitionLogged = _stage isNotEqualTo "carrier" || {_motorIgnitionDelay <= 0};
+private _motorIgnitionLogged = _stage isNotEqualTo "carrier"
+    || {_motorIgnitionDelay <= 0};
 private _launchPositionASL = _projectile getVariable [
     "bskulls_titanTopAttackLaunchPosASL",
     getPosASL _projectile
 ];
-private _samples = 0;
-private _lastPosition = if (isNull _projectile) then {[]} else {getPosASL _projectile};
-private _lastVelocity = if (isNull _projectile) then {[]} else {velocity _projectile};
-private _lastMetrics = [];
-private _target = objNull;
-private _targetPosASL = [];
-private _targetDamageBefore = -1;
-private _lastGuidanceTarget = objNull;
-private _guidanceTargetObserved = false;
-private _lastGuidancePosASL = [];
-private _accuracyDetails = _projectile getVariable ["bskulls_titanTopAttackAccuracy", []];
+private _accuracyDetails = [
+    _projectile,
+    "accuracy",
+    []
+] call bskulls_fnc_titanTopAttackRuntimeGet;
 
-while {
-    !isNull _projectile
-    && {(diag_tickTime - _start) < _timeout}
-    && {missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]}
-} do {
+private _monitorCounter = 1 + (localNamespace getVariable [
+    "bskulls_titanTopAttackTraceMonitorCounter",
+    0
+]);
+localNamespace setVariable [
+    "bskulls_titanTopAttackTraceMonitorCounter",
+    _monitorCounter
+];
+private _monitorName = format [
+    "bskulls_titanTopAttackTraceMonitor_%1",
+    _monitorCounter
+];
+localNamespace setVariable [_monitorName, [
+    _projectile,
+    _traceId,
+    _stage,
+    _thresholds,
+    [],
+    diag_tickTime,
+    [2, 35] select (_stage isEqualTo "carrier"),
+    _motorIgnitionDelay,
+    _motorIgnitionLogged,
+    _launchPositionASL,
+    0,
+    getPosASL _projectile,
+    velocity _projectile,
+    [],
+    objNull,
+    [],
+    -1,
+    objNull,
+    false,
+    [],
+    _accuracyDetails,
+    typeOf _projectile
+]];
+private _monitorNames = localNamespace getVariable [
+    "bskulls_titanTopAttackTransientMonitorNames",
+    []
+];
+_monitorNames pushBackUnique _monitorName;
+localNamespace setVariable [
+    "bskulls_titanTopAttackTransientMonitorNames",
+    _monitorNames
+];
+
+private _handle = [{
+    params ["_arguments", "_handle"];
+    _arguments params ["_monitorName"];
+    private _monitor = localNamespace getVariable [_monitorName, []];
+    if (_monitor isEqualTo []) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };
+    _monitor params [
+        "_projectile",
+        "_traceId",
+        "_stage",
+        "_thresholds",
+        "_crossed",
+        "_start",
+        "_timeout",
+        "_motorIgnitionDelay",
+        "_motorIgnitionLogged",
+        "_launchPositionASL",
+        "_samples",
+        "_lastPosition",
+        "_lastVelocity",
+        "_lastMetrics",
+        "_target",
+        "_targetPosASL",
+        "_targetDamageBefore",
+        "_lastGuidanceTarget",
+        "_guidanceTargetObserved",
+        "_lastGuidancePosASL",
+        "_accuracyDetails",
+        "_projectileClass"
+    ];
+
+    private _timedOut = !isNull _projectile;
+    if (
+        isNull _projectile
+        || {(diag_tickTime - _start) >= _timeout}
+        || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
+    ) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        localNamespace setVariable [_monitorName, _monitor];
+        [{
+            params ["_monitorName", "_timedOut"];
+            private _monitor = localNamespace getVariable [_monitorName, []];
+            if (_monitor isEqualTo []) exitWith {};
+            _monitor params [
+                "_projectile",
+                "_traceId",
+                "_stage",
+                "_thresholds",
+                "_crossed",
+                "_start",
+                "_timeout",
+                "_motorIgnitionDelay",
+                "_motorIgnitionLogged",
+                "_launchPositionASL",
+                "_samples",
+                "_lastPosition",
+                "_lastVelocity",
+                "_lastMetrics",
+                "_target",
+                "_targetPosASL",
+                "_targetDamageBefore",
+                "_lastGuidanceTarget",
+                "_guidanceTargetObserved",
+                "_lastGuidancePosASL",
+                "_accuracyDetails"
+            ];
+            private _targetDamageAfter = if (isNull _target) then {
+                -1
+            } else {
+                damage _target
+            };
+            private _dapsState = if (isNull _target) then {
+                []
+            } else {
+                [
+                    ["type", _target getVariable ["dapsType", ""]],
+                    ["active", _target getVariable ["dapsActive", false]],
+                    ["ammo", _target getVariable ["dapsAmmo", -1]],
+                    ["ammoLeft", _target getVariable ["dapsAmmoL", -1]],
+                    ["ammoRight", _target getVariable ["dapsAmmoR", -1]]
+                ]
+            };
+            private _separated = _traceId in (localNamespace getVariable [
+                "bskulls_titanTopAttackSeparatedTraces",
+                []
+            ]);
+            [
+                objNull,
+                ["PROJECTILE_ENDED", "TRACE_TIMEOUT"] select _timedOut,
+                [
+                    ["stage", _stage],
+                    ["accuracy", _accuracyDetails],
+                    ["elapsed", diag_tickTime - _start],
+                    ["samples", _samples],
+                    ["separated", _separated],
+                    ["motorIgnitionLogged", _motorIgnitionLogged],
+                    ["lastPositionASL", _lastPosition],
+                    ["lastVelocity", _lastVelocity],
+                    ["lastMetrics", _lastMetrics],
+                    ["target", str _target],
+                    ["targetClass", if (isNull _target) then {""} else {typeOf _target}],
+                    ["targetDamageBefore", _targetDamageBefore],
+                    ["targetDamageAfter", _targetDamageAfter],
+                    ["targetDamageDelta", if (
+                        _targetDamageBefore < 0
+                        || {_targetDamageAfter < 0}
+                    ) then {-1} else {
+                        _targetDamageAfter - _targetDamageBefore
+                    }],
+                    ["daps", _dapsState]
+                ],
+                _traceId
+            ] call bskulls_fnc_titanTopAttackLog;
+            localNamespace setVariable [_monitorName, nil];
+            private _monitorNames = localNamespace getVariable [
+                "bskulls_titanTopAttackTransientMonitorNames",
+                []
+            ];
+            private _monitorIndex = _monitorNames find _monitorName;
+            if (_monitorIndex >= 0) then {
+                _monitorNames deleteAt _monitorIndex;
+            };
+            localNamespace setVariable [
+                "bskulls_titanTopAttackTransientMonitorNames",
+                _monitorNames
+            ];
+        }, [_monitorName, _timedOut], 0.1] call CBA_fnc_waitAndExecute;
+    };
+
     _samples = _samples + 1;
+    if (_traceId isEqualTo "untracked") then {
+        _traceId = [
+            _projectile,
+            "trace-id",
+            _traceId
+        ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    };
+    if (_accuracyDetails isEqualTo []) then {
+        _accuracyDetails = [
+            _projectile,
+            "accuracy",
+            []
+        ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    };
 
-    if (!_motorIgnitionLogged && {(diag_tickTime - _start) >= _motorIgnitionDelay}) then {
+    private _ammoConfig = configFile >> "CfgAmmo" >> _projectileClass;
+    if (
+        !_motorIgnitionLogged
+        && {(diag_tickTime - _start) >= _motorIgnitionDelay}
+    ) then {
         private _ignitionPositionASL = getPosASL _projectile;
         _motorIgnitionLogged = true;
         [
@@ -73,7 +259,10 @@ while {
         ] call bskulls_fnc_titanTopAttackLog;
     };
 
-    private _configuredTarget = _projectile getVariable ["bskulls_titanTopAttackTarget", objNull];
+    private _configuredTarget = _projectile getVariable [
+        "bskulls_titanTopAttackTarget",
+        objNull
+    ];
     if (!isNull _configuredTarget && {_configuredTarget isNotEqualTo _target}) then {
         _target = _configuredTarget;
         _targetPosASL = getPosASL _target;
@@ -95,7 +284,10 @@ while {
     };
 
     if (isNull _target) then {
-        private _configuredTargetPos = _projectile getVariable ["bskulls_titanTopAttackTargetPosASL", []];
+        private _configuredTargetPos = _projectile getVariable [
+            "bskulls_titanTopAttackTargetPosASL",
+            []
+        ];
         if ((count _configuredTargetPos) isEqualTo 3) then {
             _targetPosASL = _configuredTargetPos;
         };
@@ -105,7 +297,10 @@ while {
 
     if (_stage isEqualTo "carrier") then {
         private _guidanceTarget = missileTarget _projectile;
-        if (!_guidanceTargetObserved || {_guidanceTarget isNotEqualTo _lastGuidanceTarget}) then {
+        if (
+            !_guidanceTargetObserved
+            || {_guidanceTarget isNotEqualTo _lastGuidanceTarget}
+        ) then {
             _guidanceTargetObserved = true;
             _lastGuidanceTarget = _guidanceTarget;
             [
@@ -142,25 +337,36 @@ while {
 
     _lastPosition = getPosASL _projectile;
     _lastVelocity = velocity _projectile;
-
     if ((count _targetPosASL) isEqualTo 3) then {
         private _toTarget = _targetPosASL vectorDiff _lastPosition;
         private _distance3D = vectorMagnitude _toTarget;
-        private _horizontalDistance = sqrt (((_toTarget select 0) ^ 2) + ((_toTarget select 1) ^ 2));
+        private _horizontalDistance = sqrt (
+            ((_toTarget select 0) ^ 2) + ((_toTarget select 1) ^ 2)
+        );
         private _altitude = (_lastPosition select 2) - (_targetPosASL select 2);
-        private _elevation = if (_horizontalDistance < 0.01) then {90} else {atan (_altitude / _horizontalDistance)};
-        private _horizontalSpeed = sqrt (((_lastVelocity select 0) ^ 2) + ((_lastVelocity select 1) ^ 2));
+        private _elevation = if (_horizontalDistance < 0.01) then {
+            90
+        } else {
+            atan (_altitude / _horizontalDistance)
+        };
+        private _horizontalSpeed = sqrt (
+            ((_lastVelocity select 0) ^ 2) + ((_lastVelocity select 1) ^ 2)
+        );
         private _diveAngle = if (_horizontalSpeed < 0.01) then {
             if ((_lastVelocity select 2) < 0) then {90} else {-90}
         } else {
             atan ((-(_lastVelocity select 2)) / _horizontalSpeed)
         };
         private _trackError = -1;
-        if ((vectorMagnitude _lastVelocity) > 0.01 && {_distance3D > 0.01}) then {
-            private _trackCosine = (vectorNormalized _lastVelocity) vectorCos (vectorNormalized _toTarget);
+        if (
+            (vectorMagnitude _lastVelocity) > 0.01
+            && {_distance3D > 0.01}
+        ) then {
+            private _trackCosine = (vectorNormalized _lastVelocity) vectorCos (
+                vectorNormalized _toTarget
+            );
             _trackError = acos ((_trackCosine max -1) min 1);
         };
-
         _lastMetrics = [
             ["distance3D", _distance3D],
             ["horizontalDistance", _horizontalDistance],
@@ -192,51 +398,30 @@ while {
         } forEach _thresholds;
     };
 
-    uiSleep 0.01;
-};
-
-private _timedOut = !isNull _projectile;
-private _separated = if (isNull _projectile) then {
-    _traceId in (missionNamespace getVariable ["bskulls_titanTopAttackSeparatedTraces", []])
-} else {
-    _projectile getVariable ["bskulls_titanTopAttackSeparated", false]
-};
-
-uiSleep 0.1;
-private _targetDamageAfter = if (isNull _target) then {-1} else {damage _target};
-private _dapsState = if (isNull _target) then {
-    []
-} else {
-    [
-        ["type", _target getVariable ["dapsType", ""]],
-        ["active", _target getVariable ["dapsActive", false]],
-        ["ammo", _target getVariable ["dapsAmmo", -1]],
-        ["ammoLeft", _target getVariable ["dapsAmmoL", -1]],
-        ["ammoRight", _target getVariable ["dapsAmmoR", -1]]
-    ]
-};
-
-[
-    objNull,
-    ["PROJECTILE_ENDED", "TRACE_TIMEOUT"] select _timedOut,
-    [
-        ["stage", _stage],
-        ["accuracy", _accuracyDetails],
-        ["elapsed", diag_tickTime - _start],
-        ["samples", _samples],
-        ["separated", _separated],
-        ["motorIgnitionLogged", _motorIgnitionLogged],
-        ["lastPositionASL", _lastPosition],
-        ["lastVelocity", _lastVelocity],
-        ["lastMetrics", _lastMetrics],
-        ["target", str _target],
-        ["targetClass", if (isNull _target) then {""} else {typeOf _target}],
-        ["targetDamageBefore", _targetDamageBefore],
-        ["targetDamageAfter", _targetDamageAfter],
-        ["targetDamageDelta", if (_targetDamageBefore < 0 || {_targetDamageAfter < 0}) then {-1} else {_targetDamageAfter - _targetDamageBefore}],
-        ["daps", _dapsState]
-    ],
-    _traceId
-] call bskulls_fnc_titanTopAttackLog;
+    localNamespace setVariable [_monitorName, [
+        _projectile,
+        _traceId,
+        _stage,
+        _thresholds,
+        _crossed,
+        _start,
+        _timeout,
+        _motorIgnitionDelay,
+        _motorIgnitionLogged,
+        _launchPositionASL,
+        _samples,
+        _lastPosition,
+        _lastVelocity,
+        _lastMetrics,
+        _target,
+        _targetPosASL,
+        _targetDamageBefore,
+        _lastGuidanceTarget,
+        _guidanceTargetObserved,
+        _lastGuidancePosASL,
+        _accuracyDetails,
+        _projectileClass
+    ]];
+}, 0.01, [_monitorName]] call CBA_fnc_addPerFrameHandler;
 
 true

@@ -16,23 +16,23 @@ params [
     ["_clearRecords", false, [false]]
 ];
 
-private _wasEnabled = missionNamespace getVariable ["bskulls_titanTopAttackDebug", false];
-missionNamespace setVariable ["bskulls_titanTopAttackDebug", _enabled];
-missionNamespace setVariable ["bskulls_titanTopAttackDebugChat", _enabled && {_chat}];
+private _wasEnabled = localNamespace getVariable ["bskulls_titanTopAttackDebug", false];
+localNamespace setVariable ["bskulls_titanTopAttackDebug", _enabled];
+localNamespace setVariable ["bskulls_titanTopAttackDebugChat", _enabled && {_chat}];
 
 if (_clearRecords) then {
-    missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
-    missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
-    missionNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
+    localNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
+    localNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+    localNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
 };
 
 if (_enabled && {!_wasEnabled || {_clearRecords}}) then {
-    missionNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
+    localNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
 };
 
 // XEH starts monitors for units created while debugging is already enabled.
 // Re-running the initializer here also handles units that already exist and
-// terminates their loops immediately when diagnostics are switched off.
+// removes their per-frame handlers when diagnostics are switched off.
 private _hawkinsUnits = allUnits select {
     _x isKindOf "B_PTbskull_Veh_Unit_Hawkins_blackops_04"
 };
@@ -42,15 +42,20 @@ private _hawkinsUnits = allUnits select {
 } forEach _hawkinsUnits;
 
 private _runningMonitors = {
-    private _handle = _x getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
-    !scriptDone _handle
+    private _handle = [
+        _x,
+        "unit-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    _handle >= 0
 } count _hawkinsUnits;
 private _runningOrderMonitors = {
-    private _handle = _x getVariable [
-        "bskulls_titanTopAttackOrderDebugHandle",
-        scriptNull
-    ];
-    !scriptDone _handle
+    private _handle = [
+        _x,
+        "order-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    _handle >= 0
 } count _hawkinsUnits;
 private _state = ["disabled", "enabled"] select _enabled;
 private _message = format [
