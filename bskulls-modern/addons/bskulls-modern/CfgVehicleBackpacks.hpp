@@ -448,9 +448,7 @@
         author = "RoFz";
         scope = 2;
         displayName = "Jerrycan (Fuel)";
-        model = "\A3\Structures_F\Items\Vessels\CanisterFuel_F.p3d";
-        hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\A3\Structures_F\Items\Vessels\Data\CanisterFuel_CO.paa"};
+        model = "\bskulls\addons\bskulls-modern\models\bskulls_jerrycan_backpack.p3d";
         explosionEffect = "FuelExplosion";
         explosionShielding = 1;
         fuelExplosionPower = 0.7;
