@@ -320,6 +320,10 @@ _unit enableFatigue false;
 [_unit, _rank] call bskulls_fnc_applyUnitRank;
 [_unit] call bskulls_fnc_initMineStanceRecovery;
 
+// Keep an observational trace of AI medical/revive transitions and persistent
+// movement lag. The monitor exits immediately for player-controlled units.
+[_unit] execVM "\bskulls\addons\bskulls-modern\scripts\woundMovementDiagnostics.sqf";
+
 // Vehicle var names (BSkull*) are for non-DRO only. DRO slots must stay u1..uN.
 // Never overwrite an existing DRO slot name from this function.
 if (_varName isNotEqualTo "") then {
