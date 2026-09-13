@@ -155,7 +155,7 @@ class CfgPatches {
             "B_PTbskull_Wea_sniper_12_mar10",
             "B_PTbskull_Wea_sniper_13_alligator"
         };
-        requiredVersion = 2.00;
+        requiredVersion = 2.18;
         requiredAddons[] = {
             "A3_Air_F_EPC_Plane_CAS_01",
             "A3_Sounds_F",

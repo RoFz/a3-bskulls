@@ -6,9 +6,10 @@
  * requested separately when enabling them.
  * The latest 500 local records remain in bskulls_titanTopAttackDebugRecords.
  * UNIT_STATE also has a dedicated 240-record buffer so opening the launcher
- * optic cannot evict the AI acquisition history needed for diagnosis.
- * UNIT_STATE passes a compact RPT projection because Arma truncates long
- * diag_log lines; the complete record remains in the in-memory buffers.
+ * optic cannot evict the AI acquisition history needed for diagnosis. Player
+ * order, weapon-switch, and group-command events use a separate 240-record
+ * buffer for the same reason. Long events pass a compact RPT projection; the
+ * complete record remains in the in-memory buffers.
  */
 
 params [
@@ -59,6 +60,26 @@ if (_event isEqualTo "UNIT_STATE") then {
     missionNamespace setVariable [
         "bskulls_titanTopAttackUnitStateRecords",
         _unitStateRecords
+    ];
+};
+
+if (_event in [
+    "ORDER_STATE",
+    "ORDER_FOLLOWUP",
+    "GROUP_COMMAND_CHANGED",
+    "WEAPON_CHANGED"
+]) then {
+    private _orderRecords = missionNamespace getVariable [
+        "bskulls_titanTopAttackOrderRecords",
+        []
+    ];
+    _orderRecords pushBack _record;
+    if ((count _orderRecords) > 240) then {
+        _orderRecords deleteAt 0;
+    };
+    missionNamespace setVariable [
+        "bskulls_titanTopAttackOrderRecords",
+        _orderRecords
     ];
 };
 

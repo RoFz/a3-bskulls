@@ -32,6 +32,7 @@ class CfgFunctions {
             class titanTopAttackDebugAutoStart { postInit = 1; };
             class titanTopAttackDebugReport {};
             class titanTopAttackFired {};
+            class titanTopAttackInitOrderDebug {};
             class titanTopAttackInitUnitDebug {};
             class titanTopAttackLog {};
             class titanTopAttackOpticLoad {};

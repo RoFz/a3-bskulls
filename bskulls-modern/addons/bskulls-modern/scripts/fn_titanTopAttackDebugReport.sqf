@@ -31,6 +31,9 @@ private _records = +(missionNamespace getVariable ["bskulls_titanTopAttackDebugR
 private _unitStateRecords = +(
     missionNamespace getVariable ["bskulls_titanTopAttackUnitStateRecords", []]
 );
+private _orderRecords = +(
+    missionNamespace getVariable ["bskulls_titanTopAttackOrderRecords", []]
+);
 private _debugStartedAt = missionNamespace getVariable [
     "bskulls_titanTopAttackDebugStartedAt",
     -1
@@ -42,7 +45,7 @@ private _hawkinsUnits = allUnits select {
 
 private _report = [
     ["report", "Black Skulls HVPS-17 Archangel"],
-    ["schemaVersion", 3],
+    ["schemaVersion", 4],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
@@ -65,12 +68,20 @@ private _report = [
         ["elapsed", if (_debugStartedAt < 0) then {-1} else {diag_tickTime - _debugStartedAt}],
         ["accuracyOverride", missionNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
         ["hawkinsMonitors", _hawkinsUnits apply {
-            private _handle = _x getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
+            private _stateHandle = _x getVariable [
+                "bskulls_titanTopAttackUnitDebugHandle",
+                scriptNull
+            ];
+            private _orderHandle = _x getVariable [
+                "bskulls_titanTopAttackOrderDebugHandle",
+                scriptNull
+            ];
             [
                 ["unit", str _x],
                 ["local", local _x],
                 ["alive", alive _x],
-                ["running", !scriptDone _handle]
+                ["stateRunning", !scriptDone _stateHandle],
+                ["orderRunning", !scriptDone _orderHandle]
             ]
         }]
     ]],
@@ -209,6 +220,10 @@ private _report = [
     ["unitStateRecordLimit", 240],
     ["unitStateBufferFull", (count _unitStateRecords) >= 240],
     ["unitStateRecords", _unitStateRecords],
+    ["orderRecordCount", count _orderRecords],
+    ["orderRecordLimit", 240],
+    ["orderRecordBufferFull", (count _orderRecords) >= 240],
+    ["orderRecords", _orderRecords],
     ["records", _records]
 ];
 
@@ -216,15 +231,17 @@ diag_log format ["[BSKULLS][TITAN-TA] DEBUG_REPORT %1", _report];
 if (_copyToClipboard && {hasInterface}) then {
     copyToClipboard str _report;
     systemChat format [
-        "Archangel report copied (%1 events, %2 preserved AI states).",
+        "Archangel report copied (%1 events, %2 AI states, %3 order events).",
         count _records,
-        count _unitStateRecords
+        count _unitStateRecords,
+        count _orderRecords
     ];
 };
 
 if (_clearAfter) then {
     missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
     missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+    missionNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
     if (missionNamespace getVariable ["bskulls_titanTopAttackDebug", false]) then {
         missionNamespace setVariable ["bskulls_titanTopAttackDebugStartedAt", diag_tickTime];
     };

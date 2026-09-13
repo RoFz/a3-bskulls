@@ -3,7 +3,7 @@
 class Extended_InitPost_EventHandlers {
     class B_PTbskull_Veh_Unit_Hawkins_blackops_04 {
         class bskulls_titanTopAttackDebug {
-            init = "_this call bskulls_fnc_titanTopAttackInitUnitDebug;";
+            init = "_this call bskulls_fnc_titanTopAttackInitUnitDebug; _this call bskulls_fnc_titanTopAttackInitOrderDebug;";
         };
     };
     class B_PTbskull_Veh_Plane_blackops_01_nodao {
@@ -43,7 +43,7 @@ class Extended_InitPost_EventHandlers {
 class Extended_Local_EventHandlers {
     class B_PTbskull_Veh_Unit_Hawkins_blackops_04 {
         class bskulls_titanTopAttackDebug {
-            local = "_this call bskulls_fnc_titanTopAttackInitUnitDebug;";
+            local = "_this call bskulls_fnc_titanTopAttackInitUnitDebug; _this call bskulls_fnc_titanTopAttackInitOrderDebug;";
         };
     };
     class B_PTbskull_Veh_Helo_blackops_01_nodao {

@@ -23,6 +23,7 @@ missionNamespace setVariable ["bskulls_titanTopAttackDebugChat", _enabled && {_c
 if (_clearRecords) then {
     missionNamespace setVariable ["bskulls_titanTopAttackDebugRecords", []];
     missionNamespace setVariable ["bskulls_titanTopAttackUnitStateRecords", []];
+    missionNamespace setVariable ["bskulls_titanTopAttackOrderRecords", []];
 };
 
 if (_enabled && {!_wasEnabled || {_clearRecords}}) then {
@@ -37,18 +38,27 @@ private _hawkinsUnits = allUnits select {
 };
 {
     [_x] call bskulls_fnc_titanTopAttackInitUnitDebug;
+    [_x] call bskulls_fnc_titanTopAttackInitOrderDebug;
 } forEach _hawkinsUnits;
 
 private _runningMonitors = {
     private _handle = _x getVariable ["bskulls_titanTopAttackUnitDebugHandle", scriptNull];
     !scriptDone _handle
 } count _hawkinsUnits;
+private _runningOrderMonitors = {
+    private _handle = _x getVariable [
+        "bskulls_titanTopAttackOrderDebugHandle",
+        scriptNull
+    ];
+    !scriptDone _handle
+} count _hawkinsUnits;
 private _state = ["disabled", "enabled"] select _enabled;
 private _message = format [
-    "Archangel diagnostics %1 (chat: %2, local AI monitors: %3).",
+    "Archangel diagnostics %1 (chat: %2, local AI monitors: %3, order monitors: %4).",
     _state,
     _enabled && {_chat},
-    _runningMonitors
+    _runningMonitors,
+    _runningOrderMonitors
 ];
 
 diag_log format ["[BSKULLS][TITAN-TA] %1", _message];
@@ -56,4 +66,10 @@ if (hasInterface) then {
     systemChat _message;
 };
 
-[_enabled, _enabled && {_chat}, count _hawkinsUnits, _runningMonitors]
+[
+    _enabled,
+    _enabled && {_chat},
+    count _hawkinsUnits,
+    _runningMonitors,
+    _runningOrderMonitors
+]
