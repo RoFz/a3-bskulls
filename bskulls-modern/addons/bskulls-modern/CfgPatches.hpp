@@ -167,6 +167,7 @@ class CfgPatches {
             "A3_Air_F_Jets_Plane_Fighter_02",
             "A3_Air_F_Jets_Plane_Fighter_04",
             "A3_Air_F_Jets_UAV_05",
+            "A3_Weapons_F_Jets",
             "RHS_US_A2_AirImport",
             "A3_Data_F",
             "A3_Ui_F",

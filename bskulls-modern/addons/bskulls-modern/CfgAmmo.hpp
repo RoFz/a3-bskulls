@@ -487,6 +487,16 @@ class CfgAmmo
 // MAGAZINES //
 class CfgMagazines {
 
+    class PylonRack_Bomb_GBU12_x2;
+    class B_PTbskull_PylonRack_Bomb_GBU12_x4 : PylonRack_Bomb_GBU12_x2
+    {
+        author = "RoFz";
+        scope = 2;
+        count = 4;
+        displayName = "GBU-12 LGB x4";
+        hardpoints[] = {"B_PTBSKULL_GBU12_QUAD"};
+    };
+
 // 10Rnd_127x54_Mag
 
     class 10Rnd_127x54_Mag;

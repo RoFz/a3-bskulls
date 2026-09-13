@@ -532,9 +532,9 @@
             class TransportPylonsComponent : TransportPylonsComponent {
                 class pylons {
                     class pylon1 {
-                        attachment = "PylonRack_Bomb_GBU12_x2"; // PylonMissile_Missile_AGM_02_x2, PylonMissile_Bomb_GBU12_x1, PylonRack_Bomb_SDB_x4 // non-std: PylonRack_2Rnd_BombCluster_01_F, PylonRack_4Rnd_LG_scalpel, PylonRack_Bomb_GBU12_x2
+                        attachment = "B_PTbskull_PylonRack_Bomb_GBU12_x4"; // PylonMissile_Missile_AGM_02_x2, PylonMissile_Bomb_GBU12_x1, PylonRack_Bomb_SDB_x4 // non-std: PylonRack_2Rnd_BombCluster_01_F, PylonRack_4Rnd_LG_scalpel, B_PTbskull_PylonRack_Bomb_GBU12_x4
                         bay = 2;
-                        hardpoints[] = {"B_GBU12","B_AGM65_DUAL","B_HARM_INT","B_SDB_QUAD_RAIL"};
+                        hardpoints[] = {"B_GBU12","B_AGM65_DUAL","B_HARM_INT","B_SDB_QUAD_RAIL","B_PTBSKULL_GBU12_QUAD"};
                         maxweight = 1500;
                         priority = 1;
                         turret[] = {0};
