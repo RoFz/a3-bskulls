@@ -28,6 +28,18 @@ if (_clearRecords) then {
         "bskulls_titanTopAttackAcquisitionTestResult",
         []
     ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourTestResult",
+        []
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourIsolationTestResult",
+        []
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackRadioRoeTestResult",
+        []
+    ];
 };
 
 if (_enabled && {!_wasEnabled || {_clearRecords}}) then {

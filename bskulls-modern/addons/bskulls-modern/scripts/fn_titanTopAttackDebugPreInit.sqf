@@ -21,6 +21,30 @@ localNamespace setVariable [
     "bskulls_titanTopAttackAcquisitionTestResult",
     []
 ];
+localNamespace setVariable [
+    "bskulls_titanTopAttackBehaviourTestRunning",
+    false
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackBehaviourTestResult",
+    []
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackBehaviourIsolationTestRunning",
+    false
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackBehaviourIsolationTestResult",
+    []
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackRadioRoeTestRunning",
+    false
+];
+localNamespace setVariable [
+    "bskulls_titanTopAttackRadioRoeTestResult",
+    []
+];
 
 private _oldLoadedEh = localNamespace getVariable [
     "bskulls_titanTopAttackLoadedEh",
@@ -69,6 +93,30 @@ private _loadedEh = addMissionEventHandler ["Loaded", {
     ];
     localNamespace setVariable [
         "bskulls_titanTopAttackAcquisitionTestResult",
+        []
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourTestRunning",
+        false
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourTestResult",
+        []
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourIsolationTestRunning",
+        false
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackBehaviourIsolationTestResult",
+        []
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackRadioRoeTestRunning",
+        false
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackRadioRoeTestResult",
         []
     ];
     localNamespace setVariable [
