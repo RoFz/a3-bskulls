@@ -25,7 +25,10 @@ params [
 
 if (!local _unit || {!alive _unit} || {isPlayer _unit}) exitWith {};
 if (_unit getVariable ["rev_downed", false]) exitWith {
-    if (missionNamespace getVariable ["BS_woundDebug", false]) then {
+    if (
+        missionNamespace getVariable ["BS_woundDiagnostics", true]
+        || {missionNamespace getVariable ["BS_woundDebug", false]}
+    ) then {
         diag_log format [
             "BS Wound: SKIP_DRO_DOWNED unit=%1 name=%2 damage=%3",
             _unit,
@@ -37,7 +40,10 @@ if (_unit getVariable ["rev_downed", false]) exitWith {
 
 private _fnc_report = {
     params ["_speaker", "_message", "_state", "_episode"];
-    if (missionNamespace getVariable ["BS_woundDebug", false]) then {
+    if (
+        missionNamespace getVariable ["BS_woundDiagnostics", true]
+        || {missionNamespace getVariable ["BS_woundDebug", false]}
+    ) then {
         diag_log format [
             "BS Wound: STATE episode=%1 state=%2 unit=%3 name=%4 damage=%5 vehicle=%6 message=%7",
             _episode,
@@ -50,11 +56,12 @@ private _fnc_report = {
         ];
     };
 
-    // Keep useful status calls, but never broadcast the once-per-reason wait
-    // diagnostics. Target only the unit's group instead of every client.
+    // Report state changes to the player's group, including the reason why
+    // treatment is waiting. The danger reason changes at most once per state.
     private _chatStates = [
         "START",
         "SAFE",
+        "WAIT_DANGER",
         "SELF_HEAL_START",
         "SELF_HEAL_SUCCESS",
         "MEDIC_REQUESTED_NO_FAK"
@@ -63,7 +70,11 @@ private _fnc_report = {
         missionNamespace getVariable ["BS_woundChat", true]
         && {_state in _chatStates}
     ) then {
-        [_speaker, _message] remoteExec ["groupChat", group _speaker];
+        if (hasInterface && {player in units group _speaker}) then {
+            _speaker groupChat _message;
+        } else {
+            [_speaker, _message] remoteExec ["groupChat", group _speaker];
+        };
     };
 };
 
@@ -72,7 +83,10 @@ _unit setVariable [BS_WOUND_LAST_HIT, time, false];
 private _onFoot = vehicle _unit isEqualTo _unit;
 private _oldHandle = _unit getVariable [BS_WOUND_HANDLE, scriptNull];
 if (_oldHandle isNotEqualTo scriptNull && {!scriptDone _oldHandle}) exitWith {
-    if (missionNamespace getVariable ["BS_woundDebug", false]) then {
+    if (
+        missionNamespace getVariable ["BS_woundDiagnostics", true]
+        || {missionNamespace getVariable ["BS_woundDebug", false]}
+    ) then {
         diag_log format [
             "BS Wound: HIT_REFRESH episode=%1 unit=%2 name=%3 damage=%4 eventDamage=%5 source=%6 instigator=%7 lastHit=%8",
             _unit getVariable [BS_WOUND_EPISODE, 0],
@@ -100,7 +114,10 @@ _unit setVariable [BS_WOUND_EPISODE, _episode, false];
 private _startedAt = time;
 private _damageAtStart = damage _unit;
 private _faksAtStart = {_x isEqualTo "FirstAidKit"} count (items _unit);
-if (missionNamespace getVariable ["BS_woundDebug", false]) then {
+if (
+    missionNamespace getVariable ["BS_woundDiagnostics", true]
+    || {missionNamespace getVariable ["BS_woundDebug", false]}
+) then {
     diag_log format [
         "BS Wound: TRIGGER episode=%1 unit=%2 name=%3 source=%4 instigator=%5 eventDamage=%6 totalDamage=%7 FAKs=%8 onFoot=%9",
         _episode,
@@ -322,7 +339,10 @@ private _handle = [
         _unit setVariable [BS_WOUND_HANDLE, scriptNull, false];
     };
 
-    if (missionNamespace getVariable ["BS_woundDebug", false]) then {
+    if (
+        missionNamespace getVariable ["BS_woundDiagnostics", true]
+        || {missionNamespace getVariable ["BS_woundDebug", false]}
+    ) then {
         private _damageAtEnd = if (isNull _unit) then {-1} else {damage _unit};
         private _faksAtEnd = if (isNull _unit) then {
             0

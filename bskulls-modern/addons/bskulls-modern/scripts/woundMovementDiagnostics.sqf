@@ -65,6 +65,7 @@ private _handle = [_unit] spawn {
         private _isLocal = local _observedUnit;
         private _medicalItems = items _observedUnit;
         private _woundHandle = _observedUnit getVariable [BS_WOUND_HANDLE, scriptNull];
+        private _nearestEnemy = _observedUnit findNearestEnemy _observedUnit;
         private _medicalState = [
             _observedUnit getVariable ["rev_downed", false],
             _observedUnit getVariable ["rev_beingAssisted", false],
@@ -72,6 +73,39 @@ private _handle = [_unit] spawn {
             _observedUnit getVariable ["rev_revivingUnit", false],
             _observedUnit getVariable ["rev_aiBeingTreated", false],
             _woundHandle isNotEqualTo scriptNull && {!scriptDone _woundHandle}
+        ];
+
+        // Keep the medical record short enough to survive the RPT line-length
+        // limit. The full movement record below can be truncated before its
+        // trailing medical section on units with long class or animation names.
+        diag_log format [
+            "[BSKULLS][WOUND-MOVE][MEDICAL] %1",
+            [
+                ["tick", diag_tickTime],
+                ["state", _state],
+                ["unit", str _observedUnit],
+                ["name", name _observedUnit],
+                ["damage", damage _observedUnit],
+                ["hitLegs", _observedUnit getHitPointDamage "HitLegs"],
+                ["suppression", getSuppression _observedUnit],
+                [
+                    "nearestEnemy",
+                    if (isNull _nearestEnemy) then {""} else {str _nearestEnemy}
+                ],
+                [
+                    "nearestEnemyDistance",
+                    if (isNull _nearestEnemy) then {-1} else {
+                        _observedUnit distance2D _nearestEnemy
+                    }
+                ],
+                [
+                    "firstAidKits",
+                    {_x isEqualTo "FirstAidKit"} count _medicalItems
+                ],
+                ["hasMedikit", "Medikit" in _medicalItems],
+                ["medicalState", _medicalState],
+                ["transition", _transition]
+            ]
         ];
 
         diag_log format [
