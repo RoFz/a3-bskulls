@@ -9,3 +9,11 @@ The model contains no copied BI mesh. It places a proxy to the vanilla
 
 Keep `model.cfg` beside the MLOD source when binarizing it with an Arma P3D
 binarization tool.
+
+The binarized ODOL must retain the complete 103-bone `OFP2_ManSkeleton`, but
+each weighted LOD must contain only bone 3 (`spine2`) in its sub-skeleton and
+declare a one-bone section. This is how the proxy receives the character's
+torso transform while avoiding an incompatible embedded skeleton. Do not use
+the legacy `armake` P3D output without checking these fields: its upstream
+documentation describes P3D conversion as incomplete, and its default output
+expands every LOD section to all 103 bones.
