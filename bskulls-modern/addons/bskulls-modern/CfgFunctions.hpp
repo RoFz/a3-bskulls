@@ -17,6 +17,10 @@ class CfgFunctions {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class registerDapsTypes { postInit = 1; };
         };
+        class equipment {
+            file = "\bskulls\addons\bskulls-modern\scripts";
+            class initJerrycanBackpackVisual { postInit = 1; };
+        };
         class wounded {
             file = "\bskulls\addons\bskulls-modern\scripts";
             class unitHit { file = "\bskulls\addons\bskulls-modern\scripts\hit.sqf"; };

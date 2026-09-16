@@ -448,7 +448,7 @@
         author = "RoFz";
         scope = 2;
         displayName = "Jerrycan (Fuel)";
-        model = "\bskulls\addons\bskulls-modern\models\bskulls_jerrycan_backpack.p3d";
+        model = "\A3\Weapons_F\empty.p3d";
         explosionEffect = "FuelExplosion";
         explosionShielding = 1;
         fuelExplosionPower = 0.7;
