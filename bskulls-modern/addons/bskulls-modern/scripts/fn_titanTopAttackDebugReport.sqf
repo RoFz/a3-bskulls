@@ -1,6 +1,7 @@
 /*
- * Snapshot the production Archangel configuration and buffered diagnostics.
- * The report remains available while collection is disabled.
+ * Snapshot the production Archangel configuration plus launcher-AI telemetry
+ * and buffered diagnostics. The report remains available while collection is
+ * disabled.
  *
  * Debug Console examples:
  *   [true] call bskulls_fnc_titanTopAttackSetDebug;
@@ -45,13 +46,75 @@ private _debugStartedAt = localNamespace getVariable [
     -1
 ];
 private _dapsExcludedAmmo = missionNamespace getVariable ["dapsExcludedAmmo", []];
+private _launcherUnits = allUnits select {
+    private _candidate = _x;
+    alive _candidate
+    && {!isPlayer _candidate}
+    && {(secondaryWeapon _candidate) isNotEqualTo ""}
+    && {({isPlayer _x} count units group _candidate) > 0}
+};
 private _hawkinsUnits = allUnits select {
     _x isKindOf "B_PTbskull_Veh_Unit_Hawkins_blackops_04"
 };
+private _describeLauncherMonitor = {
+    params ["_unit"];
+
+    private _launcherClass = secondaryWeapon _unit;
+    private _launcherState = if (local _unit && {_launcherClass isNotEqualTo ""}) then {
+        _unit weaponState _launcherClass
+    } else {[]};
+    private _compatibleLauncherMagazines = if (_launcherClass isEqualTo "") then {
+        []
+    } else {
+        compatibleMagazines _launcherClass
+    };
+    private _launcherInventory = (magazinesAmmoFull _unit) select {
+        (_x param [0, ""]) in _compatibleLauncherMagazines
+        || {(_x param [3, -1]) isEqualTo 4}
+    };
+    private _launcherRoundCount = 0;
+    {
+        _launcherRoundCount = _launcherRoundCount + (_x param [1, 0]);
+    } forEach _launcherInventory;
+    private _stateHandle = [
+        _unit,
+        "unit-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    private _orderHandle = [
+        _unit,
+        "order-debug-pfh",
+        -1
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    private _discipline = [
+        _unit,
+        "discipline-state",
+        []
+    ] call bskulls_fnc_titanTopAttackRuntimeGet;
+    [
+        ["unit", str _unit],
+        ["name", name _unit],
+        ["class", typeOf _unit],
+        ["group", str group _unit],
+        ["local", local _unit],
+        ["alive", alive _unit],
+        ["launcher", _launcherClass],
+        ["launcherDisplayName", getText (
+            configFile >> "CfgWeapons" >> _launcherClass >> "displayName"
+        )],
+        ["launcherState", _launcherState],
+        ["compatibleLauncherMagazines", _compatibleLauncherMagazines],
+        ["launcherInventory", _launcherInventory],
+        ["launcherRoundCount", _launcherRoundCount],
+        ["stateRunning", _stateHandle >= 0],
+        ["orderRunning", _orderHandle >= 0],
+        ["fireDiscipline", _discipline]
+    ]
+};
 
 private _report = [
-    ["report", "Black Skulls HVPS-17 Archangel"],
-    ["schemaVersion", 7],
+    ["report", "Black Skulls launcher AI diagnostics"],
+    ["schemaVersion", 8],
     ["tick", diag_tickTime],
     ["world", worldName],
     ["machine", [clientOwner, isServer, hasInterface]],
@@ -76,40 +139,19 @@ private _report = [
         ["elapsed", if (_debugStartedAt < 0) then {-1} else {diag_tickTime - _debugStartedAt}],
         ["accuracyOverride", localNamespace getVariable ["bskulls_titanTopAttackAccuracyOverride", ""]],
         ["loadedHandler", localNamespace getVariable ["bskulls_titanTopAttackLoadedEh", -1]],
+        ["launcherDiscoveryHandler", localNamespace getVariable [
+            "bskulls_titanTopAttackLauncherDiscoveryPfh",
+            -1
+        ]],
         ["transientMonitorCount", count (localNamespace getVariable [
             "bskulls_titanTopAttackTransientMonitorNames",
             []
         ])],
+        ["launcherMonitors", _launcherUnits apply {
+            [_x] call _describeLauncherMonitor
+        }],
         ["hawkinsMonitors", _hawkinsUnits apply {
-            private _stateHandle = [
-                _x,
-                "unit-debug-pfh",
-                -1
-            ] call bskulls_fnc_titanTopAttackRuntimeGet;
-            private _orderHandle = [
-                _x,
-                "order-debug-pfh",
-                -1
-            ] call bskulls_fnc_titanTopAttackRuntimeGet;
-            private _discipline = [
-                _x,
-                "discipline-state",
-                []
-            ] call bskulls_fnc_titanTopAttackRuntimeGet;
-            [
-                ["unit", str _x],
-                ["local", local _x],
-                ["alive", alive _x],
-                ["stateRunning", _stateHandle >= 0],
-                ["orderRunning", _orderHandle >= 0],
-                ["archangelReloadPhase", if (local _x) then {
-                    (_x weaponState "B_PTbskull_Wea_law_02_titantop") param [
-                        5,
-                        -1
-                    ]
-                } else {-1}],
-                ["fireDiscipline", _discipline]
-            ]
+            [_x] call _describeLauncherMonitor
         }]
     ]],
     ["daps", [
@@ -245,12 +287,12 @@ private _report = [
     ["recordLimit", 500],
     ["recordBufferFull", (count _records) >= 500],
     ["unitStateRecordCount", count _unitStateRecords],
-    ["unitStateRecordLimit", 240],
-    ["unitStateBufferFull", (count _unitStateRecords) >= 240],
+    ["unitStateRecordLimit", 960],
+    ["unitStateBufferFull", (count _unitStateRecords) >= 960],
     ["unitStateRecords", _unitStateRecords],
     ["orderRecordCount", count _orderRecords],
-    ["orderRecordLimit", 240],
-    ["orderRecordBufferFull", (count _orderRecords) >= 240],
+    ["orderRecordLimit", 960],
+    ["orderRecordBufferFull", (count _orderRecords) >= 960],
     ["orderRecords", _orderRecords],
     ["acquisitionTestRunning", localNamespace getVariable [
         "bskulls_titanTopAttackAcquisitionTestRunning",
@@ -264,7 +306,7 @@ diag_log format ["[BSKULLS][TITAN-TA] DEBUG_REPORT %1", _report];
 if (_copyToClipboard && {hasInterface}) then {
     copyToClipboard str _report;
     systemChat format [
-        "Archangel report copied (%1 events, %2 AI states, %3 order events).",
+        "Launcher AI report copied (%1 events, %2 AI states, %3 order events).",
         count _records,
         count _unitStateRecords,
         count _orderRecords

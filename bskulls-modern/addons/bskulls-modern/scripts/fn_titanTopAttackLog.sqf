@@ -5,11 +5,11 @@
  * bskulls_fnc_titanTopAttackSetDebug. Terse local systemChat events can be
  * requested separately when enabling them.
  * The latest 500 local records remain in bskulls_titanTopAttackDebugRecords.
- * UNIT_STATE also has a dedicated 240-record buffer so opening the launcher
- * optic cannot evict the AI acquisition history needed for diagnosis. Player
- * sampled order transitions and their scheduled followups use a separate
- * 240-record buffer for the same reason. Long events pass a compact RPT
- * projection; the complete record remains in the local in-memory buffers.
+ * UNIT_STATE also has a dedicated 960-record buffer so several launcher
+ * carriers can be followed without the launcher optic evicting acquisition
+ * history. Player sampled order transitions and scheduled followups use a
+ * separate 960-record buffer for the same reason. Long events pass a compact
+ * RPT projection; complete records remain in the local in-memory buffers.
  */
 
 params [
@@ -73,7 +73,7 @@ if (_isUnitState) then {
         []
     ];
     _unitStateRecords pushBack _record;
-    if ((count _unitStateRecords) > 240) then {
+    if ((count _unitStateRecords) > 960) then {
         _unitStateRecords deleteAt 0;
     };
     localNamespace setVariable [
@@ -88,7 +88,7 @@ if (_isOrderState) then {
         []
     ];
     _orderRecords pushBack _record;
-    if ((count _orderRecords) > 240) then {
+    if ((count _orderRecords) > 960) then {
         _orderRecords deleteAt 0;
     };
     localNamespace setVariable [

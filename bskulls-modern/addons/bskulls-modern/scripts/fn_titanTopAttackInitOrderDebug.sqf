@@ -1,9 +1,9 @@
 /*
- * Trace the local player's command path to a Hawkins unit without issuing or
- * modifying any commands. The normal unit-state monitor intentionally runs at
- * a low rate because its visibility scans are expensive; this companion loop
- * samples only lightweight order state so short FIRE/ATTACK transitions are
- * not missed.
+ * Trace the local player's command path to any AI launcher carrier in the
+ * player's group without issuing or modifying commands. The normal unit-state
+ * monitor intentionally runs at a low rate because its visibility scans are
+ * expensive; this companion loop samples only lightweight order state so
+ * short FIRE/ATTACK transitions are not missed.
  *
  * assignedTarget documents leader target assignments, while currentCommand
  * exposes FIRE, ATTACK, and ATTACKFIRE orders. groupSelectedUnits and
@@ -31,6 +31,8 @@ if (
     || {!local _unit}
     || {!alive _unit}
     || {isPlayer _unit}
+    || {(secondaryWeapon _unit) isEqualTo ""}
+    || {({isPlayer _x} count units group _unit) <= 0}
     || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
 ) exitWith {
     if (_oldHandle >= 0) then {
@@ -59,6 +61,8 @@ private _handle = [{
         || {!local _unit}
         || {!alive _unit}
         || {isPlayer _unit}
+        || {(secondaryWeapon _unit) isEqualTo ""}
+        || {({isPlayer _x} count units group _unit) <= 0}
         || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
     ) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -103,7 +107,7 @@ private _handle = [{
     private _followupDelays = [0.25, 1, 2, 5];
     private _stateLabels = [
         "same-player-group",
-        "hawkins-selected",
+        "launcher-unit-selected",
         "commanding-menu",
         "assigned-target",
         "attack-target",
@@ -124,7 +128,12 @@ private _handle = [{
         "can-fire",
         "group-attack-enabled",
         "reload-enabled",
-        "simulation-enabled"
+        "simulation-enabled",
+        "secondary-launcher",
+        "launcher-loaded-magazine",
+        "launcher-rounds",
+        "launcher-round-reloading",
+        "launcher-magazine-reloading"
     ];
 
     private _describeTarget = {
@@ -147,14 +156,14 @@ private _handle = [{
             ["side", str side _target],
             ["alive", alive _target],
             ["isLandVehicle", _target isKindOf "LandVehicle"],
-            ["distanceFromHawkins", _observer distance2D _target],
+            ["distanceFromUnit", _observer distance2D _target],
             ["distanceFromCommander", if (isNull _commander) then {-1} else {
                 _commander distance2D _target
             }],
             ["engineOn", _isVehicleEntity && {isEngineOn _target}],
             ["speed", if (_isVehicleEntity) then {speed _target} else {0}],
             ["irTarget", getNumber (configOf _target >> "irTarget")],
-            ["hawkinsKnowsAbout", if (_isVehicleEntity) then {
+            ["unitKnowsAbout", if (_isVehicleEntity) then {
                 _observer knowsAbout _target
             } else {-1}],
             ["commanderKnowsAbout", if (
@@ -212,6 +221,17 @@ private _handle = [{
         } else {
             groupSelectedUnits _commander
         };
+        private _launcherClass = secondaryWeapon _unit;
+        private _launcherState = _unit weaponState _launcherClass;
+        private _compatibleLauncherMagazines = compatibleMagazines _launcherClass;
+        private _launcherInventory = (magazinesAmmoFull _unit) select {
+            (_x param [0, ""]) in _compatibleLauncherMagazines
+            || {(_x param [3, -1]) isEqualTo 4}
+        };
+        private _launcherRoundCount = 0;
+        {
+            _launcherRoundCount = _launcherRoundCount + (_x param [1, 0]);
+        } forEach _launcherInventory;
 
         [
             ["reasons", _reasons],
@@ -232,7 +252,7 @@ private _handle = [{
                 }],
                 ["attackEnabled", attackEnabled group _unit]
             ]],
-            ["hawkinsSelected", _selected],
+            ["launcherUnitSelected", _selected],
             ["selectedUnits", _selectedUnits apply {
                 [str _x, typeOf _x, netId _x]
             }],
@@ -257,8 +277,12 @@ private _handle = [{
                 currentWeaponMode _unit
             ]],
             ["weaponState", weaponState _unit],
-            ["secondaryWeapon", secondaryWeapon _unit],
+            ["secondaryWeapon", _launcherClass],
             ["secondaryWeaponMagazine", secondaryWeaponMagazine _unit],
+            ["launcherState", _launcherState],
+            ["compatibleLauncherMagazines", _compatibleLauncherMagazines],
+            ["launcherInventory", _launcherInventory],
+            ["launcherRoundCount", _launcherRoundCount],
             ["topAttackMissileCount", {
                 (_x param [0, ""]) isEqualTo "Titan_AT_TOP_PLUS"
             } count magazinesAmmoFull _unit],
@@ -311,6 +335,17 @@ private _handle = [{
         private _assigned = assignedTarget _unit;
         private _attack = getAttackTarget _unit;
         private _weaponState = weaponState _unit;
+        private _launcherClass = secondaryWeapon _unit;
+        private _launcherState = _unit weaponState _launcherClass;
+        private _compatibleLauncherMagazines = compatibleMagazines _launcherClass;
+        private _launcherInventory = (magazinesAmmoFull _unit) select {
+            (_x param [0, ""]) in _compatibleLauncherMagazines
+            || {(_x param [3, -1]) isEqualTo 4}
+        };
+        private _launcherRoundCount = 0;
+        {
+            _launcherRoundCount = _launcherRoundCount + (_x param [1, 0]);
+        } forEach _launcherInventory;
         private _state = [
             _samePlayerGroup,
             _selected,
@@ -334,7 +369,12 @@ private _handle = [{
             canFire _unit,
             attackEnabled _unitGroup,
             reloadEnabled _unit,
-            simulationEnabled _unit
+            simulationEnabled _unit,
+            _launcherClass,
+            _launcherState param [3, ""],
+            _launcherRoundCount,
+            (_launcherState param [5, 0]) > 0,
+            (_launcherState param [6, 0]) > 0
         ];
 
         private _reasons = [];
@@ -391,7 +431,10 @@ private _handle = [{
                     currentWeapon _unit,
                     currentWeaponMode _unit,
                     _weaponState param [3, ""],
-                    _weaponState param [4, 0]
+                    _weaponState param [4, 0],
+                    _launcherClass,
+                    _launcherState param [3, ""],
+                    _launcherRoundCount
                 ]],
                 ["combat", [
                     unitCombatMode _unit,
@@ -453,7 +496,13 @@ private _handle = [{
                 ]],
                 ["command", currentCommand _unit],
                 ["unitState", getUnitState _unit],
-                ["weapon", [currentWeapon _unit, currentWeaponMode _unit]],
+                ["weapon", [
+                    currentWeapon _unit,
+                    currentWeaponMode _unit,
+                    _launcherClass,
+                    _launcherState param [3, ""],
+                    _launcherRoundCount
+                ]],
                 ["combat", [
                     unitCombatMode _unit,
                     combatMode _unitGroup,

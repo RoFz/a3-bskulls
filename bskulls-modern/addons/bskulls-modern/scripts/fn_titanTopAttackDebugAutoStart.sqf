@@ -1,11 +1,12 @@
 /*
- * Enable Archangel diagnostics on every machine at mission post-init. This is
- * intentionally always-on while Hawkins's intermittent AI engagement is under
- * investigation; chat remains quiet and the normal runtime switch can still
- * disable collection.
+ * Enable launcher-AI diagnostics on every machine at mission post-init. This
+ * is intentionally always-on while intermittent AI launcher engagement is
+ * under investigation; chat remains quiet and the normal runtime switch can
+ * still disable collection.
  *
  * CfgFunctions postInit runs after mission objects are initialized. XEH then
- * covers Hawkins units created later in the mission.
+ * the discovery PFH covers launcher carriers and loadout changes later in the
+ * mission. Hawkins's XEH provides an immediate first sample.
  * https://community.bohemia.net/wiki/Arma_3:_Functions_Library
  */
 
@@ -20,6 +21,7 @@ private _mode = _launcher >> "Overfly";
     objNull,
     "AUTO_START",
     [
+        ["scope", "local AI launcher carriers in player-containing groups"],
         ["launcherPresent", isClass _launcher],
         ["carrierPresent", isClass _carrier],
         ["weaponLockSystem", getNumber (_launcher >> "weaponLockSystem")],

@@ -56,6 +56,21 @@ if (_oldLoadedEh >= 0) then {
 
 private _loadedEh = addMissionEventHandler ["Loaded", {
     localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
+    private _discoveryHandle = localNamespace getVariable [
+        "bskulls_titanTopAttackLauncherDiscoveryPfh",
+        -1
+    ];
+    if (_discoveryHandle >= 0) then {
+        [_discoveryHandle] call CBA_fnc_removePerFrameHandler;
+    };
+    localNamespace setVariable [
+        "bskulls_titanTopAttackLauncherDiscoveryPfh",
+        -1
+    ];
+    localNamespace setVariable [
+        "bskulls_titanTopAttackLauncherUnits",
+        []
+    ];
     {
         localNamespace setVariable [_x, nil];
     } forEach (localNamespace getVariable [

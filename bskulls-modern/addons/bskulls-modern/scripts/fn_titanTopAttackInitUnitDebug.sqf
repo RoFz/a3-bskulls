@@ -1,7 +1,8 @@
 /*
- * Trace the AI decision state of the dedicated top-attack Hawkins variant.
- * Projectile events cannot diagnose a launcher that is never selected or
- * fired, so this records target knowledge and weapon state at a low rate.
+ * Trace the AI decision state of any local AI launcher carrier in a group
+ * containing a player. Projectile events cannot diagnose a launcher that is
+ * never selected or fired, so this records target knowledge and the actual
+ * secondary-weapon state at a low rate.
  * CBA's PFH scheduler adjusts its deadlines when a saved mission is loaded.
  * https://github.com/CBATeam/CBA_A3/blob/master/addons/common/init_perFrameHandler.sqf
  */
@@ -19,6 +20,8 @@ if (
     !local _unit
     || {!alive _unit}
     || {isPlayer _unit}
+    || {(secondaryWeapon _unit) isEqualTo ""}
+    || {({isPlayer _x} count units group _unit) <= 0}
     || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
 ) exitWith {
     if (_oldHandle >= 0) then {
@@ -46,6 +49,8 @@ private _handle = [{
         || {!local _unit}
         || {!alive _unit}
         || {isPlayer _unit}
+        || {(secondaryWeapon _unit) isEqualTo ""}
+        || {({isPlayer _x} count units group _unit) <= 0}
         || {!(localNamespace getVariable ["bskulls_titanTopAttackDebug", false])}
     ) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -85,15 +90,75 @@ private _handle = [{
     ] call bskulls_fnc_titanTopAttackRuntimeGet;
     private _lastLoggedState = _monitorState param [0, []];
     private _lastLogAt = _monitorState param [1, -1e10];
-    private _carrierConfig = configFile >> "CfgAmmo" >> "M_Titan_AT_TOP_PLUS";
-    private _lockMinDistance = getNumber (_carrierConfig >> "missileLockMinDistance");
-    private _lockMaxDistance = getNumber (_carrierConfig >> "missileLockMaxDistance");
-    if (_lockMinDistance <= 0) then {
-        _lockMinDistance = 900;
+    private _launcherClass = secondaryWeapon _unit;
+    private _launcherConfig = configFile >> "CfgWeapons" >> _launcherClass;
+    // weaponState syntax 3 queries the specified launcher even while the AI
+    // has its rifle selected.
+    // https://community.bohemia.net/wiki/weaponState
+    private _launcherState = _unit weaponState _launcherClass;
+    private _launcherMode = _launcherState param [2, ""];
+    private _launcherModeConfig = _launcherConfig >> _launcherMode;
+    // Unloaded entries in magazinesAmmoFull use type -1, so the launcher's
+    // compatible-magazine list is required to include carried spare rounds.
+    // Type 4 remains a fallback for a loaded secondary magazine omitted by a
+    // third-party compatibility definition.
+    // https://community.bohemia.net/wiki/compatibleMagazines
+    // https://community.bohemia.net/wiki/magazinesAmmoFull
+    private _compatibleLauncherMagazines = compatibleMagazines _launcherClass;
+    private _launcherInventory = (magazinesAmmoFull _unit) select {
+        (_x param [0, ""]) in _compatibleLauncherMagazines
+        || {(_x param [3, -1]) isEqualTo 4}
+    };
+    private _launcherMagazineCount = {
+        (_x param [1, 0]) > 0
+    } count _launcherInventory;
+    private _launcherRoundCount = 0;
+    {
+        _launcherRoundCount = _launcherRoundCount + (_x param [1, 0]);
+    } forEach _launcherInventory;
+    private _loadedLauncherMagazine = _launcherState param [3, ""];
+    if (
+        _loadedLauncherMagazine isEqualTo ""
+        && {_launcherInventory isNotEqualTo []}
+    ) then {
+        _loadedLauncherMagazine = (_launcherInventory select 0) param [0, ""];
+    };
+    private _launcherAmmoClass = if (_loadedLauncherMagazine isEqualTo "") then {
+        ""
+    } else {
+        getText (
+            configFile
+            >> "CfgMagazines"
+            >> _loadedLauncherMagazine
+            >> "ammo"
+        )
+    };
+    private _launcherAmmoConfig = configFile >> "CfgAmmo" >> _launcherAmmoClass;
+    private _lockMinDistance = getNumber (
+        _launcherAmmoConfig >> "missileLockMinDistance"
+    );
+    private _lockMaxDistance = getNumber (
+        _launcherAmmoConfig >> "missileLockMaxDistance"
+    );
+    private _envelopeSource = "ammo-lock";
+    if (_lockMinDistance < 0) then {
+        _lockMinDistance = 0;
     };
     if (_lockMaxDistance <= _lockMinDistance) then {
-        _lockMaxDistance = 4000;
+        _lockMinDistance = getNumber (_launcherModeConfig >> "minRange");
+        _lockMaxDistance = getNumber (_launcherModeConfig >> "maxRange");
+        _envelopeSource = "weapon-ai-range";
     };
+    if (_lockMinDistance < 0) then {
+        _lockMinDistance = 0;
+    };
+    if (_lockMaxDistance <= _lockMinDistance) then {
+        _lockMinDistance = 0;
+        _lockMaxDistance = 2500;
+        _envelopeSource = "diagnostic-fallback";
+    };
+    private _launcherIrLock = getNumber (_launcherAmmoConfig >> "irLock");
+    private _launcherAirLock = getNumber (_launcherAmmoConfig >> "airLock");
     private _diagnosticScanDistance = _lockMaxDistance + 500;
     private _angleBetween = {
         params ["_left", "_right"];
@@ -239,6 +304,8 @@ private _handle = [{
                 ["actualPositionATL", []],
                 ["actualPositionASL", []],
                 ["isLandVehicle", false],
+                ["isAirVehicle", false],
+                ["isLauncherTarget", false],
                 ["alive", false],
                 ["distance2D", -1],
                 ["distance3D", -1],
@@ -275,6 +342,11 @@ private _handle = [{
             ["actualPositionATL", getPosATL _target],
             ["actualPositionASL", getPosASL _target],
             ["isLandVehicle", _target isKindOf "LandVehicle"],
+            ["isAirVehicle", _target isKindOf "Air"],
+            ["isLauncherTarget", (
+                _target isKindOf "AllVehicles"
+                && {!(_target isKindOf "Man")}
+            )],
             ["alive", alive _target],
             ["distance2D", _observer distance2D _target],
             ["distance3D", _observer distance _target],
@@ -301,8 +373,12 @@ private _handle = [{
         private _remoteTargets = listRemoteTargets (side (group _unit));
         private _assignedTarget = assignedTarget _unit;
         private _attackTarget = getAttackTarget _unit;
-        private _assignedIsVehicle = !isNull _assignedTarget && {_assignedTarget isKindOf "LandVehicle"};
-        private _attackIsVehicle = !isNull _attackTarget && {_attackTarget isKindOf "LandVehicle"};
+        private _assignedIsVehicle = !isNull _assignedTarget
+            && {_assignedTarget isKindOf "AllVehicles"}
+            && {!(_assignedTarget isKindOf "Man")};
+        private _attackIsVehicle = !isNull _attackTarget
+            && {_attackTarget isKindOf "AllVehicles"}
+            && {!(_attackTarget isKindOf "Man")};
         private _assignedTargetState = [
             _unit,
             _assignedTarget,
@@ -325,14 +401,16 @@ private _handle = [{
                 [_assignedTarget, _attackTarget] select (!isNull _attackTarget)
             }
         };
-        private _focusIsVehicle = !isNull _focusTarget && {_focusTarget isKindOf "LandVehicle"};
+        private _focusIsVehicle = !isNull _focusTarget
+            && {_focusTarget isKindOf "AllVehicles"}
+            && {!(_focusTarget isKindOf "Man")};
         private _targetDistance2D = if (isNull _focusTarget) then {-1} else {_unit distance2D _focusTarget};
         private _targetDistance3D = if (isNull _focusTarget) then {-1} else {_unit distance _focusTarget};
         private _rangeState = if (isNull _focusTarget) then {
             "no-current-target"
         } else {
             if (!_focusIsVehicle) then {
-                "current-target-not-land-vehicle"
+                "current-target-not-launcher-vehicle"
             } else {
                 if (!alive _focusTarget) then {
                     "target-dead"
@@ -341,7 +419,7 @@ private _handle = [{
                         format ["inside-%1m-safety-minimum", round _lockMinDistance]
                     } else {
                         [
-                            "inside-top-attack-envelope",
+                            "inside-launcher-envelope",
                             format ["outside-%1m-lock-maximum", round _lockMaxDistance]
                         ] select (_targetDistance2D > _lockMaxDistance)
                     }
@@ -349,18 +427,15 @@ private _handle = [{
             }
         };
 
-        private _missileInventory = (magazinesAmmoFull _unit) select {
-            (_x param [0, ""]) isEqualTo "Titan_AT_TOP_PLUS"
-        };
-        private _missileCount = count _missileInventory;
-
+        private _knownLauncherTargets = [];
         private _knownArmor = [];
         {
             private _knownObject = _x param [4, objNull, [objNull]];
             if (
                 !isNull _knownObject
                 && {alive _knownObject}
-                && {_knownObject isKindOf "LandVehicle"}
+                && {_knownObject isKindOf "AllVehicles"}
+                && {!(_knownObject isKindOf "Man")}
                 && {(_x param [3, 0]) > 0}
             ) then {
                 private _remoteIndex = _remoteTargets findIf {
@@ -371,7 +446,7 @@ private _handle = [{
                 } else {
                     +(_remoteTargets select _remoteIndex)
                 };
-                _knownArmor pushBack (
+                private _knownRecord = (
                     [
                         ["object", str _knownObject],
                         ["class", typeOf _knownObject],
@@ -395,8 +470,15 @@ private _handle = [{
                     + ([_unit, _knownObject] call _describeKnowledge)
                     + ([_unit, _knownObject] call _describeGeometry)
                 );
+                _knownLauncherTargets pushBack _knownRecord;
+                if (_knownObject isKindOf "LandVehicle") then {
+                    _knownArmor pushBack _knownRecord;
+                };
             };
         } forEach (_unit nearTargets _diagnosticScanDistance);
+        if ((count _knownLauncherTargets) > 6) then {
+            _knownLauncherTargets resize 6;
+        };
         if ((count _knownArmor) > 6) then {
             _knownArmor resize 6;
         };
@@ -413,7 +495,8 @@ private _handle = [{
             private _candidateSide = side _candidate;
             if (
                 alive _candidate
-                && {_candidate isKindOf "LandVehicle"}
+                && {_candidate isKindOf "AllVehicles"}
+                && {!(_candidate isKindOf "Man")}
                 && {_distance <= _diagnosticScanDistance}
                 && {_candidateSide isNotEqualTo sideUnknown}
                 && {(_observerSide getFriend _candidateSide) < 0.6}
@@ -533,10 +616,12 @@ private _handle = [{
             "discipline-state",
             []
         ] call bskulls_fnc_titanTopAttackRuntimeGet;
-        private _fireDisciplineActive = _fireDiscipline isNotEqualTo [];
-        private _archangelReloadPhase = (
-            _unit weaponState "B_PTbskull_Wea_law_02_titantop"
-        ) param [5, -1];
+        private _isArchangel = _launcherClass isEqualTo
+            "B_PTbskull_Wea_law_02_titantop";
+        private _fireDisciplineActive = _isArchangel
+            && {_fireDiscipline isNotEqualTo []};
+        private _launcherReloadPhase = _launcherState param [5, -1];
+        private _launcherMagazineReloadPhase = _launcherState param [6, -1];
 
         // These are observed constraints, not a claim about an inaccessible
         // internal AI decision. In particular, an engine-off IR target can
@@ -567,10 +652,10 @@ private _handle = [{
             if (_focusKnowsAbout <= 0) then {
                 _observedConstraints pushBack "unknown";
             };
-            if (_focusIrTarget <= 0) then {
+            if (_launcherIrLock > 0 && {_focusIrTarget <= 0}) then {
                 _observedConstraints pushBack "ir-disabled";
             };
-            if (!_focusEngineOn) then {
+            if (_launcherIrLock > 0 && {!_focusEngineOn}) then {
                 _observedConstraints pushBack "engine-off";
             };
             if (_focusTerrainBlocked) then {
@@ -586,10 +671,10 @@ private _handle = [{
                 _observedConstraints pushBack "stale/remote";
             };
         };
-        if ((currentWeapon _unit) isNotEqualTo "B_PTbskull_Wea_law_02_titantop") then {
+        if ((currentWeapon _unit) isNotEqualTo _launcherClass) then {
             _observedConstraints pushBack "weapon-not-selected";
         };
-        if (_missileCount <= 0) then {
+        if (_launcherRoundCount <= 0) then {
             _observedConstraints pushBack "no-ammo";
         };
         if !(canFire _unit) then {
@@ -631,7 +716,11 @@ private _handle = [{
             currentCommand _unit,
             currentWeapon _unit,
             currentWeaponMode _unit,
-            _missileCount,
+            _launcherClass,
+            _launcherAmmoClass,
+            _launcherState,
+            _launcherInventory,
+            _launcherRoundCount,
             behaviour _unit,
             combatBehaviour _unit,
             unitCombatMode _unit,
@@ -640,11 +729,12 @@ private _handle = [{
             _aiSkills,
             _aiFeatures,
             _targetDaps,
-            _knownArmor,
+            _knownLauncherTargets,
             _physicalEnemyState,
             _observedConstraints,
             _fireDisciplineActive,
-            round (_archangelReloadPhase * 10)
+            round (_launcherReloadPhase * 10),
+            round (_launcherMagazineReloadPhase * 10)
         ];
         private _stateChanged = _state isNotEqualTo _lastLoggedState;
         private _sinceLastLog = diag_tickTime - _lastLogAt;
@@ -691,10 +781,13 @@ private _handle = [{
                     currentWeapon _unit,
                     currentWeaponMode _unit,
                     currentCommand _unit,
-                    _missileCount,
+                    _launcherClass,
+                    _launcherAmmoClass,
+                    _launcherRoundCount,
                     canFire _unit,
                     _fireDisciplineActive,
-                    round (_archangelReloadPhase * 100) / 100
+                    round (_launcherReloadPhase * 100) / 100,
+                    round (_launcherMagazineReloadPhase * 100) / 100
                 ]],
                 ["combat", [
                     unitCombatMode _unit,
@@ -724,21 +817,46 @@ private _handle = [{
                     ["attackTargetState", _attackTargetState],
                     ["focusTarget", str _focusTarget],
                     ["focusTargetClass", if (isNull _focusTarget) then {""} else {typeOf _focusTarget}],
-                    ["focusTargetIsLandVehicle", _focusIsVehicle],
+                    ["focusTargetIsLauncherVehicle", _focusIsVehicle],
+                    ["focusTargetIsLandVehicle", !isNull _focusTarget && {
+                        _focusTarget isKindOf "LandVehicle"
+                    }],
+                    ["focusTargetIsAirVehicle", !isNull _focusTarget && {
+                        _focusTarget isKindOf "Air"
+                    }],
                     ["focusTargetAlive", !isNull _focusTarget && {alive _focusTarget}],
                     ["targetDistance2D", _targetDistance2D],
                     ["targetDistance3D", _targetDistance3D],
                     ["rangeState", _rangeState],
+                    ["envelope", [
+                        _envelopeSource,
+                        _lockMinDistance,
+                        _lockMaxDistance
+                    ]],
                     ["currentCommand", currentCommand _unit],
                     ["currentWeapon", currentWeapon _unit],
                     ["currentMuzzle", currentMuzzle _unit],
                     ["currentWeaponMode", currentWeaponMode _unit],
                     ["weaponState", weaponState _unit],
-                    ["secondaryWeapon", secondaryWeapon _unit],
+                    ["secondaryWeapon", _launcherClass],
                     ["secondaryWeaponMagazine", secondaryWeaponMagazine _unit],
-                    ["topAttackMissileCount", _missileCount],
-                    ["topAttackMissiles", _missileInventory],
-                    ["archangelReloadPhase", _archangelReloadPhase],
+                    ["launcherState", _launcherState],
+                    ["launcherMode", _launcherMode],
+                    ["launcherMagazine", _loadedLauncherMagazine],
+                    ["launcherAmmo", _launcherAmmoClass],
+                    ["launcherInventory", _launcherInventory],
+                    ["compatibleLauncherMagazines", _compatibleLauncherMagazines],
+                    ["launcherMagazineCount", _launcherMagazineCount],
+                    ["launcherRoundCount", _launcherRoundCount],
+                    ["launcherLock", [
+                        ["source", _envelopeSource],
+                        ["minimum", _lockMinDistance],
+                        ["maximum", _lockMaxDistance],
+                        ["irLock", _launcherIrLock],
+                        ["airLock", _launcherAirLock]
+                    ]],
+                    ["launcherReloadPhase", _launcherReloadPhase],
+                    ["launcherMagazineReloadPhase", _launcherMagazineReloadPhase],
                     ["fireDiscipline", _fireDiscipline],
                     ["canFire", canFire _unit],
                     ["unitReady", unitReady _unit],
@@ -751,6 +869,7 @@ private _handle = [{
                     ["aiSkills", _aiSkills],
                     ["aiFeatures", _aiFeatures],
                     ["targetDaps", _targetDaps],
+                    ["knownLauncherTargets", _knownLauncherTargets],
                     ["knownArmor", _knownArmor],
                     ["physicalEnemyVehicles", _physicalEnemyVehicles],
                     ["observedConstraints", _observedConstraints]
