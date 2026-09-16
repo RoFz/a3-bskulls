@@ -132,6 +132,7 @@ class CfgPatches {
             "B_PTbskull_Wea_ar_08_xm7",
             "B_PTbskull_Wea_art_gun_01",
             "B_PTbskull_Wea_art_mortar_01",
+            "B_PTbskull_Wea_GBU12Launcher_x4",
             "B_PTbskull_Wea_law_01_titanat",
             "B_PTbskull_Wea_law_02_titantop",
             "B_PTbskull_Wea_law_03_titanaa",

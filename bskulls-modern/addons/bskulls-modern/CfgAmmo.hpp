@@ -495,6 +495,7 @@ class CfgMagazines {
         count = 4;
         displayName = "GBU-12 LGB x4";
         hardpoints[] = {"B_PTBSKULL_GBU12_QUAD"};
+        pylonWeapon = "B_PTbskull_Wea_GBU12Launcher_x4";
     };
 
 // 10Rnd_127x54_Mag

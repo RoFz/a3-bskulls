@@ -228,8 +228,8 @@
                 class pylons {
                     class pylons1 {
                         attachment = "PylonRack_4Rnd_LG_scalpel";
-                        hardpoints[] = {"B_BOMB_PYLON","B_MISSILE_PYLON"};
-                        maxweight = 345;
+                        hardpoints[] = {"B_BOMB_PYLON","B_MISSILE_PYLON","SCALPEL_4RND"};
+                        maxweight = 370;
                         priority = 5;
                         turret[] = {0};
                         UIposition[] = {0.33,0.4};
