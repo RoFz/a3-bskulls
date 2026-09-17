@@ -683,8 +683,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_ar_02_r11","B_PTbskull_Wea_law_03_titanaa","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(JAS_RSASS_20rnd_M993_AP_mag)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -697,8 +697,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_law_03_titanaa","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
     };
 
@@ -711,8 +711,8 @@
         respawnWeapons[] = {"B_PTbskull_Wea_ar_08_xm7","B_PTbskull_Wea_law_03_titanaa","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(Titan_AA),MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"Titan_AA",MAG_15(B_PTbskull_Wea_ar_08_xm7_AMMO)};
         backpack = "B_KA_Metal_Storm_AI_NATO";
     };
 
