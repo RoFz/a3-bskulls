@@ -1154,7 +1154,8 @@
     };
 
     // Sniper #13: Snipex Alligator
-    // Ammo: 5Rnd_145_mag_B (alt: 5Rnd_145_mag_BZT — B=AP, Z=Inc, T=tracer)
+    // Ammo: 5Rnd_145_mag_B (AP), 5Rnd_145_mag_BZ (AP-incendiary),
+    // and 5Rnd_145_mag_BZT (AP-incendiary tracer).
     #define B_PTbskull_Wea_sniper_13_alligator_AMMO 5Rnd_145_mag_B
     class amrifle_alligator_b;
     class amrifle_alligator_b_OCimport_01 : amrifle_alligator_b { access = 0; scope = 0; class Single; };

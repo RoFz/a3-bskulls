@@ -373,6 +373,45 @@
         };
     };
 
+    class B_PTbskull_Veh_Back_SNIPER_blackops_05: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (Sniper M320)";
+        maximumLoad = 2000;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+        class TransportMagazines {
+            class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
+            class _xx_B_PTbskull_Wea_sniper_04_m320_AMMO {count=15;magazine=QUOTE(B_PTbskull_Wea_sniper_04_m320_AMMO);};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
+        };
+        class TransportItems { };
+        class TransportWeapons {
+            class _xx_B_PTbskull_Wea_SMG_02 {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
+        };
+    };
+
+    class B_PTbskull_Veh_Back_SNIPER_blackops_06: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (Sniper Snipex Alligator)";
+        maximumLoad = 2000;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+        class TransportMagazines {
+            class _xx_MiniGrenade {count=2;magazine="MiniGrenade";};
+            class _xx_B_PTbskull_Wea_sniper_13_alligator_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_sniper_13_alligator_AMMO);};
+            class _xx_5Rnd_145_mag_BZ {count=10;magazine="5Rnd_145_mag_BZ";};
+            class _xx_B_PTbskull_Wea_SMG_02_sting_AMMO {count=10;magazine=QUOTE(B_PTbskull_Wea_SMG_02_sting_AMMO);};
+        };
+        class TransportItems { };
+        class TransportWeapons {
+            class _xx_B_PTbskull_Wea_SMG_02 {count=1;weapon="B_PTbskull_Wea_SMG_02_sting";};
+        };
+    };
+
     class B_PTbskull_Veh_Back_AA_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;
