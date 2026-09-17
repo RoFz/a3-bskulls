@@ -6,6 +6,8 @@
  * attachTo's followBoneRotation argument makes the visual follow spine3 while
  * the unit changes stance. The real backpack container remains responsible for
  * inventory and transportFuel; this simple object is only its visible shell.
+ * Keep the shell off units inside vehicles; the attached visual was confirmed
+ * to disrupt AI Huron navigation in a controlled test.
  * https://community.bohemia.net/wiki/attachTo
  */
 
@@ -36,7 +38,7 @@ private _handle = [{
 
     private _tracked = missionNamespace getVariable ["bskulls_jerrycanBackpackVisuals", []];
 
-    // Remove visuals whose carrier no longer owns this container.
+    // Remove visuals that are stale, no longer worn, or carried into a vehicle.
     for "_index" from ((count _tracked) - 1) to 0 step -1 do {
         (_tracked # _index) params ["_unit", "_container", "_visual"];
 
@@ -48,6 +50,8 @@ private _handle = [{
 
         if (
             isNull _unit
+            || {isNull _visual}
+            || {!(isNull (objectParent _unit))}
             || {backpack _unit isNotEqualTo _backpackClass}
             || {_currentContainer isNotEqualTo _container}
         ) then {
@@ -62,7 +66,11 @@ private _handle = [{
         private _unit = _x;
         private _alreadyTracked = _tracked findIf {(_x # 0) isEqualTo _unit};
 
-        if (backpack _unit isEqualTo _backpackClass && {_alreadyTracked < 0}) then {
+        if (
+            isNull (objectParent _unit)
+            && {backpack _unit isEqualTo _backpackClass}
+            && {_alreadyTracked < 0}
+        ) then {
             private _container = backpackContainer _unit;
 
             if (!isNull _container) then {
