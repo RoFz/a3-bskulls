@@ -47,6 +47,16 @@
         };
     };
 
+    class B_T_UAV_03_dynamicLoadout_F;
+    class B_T_UAV_03_dynamicLoadout_F_OCimport_01 : B_T_UAV_03_dynamicLoadout_F { scope = 0; class Turrets; class EventHandlers; };
+    class B_T_UAV_03_dynamicLoadout_F_OCimport_02 : B_T_UAV_03_dynamicLoadout_F_OCimport_01
+    {
+        class Turrets : Turrets
+        {
+            class MainTurret;
+        };
+    };
+
     class Radar_System_01_base_F;
     class Radar_System_01_base_F_OCimport_01 : Radar_System_01_base_F { scope = 0; class Turrets; class EventHandlers; };
     class Radar_System_01_base_F_OCimport_02 : Radar_System_01_base_F_OCimport_01
@@ -554,6 +564,34 @@
         class EventHandlers : EventHandlers
         {
             init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; [_unit, ['DarkGreyCamo',1], ['wing_fold_l',0]] call BIS_fnc_initVehicle; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;}; sleep 2; if !(_unit getVariable ['DRO_SUPP_airDefenseHold', false]) then {_unit setCaptive false; { _x setCaptive false } forEach crew _unit;};}; _this spawn _onSpawn;};";
+            local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
+        };
+    };
+
+    class B_PTbskull_Veh_Drone_blackops_08 : B_T_UAV_03_dynamicLoadout_F_OCimport_02
+    {
+        author = "RoFz";
+        // Physical DRO support-site asset; DAO discovers the crewed helicopter UAV.
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "MQ-12 Falcon";
+        side = 1;
+        faction = "bskull_fc_mo";
+        reportOwnPosition = 1;
+        receiveRemoteTargets = 1;
+        reportRemoteTargets = 1;
+        crew = "B_PTbskull_Veh_UAV_AI_AIR";
+        typicalCargo[] = {"B_PTbskull_Veh_UAV_AI_AIR"};
+        class Turrets : Turrets
+        {
+            class MainTurret : MainTurret
+            {
+                gunnerType = "";
+            };
+        };
+        class EventHandlers : EventHandlers
+        {
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures; _onSpawn = {sleep 0.3; _unit = _this select 0; if ('insignia' in selectionNames _unit) then {[_unit, 'Black_Skulls'] call BIS_fnc_setUnitInsignia;};}; _this spawn _onSpawn;};";
             local = "if (_this select 1) then {[_this select 0] call bskulls_fnc_initAutoCountermeasures;};";
         };
     };
