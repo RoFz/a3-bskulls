@@ -396,6 +396,7 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (UAV) (Sting)";
+        LINKED_ITEMS_UAV(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
         weapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_SMG_02_sting","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
@@ -438,6 +439,7 @@
         scope = 2;
         scopeCurator = 2;
         displayName = "04 McKendrick (UAV) (XM-250)";
+        LINKED_ITEMS_UAV(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
         weapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         respawnWeapons[] = {"B_PTbskull_Wea_mg_04_xm250","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT,"MineDetector"};
@@ -473,6 +475,24 @@
         magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
         respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
         backpack = "B_PTbskull_Veh_Back_EXP_blackops_01";
+    };
+
+    class B_PTbskull_Veh_Unit_McKendrick_blackops_07 : B_PTbskull_Veh_Unit_McKendrick_blackops_02
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "04 McKendrick (Demining AL-6) (HB300AAC)";
+        LINKED_ITEMS_UAV(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_02";
+    };
+
+    class B_PTbskull_Veh_Unit_McKendrick_blackops_08 : B_PTbskull_Veh_Unit_McKendrick_blackops_04
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "04 McKendrick (Demining Pelter) (XM-250)";
+        LINKED_ITEMS_UAV(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
+        backpack = "B_PTbskull_Veh_Back_UGV_blackops_01";
     };
 
 
@@ -716,6 +736,22 @@
         backpack = "B_KA_Metal_Storm_AI_NATO";
     };
 
+    class B_PTbskull_Veh_Unit_Sykes_blackops_04 : B_PTbskull_Veh_Unit_Sykes_blackops_01
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "08 Sykes (Demining AL-6) (R11)";
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_02";
+    };
+
+    class B_PTbskull_Veh_Unit_Sykes_blackops_05 : B_PTbskull_Veh_Unit_Sykes_blackops_02
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "08 Sykes (Demining Pelter) (XM-7)";
+        backpack = "B_PTbskull_Veh_Back_UGV_blackops_01";
+    };
+
     class B_PTbskull_Veh_Unit_Everett_blackops_01 : B_PTbskull_Veh_Unit_Everett_base
     {
         scope = 2;
@@ -940,6 +976,22 @@
         magazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
         respawnMagazines[] = {BASE_THROWABLES,MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),MAG_3(B_PTbskull_Wea_mg_04_xm250_AMMO)};
         backpack = "B_PTbskull_Veh_Back_UAV_blackops_01";
+    };
+
+    class B_PTbskull_Veh_Unit_Elias_blackops_05 : B_PTbskull_Veh_Unit_Elias_blackops_01
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "13 Elias (Demining AL-6) (XM-7)";
+        backpack = "B_PTbskull_Veh_Back_UAV_blackops_02";
+    };
+
+    class B_PTbskull_Veh_Unit_Elias_blackops_06 : B_PTbskull_Veh_Unit_Elias_blackops_02
+    {
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "13 Elias (Demining Pelter) (SCAR-H)";
+        backpack = "B_PTbskull_Veh_Back_UGV_blackops_01";
     };
 
     class B_PTbskull_Veh_Unit_Martinez_blackops_01 : B_PTbskull_Veh_Unit_Martinez_base

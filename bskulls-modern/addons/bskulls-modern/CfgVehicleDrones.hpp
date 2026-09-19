@@ -80,6 +80,18 @@
     class B_UAV_01_backpack_F;
     class B_UAV_01_backpack_F_OCimport_01 : B_UAV_01_backpack_F { scope = 0; class assembleInfo; };
 
+    class C_IDAP_UAV_06_antimine_F;
+    class C_IDAP_UAV_06_antimine_F_OCimport_01 : C_IDAP_UAV_06_antimine_F { scope = 0; class assembleInfo; class EventHandlers; };
+
+    class C_IDAP_UAV_06_antimine_backpack_F;
+    class C_IDAP_UAV_06_antimine_backpack_F_OCimport_01 : C_IDAP_UAV_06_antimine_backpack_F { scope = 0; class assembleInfo; };
+
+    class B_UGV_02_Demining_F;
+    class B_UGV_02_Demining_F_OCimport_01 : B_UGV_02_Demining_F { scope = 0; class assembleInfo; };
+
+    class B_UGV_02_Demining_backpack_F;
+    class B_UGV_02_Demining_backpack_F_OCimport_01 : B_UGV_02_Demining_backpack_F { scope = 0; class assembleInfo; };
+
     class B_UAV_AI;
     class B_UAV_AI_OCimport_01 : B_UAV_AI { scope = 0; class EventHandlers; };
     class B_PTbskull_Veh_UAV_AI_AIR : B_UAV_AI_OCimport_01
@@ -105,6 +117,12 @@
         class EventHandlers : EventHandlers {
             init = "if (local (_this select 0)) then {_onSpawn = {_this = _this select 0; _this disableAI 'SUPPRESSION';_this setSkill 1;};_this spawn _onSpawn;};";
         };
+    };
+
+    class B_PTbskull_Veh_UAV_AI_ANTIMINE : B_PTbskull_Veh_UAV_AI_AIR
+    {
+        author = "RoFz";
+        detectSkill = 100000;
     };
 
     // ── Drones / ISR / AA ────────────────────────────────────────────────────
@@ -649,6 +667,43 @@
         };
     };
 
+    class B_PTbskull_Veh_Drone_blackops_06 : C_IDAP_UAV_06_antimine_F_OCimport_01
+    {
+        author = "RoFz";
+        scope = 1;        // backpack/terminal use only; keep out of DRO auto-pools
+        scopeCurator = 2;
+        displayName = "AL-6 Pelican (Demining)";
+        side = 1;
+        faction = "bskull_fc_mo";
+        crew = "B_PTbskull_Veh_UAV_AI_ANTIMINE";
+        typicalCargo[] = {"B_PTbskull_Veh_UAV_AI_ANTIMINE"};
+        hiddenSelectionsTextures[] = {"A3\Air_F_Orange\UAV_06\Data\B_UAV_06_CO.paa"};
+        class assembleInfo : assembleInfo
+        {
+            dissasembleTo[] = {"B_PTbskull_Veh_Back_UAV_blackops_02"};
+        };
+        class EventHandlers : EventHandlers
+        {
+            init = "if (local (_this select 0)) then {[_this select 0] call bskulls_fnc_daoExcludeVehicle;};";
+        };
+    };
+
+    class B_PTbskull_Veh_Drone_blackops_07 : B_UGV_02_Demining_F_OCimport_01
+    {
+        author = "RoFz";
+        scope = 1;        // backpack/terminal use only; keep out of DRO auto-pools
+        scopeCurator = 2;
+        displayName = "ED-1D Pelter";
+        side = 1;
+        faction = "bskull_fc_mo";
+        crew = "B_PTbskull_Veh_UAV_AI_GROUND";
+        typicalCargo[] = {"B_PTbskull_Veh_UAV_AI_GROUND"};
+        class assembleInfo : assembleInfo
+        {
+            dissasembleTo[] = {"B_PTbskull_Veh_Back_UGV_blackops_01"};
+        };
+    };
+
     class B_PTbskull_Veh_Back_UAV_blackops_01 : B_UAV_01_backpack_F_OCimport_01 {
         author = "RoFz";
         scope = 2;
@@ -656,5 +711,35 @@
         class assembleInfo : assembleInfo {
             assembleTo = "B_PTbskull_Veh_Drone_blackops_03";
             displayName = "AR-2 BSkull";
+        };
+    };
+
+    class B_PTbskull_Veh_Back_UAV_blackops_02 : C_IDAP_UAV_06_antimine_backpack_F_OCimport_01
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "UAV Bag (AL-6 Demining) [Black Skulls]";
+        faction = "bskull_fc_mo";
+        picture = "\A3\Supplies_F_Orange\Bags\Data\UI\icon_B_UAV_06_ca";
+        hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_NATO_co.paa", "A3\Air_F_Orange\UAV_06\Data\B_UAV_06_CO.paa"};
+        class assembleInfo : assembleInfo
+        {
+            assembleTo = "B_PTbskull_Veh_Drone_blackops_06";
+            displayName = "AL-6 Pelican (Demining)";
+        };
+    };
+
+    class B_PTbskull_Veh_Back_UGV_blackops_01 : B_UGV_02_Demining_backpack_F_OCimport_01
+    {
+        author = "RoFz";
+        scope = 2;
+        scopeCurator = 2;
+        displayName = "UGV Bag (ED-1D Pelter) [Black Skulls]";
+        faction = "bskull_fc_mo";
+        class assembleInfo : assembleInfo
+        {
+            assembleTo = "B_PTbskull_Veh_Drone_blackops_07";
+            displayName = "ED-1D Pelter";
         };
     };
