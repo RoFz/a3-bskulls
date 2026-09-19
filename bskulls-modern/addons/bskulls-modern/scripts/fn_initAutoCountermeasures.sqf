@@ -34,7 +34,15 @@ if (_launcher isEqualTo "") exitWith { false };
 
 private _launcherConfig = configFile >> "CfgWeapons" >> _launcher;
 private _modes = getArray (_launcherConfig >> "modes");
-private _mode = _modes param [0, "", [""]];
+// Vanilla CM launchers put Burst first; depending on the launcher variant one
+// activation can consume 10-12 rounds. Prefer the supported Single mode so the
+// adaptive worker controls spacing and observes the missile between releases.
+private _singleModeIndex = _modes findIf { (toLower _x) isEqualTo "single" };
+private _mode = if (_singleModeIndex >= 0) then {
+    _modes select _singleModeIndex
+} else {
+    _modes param [0, "", [""]]
+};
 if (_mode isEqualTo "this") then {
     _mode = _launcher;
 };
@@ -46,7 +54,11 @@ _vehicle setVariable ["BS_autoCM_mode", _mode, false];
 _vehicle setVariable ["BS_autoCM_workerToken", 0, false];
 _vehicle setVariable ["BS_autoCM_workerHandle", scriptNull, false];
 _vehicle setVariable ["BS_autoCM_workerExpiresAt", -1, false];
+_vehicle setVariable ["BS_autoCM_workerStopping", false, false];
 _vehicle setVariable ["BS_autoCM_cooldownUntil", -1, false];
+_vehicle setVariable ["BS_autoCM_nextFireAt", -1, false];
+_vehicle setVariable ["BS_autoCM_threatSerial", 0, false];
+_vehicle setVariable ["BS_autoCM_threats", [], false];
 
 private _ehId = _vehicle addEventHandler [
     "IncomingMissile",

@@ -60,7 +60,10 @@ class CfgFunctions {
             class reportAirDestroyed {};
             class initHuronGunshipEngage {};
             class initAutoCountermeasures {};
+            class autoCmInventory {};
             class autoCmProfile {};
+            class autoCmReadLockSystem {};
+            class autoCmThreatMetrics {};
             class autoCmOnIncomingMissile {};
             class initPawneeCombat {};
             class initRadarRotation {};
