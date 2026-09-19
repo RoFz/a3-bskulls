@@ -876,14 +876,14 @@
     {
         scope = 2;
         scopeCurator = 2;
-        displayName = "12 Makarova (RPK-12)";
-        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
-        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        displayName = "12 Makarova (RPK-12 + RPG-7)";
+        weapons[] = {"B_PTbskull_Wea_mg_03_rpk","launch_RPG7_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
+        respawnWeapons[] = {"B_PTbskull_Wea_mg_03_rpk","launch_RPG7_F","B_PTbskull_Wea_pistol_01_4five",DEFAULT_BINOCULARS,"Throw","Put"};
         items[] = {BASE_KIT};
         respawnItems[] = {BASE_KIT};
-        magazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO)};
-        respawnMagazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO)};
-        // no backpack
+        magazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"RPG7_F"};
+        respawnMagazines[] = {BASE_THROWABLES,MAG_8(B_PTbskull_Wea_mg_3_AMMO),MAG_4(B_PTbskull_Wea_pistol_01_4five_AMMO),"RPG7_F"};
+        backpack = "B_PTbskull_Veh_Back_AT_blackops_03";
     };
 
     class B_PTbskull_Veh_Unit_Elias_blackops_01 : B_PTbskull_Veh_Unit_Elias_base

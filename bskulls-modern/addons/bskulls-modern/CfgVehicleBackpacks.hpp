@@ -300,6 +300,21 @@
         class TransportWeapons { };
     };
 
+   class B_PTbskull_Veh_Back_AT_blackops_03: THC_Bag50 {
+        author = "RoFz";
+        scope = 2;
+        displayName = "Assault Pack (RPG-7)";
+        maximumLoad = 2000;
+        hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_blk_co.paa"};
+        model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Compact";
+        picture = "\A3\weapons_f\ammoboxes\bags\data\ui\icon_B_C_Compact_blk_ca.paa";
+        class TransportMagazines {
+            class _xx_RPG7_F {count=3;magazine="RPG7_F";};
+        };
+        class TransportItems { };
+        class TransportWeapons { };
+    };
+
    class B_PTbskull_Veh_Back_AMMO_blackops_01: THC_Bag50 {
         author = "RoFz";
         scope = 2;

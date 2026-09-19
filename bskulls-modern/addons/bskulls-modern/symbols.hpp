@@ -104,7 +104,7 @@
 
 // Makarova
 #define MAKAROVA_HELMET DEFAULT_HELMET
-#define MAKAROVA_GOGGLES ""
+#define MAKAROVA_GOGGLES "G_Tactical_Black"
 
 #define TRANSPORTMAGAZINES\
     class _xx_Titan_AT_PLUS {count=6;magazine="Titan_AT_PLUS";};\
