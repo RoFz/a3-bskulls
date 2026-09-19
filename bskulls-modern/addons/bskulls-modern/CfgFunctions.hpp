@@ -56,6 +56,7 @@ class CfgFunctions {
         };
         class aircraft {
             file = "\bskulls\addons\bskulls-modern\scripts";
+            class autoCmDebugPreInit { preInit = 1; };
             class formatKillSource {};
             class reportAirDestroyed {};
             class initHuronGunshipEngage {};
