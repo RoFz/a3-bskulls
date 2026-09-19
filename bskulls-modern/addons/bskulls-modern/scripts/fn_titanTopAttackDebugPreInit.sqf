@@ -8,11 +8,11 @@
  * https://community.bohemia.net/wiki/addMissionEventHandler
  */
 
-if (isNil {localNamespace getVariable "bskulls_titanTopAttackDebug"}) then {
-    localNamespace setVariable ["bskulls_titanTopAttackDebug", true];
-    localNamespace setVariable ["bskulls_titanTopAttackDebugChat", false];
-};
-localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
+// Diagnostics are opt-in. SetDebug can enable them during a live session;
+// localNamespace keeps the runtime-only state out of mission saves.
+localNamespace setVariable ["bskulls_titanTopAttackDebug", false];
+localNamespace setVariable ["bskulls_titanTopAttackDebugChat", false];
+localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", false];
 localNamespace setVariable [
     "bskulls_titanTopAttackAcquisitionTestRunning",
     false
@@ -55,7 +55,7 @@ if (_oldLoadedEh >= 0) then {
 };
 
 private _loadedEh = addMissionEventHandler ["Loaded", {
-    localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
+    localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", false];
     private _discoveryHandle = localNamespace getVariable [
         "bskulls_titanTopAttackLauncherDiscoveryPfh",
         -1
@@ -160,7 +160,7 @@ private _loadedEh = addMissionEventHandler ["Loaded", {
             removeMissionEventHandler ["EachFrame", _thisEventHandler];
             private _enabled = localNamespace getVariable [
                 "bskulls_titanTopAttackDebug",
-                true
+                false
             ];
             [_enabled, false, false] call bskulls_fnc_titanTopAttackSetDebug;
             [

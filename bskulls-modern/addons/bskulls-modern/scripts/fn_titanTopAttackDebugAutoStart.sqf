@@ -1,14 +1,22 @@
 /*
- * Enable launcher-AI diagnostics on every machine at mission post-init. This
- * is intentionally always-on while intermittent AI launcher engagement is
- * under investigation; chat remains quiet and the normal runtime switch can
- * still disable collection.
+ * Resume launcher-AI diagnostics at mission post-init only when another
+ * startup component explicitly opted in. Normal missions leave diagnostics
+ * disabled; SetDebug remains the supported live-session switch.
  *
  * CfgFunctions postInit runs after mission objects are initialized. XEH then
  * the discovery PFH covers launcher carriers and loadout changes later in the
  * mission. Hawkins's XEH provides an immediate first sample.
  * https://community.bohemia.net/wiki/Arma_3:_Functions_Library
  */
+
+private _enabled = localNamespace getVariable [
+    "bskulls_titanTopAttackDebug",
+    false
+];
+if (!_enabled) exitWith {
+    localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", false];
+    true
+};
 
 localNamespace setVariable ["bskulls_titanTopAttackDebugAutoStarted", true];
 [true, false, true] call bskulls_fnc_titanTopAttackSetDebug;

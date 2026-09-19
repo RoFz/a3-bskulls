@@ -1,8 +1,7 @@
 /*
  * Enable or disable launcher-AI diagnostics on the machine executing this
- * call. Collection starts automatically in the diagnostic build. Use Local
- * Exec in single-player and Global Exec when changing every multiplayer
- * machine.
+ * call. Collection is disabled by default. Use Local Exec in single-player
+ * and Global Exec when changing every multiplayer machine.
  *
  * Debug Console examples:
  *   [true] call bskulls_fnc_titanTopAttackSetDebug;              // enable
@@ -149,9 +148,13 @@ private _message = format [
     _runningOrderMonitors
 ];
 
-diag_log format ["[BSKULLS][TITAN-TA] %1", _message];
-if (hasInterface) then {
-    systemChat _message;
+// Stay silent during the default disabled startup/load path, but confirm an
+// explicit enable or a transition from enabled to disabled.
+if (_enabled || {_wasEnabled}) then {
+    diag_log format ["[BSKULLS][TITAN-TA] %1", _message];
+    if (hasInterface) then {
+        systemChat _message;
+    };
 };
 
 [
