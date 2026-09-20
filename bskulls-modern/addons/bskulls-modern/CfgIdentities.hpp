@@ -4,7 +4,7 @@ class CfgIdentities
 {
 	class Falken
 	{
-		face = "WhiteHead_01";
+		face = "WhiteHead_29";
 		glasses = VIPER_GOGGLES; // cosmetic only — item must also be in linkedItems[] (CfgVehicles)
 		name = "Falken";
 		nameSound = "Viper";
@@ -22,16 +22,16 @@ class CfgIdentities
 	};
 	class Vega
 	{
-		face = "WhiteHead_03";
+		face = "WhiteHead_22_sa";
 		glasses = VEGA_GOGGLES; // cosmetic only — item must also be in linkedItems[] (CfgVehicles)
 		name = "Vega";
 		nameSound = "Vega";
 		pitch = 1.0;
-		speaker = "Male01GRE";
+		speaker = "Male02ENGFRE";
 	};
 	class McKendrick
 	{
-		face = "WhiteHead_04";
+		face = "WhiteHead_03";
 		glasses = MCKENDRICK_GOGGLES; // cosmetic only — item must also be in linkedItems[] (CfgVehicles)
 		name = "McKendrick";
 		nameSound = "McKendrick";
@@ -58,12 +58,12 @@ class CfgIdentities
 	};
 	class Hawkins
 	{
-		face = "WhiteHead_05";
+		face = "WhiteHead_06";
 		glasses = HAWKINS_GOGGLES; // cosmetic only — item must also be in linkedItems[] (CfgVehicles)
 		name = "Hawkins";
 		nameSound = "Hawkins";
 		pitch = 1.0;
-		speaker = "Male01ENG";
+		speaker = "Male05ENG";
 	};
 	class Sykes
 	{

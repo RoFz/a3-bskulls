@@ -62,7 +62,7 @@ private _payload = call {
         [
             "Stephen Falken", "Stephen", "Falken",
             "Viper", "Male03ENG", 1,
-            "WhiteHead_01",
+            "WhiteHead_29",
             ["Engineer", "ExplosiveSpecialist", "UAVHacker"], ["Medic"],
             "BLUE", "STEALTH", "BLUE",
             [],
@@ -87,8 +87,8 @@ private _payload = call {
     if (_key isEqualTo "Vega") exitWith {
         [
             "Vince Vega", "Vince", "Vega",
-            "Vega", "Male01GRE", 1,
-            "WhiteHead_03",
+            "Vega", "Male02ENGFRE", 1,
+            "WhiteHead_22_sa",
             [], ["Medic", "Engineer", "ExplosiveSpecialist", "UAVHacker"],
             "BLUE", "STEALTH", "BLUE",
             ["AIMINGERROR", "SUPPRESSION"],
@@ -101,7 +101,7 @@ private _payload = call {
         [
             "Greg McKendrick", "Greg", "McKendrick",
             "McKendrick", "Male01ENGB", 1,
-            "WhiteHead_04",
+            "WhiteHead_03",
             ["Engineer", "ExplosiveSpecialist"], ["Medic", "UAVHacker"],
             "BLUE", "STEALTH", "BLUE",
             [],
@@ -139,8 +139,8 @@ private _payload = call {
     if (_key isEqualTo "Hawkins") exitWith {
         [
             "Kendall Hawkins", "Kendall", "Hawkins",
-            "Hawkins", "Male01ENG", 1,
-            "WhiteHead_05",
+            "Hawkins", "Male05ENG", 1,
+            "WhiteHead_06",
             [], ["Medic", "Engineer", "ExplosiveSpecialist", "UAVHacker"],
             "RED", "STEALTH", "BLUE",
             [],

@@ -59,7 +59,7 @@
         faction = "bskull_fc_mo";
         role = "Marksman";
         identity = "Vega";
-        identityTypes[] = {"Head_NATO_camo_lush","LanguageGRE_F",VEGA_GOGGLES};
+        identityTypes[] = {"Head_NATO_camo_semiarid","LanguageENGFRE_F",VEGA_GOGGLES};
         uniformClass = "U_B_T_FullGhillie_tna_F";
         LINKED_ITEMS_GPS("B_PTbskull_Vest_blackops_02",VEGA_HELMET,VEGA_GOGGLES);
         class EventHandlers : EventHandlers
@@ -79,7 +79,7 @@
         faction = "bskull_fc_mo";
         role = "Sapper";
         identity = "McKendrick";
-        identityTypes[] = {"Head_Enoch","LanguageENGB_F",MCKENDRICK_GOGGLES};
+        identityTypes[] = {"Head_NATO","LanguageENGB_F",MCKENDRICK_GOGGLES};
         uniformClass = DEFAULT_UNIFORM;
         LINKED_ITEMS_GPS(DEFAULT_VEST,MCKENDRICK_HELMET,MCKENDRICK_GOGGLES);
         class EventHandlers : EventHandlers
