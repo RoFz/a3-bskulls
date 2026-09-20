@@ -30,9 +30,9 @@
         };
     };
 
-    class B_Heli_Attack_01_dynamicLoadout_F;
-    class B_Heli_Attack_01_dynamicLoadout_F_OCimport_01 : B_Heli_Attack_01_dynamicLoadout_F { scope = 0; class Turrets; class Components; class EventHandlers; };
-    class B_Heli_Attack_01_dynamicLoadout_F_OCimport_02 : B_Heli_Attack_01_dynamicLoadout_F_OCimport_01 {
+    class B_Heli_Attack_01_pylons_dynamicLoadout_F;
+    class B_Heli_Attack_01_pylons_dynamicLoadout_F_OCimport_01 : B_Heli_Attack_01_pylons_dynamicLoadout_F { scope = 0; class Turrets; class Components; class EventHandlers; };
+    class B_Heli_Attack_01_pylons_dynamicLoadout_F_OCimport_02 : B_Heli_Attack_01_pylons_dynamicLoadout_F_OCimport_01 {
         class Components : Components {
             class TransportPylonsComponent;
         };
@@ -135,11 +135,11 @@
         };
     };
 
-    class B_PTbskull_Veh_Helo_blackops_03 : B_Heli_Attack_01_dynamicLoadout_F_OCimport_02 {
+    class B_PTbskull_Veh_Helo_blackops_03 : B_Heli_Attack_01_pylons_dynamicLoadout_F_OCimport_02 {
         author = "RoFz";
         scope = 1;        // DAO default; not in DRO auto-pools
         scopeCurator = 2;
-        displayName = "AH-99 Blackfoot (2c)";
+        displayName = "AH-99 Blackfoot (Stub Wings) (2c)";
         side = 1;
         faction = "bskull_fc_mo";
         crew = "B_PTbskull_Veh_Unit_Helo_Pilot_blackops_01";
@@ -155,7 +155,7 @@
         };
         class Components : Components {
                 class TransportPylonsComponent : TransportPylonsComponent {
-                    class pylons {
+                    class Pylons {
                         class PylonLeft1 {
                             attachment = "PylonRack_12Rnd_PG_missiles";
                             bay = 1;
@@ -180,17 +180,28 @@
                             turret[] = {0};
                             UIposition[] = {0.1,0.3};
                         };
-                        class PylonRight1 : PylonLeft1 {
-                            mirroredMissilePos = 1;
-                            UIposition[] = {0.64,0.4};
+                        class PylonRight3 : PylonLeft3{
+                            mirroredMissilePos = 3;
+                            UIposition[] = {0.59,0.3};
                         };
                         class PylonRight2 : PylonLeft2 {
                             mirroredMissilePos = 2;
                             UIposition[] = {0.62,0.35};
                         };
-                        class PylonRight3 : PylonLeft3{
-                            mirroredMissilePos = 3;
-                            UIposition[] = {0.59,0.3};
+                        class PylonRight1 : PylonLeft1 {
+                            mirroredMissilePos = 1;
+                            UIposition[] = {0.64,0.4};
+                        };
+                        class PylonExternalLeft {
+                            attachment = "PylonRack_4Rnd_LG_scalpel";
+                            hardpoints[] = {"UNI_SCALPEL","B_ASRRAM_EJECTOR","DAR","DAGR"};
+                            priority = 6;
+                            turret[] = {0};
+                            UIposition[] = {0.06,0.45};
+                        };
+                        class PylonExternalRight : PylonExternalLeft {
+                            mirroredMissilePos = 7;
+                            UIposition[] = {0.64,0.45};
                         };
                     };
                 };
@@ -285,7 +296,7 @@
     {
         scope = 2;
         scopeCurator = 0;
-        displayName = "AH-99 Blackfoot (2c) (no DAO)";
+        displayName = "AH-99 Blackfoot (Stub Wings) (2c) (no DAO)";
         class EventHandlers : EventHandlers
         {
             class CBA_Extended_EventHandlers : CBA_Extended_EventHandlers_base {};
