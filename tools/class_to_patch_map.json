@@ -1,4 +1,10 @@
 {
+  "GX_B_M_God": {
+    "class": "GX_B_M_God",
+    "notes": "Verified from workshop GX_BLANCO_CARTEL.pbo CfgPatches class GX_Blanco_Cartel.",
+    "patch": "GX_Blanco_Cartel",
+    "source_mod": "GX - Blanco Cartel"
+  },
   "TCGM_CombatUniform_CTRG_Stealth": {
     "class": "TCGM_CombatUniform_CTRG_Stealth",
     "notes": "Seeded from repo usage; verify against upstream CfgPatches.",
@@ -19,7 +25,7 @@
   },
   "TCGM_Multiplay_U_B_BLK_Combat_Stealth": {
     "class": "TCGM_Multiplay_U_B_BLK_Combat_Stealth",
-    "notes": "Seeded from repo usage; verify against upstream CfgPatches.",
+    "notes": "Verified from workshop TCGM_MultiPlay_Girls.pbo; its B_NATO_* bases are owned by the upstream MULTIPLAY_Uniform patch.",
     "patch": "TCGM_MultiPlay_Girls",
     "source_mod": "TCGM MultiPlay Girls"
   },

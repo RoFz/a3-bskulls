@@ -292,7 +292,6 @@ class CfgPatches {
             "bnae_trg42",
             "kt_m1102",
             "kt_optic",
-            "TOTT_Optics",
             "CUP_WarfareBuildings",
             "rhsusf_c_statics",
             "A3_Static_F_Sams_Radar_System_01",
@@ -307,7 +306,12 @@ class CfgPatches {
             "hlcweapons_ar15",
             "wb_niarms_main",
             "TCGM_Girls",
+            // TCGM MultiPlay Girls inherits B_NATO_* classes from this patch,
+            // but its upstream CfgPatches does not declare the dependency.
+            "MULTIPLAY_Uniform",
             "TCGM_MultiPlay_Girls",
+            // Vega and Everett use GX_B_M_God as linked headgear.
+            "GX_Blanco_Cartel",
             "Female_Voice_RU",
             "rhsusf_c_radio",
             // Hard inherits: backpacks / vest / APP-66 (BI CfgPatches inheritance order).

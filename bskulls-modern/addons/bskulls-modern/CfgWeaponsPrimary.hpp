@@ -1494,7 +1494,7 @@
             };
             class LinkedItemsOptic {
                 slot = "CowsSlot";
-                item = "TOTT_XPS3_g33";
+                item = "optic_Nightstalker";
             };
             class LinkedItemsAcc {
                 slot = "PointerSlot";
