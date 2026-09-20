@@ -4,7 +4,8 @@
  * The DAO hangar injection mirrors the maintained DRO injector: wait with a
  * timeout, reject non-ILS DAO positions, use helicopters where a jet runway is
  * unavailable, and add the selected combat and transport aircraft together
- * with a guaranteed armed V-44 Blackfish test asset.
+ * with a guaranteed armed V-44 Blackfish test asset and, where a fixed-wing
+ * runway is available, an F/A-181 Black Wasp II.
  */
 
 PAR_revive = 1;
@@ -100,25 +101,26 @@ PAR_only_ai_revive = true;
     private _combat = selectRandom _combatCandidates;
     private _transport = selectRandom _transportCandidates;
     private _blackfish = "B_T_VTOL_01_armed_F";
+    private _blackWasp = "B_Plane_Fighter_01_F";
+    private _aircraft = [_combat, _transport, _blackfish];
+    if (_allowJet) then {
+        _aircraft pushBack _blackWasp;
+    };
 
-    [_airfieldIdx, west, [_combat, _transport, _blackfish]] call dao_fnc_AddToVAM;
+    [_airfieldIdx, west, _aircraft] call dao_fnc_AddToVAM;
     missionNamespace setVariable ["DAOAircraftAlreadySpawned", true, true];
 
-    private _combatName = getText (configFile >> "CfgVehicles" >> _combat >> "displayName");
-    private _transportName = getText (configFile >> "CfgVehicles" >> _transport >> "displayName");
-    private _blackfishName = getText (configFile >> "CfgVehicles" >> _blackfish >> "displayName");
+    private _aircraftNames = _aircraft apply {
+        getText (configFile >> "CfgVehicles" >> _x >> "displayName")
+    };
     systemChat format [
-        "BS inject: %1, %2, and %3 added to DAO airfield %4.",
-        _combatName,
-        _transportName,
-        _blackfishName,
+        "BS inject: %1 added to DAO airfield %2.",
+        _aircraftNames joinString ", ",
         _airfieldIdx
     ];
     diag_log format [
-        "BS manual inject: VAM [%1, %2, %3] @%4 allowJet=%5",
-        _combat,
-        _transport,
-        _blackfish,
+        "BS manual inject: VAM %1 @%2 allowJet=%3",
+        _aircraft,
         _airfieldIdx,
         _allowJet
     ];
