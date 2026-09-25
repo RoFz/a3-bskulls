@@ -126,8 +126,8 @@ git commit -m "chore(devcontainer): update shared Arma environment"
 ```
 
 Repeat the pointer commit in each affected consumer (`a3-root`, `a3-bskulls`,
-and `a3-scenarios`). Keep consumers pinned to reviewed commits; do not use a
-floating branch or automatic `git submodule update --remote` updates.
+`a3-mods`, and `a3-scenarios`). Keep consumers pinned to reviewed commits; do
+not use a floating branch or automatic `git submodule update --remote` updates.
 
 The container installs HEMTT, armake2, pre-commit, GitHub CLI, and Java for the
 `skacekachna.sqflint` extension. Let the post-create bootstrap finish before
@@ -139,10 +139,10 @@ Codex runs in the container and stores its home in the shared
 `a3-bskulls-codex` named volume, not in this repository. Cursor is not
 supported.
 
-For coupled faction/scenario work, the maintainer's private `a3-root` workspace
-opens this repository beside the independent, currently private
-`a3-scenarios` clone in one Dev Container window. Each repository retains its
-own Git history, staging area, and commits.
+The maintainer's private `a3-root` workspace opens this repository beside the
+independent `a3-mods` and currently private `a3-scenarios` clones in one Dev
+Container window. Each repository retains its own Git history, staging area,
+and commits.
 
 ### Local launcher test loop
 

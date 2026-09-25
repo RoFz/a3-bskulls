@@ -11,13 +11,13 @@ guidance lives in `CONTRIBUTING.md`; keep the two files aligned.
 - The separate, currently private `a3-scenarios` repository owns scenario
   sources and packed scenario PBOs. DRO maps live there under `dro/<map>/`; do
   not vendor or copy their canonical source into this repository.
-- The private `a3-root` repository can open `a3-bskulls` and `a3-scenarios` as
-  independent sibling clones in one VS Code Dev Container. The child clones
-  are ignored workspace content, not files or submodules of one another.
-- When both repositories are present, coupled changes may touch both, but
-  inspect, stage, commit, and report each repository separately. Resolve
-  siblings relative to the workspace instead of assuming an absolute host or
-  container path.
+- The private `a3-root` repository can open `a3-bskulls`, `a3-mods`, and
+  `a3-scenarios` as independent sibling clones in one VS Code Dev Container.
+  The child clones are ignored workspace content, not files or submodules of
+  one another.
+- When coupled repositories are present, inspect, stage, commit, and report each
+  repository separately. Resolve siblings relative to the workspace instead of
+  assuming an absolute host or container path.
 - `a3-bskulls` must remain usable as a standalone public source clone. Its
   maintainer-only shared Dev Container requires access to the private
   `a3-devcontainers` repository; do not make ordinary source access depend on
@@ -183,8 +183,8 @@ Do not suggest committing `.hemttout/` or anything installed under
   `.devcontainer` before editing it, and publish the shared commit before
   advancing any consumer gitlink.
 - After a shared environment change is committed and pushed, explicitly assess
-  every known consumer: `a3-root`, `a3-bskulls`, and `a3-scenarios`. Update the
-  `.devcontainer` gitlink in each affected consumer. Use
+  every known consumer: `a3-root`, `a3-bskulls`, `a3-mods`, and `a3-scenarios`.
+  Update the `.devcontainer` gitlink in each affected consumer. Use
   `chore(devcontainer): update shared Arma environment` for a pointer-only
   consumer commit.
 - Keep the shared environment project-agnostic. Never hard-code a consumer
